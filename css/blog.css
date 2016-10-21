@@ -206,7 +206,7 @@ h6, .h6 {
     text-decoration: none;
     line-height: 1.6em;
     color: white;
-    background-color: #1f4390;
+    background-color: #428bca;
 }
 
 .main-navigation a:hover,
@@ -521,6 +521,21 @@ h6, .h6 {
     }
 }
 
+.site-content {
+    padding-top: 20px;
+}
+
+@media screen and (min-width: 37.5em) {
+    .site-content {
+        padding-top: 40px;
+    }
+}
+
+@media screen and (min-width: 50em) {
+    .site-content {
+        padding-top: 60px;
+    }
+}
 
 /* Sidebar modules for boxing content */
 .sidebar-module {
