@@ -7,7 +7,8 @@
             <?php
             if ( have_posts() ) : while ( have_posts() ) : the_post();
 
-                echo get_post_type();
+                $post_type = get_post_type();
+                if ( $post_type == 'ritual' || $post_type == 'text' || $post_type == 'event' ) : echo get_post_type(); endif;
                 get_template_part( 'content-single', get_post_type() );
 
                 if ( comments_open() || get_comments_number() ) : comments_template();
