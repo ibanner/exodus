@@ -1,0 +1,19 @@
+/*
+Exodus RTL Styles
+Author: Itay Banner
+Version: 0.1
+*/
+
+/*
+ * Masthead for nav
+ */
+
+.blog-nav .active:after {
+    right: 50%;
+    margin-right: 5px;
+}
+
+/* Pagination */
+.pager {
+    text-align: right;
+}
