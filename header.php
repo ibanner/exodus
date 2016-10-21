@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-    <meta charset="utf-8">
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="profile" href="http://gmpg.org/xfn/11">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -16,20 +17,38 @@
     <?php wp_head();?>
 </head>
 
-<body>
+<body <?php body_class(); ?>>
 
 <div class="blog-masthead">
-    <div class="container">
-        <nav class="blog-nav">
-            <a class="blog-nav-item active" href="#">Home</a>
-            <?php wp_list_pages( '&title_li='); ?>
-        </nav>
-    </div>
+    <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'exodus' ); ?></a>
+
+    <nav id="site-navigation" class="main-navigation blog-nav" role="navigation">
+        <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'exodus' ); ?></button>
+        <?php
+            wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) );
+            wp_nav_menu( array( 'theme_location' => 'secondary', 'menu_class' => 'secondary' ) );
+        ?>
+    </nav><!-- #site-navigation -->
+    <header class="blog-header">
+        <div class="site-branding">
+            <?php
+            $site_title = get_bloginfo( 'name' );
+            if ( is_front_page() && is_home() ) : ?>
+                <h1 class="site-title"><a href="<?php bloginfo('wpurl'); ?>"><?php echo $site_title; ?></a></h1>
+            <?php else : ?>
+                <p class="h1 site-title"><a href="<?php bloginfo('wpurl'); ?>"><?php echo $site_title; ?></a></p>
+            <?php endif; ?>
+            <div class="screen-reader-text">
+                    <?php printf( esc_html__('Go to the home page of %1$s', 'exodus'), $site_title ); ?>
+            </div>
+            <?php
+                $description = get_bloginfo( 'description', 'display' );
+                if ( $description || is_customize_preview() ) : ?>
+                <p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+            <?php endif; ?>
+        </div><!-- .site-branding -->
+    </header>
 </div>
 
 <div class="container">
-
-    <div class="blog-header">
-        <h1 class="blog-title"><a href="<?php bloginfo('wpurl'); ?>"><?php echo get_bloginfo( 'name' ); ?></a></h1>
-        <p class="lead blog-description"><?php echo get_bloginfo( 'description' ); ?></p>
-    </div>
+    <div id="content" class="site-content">

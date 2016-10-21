@@ -1,3 +1,4 @@
+</div><!-- /#content -->
 </div><!-- /.container -->
 
 <footer class="blog-footer">
