@@ -49,9 +49,21 @@ if ( ! function_exists( 'exodus_get_article_fields' )) :
                 echo '<li class="article-field location col-xs-12 col-sm-4"><h4 class="article-field-title caption">' . esc_html__('Location' , 'exodus' ) . '</h4>' . $location . '</li>';
                 echo '<li class="article-field timing col-xs-12 col-sm-4"><h4 class="article-field-title caption">' . esc_html__('Timing' , 'exodus' ) . '</h4>' . $timing . '</li>';
             echo '</ul>';
-        }
+        } /*elseif ( 'text' === get_post_type() ) { //TODO saving for later, maybe
+
+        } elseif ( 'event' === get_post_type() ) {
+
+        }*/
     }
 endif;
+
+/******************************************************/
+if ( ! function_exists( 'exodus_lorem_ipsum' )) :
+    function exodus_lorem_ipsum() {
+        echo '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam felis neque, posuere a rhoncus eget, vulputate mattis lectus. Donec lobortis urna id tincidunt blandit. Pellentesque fermentum a neque sit amet rutrum. Duis elementum arcu ac porttitor convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut sed neque id dolor hendrerit auctor quis nec lorem. Donec eu eleifend orci, ac vulputate nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque mi magna, auctor sed aliquet scelerisque, dapibus at lacus. Duis aliquet diam sit amet lorem auctor porta. Cras lacinia vestibulum sem, et efficitur leo pharetra a.</p>';
+    }
+endif;
+
 /******************************************************/
 if ( ! function_exists( 'exodus_posted_on' ) ) :
 /**

@@ -12,7 +12,7 @@
     exodus_get_article_fields();
 
 ?>
-    <div class="the-content">
+    <div class="content">
         <?php the_content(); ?>
     </div><!-- /.the-content -->
     <div id="author-info" class="author-info">
