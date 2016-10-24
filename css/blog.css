@@ -56,6 +56,12 @@ h6, .h6 {
     line-height: 1.3em;
 }
 
+h4.caption, .h4.caption,
+h5.caption, .h5.caption,
+h6.caption, .h6.caption {
+    font-family: "Assistant", serif;
+}
+
 h1 .h1 {
     font-size: 2.4rem;
 }
@@ -625,6 +631,52 @@ h6 .h6 {
 a.comments-link::before {
     content: "|";
     padding: 0 2px;
+}
+
+.featured-image {
+    max-width: calc(100% + 2.8em);
+    margin: 1.5em -1.4em;
+}
+
+ul.article-fields {
+    list-style-type: none;
+    padding: 0;
+}
+
+li.article-field {
+    display: inline-block;
+    background: #c8ddf0;
+    border: 1px solid #428bca;
+}
+
+.article-field-title {
+    font-weight: bold;
+}
+
+.the-content {
+    padding-top: 2em;
+}
+
+/* ## Content Elements */
+img {
+    height: auto; /* Make sure images are scaled correctly. */
+    max-width: 100%; /* Adhere to container width. */
+}
+
+figure {
+    margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
+}
+
+table {
+    margin: 0 0 1.5em;
+    width: 100%;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+    max-width: 100%;
 }
 
 /* ## Author Info */

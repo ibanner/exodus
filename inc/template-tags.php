@@ -38,6 +38,21 @@ if ( ! function_exists( 'exodus_cpt_label' ) ) :
 endif;
 
 /******************************************************/
+if ( ! function_exists( 'exodus_get_article_fields' )) :
+    function exodus_get_article_fields() {
+        if ( 'ritual' === get_post_type() ) {
+            $participants = get_field( 'participants' );
+            $location = get_field( 'location' );
+            $timing = get_field( 'timing' );
+            echo '<ul class="article-fields ritual row">';
+                echo '<li class="article-field participants col-xs-12 col-sm-4"><h4 class="article-field-title caption">' . esc_html__('Participants' , 'exodus' ) . '</h4>' . $participants . '</li>';
+                echo '<li class="article-field location col-xs-12 col-sm-4"><h4 class="article-field-title caption">' . esc_html__('Location' , 'exodus' ) . '</h4>' . $location . '</li>';
+                echo '<li class="article-field timing col-xs-12 col-sm-4"><h4 class="article-field-title caption">' . esc_html__('Timing' , 'exodus' ) . '</h4>' . $timing . '</li>';
+            echo '</ul>';
+        }
+    }
+endif;
+/******************************************************/
 if ( ! function_exists( 'exodus_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
