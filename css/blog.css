@@ -598,7 +598,6 @@ h6 .h6 {
 /* ## All Content Types */
 
 #main {
-    max-width: 45em;
     margin: 1.8em auto;
 }
 
@@ -633,6 +632,9 @@ a.comments-link::before {
 .author-info {
     background: #c8ddf0;
     padding: 1em;
+    margin-top: 3em;
+    font-size: 80%;
+    min-height: 180px;
 }
 
 .author-info .h4 {
@@ -642,13 +644,35 @@ a.comments-link::before {
     margin-bottom: 1em;
 }
 
-.author-info img {
-    display: block;
+.author-avatar {
+    float: left;
+    margin-right: 2em;
+}
+.author-avatar img {
     border-radius: 4px;
 }
 
 .byline a {
     font-weight: bold;
+}
+
+.article-label {
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    background: #607d8b;
+    display: inline-block;
+    margin: auto;
+}
+
+.article-label-wrap {
+    text-align: center;
 }
 
 /* Pagination */

@@ -151,27 +151,27 @@ function custom_settings_page() { ?>
 <?php }
 
 // Twitter
-function setting_twitter() { ?>
-    <input type="text" name="twitter" id="twitter" value="<?php echo get_option('twitter'); ?>" />
+function setting_label_ritual() { ?>
+    <input type="text" name="ritual" id="ritual" value="<?php echo get_option('ritual'); ?>" />
 <?php }
 
-function setting_youtube() { ?>
-    <input type="text" name="youtube" id="youtube" value="<?php echo get_option('youtube'); ?>" />
+function setting_label_event() { ?>
+    <input type="text" name="event" id="event" value="<?php echo get_option('event'); ?>" />
 <?php }
 
-function setting_facebook() { ?>
-    <input type="text" name="facebook" id="facebook" value="<?php echo get_option('facebook'); ?>" />
+function setting_label_text() { ?>
+    <input type="text" name="text" id="text" value="<?php echo get_option('text'); ?>" />
 <?php }
 
 function custom_settings_page_setup() {
-    add_settings_section('section', 'Social Network profiles', null, 'theme-options');
-    add_settings_field('twitter', __('Twitter Username' , 'exodus') , 'setting_twitter', 'theme-options', 'section');
-    add_settings_field('youtube', __('YouTube URL' , 'exodus') , 'setting_youtube', 'theme-options', 'section');
-    add_settings_field('facebook', __('Facebook URL' , 'exodus') , 'setting_facebook', 'theme-options', 'section');
+    add_settings_section('section', __('Article Type Labels', 'exodus') , null, 'theme-options');
+    add_settings_field('ritual', __('Ritual' , 'exodus') , 'setting_label_ritual', 'theme-options', 'section');
+    add_settings_field('event', __('Event' , 'exodus') , 'setting_label_event', 'theme-options', 'section');
+    add_settings_field('text', __('Text' , 'exodus') , 'setting_label_text', 'theme-options', 'section');
 
-    register_setting('section', 'twitter');
-    register_setting('section', 'youtube');
-    register_setting('section', 'facebook');
+    register_setting('section', 'ritual');
+    register_setting('section', 'event');
+    register_setting('section', 'text');
 }
 add_action( 'admin_init', 'custom_settings_page_setup' );
 

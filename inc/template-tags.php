@@ -13,18 +13,31 @@ if ( ! function_exists( 'exodus_author-info' ) ) :
  */
 function exodus_author_info() {
     $author_id = get_the_author_meta( 'ID' );
-
+    $a = cptui_get_post_type_slugs();
+    $post_type = get_post_type();
     echo '<p class="h4">'. esc_html__('About the Author' , 'exodus' ) .'</p>';
-    echo  get_avatar( $author_id ); // TODO add alt value
-    echo '<span class="byline author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'; // WPCS: XSS OK.
+    echo  '<div class="author-avatar">' . get_avatar( $author_id ) . '</div>'; // TODO add alt value
+    echo '<div class="byline author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></div>'; // WPCS: XSS OK.
     echo '<div class="author-description">' . get_the_author_meta( 'description', $author_id) . '</div>';
-
 }
 
 endif;
 
 /******************************************************/
 
+if ( ! function_exists( 'exodus_cpt_label' ) ) :
+    /**
+     * Prints a translatable CPT label
+     */
+    function exodus_cpt_label() {
+        $post_type = get_post_type();
+        $cpt_slugs = cptui_get_post_type_slugs();
+        if (in_array( $post_type , $cpt_slugs)) : echo '<div class="article-label-wrap"><span class="article-label">' . get_option( $post_type ) . '</span></div>';
+        endif;
+    }
+endif;
+
+/******************************************************/
 if ( ! function_exists( 'exodus_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
