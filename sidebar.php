@@ -3,7 +3,7 @@ if ( ! is_active_sidebar( 'articles' ) ) {
 return;
 }
 ?>
-<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+<div class="col-sm-3 blog-sidebar">
     <?php dynamic_sidebar( 'articles' ); ?>
     <!--<div class="sidebar-module sidebar-module-inset">
         <h4>About</h4>

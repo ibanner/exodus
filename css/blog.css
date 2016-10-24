@@ -1,12 +1,46 @@
+/* ******** TOC ********** */
+/*
+
+# TYPOGRAPHY
+# ACCESSIBILITY
+# HEADER
+    ## Masthead & Branding
+    ## Navigation
+# THE STRIP
+# SIDEBAR
+# CONTENT
+    ## Single Articles and Posts
+    ## Author Info
+
+*/
+
+
+
 /*********************/
-/* # GLOBALS
+/* # TYPOGRAPHY
 /*********************/
+
+html {
+    font-size: 100%;
+}
+
+@media screen and (min-width: 37.5em){
+    html {
+        font-size: 105%;
+    }
+}
+
+@media screen and (min-width: 40em){
+    html {
+        font-size: 110%;
+    }
+}
 
 body {
     font-family: "Assistant" , sans-serif;
     color: #555;
-    font-size: 18px;
     line-height: 1.5;
+    font-size: 1.2rem;
 }
 
 h1, .h1,
@@ -17,17 +51,35 @@ h5, .h5,
 h6, .h6 {
     margin-top: 0;
     font-family: "Tinos", serif;
-    font-weight: normal;
     color: #333;
+    clear: both;
+    line-height: 1.3em;
 }
 
-/* Override Bootstrap's default container. */
+h1 .h1 {
+    font-size: 2.4rem;
+}
 
-/*@media (min-width: 1200px) {
-    .container {
-        width: 970px;
-    }
-}*/
+h2 .h2 {
+    font-size: 2.2rem;
+}
+
+h3 .h3 {
+    font-size: 2rem;
+}
+
+h4 .h4 {
+    font-size: 1.8rem;
+}
+
+h5 .h5 {
+    font-size: 1.6rem;
+}
+
+h6 .h6 {
+    font-size: 1.4rem;
+}
+
 
 /*********************/
 /* # ACCESSIBILITY
@@ -70,9 +122,8 @@ h6, .h6 {
 /*********************/
 /* # HEADER
 /*********************/
-/*
- * Masthead for nav
- */
+
+/* ## Masthead & Branding */
 
 .blog-masthead {
     background-color: #428bca;
@@ -113,24 +164,10 @@ h6, .h6 {
     outline: 2px solid white;
 }
 
-.site-firstletter {
-    font-family: 'Assistant', sans-serif;
-    font-size: 1.5em;
-    font-weight: 700;
-    text-align: center;
-    line-height: 1.3em;
-}
-
-.site-logo a:hover .site-firstletter,
-.site-logo a:focus .site-firstletter {
-    background: white;
-    color: black;
-}
-
 .site-title {
     padding: 1.7em 1em 0;
     font-family: 'Tinos', serif;
-    font-size: 2em;
+    font-size: 2.6rem;
     font-weight: bold;
     line-height: 1.3em;
     text-transform: uppercase;
@@ -152,7 +189,7 @@ h6, .h6 {
 .site-description {
     padding: 0 1em 1em 1em;
     font-family: 'Assistant', sans-serif;
-    font-size: 1em;
+    font-size: 1.5rem;
     line-height: 1.3em;
     text-transform: uppercase;
     word-break: break-word;
@@ -163,15 +200,15 @@ h6, .h6 {
 @media screen and (min-width: 40em) {
     .site-title {
         padding: 0;
-        font-size: 2.4em;
+        font-size: 2.4rem;
     }
 
     .site-description {
-        font-size: 1.4em;
+        font-size: 1.4rem;
     }
 }
 
-/* Nav links */
+/* ## Navigation */
 
 .main-navigation {
     clear: both;
@@ -179,7 +216,6 @@ h6, .h6 {
     width: 100%;
     font-family: 'Assistant', sans-serif;
     font-weight: 300;
-    font-size: 1em;
 }
 
 .main-navigation ul {
@@ -330,7 +366,7 @@ h6, .h6 {
     }
 }
 
-/* Hovering menu */
+/* ## Hovering menu */
 
 .main-navigation.toggled {
     position: fixed;
@@ -499,10 +535,9 @@ h6, .h6 {
     text-align: right;
     width: 50%;
 }
-
-/*
- * The Strip
- */
+/*********************/
+/* # THE STRIP
+/*********************/
 
 .the-strip {
     background: #f5f5f5;
@@ -537,7 +572,10 @@ h6, .h6 {
     }
 }
 
-/* Sidebar modules for boxing content */
+/*********************/
+/* # SIDEBAR
+/*********************/
+
 .sidebar-module {
     padding: 15px;
     margin: 0 -15px 15px;
@@ -553,6 +591,65 @@ h6, .h6 {
     margin-bottom: 0;
 }
 
+/*********************/
+/* # CONTENT
+/*********************/
+
+/* ## All Content Types */
+
+#main {
+    max-width: 45em;
+    margin: 1.8em auto;
+}
+
+/* ## Single Articles & Posts */
+
+.article-title {
+    /*margin-bottom: 5px;*/
+    font-size: 2.6rem;
+    line-height: 1.3em;
+    text-align: center;
+}
+
+@media screen and (min-width: 37.5){
+    .article-title {
+        font-size: 1.6rem;
+        line-height: 1.3em;
+    }
+}
+.article-meta {
+    margin-bottom: 20px;
+    color: #999;
+    text-align: center;
+}
+
+a.comments-link::before {
+    content: "|";
+    padding: 0 2px;
+}
+
+/* ## Author Info */
+
+.author-info {
+    background: #c8ddf0;
+    padding: 1em;
+}
+
+.author-info .h4 {
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 1em;
+}
+
+.author-info img {
+    display: block;
+    border-radius: 4px;
+}
+
+.byline a {
+    font-weight: bold;
+}
 
 /* Pagination */
 .pager {
@@ -564,28 +661,6 @@ h6, .h6 {
     padding: 10px 20px;
     text-align: center;
     border-radius: 30px;
-}
-
-
-/*
- * Blog posts
- */
-
-.blog-post {
-    margin-bottom: 60px;
-}
-.blog-post-title {
-    margin-bottom: 5px;
-    font-size: 40px;
-}
-.blog-post-meta {
-    margin-bottom: 20px;
-    color: #999;
-}
-
-a.comments-link::before {
-    content: "|";
-    padding: 0 2px;
 }
 
 /*
