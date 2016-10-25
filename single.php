@@ -2,9 +2,6 @@
 
     <div class="row">
 
-        <?php /*get_sidebar();*/ ?>
-
-        <!--<div class="col-sm-8 col-sm-offset-1 blog-main">-->
         <div id="main" class="col-sm-12 blog-main single-column">
 
             <?php

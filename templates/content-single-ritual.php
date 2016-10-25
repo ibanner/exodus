@@ -10,12 +10,12 @@ $timing = get_field( 'timing' );
 
     <h1 class="article-title"><?php the_title(); ?></h1>
 
-    <div class="cpt-meta">
+    <div class="article-meta">
         <span class="caption"><?php exodus_cpt_label(); ?> | <?php esc_html_e( 'Communities', 'exodus'); ?></span>
         <ul class="the-communities">
             <?php exodus_the_communities(); ?>
         </ul>
-    </div><!-- /.cpt-meta -->
+    </div><!-- /.article-meta -->
 
     <div class="content-wrapper row">
 
