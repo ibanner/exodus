@@ -743,6 +743,38 @@ object {
     text-align: center;
 }
 
+.related-content {
+    padding-top: 2em;
+}
+
+.related {
+    border: 1px solid #555;
+    padding: 1em;
+    width: 100%;
+}
+
+.related-wrapper:first-child {
+    padding-bottom: 1em;
+}
+
+@media screen and (min-width: 37em){
+    .related-flex {
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: stretch;
+        padding: 0;
+        width: 100%;
+    }
+
+    .related-wrapper {
+        display: flex;
+    }
+
+    .related-wrapper:first-child {
+        padding-bottom: 0;
+    }
+}
+
 /* Pagination */
 .pager {
     margin-bottom: 60px;

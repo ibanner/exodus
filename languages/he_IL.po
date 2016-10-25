@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Exodus\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-25 06:00+0000\n"
-"PO-Revision-Date: 2016-10-25 06:09+0000\n"
+"POT-Creation-Date: 2016-10-25 11:59+0000\n"
+"PO-Revision-Date: 2016-10-25 11:59+0000\n"
 "Last-Translator: itay <itay@ibanner.co.il>\n"
 "Language-Team: Hebrew\n"
 "Language: he-IL\n"
@@ -12,6 +12,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
+
+#: footer.php:7
+msgid "Back to top"
+msgstr "חזרה למעלה"
 
 #: footer.php:5
 msgid "Site by"
@@ -89,39 +93,59 @@ msgstr "מיקום"
 msgid "Timing"
 msgstr "עיתוי"
 
-#: inc/template-tags.php:86
+#: inc/template-tags.php:91
 msgctxt "post date"
 msgid "Posted on %s"
 msgstr "הועלה ביום %s"
 
-#: inc/template-tags.php:91
+#: inc/template-tags.php:96
 msgctxt "post author"
 msgid "by %s"
 msgstr "על ידי %s"
 
 #. translators: used between list items, there is a space after the comma
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:112 inc/template-tags.php:118
+#: inc/template-tags.php:117 inc/template-tags.php:123
 msgid ", "
 msgstr ", "
 
-#: inc/template-tags.php:114
+#: inc/template-tags.php:119
 msgid "Posted in %1$s"
 msgstr "הועלה אל %1$s"
 
-#: inc/template-tags.php:120
+#: inc/template-tags.php:125
 msgid "Tagged %1$s"
 msgstr "תגיות: %1$s"
 
 #. translators: %s: post title
-#: inc/template-tags.php:127
+#: inc/template-tags.php:132
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "לכתוב תגובה<span class=\"screen-reader-text\"> על %s</span>"
 
 #. translators: %s: Name of current post
-#: inc/template-tags.php:134
+#: inc/template-tags.php:139
 msgid "Edit %s"
 msgstr "לערוך את %s"
+
+#: templates/content-single-ritual.php:24
+msgid "More About This"
+msgstr "עוד על זה"
+
+#: templates/content-single-ritual.php:28
+msgid "Related Texts"
+msgstr "טקסטים קשורים"
+
+#: templates/content-single-ritual.php:50
+msgid "More Texts..."
+msgstr "עוד טקסטים..."
+
+#: templates/content-single-ritual.php:55
+msgid "Related Rituals"
+msgstr "טקסים קשורים"
+
+#: templates/content-single-ritual.php:79
+msgid "More Rituals..."
+msgstr "עוד טקסים..."
 
 #: templates/content-single-text.php:13
 msgid "The Text"
