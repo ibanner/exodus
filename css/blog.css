@@ -613,23 +613,21 @@ h6 .h6 {
 
 /* ## Single Articles & Posts */
 
-.article-title {
+.article-title,
+.archive-title {
     /*margin-bottom: 5px;*/
     font-size: 2.6rem;
     line-height: 1.3em;
     text-align: center;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 @media screen and (min-width: 37.5){
-    .article-title {
+    .article-title,
+    .archive-title {
         font-size: 1.6rem;
         line-height: 1.3em;
     }
-}
-.article-meta {
-    margin-bottom: 20px;
-    color: #999;
-    text-align: center;
 }
 
 a.comments-link::before {
@@ -738,7 +736,7 @@ object {
     font-weight: bold;
 }
 
-.cpt-meta {
+.article-meta {
     text-align: center;
     font-size: 90%;
 }
