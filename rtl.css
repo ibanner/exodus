@@ -13,6 +13,26 @@ Version: 0.1
     margin-right: 5px;
 }
 
+.menu-kolehad-org-container {
+    float:right;
+}
+ul.secondary {
+    text-align: left;
+}
+/* The Strip */
+
+@media screen and (min-width: 40em) {
+    .the-strip .breadcrumbs {
+        padding: 0;
+        float: right;
+    }
+
+    .the-strip .form {
+        padding: 0;
+        text-align: left;
+    }
+}
+
 /* Pagination */
 .pager {
     text-align: right;
