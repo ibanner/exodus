@@ -17,7 +17,7 @@
     <?php wp_head();?>
 </head>
 
-<body <?php body_class(); ?>>
+<body id="top" <?php body_class(); ?>>
 
 <div class="blog-masthead">
     <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'exodus' ); ?></a>

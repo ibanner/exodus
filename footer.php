@@ -2,9 +2,9 @@
 </div><!-- /.container -->
 
 <footer class="blog-footer">
-    <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    <p><?php esc_html_e('Site by' , 'exodus' ); ?> <a href="http://ibanner.co.il" target="_blank" rel="nofollow"><?php esc_html_e('The Contechnician' , 'exodus' ); ?></a></p>
     <p>
-        <a href="#">Back to top</a>
+        <a href="#top">Back to top</a>
     </p>
 </footer>
 

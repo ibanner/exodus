@@ -761,11 +761,17 @@ object {
 
 .blog-footer {
     padding: 40px 0;
-    color: #999;
+    color: #555;
     text-align: center;
-    background-color: #f9f9f9;
+    background-color: #428bca;
     border-top: 1px solid #e5e5e5;
 }
+
+.blog-footer a {
+    padding: 40px 0;
+    color: #fff;
+}
+
 .blog-footer p:last-child {
     margin-bottom: 0;
 }
