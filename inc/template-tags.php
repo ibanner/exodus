@@ -59,9 +59,14 @@ endif;
 
 /******************************************************/
 if ( ! function_exists( 'exodus_lorem_ipsum' )) :
-    function exodus_lorem_ipsum() {
+function exodus_lorem_ipsum() {
+    if ( is_rtl() === true ) {
+        echo '<p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית צש בליא, מנסוטו צמלח לביקו ננבי, צמוקו בלוקריה שיצמה ברורק. הועניב היושבב שערש שמחויט - שלושע ותלברו חשלו שעותלשך וחאית נובש ערששף. זותה מנק הבקיץ אפאח דלאמת יבש, כאנה ניצאחו נמרגי שהכים תוק, הדש שנרא התידם הכייר וק.
+</p>';
+    } else {
         echo '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam felis neque, posuere a rhoncus eget, vulputate mattis lectus. Donec lobortis urna id tincidunt blandit. Pellentesque fermentum a neque sit amet rutrum. Duis elementum arcu ac porttitor convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut sed neque id dolor hendrerit auctor quis nec lorem. Donec eu eleifend orci, ac vulputate nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque mi magna, auctor sed aliquet scelerisque, dapibus at lacus. Duis aliquet diam sit amet lorem auctor porta. Cras lacinia vestibulum sem, et efficitur leo pharetra a.</p>';
     }
+}
 endif;
 
 /******************************************************/
