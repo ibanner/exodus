@@ -685,6 +685,57 @@ li.article-field {
     font-weight: bold;
 }
 
+/* ## Masonry */
+
+.grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.grid-item {
+    width: calc(100% + 10px);
+    margin: 10px -5px;
+    height: auto;
+    float: left;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.grid-item h2 {
+    font-size: 1.4rem;
+}
+
+.grid-item p,
+.grid-item .caption {
+    font-size: 1rem;
+}
+
+.grid-item .article-meta {
+    text-align: initial;
+    padding-top: 0.7em;
+}
+
+@media screen and (min-width: 37.5em) {
+    .grid-item {
+        width: 48%;
+        margin: 10px 1%;
+    }
+}
+
+@media screen and (min-width: 50em) {
+    .grid-item {
+        width: 33%;
+    }
+}
+
+@media screen and (min-width: 60em) {
+    .grid-item {
+        width: 23%;
+        margin: 10px 8px;
+    }
+}
+
 /* ## Content Elements */
 img {
     height: auto; /* Make sure images are scaled correctly. */

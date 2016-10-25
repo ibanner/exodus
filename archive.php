@@ -7,6 +7,8 @@
             <div class="archive archive--<?php echo $post_type; ?>">
                 <h1 class="archive-title"><?php the_archive_title(); ?></h1>
 
+                <div class="grid data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'">
+
             <?php
             if ( have_posts() ) :
 
@@ -24,6 +26,7 @@
                 get_template_part( 'templates/content', 'none' );
 
             endif; ?>
+                </div><!-- /.grid -->
             </div><!-- /.archive -->
 
         </div> <!-- /.blog-main -->
