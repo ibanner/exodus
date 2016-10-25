@@ -743,6 +743,41 @@ object {
     text-align: center;
 }
 
+.communities {
+    text-align: center;
+    font-size: 90%;
+}
+
+.communities > .caption {
+    font-weight: bold;
+}
+
+ul.the-communities {
+    list-style-type: none;
+    padding: 0;
+}
+
+li.community {
+    display: inline-block;
+    background: #c8ddf0;
+    border-radius: 4px;
+    font-size: smaller;
+    padding: 2px 4px;
+    margin-left: 2px;
+}
+
+ul.the-communities:last-child {
+    margin-left: 0;
+}
+
+li.community:hover,
+li.community:focus {
+    font-color: #fff;
+    background: #c8ddf0;
+    border-radius: 4px;
+}
+
+
 .related-content {
     padding-top: 2em;
 }

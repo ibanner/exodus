@@ -1,17 +1,31 @@
 <div class="article">
-<?php exodus_cpt_label(); ?>
+
+    <?php exodus_cpt_label(); ?>
+
     <h1 class="article-title"><?php the_title(); ?></h1>
     <p class="article-meta"><?php the_date(); ?> by <a href="#author-info"><?php the_author(); ?></a></p>
-<?php if ( has_post_thumbnail() ) { ?>
-    <figure class="featured-image">
+
+    <div class="communities">
+        <span class="caption"><?php esc_html_e( 'Communities', 'exodus'); ?></span>
+        <ul class="the-communities">
+            <li class="community"><a href="#">אשכנזים</a></li>
+            <li class="community"><a href="#">ספרדים</a></li>
+            <li class="community"><a href="#">טריפוליטאים</a></li>
+            <li class="community"><a href="#">תימנים</a></li>
+        </ul>
+    </div><!-- /.communities -->
+
+    <?php if ( has_post_thumbnail() ) { ?>
+
+        <figure class="featured-image">
         <?php the_post_thumbnail( 'full' ); ?>
     </figure>
-<?php
+
+    <?php
     }
 
-    exodus_get_article_fields();
+    exodus_get_article_fields(); ?>
 
-?>
     <div class="content">
         <?php the_content(); ?>
     </div><!-- /.the-content -->
