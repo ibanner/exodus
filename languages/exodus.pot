@@ -1,0 +1,168 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-25 06:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: footer.php:5
+msgid "Site by"
+msgstr ""
+
+#: footer.php:5
+msgid "The Contechnician"
+msgstr ""
+
+#: functions.php:52
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:53
+msgid "Secondary Menu"
+msgstr ""
+
+#: functions.php:105
+msgid "expand child menu"
+msgstr ""
+
+#: functions.php:106
+msgid "collapse child menu"
+msgstr ""
+
+#: functions.php:168
+msgid "Article Type Labels"
+msgstr ""
+
+#: functions.php:169
+msgid "Ritual"
+msgstr ""
+
+#: functions.php:170
+msgid "Event"
+msgstr ""
+
+#: functions.php:171
+msgid "Text"
+msgstr ""
+
+#: functions.php:187
+msgid "Articles Sidebar"
+msgstr ""
+
+#: functions.php:189
+msgid "These widgets will appear in article pages."
+msgstr ""
+
+#: header.php:23
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:26
+msgid "Menu"
+msgstr ""
+
+#: header.php:42
+msgid "Go to the home page of %1$s"
+msgstr ""
+
+#: inc/template-tags.php:18
+msgid "About the Author"
+msgstr ""
+
+#: inc/template-tags.php:48
+msgid "Participants"
+msgstr ""
+
+#: inc/template-tags.php:49
+msgid "Location"
+msgstr ""
+
+#: inc/template-tags.php:50
+msgid "Timing"
+msgstr ""
+
+#: inc/template-tags.php:86
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr ""
+
+#: inc/template-tags.php:91
+msgctxt "post author"
+msgid "by %s"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:112 inc/template-tags.php:118
+msgid ", "
+msgstr ""
+
+#: inc/template-tags.php:114
+msgid "Posted in %1$s"
+msgstr ""
+
+#: inc/template-tags.php:120
+msgid "Tagged %1$s"
+msgstr ""
+
+#. translators: %s: post title
+#: inc/template-tags.php:127
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#. translators: %s: Name of current post
+#: inc/template-tags.php:134
+msgid "Edit %s"
+msgstr ""
+
+#: templates/content-single-text.php:13
+msgid "The Text"
+msgstr ""
+
+#: templates/content-single-text.php:16
+msgid "Text Source"
+msgstr ""
+
+#: templates/content-single-text.php:21
+msgid "Text Background"
+msgstr ""
+
+#: templates/content-single-text.php:26
+msgid "Commentary"
+msgstr ""
+
+#: templates/content-single.php:3
+msgid "Posted by"
+msgstr ""
+
+#: templates/content.php:6
+msgctxt "comments title"
+msgid "One Comment"
+msgid_plural "%1$s Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/the-strip.php:4
+msgid "Here Be Breadcrumbs!"
+msgstr ""
+
+#. Name of the theme
+msgid "Exodus"
+msgstr ""
+
+#. Description of the theme
+msgid "Bootstrap Blog template converted to WordPress. Thanks Tania Rascia!"
+msgstr ""
+
+#. Author of the theme
+msgid "Itay Banner"
+msgstr ""
