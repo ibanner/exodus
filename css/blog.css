@@ -755,9 +755,19 @@ object {
     border-radius: 30px;
 }
 
-/*
- * Footer
- */
+/*********************/
+/* # FORMS
+/*********************/
+
+.comment-form-comment label {
+    display: block;
+    padding-bottom: 1em;
+}
+
+
+/*********************/
+/* # FOOTER
+/*********************/
 
 .blog-footer {
     padding: 40px 0;
