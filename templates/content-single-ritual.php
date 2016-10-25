@@ -1,97 +1,47 @@
-<div class="article">
+<?php
+$procedure = get_field( 'procedure' );
+$background = get_field( 'background' );
+$participants = get_field( 'participants' );
+$location = get_field( 'location' );
+$timing = get_field( 'timing' );
+?>
 
-    <?php exodus_cpt_label(); ?>
+<div class="article article--ritual">
 
     <h1 class="article-title"><?php the_title(); ?></h1>
-    <p class="article-meta"><?php the_date(); ?> by <a href="#author-info"><?php the_author(); ?></a></p>
 
-    <div class="communities">
-        <span class="caption"><?php esc_html_e( 'Communities', 'exodus'); ?></span>
+    <div class="cpt-meta">
+        <span class="caption"><?php exodus_cpt_label(); ?> | <?php esc_html_e( 'Communities', 'exodus'); ?></span>
         <ul class="the-communities">
-            <li class="community"><a href="#">אשכנזים</a></li>
-            <li class="community"><a href="#">ספרדים</a></li>
-            <li class="community"><a href="#">טריפוליטאים</a></li>
-            <li class="community"><a href="#">תימנים</a></li>
+            <?php exodus_the_communities(); ?>
         </ul>
-    </div><!-- /.communities -->
+    </div><!-- /.cpt-meta -->
 
-    <?php if ( has_post_thumbnail() ) { ?>
+    <div class="content-wrapper row">
 
-        <figure class="featured-image">
-        <?php the_post_thumbnail( 'full' ); ?>
-    </figure>
+        <div class="content ritual inlet col-xs-12 col-md-6">
+            <h2><?php esc_html_e( 'Scenario', 'exodus'); ?></h2>
+            <?php echo $procedure; ?>
+            <div class="text-info">
+                <h4 class="participants"><?php esc_html_e( 'The Participants', 'exodus'); ?></h4>
+                <p><?php echo $participants; ?></p>
+                <h4 class="location"><?php esc_html_e( 'Location', 'exodus'); ?></h4>
+                <p><?php echo $location; ?></p>
+                <h4 class="timing"><?php esc_html_e( 'Timing', 'exodus'); ?></h4>
+                <p><?php echo $timing; ?></p>
+            </div><!-- /.ritual-info -->
+        </div><!-- /.content ritual inlet -->
 
-    <?php
-    }
+        <div class="ritual-background  col-xs-12 col-md-6">
+            <h2><?php esc_html_e( 'Text Background', 'exodus'); ?></h2>
+            <?php echo $background; ?>
+        </div><!-- /.ritual-background -->
 
-    exodus_get_article_fields(); ?>
+    </div><!-- /.content-wrapper -->
 
-    <div class="content">
-        <?php the_content(); ?>
-    </div><!-- /.the-content -->
     <div id="author-info" class="author-info">
         <?php exodus_author_info(); ?>
     </div><!-- /.author-info -->
 
 </div><!-- /.article -->
-<div class="related-content row">
-    <h2 class="col-sm-12"><?php esc_html_e( 'More About This', 'exodus'); ?></h2>
-    <div class="related-flex">
-        <div class="related-wrapper col-xs-12 col-md-6">
-            <div class="related related--texts">
-                <h3><?php esc_html_e( 'Related Texts', 'exodus'); ?></h3>
-                <?php
-                $posts = get_posts(array(
-                    'numberposts' => -1,
-                    'post_type' => 'text',
-                    'posts_per_page' => 5,
-                    'meta_key' => 'rel_ritual',
-                    'meta_value' => get_the_ID()
-                ));
-
-                if($posts)
-                {
-                    echo '<ul>';
-
-                    foreach($posts as $post)
-                    {
-                        echo '<li><a href="' . get_permalink($post->ID) . '">' . get_the_title($post->ID) . '</a></li>';
-                    }
-
-                    echo '</ul>';
-                }
-                ?>
-                <a href="#"><p><?php esc_html_e( 'More Texts...', 'exodus'); ?></p></a>
-            </div>
-        </div><!-- /.related-texts -->
-        <div class="col-xs-12 col-md-6">
-            <div class="related related--rituals">
-            <h3><?php esc_html_e( 'Related Rituals', 'exodus'); ?></h3>
-            <?php
-            $event = get_field( 'event' );
-            $posts = get_posts(array(
-                'numberposts' => -1,
-                'post_type' => 'ritual',
-                'posts_per_page' => 5,
-                'meta_key' => 'event',
-                'meta_value' => $event
-            ));
-
-            if($posts)
-            {
-                echo '<ul>';
-
-                foreach($posts as $post)
-                {
-                    echo '<li><a href="' . get_permalink($post->ID) . '">' . get_the_title($post->ID) . '</a></li>';
-                }
-
-                echo '</ul>';
-            }
-
-            ?>
-            <a href="#"><p><?php esc_html_e( 'More Rituals...', 'exodus'); ?></p></a>
-            </div><!-- /.related-rituals -->
-        </div>
-    </div><!-- /.related-flex -->
-</div><!-- /.related-content -->
+<?php // get_template_part( 'templates/related-content'); ?>

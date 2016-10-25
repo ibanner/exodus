@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Exodus\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-25 11:59+0000\n"
-"PO-Revision-Date: 2016-10-25 11:59+0000\n"
+"POT-Creation-Date: 2016-10-25 18:47+0000\n"
+"PO-Revision-Date: 2016-10-25 18:47+0000\n"
 "Last-Translator: itay <itay@ibanner.co.il>\n"
 "Language-Team: Hebrew\n"
 "Language: he-IL\n"
@@ -13,9 +13,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: footer.php:7
-msgid "Back to top"
-msgstr "חזרה למעלה"
+#: templates/content-single-ritual.php:23
+msgid "Scenario"
+msgstr "הלכה למעשה"
+
+#: templates/content-single-ritual.php:26
+msgid "The Participants"
+msgstr "המשתתפים"
 
 #: footer.php:5
 msgid "Site by"
@@ -25,6 +29,10 @@ msgstr "אתר:"
 msgid "The Contechnician"
 msgstr "התוכנאי - אינטרנט עסקי יעיל"
 
+#: footer.php:7
+msgid "Back to top"
+msgstr "חזרה למעלה"
+
 #: functions.php:52
 msgid "Primary Menu"
 msgstr "תפריט עיקרי"
@@ -33,35 +41,35 @@ msgstr "תפריט עיקרי"
 msgid "Secondary Menu"
 msgstr "תפריט משני"
 
-#: functions.php:105
+#: functions.php:107
 msgid "expand child menu"
 msgstr "הרחב תת-תפריט"
 
-#: functions.php:106
+#: functions.php:108
 msgid "collapse child menu"
 msgstr "צמצם תת-תפריט"
 
-#: functions.php:168
+#: functions.php:170
 msgid "Article Type Labels"
 msgstr "תוויות סוגי מאמרים"
 
-#: functions.php:169
+#: functions.php:171
 msgid "Ritual"
 msgstr "טקס"
 
-#: functions.php:170
+#: functions.php:172
 msgid "Event"
 msgstr "אירוע"
 
-#: functions.php:171
+#: functions.php:173
 msgid "Text"
 msgstr "טקסט"
 
-#: functions.php:187
+#: functions.php:189
 msgid "Articles Sidebar"
 msgstr "טור-צד - מאמרים"
 
-#: functions.php:189
+#: functions.php:191
 msgid "These widgets will appear in article pages."
 msgstr "הווידג'טים הללו יופיעו בעמודי מאמרים"
 
@@ -74,6 +82,7 @@ msgid "Menu"
 msgstr "תפריט"
 
 #: header.php:42
+#, php-format
 msgid "Go to the home page of %1$s"
 msgstr "לך לעמוד הבית של %1$s"
 
@@ -81,91 +90,81 @@ msgstr "לך לעמוד הבית של %1$s"
 msgid "About the Author"
 msgstr "אודות המחבר"
 
-#: inc/template-tags.php:48
+#: inc/template-tags.php:67
 msgid "Participants"
 msgstr "משתתפים"
 
-#: inc/template-tags.php:49
+#: inc/template-tags.php:68 templates/content-single-ritual.php:28
 msgid "Location"
 msgstr "מיקום"
 
-#: inc/template-tags.php:50
+#: inc/template-tags.php:69 templates/content-single-ritual.php:30
 msgid "Timing"
 msgstr "עיתוי"
 
-#: inc/template-tags.php:91
+#: inc/template-tags.php:110
+#, php-format
 msgctxt "post date"
 msgid "Posted on %s"
 msgstr "הועלה ביום %s"
 
-#: inc/template-tags.php:96
+#: inc/template-tags.php:115
+#, php-format
 msgctxt "post author"
 msgid "by %s"
 msgstr "על ידי %s"
 
 #. translators: used between list items, there is a space after the comma
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:117 inc/template-tags.php:123
+#: inc/template-tags.php:136 inc/template-tags.php:142
 msgid ", "
 msgstr ", "
 
-#: inc/template-tags.php:119
+#: inc/template-tags.php:138
+#, php-format
 msgid "Posted in %1$s"
 msgstr "הועלה אל %1$s"
 
-#: inc/template-tags.php:125
+#: inc/template-tags.php:144
+#, php-format
 msgid "Tagged %1$s"
 msgstr "תגיות: %1$s"
 
 #. translators: %s: post title
-#: inc/template-tags.php:132
+#: inc/template-tags.php:151
+#, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "לכתוב תגובה<span class=\"screen-reader-text\"> על %s</span>"
 
 #. translators: %s: Name of current post
-#: inc/template-tags.php:139
+#: inc/template-tags.php:158
+#, php-format
 msgid "Edit %s"
 msgstr "לערוך את %s"
 
-#: templates/content-single-ritual.php:24
-msgid "More About This"
-msgstr "עוד על זה"
+#: templates/content-single-ritual.php:14 templates/content-single-text.php:12
+msgid "Communities"
+msgstr "נהוג בקהילות:"
 
-#: templates/content-single-ritual.php:28
-msgid "Related Texts"
-msgstr "טקסטים קשורים"
-
-#: templates/content-single-ritual.php:50
-msgid "More Texts..."
-msgstr "עוד טקסטים..."
-
-#: templates/content-single-ritual.php:55
-msgid "Related Rituals"
-msgstr "טקסים קשורים"
-
-#: templates/content-single-ritual.php:79
-msgid "More Rituals..."
-msgstr "עוד טקסים..."
-
-#: templates/content-single-text.php:13
-msgid "The Text"
-msgstr "נוסח הטקסט"
-
-#: templates/content-single-text.php:16
-msgid "Text Source"
-msgstr "מקור הטקסט"
-
-#: templates/content-single-text.php:21
+#: templates/content-single-ritual.php:36 templates/content-single-text.php:37
 msgid "Text Background"
 msgstr "רקע רעיוני"
 
+#: templates/content-single-text.php:21
+msgid "The Text"
+msgstr "נוסח הטקסט"
+
 #: templates/content-single-text.php:26
+msgid "Text Source"
+msgstr "מקור הטקסט"
+
+#: templates/content-single-text.php:32
 msgid "Commentary"
 msgstr "פרשנות"
 
 #: templates/content-single.php:3
 msgid "Posted by"
-msgstr "פורסם על די"
+msgstr "פורסם על ידי"
 
 #: templates/content.php:6
 msgctxt "comments title"
@@ -173,6 +172,26 @@ msgid "One Comment"
 msgid_plural "%1$s Comments"
 msgstr[0] "תגובה אחת"
 msgstr[1] "%1$s תגובות"
+
+#: templates/related-content.php:2
+msgid "More About This"
+msgstr "עוד על זה"
+
+#: templates/related-content.php:6
+msgid "Related Texts"
+msgstr "טקסטים קשורים"
+
+#: templates/related-content.php:28
+msgid "More Texts..."
+msgstr "עוד טקסטים..."
+
+#: templates/related-content.php:33
+msgid "Related Rituals"
+msgstr "טקסים קשורים"
+
+#: templates/related-content.php:57
+msgid "More Rituals..."
+msgstr "עוד טקסים..."
 
 #: templates/the-strip.php:4
 msgid "Here Be Breadcrumbs!"

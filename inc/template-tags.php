@@ -32,8 +32,27 @@ if ( ! function_exists( 'exodus_cpt_label' ) ) :
     function exodus_cpt_label() {
         $post_type = get_post_type();
         $cpt_slugs = cptui_get_post_type_slugs();
-        if (in_array( $post_type , $cpt_slugs)) : echo '<div class="article-label-wrap"><span class="article-label">' . get_option( $post_type ) . '</span></div>';
+        $archive = get_post_type_archive_link( $post_type );
+        if (in_array( $post_type , $cpt_slugs)) : echo '<a href="' . $archive . '" class="article-label article-label--' . $post_type . '">' . get_option( $post_type ) . '</a>';
         endif;
+    }
+endif;
+
+/******************************************************/
+
+if ( ! function_exists( 'exodus_the_communities' ) ) :
+    /**
+     * Prints HTML with the list of communities this post is related to.
+     */
+    function exodus_the_communities() {
+        $post = get_the_ID();
+        echo the_terms(
+            $post ,
+            'community' ,
+            '<li class="community"><button class="btn btn-info btn-xs">' ,
+            '</a></button></li><li class="community"><button class="btn btn-info btn-xs">' ,
+            '</a></button></li>'
+        );
     }
 endif;
 

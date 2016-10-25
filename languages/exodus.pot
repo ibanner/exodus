@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-25 11:58+0000\n"
+"POT-Creation-Date: 2016-10-25 18:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -34,35 +34,35 @@ msgstr ""
 msgid "Secondary Menu"
 msgstr ""
 
-#: functions.php:105
+#: functions.php:107
 msgid "expand child menu"
 msgstr ""
 
-#: functions.php:106
+#: functions.php:108
 msgid "collapse child menu"
 msgstr ""
 
-#: functions.php:168
+#: functions.php:170
 msgid "Article Type Labels"
 msgstr ""
 
-#: functions.php:169
+#: functions.php:171
 msgid "Ritual"
 msgstr ""
 
-#: functions.php:170
+#: functions.php:172
 msgid "Event"
 msgstr ""
 
-#: functions.php:171
+#: functions.php:173
 msgid "Text"
 msgstr ""
 
-#: functions.php:187
+#: functions.php:189
 msgid "Articles Sidebar"
 msgstr ""
 
-#: functions.php:189
+#: functions.php:191
 msgid "These widgets will appear in article pages."
 msgstr ""
 
@@ -75,6 +75,7 @@ msgid "Menu"
 msgstr ""
 
 #: header.php:42
+#, php-format
 msgid "Go to the home page of %1$s"
 msgstr ""
 
@@ -82,85 +83,83 @@ msgstr ""
 msgid "About the Author"
 msgstr ""
 
-#: inc/template-tags.php:48
+#: inc/template-tags.php:67
 msgid "Participants"
 msgstr ""
 
-#: inc/template-tags.php:49
+#: inc/template-tags.php:68 templates/content-single-ritual.php:28
 msgid "Location"
 msgstr ""
 
-#: inc/template-tags.php:50
+#: inc/template-tags.php:69 templates/content-single-ritual.php:30
 msgid "Timing"
 msgstr ""
 
-#: inc/template-tags.php:91
+#: inc/template-tags.php:110
+#, php-format
 msgctxt "post date"
 msgid "Posted on %s"
 msgstr ""
 
-#: inc/template-tags.php:96
+#: inc/template-tags.php:115
+#, php-format
 msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:117 inc/template-tags.php:123
+#: inc/template-tags.php:136 inc/template-tags.php:142
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:119
+#: inc/template-tags.php:138
+#, php-format
 msgid "Posted in %1$s"
 msgstr ""
 
-#: inc/template-tags.php:125
+#: inc/template-tags.php:144
+#, php-format
 msgid "Tagged %1$s"
 msgstr ""
 
 #. translators: %s: post title
-#: inc/template-tags.php:132
+#: inc/template-tags.php:151
+#, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
 #. translators: %s: Name of current post
-#: inc/template-tags.php:139
+#: inc/template-tags.php:158
+#, php-format
 msgid "Edit %s"
 msgstr ""
 
-#: templates/content-single-ritual.php:24
-msgid "More About This"
+#: templates/content-single-ritual.php:14 templates/content-single-text.php:12
+msgid "Communities"
 msgstr ""
 
-#: templates/content-single-ritual.php:28
-msgid "Related Texts"
+#: templates/content-single-ritual.php:23
+msgid "Scenario"
 msgstr ""
 
-#: templates/content-single-ritual.php:50
-msgid "More Texts..."
+#: templates/content-single-ritual.php:26
+msgid "The Participants"
 msgstr ""
 
-#: templates/content-single-ritual.php:55
-msgid "Related Rituals"
-msgstr ""
-
-#: templates/content-single-ritual.php:79
-msgid "More Rituals..."
-msgstr ""
-
-#: templates/content-single-text.php:13
-msgid "The Text"
-msgstr ""
-
-#: templates/content-single-text.php:16
-msgid "Text Source"
-msgstr ""
-
-#: templates/content-single-text.php:21
+#: templates/content-single-ritual.php:36 templates/content-single-text.php:37
 msgid "Text Background"
 msgstr ""
 
+#: templates/content-single-text.php:21
+msgid "The Text"
+msgstr ""
+
 #: templates/content-single-text.php:26
+msgid "Text Source"
+msgstr ""
+
+#: templates/content-single-text.php:32
 msgid "Commentary"
 msgstr ""
 
@@ -174,6 +173,26 @@ msgid "One Comment"
 msgid_plural "%1$s Comments"
 msgstr[0] ""
 msgstr[1] ""
+
+#: templates/related-content.php:2
+msgid "More About This"
+msgstr ""
+
+#: templates/related-content.php:6
+msgid "Related Texts"
+msgstr ""
+
+#: templates/related-content.php:28
+msgid "More Texts..."
+msgstr ""
+
+#: templates/related-content.php:33
+msgid "Related Rituals"
+msgstr ""
+
+#: templates/related-content.php:57
+msgid "More Rituals..."
+msgstr ""
 
 #: templates/the-strip.php:4
 msgid "Here Be Breadcrumbs!"

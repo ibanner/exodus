@@ -33,6 +33,14 @@ ul.secondary {
     }
 }
 
+/* Content */
+
+@media screen and (min-width: 40em) {
+    .inlet {
+        float: right;
+    }
+}
+
 /* Pagination */
 .pager {
     text-align: right;

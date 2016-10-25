@@ -2,9 +2,7 @@
 
 <div class="row">
 
-    <?php get_sidebar(); ?>
-
-    <div class="col-sm-8 col-sm-offset-1 blog-main">
+    <div class="col-sm-12 blog-main">
 
         <?php
         if ( have_posts() ) : while ( have_posts() ) : the_post();

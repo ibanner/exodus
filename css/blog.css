@@ -607,6 +607,10 @@ h6 .h6 {
     margin: 1.8em auto;
 }
 
+.content-wrapper {
+    padding-top: 2em;
+}
+
 /* ## Single Articles & Posts */
 
 .article-title {
@@ -657,19 +661,29 @@ li.article-field {
     padding-top: 2em;
 }
 
-.the-text {
+.inlet {
     padding: 1em;
     background-color: #f5f5f5;
     border-radius: 4px;
+    margin-bottom: 1em;
 }
 
-.text-source {
+@media screen and (min-width: 37.5) {
+    .inlet {
+        margin-bottom: 0;
+    }
+}
+
+.ritual-info,
+.text-info {
     font-size: 90%;
-    padding-top: 1.6em;
+    margin-top: 1.2em;
+    padding-top: 1.2em;
     border-top: 1px solid #c8ddf0;
 }
 
-.text-source h4 {
+.ritual-info h4,
+.text-info h4 {
     font-weight: bold;
 }
 
@@ -724,59 +738,29 @@ object {
     font-weight: bold;
 }
 
-.article-label {
-    padding: .2em .6em .3em;
-    font-size: 75%;
-    font-weight: 700;
-    line-height: 1;
-    color: #fff;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    border-radius: .25em;
-    background: #607d8b;
-    display: inline-block;
-    margin: auto;
-}
-
-.article-label-wrap {
-    text-align: center;
-}
-
-.communities {
+.cpt-meta {
     text-align: center;
     font-size: 90%;
 }
 
-.communities > .caption {
+.article-label {
     font-weight: bold;
 }
 
 ul.the-communities {
     list-style-type: none;
     padding: 0;
+    display: inline;
 }
 
 li.community {
     display: inline-block;
-    background: #c8ddf0;
-    border-radius: 4px;
-    font-size: smaller;
-    padding: 2px 4px;
-    margin-left: 2px;
+    margin: 0 4px;
 }
 
-ul.the-communities:last-child {
-    margin-left: 0;
+button > a {
+    color: #fff !important;
 }
-
-li.community:hover,
-li.community:focus {
-    font-color: #fff;
-    background: #c8ddf0;
-    border-radius: 4px;
-}
-
 
 .related-content {
     padding-top: 2em;
