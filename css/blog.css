@@ -614,6 +614,7 @@ h6 .h6 {
 /* ## Single Articles & Posts */
 
 .article-title,
+.category-title,
 .archive-title {
     /*margin-bottom: 5px;*/
     font-size: 2.6rem;
@@ -624,6 +625,7 @@ h6 .h6 {
 
 @media screen and (min-width: 37.5){
     .article-title,
+    .category-title,
     .archive-title {
         font-size: 1.6rem;
         line-height: 1.3em;
@@ -734,6 +736,14 @@ li.article-field {
         width: 23%;
         margin: 10px 8px;
     }
+}
+
+/* ## Home */
+
+.home .grid-item  {
+    background: #c8ddf0;
+    width: 100%;
+    text-align: center;
 }
 
 /* ## Content Elements */

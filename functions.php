@@ -86,7 +86,15 @@ function exodus_content_width() {
 }
 add_action( 'after_setup_theme', 'exodus_content_width', 0 );
 
-
+function exodus_add_custom_types( $query ) {
+    if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+        $query->set( 'post_type', array(
+            'post', 'nav_menu_item' , 'ritual', 'text' , 'event'
+        ));
+        return $query;
+    }
+}
+add_filter( 'pre_get_posts', 'exodus_add_custom_types' );
 
 
 /* -------------------------------------------------
