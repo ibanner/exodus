@@ -740,10 +740,31 @@ li.article-field {
 
 /* ## Home */
 
-.home .grid-item  {
-    background: #c8ddf0;
+.home {
     width: 100%;
     text-align: center;
+}
+
+.tile {
+    background: #c8ddf0;
+    margin-bottom: 1.6em;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.search-box {
+    padding-bottom: 2em;
+}
+
+.search-box input {
+    border: none;
+}
+
+.search-box label {
+    border: 1px solid grey;
+    padding: 0.5em;
+    border-radius: 50px;
 }
 
 /* ## Content Elements */
