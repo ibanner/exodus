@@ -10,17 +10,23 @@
                 <?php the_post_thumbnail('small'); ?>
             </div>
             <div class="article-meta">
-                <span class="caption"><?php exodus_cpt_label(); ?> | <?php esc_html_e( 'Communities', 'exodus'); ?></span>
+                <span class="caption"><?php exodus_cpt_label(); ?>
+                    <?php if ( has_term( '', 'community') ) {?>
+                     | <?php esc_html_e( 'Communities', 'exodus'); ?></span>
                 <ul class="the-communities">
                     <?php exodus_the_communities(); ?>
                 </ul>
+                <?php } ?>
             </div><!-- /.article-meta -->
         <?php } else { ?>
             <div class="article-meta">
-                <span class="caption"><?php exodus_cpt_label(); ?> | <?php esc_html_e( 'Communities', 'exodus'); ?></span>
+                <span class="caption"><?php exodus_cpt_label(); ?>
+                    <?php if ( has_term( '', 'community') ) {?>
+                     | <?php esc_html_e( 'Communities', 'exodus'); ?></span>
                 <ul class="the-communities">
                     <?php exodus_the_communities(); ?>
                 </ul>
+                    <?php } ?>
             </div><!-- /.article-meta -->
         <?php } ?>
 

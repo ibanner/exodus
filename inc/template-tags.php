@@ -46,13 +46,24 @@ if ( ! function_exists( 'exodus_the_communities' ) ) :
      */
     function exodus_the_communities() {
         $post = get_the_ID();
-        echo the_terms(
-            $post ,
-            'community' ,
-            '<li class="community"><button class="btn btn-info btn-xs">' ,
-            '</a></button></li><li class="community"><button class="btn btn-info btn-xs">' ,
-            '</a></button></li>'
-        );
+        if ( is_singular() ) {
+            echo the_terms(
+                $post ,
+                'community' ,
+                '<li class="community"><button class="btn btn-info btn-xs">' ,
+                '</a></button></li><li class="community"><button class="btn btn-info btn-xs">' ,
+                '</a></button></li>'
+            );
+        } else {
+            echo the_terms(
+                $post ,
+                'community' ,
+                '<span class="community caption">' ,
+                ', </a></span><span class="community caption">' ,
+                '</a></span>'
+            );
+        }
+
     }
 endif;
 
