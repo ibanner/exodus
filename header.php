@@ -22,7 +22,7 @@
 <div class="blog-masthead">
     <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'exodus' ); ?></a>
 
-    <nav id="site-navigation" class="main-navigation blog-nav" role="navigation">
+    <nav id="site-navigation" class="main-navigation blog-nav col-md-8" role="navigation">
         <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'exodus' ); ?></button>
         <?php
             wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) );

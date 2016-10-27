@@ -218,7 +218,12 @@ h6 .h6 {
     }
 
     .blog-header {
-        height: 2.3em;
+        height: 2.6em;
+
+    }
+
+    .main-navigation {
+        width: auto;
     }
 }
 
@@ -227,7 +232,6 @@ h6 .h6 {
 .main-navigation {
     clear: both;
     display: block;
-    width: 100%;
     font-family: 'Assistant', sans-serif;
     font-weight: 300;
 }
@@ -388,6 +392,8 @@ h6 .h6 {
     padding: 1em;
     z-index: 1;
     margin-bottom: 3em;
+    width: 100%;
+    background: #428bca;
 }
 
 .nav-menu {
@@ -418,7 +424,7 @@ h6 .h6 {
     .main-navigation.toggled {
         position: relative;
         margin: 0 auto;
-        padding: 0 3.5em;
+        /*padding: 0 3.5em;*/
         background-color: transparent;
         /*background-color: hsla(0, 0%, 0%, .7);*/
         z-index: 9999;
@@ -444,7 +450,7 @@ h6 .h6 {
     .main-navigation ul,
     .main-navigation.toggled ul {
         max-height: none;
-        padding-left: 0;
+        padding: 0;
     }
 
     .main-navigation.toggled ul {
