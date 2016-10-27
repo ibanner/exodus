@@ -578,9 +578,9 @@ h6 .h6 {
     }
 }
 
-/*********************/
-/* # SIDEBAR
-/*********************/
+/*!*********************!
+!* # SIDEBAR
+!*********************!
 
 .sidebar-module {
     padding: 15px;
@@ -595,7 +595,7 @@ h6 .h6 {
 .sidebar-module-inset ul:last-child,
 .sidebar-module-inset ol:last-child {
     margin-bottom: 0;
-}
+}*/
 
 /*********************/
 /* # CONTENT
@@ -685,6 +685,22 @@ li.article-field {
 .ritual-info h4,
 .text-info h4 {
     font-weight: bold;
+}
+
+.sub-cats {
+    list-style-type: none;
+    padding: 0 0 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #c8ddf0;
+}
+
+li.sub-cat {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.sub-cat .btn {
+    font-size: 1em;
 }
 
 /* ## Masonry */
