@@ -1,4 +1,4 @@
-<div class="grid-item">
+<div class="grid-item col-xs-12 col-sm-6 col-md-3">
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <h2 class="article-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
         <div class="grid-excerpt">

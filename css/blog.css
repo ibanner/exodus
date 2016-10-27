@@ -689,19 +689,21 @@ li.article-field {
 
 /* ## Masonry */
 
+.grid {
+    max-width: 1200px;
+}
+
 .grid:after {
     content: '';
     display: block;
     clear: both;
 }
+
+/* Responsive Column Width */
+
 .grid-item {
-    width: calc(100% + 10px);
-    margin: 10px -5px;
     height: auto;
     float: left;
-    border: 1px solid lightgrey;
-    border-radius: 4px;
-    padding: 10px;
 }
 
 .grid-item h2 {
@@ -713,14 +715,21 @@ li.article-field {
     font-size: 1rem;
 }
 
+.grid-item article {
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
 .grid-item .article-meta {
     text-align: initial;
     padding-top: 0.7em;
 }
 
-@media screen and (min-width: 37.5em) {
+/*@media screen and (min-width: 37.5em) {
     .grid-item {
-        width: 48%;
+        width: 160px;
         margin: 10px 1%;
     }
 }
@@ -736,7 +745,7 @@ li.article-field {
         width: 23%;
         margin: 10px 8px;
     }
-}
+}*/
 
 /* ## Home */
 
@@ -906,6 +915,9 @@ button > a {
     text-align: center;
     background-color: #428bca;
     border-top: 1px solid #e5e5e5;
+    bottom: 0;
+    /*position: absolute;*/
+    width: 100%;
 }
 
 .blog-footer a {

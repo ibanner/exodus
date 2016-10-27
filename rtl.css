@@ -45,3 +45,7 @@ ul.secondary {
 .pager {
     text-align: right;
 }
+
+.nav-previous {
+    float: right;
+}
