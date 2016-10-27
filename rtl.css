@@ -46,6 +46,15 @@ ul.secondary {
     text-align: right;
 }
 
-.nav-previous {
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
     float: right;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+    float: left;
+    text-align: left;
 }
