@@ -215,6 +215,7 @@ h6 .h6 {
         position: relative;
         bottom: 2.3em;
         text-align: right;
+        padding: 1em 0;
     }
 
     .blog-header {
@@ -225,6 +226,13 @@ h6 .h6 {
     .main-navigation {
         width: auto;
     }
+
+    .site-title a:hover,
+    .site-title a:focus {
+        background-color: #7eb0db;
+        border: none;
+    }
+
 }
 
 /* ## Navigation */
