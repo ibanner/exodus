@@ -42,10 +42,11 @@
                     <?php printf( esc_html__('Go to the home page of %1$s', 'exodus'), $site_title ); ?>
             </div>
             <?php
+            if ( is_front_page() && is_home() ) :
                 $description = get_bloginfo( 'description', 'display' );
                 if ( $description || is_customize_preview() ) : ?>
                 <p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-            <?php endif; ?>
+            <?php endif; endif; ?>
         </div><!-- .site-branding -->
     </header>
 </div>

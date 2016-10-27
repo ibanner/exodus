@@ -171,13 +171,13 @@ h6 .h6 {
 }
 
 .site-title {
-    padding: 1.7em 1em 0;
+    padding: 1em;
     font-family: 'Tinos', serif;
-    font-size: 2.6rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    line-height: 1.3em;
     text-transform: uppercase;
     word-break: break-word;
+    margin-bottom: 0;
 }
 
 .site-title a {
@@ -205,12 +205,20 @@ h6 .h6 {
 
 @media screen and (min-width: 40em) {
     .site-title {
-        padding: 0;
-        font-size: 2.4rem;
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (min-width: 60em) {
+    .site-title {
+        font-size: 2rem;
+        position: relative;
+        bottom: 2.3em;
+        text-align: right;
     }
 
-    .site-description {
-        font-size: 1.4rem;
+    .blog-header {
+        height: 2.3em;
     }
 }
 
@@ -243,7 +251,7 @@ h6 .h6 {
 .main-navigation a {
     position: relative;
     display: block;
-    padding: 0.8em 1em;
+    padding: 0.4em 1em;
     font-weight: 400;
     text-decoration: none;
     line-height: 1.6em;
@@ -379,6 +387,7 @@ h6 .h6 {
     bottom: 0;
     padding: 1em;
     z-index: 1;
+    margin-bottom: 3em;
 }
 
 .nav-menu {
@@ -408,23 +417,21 @@ h6 .h6 {
     .main-navigation,
     .main-navigation.toggled {
         position: relative;
-        min-height: 3.5em;
-        /*max-width: 70em;*/
         margin: 0 auto;
         padding: 0 3.5em;
         background-color: transparent;
         /*background-color: hsla(0, 0%, 0%, .7);*/
+        z-index: 9999;
     }
 
     .menu-kolehad-org-container,
     .menu-languages-container {
-        width: 50%;
         display: inline-block;
     }
 
     .menu-languages-container {
-        float: right;
         text-align: right;
+        float: left;
     }
 
 
