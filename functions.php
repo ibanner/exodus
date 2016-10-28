@@ -87,6 +87,7 @@ function exodus_content_width() {
 }
 add_action( 'after_setup_theme', 'exodus_content_width', 0 );
 
+// Show CPTs on archive pages
 function exodus_add_custom_types( $query ) {
     if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
         $query->set( 'post_type', array(
@@ -98,14 +99,6 @@ function exodus_add_custom_types( $query ) {
         return $query;
     }
 
-    // Show posts of 'post', 'page' and 'movie' post types on home page
-    /*add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
-
-    function add_my_post_types_to_query( $query ) {
-        if ( is_home() && $query->is_main_query() )
-            $query->set( 'post_type', array( 'post', 'page', 'movie' ) );
-        return $query;
-    }*/
 }
 add_filter( 'pre_get_posts', 'exodus_add_custom_types' );
 

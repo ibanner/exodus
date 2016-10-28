@@ -13,7 +13,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function kolehad_body_classes( $classes ) {
+function exodus_body_classes( $classes ) {
 	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -26,14 +26,25 @@ function kolehad_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'kolehad_body_classes' );
+add_filter( 'body_class', 'exodus_body_classes' );
 
 /**
  * Add a pingback url auto-discovery header for singularly identifiable articles.
  */
-function kolehad_pingback_header() {
+function exodus_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		echo '<link rel="pingback" href="', bloginfo( 'pingback_url' ), '">';
 	}
 }
-add_action( 'wp_head', 'kolehad_pingback_header' );
+add_action( 'wp_head', 'exodus_pingback_header' );
+
+/**
+ * Filter the except length to 20 characters.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function exodus_custom_excerpt_length( $length ) {
+    return 20;
+}
+add_filter( 'excerpt_length', 'exodus_custom_excerpt_length', 999 );

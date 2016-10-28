@@ -5,18 +5,17 @@
     <div class="col-sm-12 blog-main">
 
         <?php
-        if ( have_posts() ) : while ( have_posts() ) : the_post();
+        if ( have_posts() ) : ?>
+        <div class="grid">
+            <div class="grid-sizer col-xs-12 col-sm-6 col-md-3"></div>
+            <?php while ( have_posts() ) : the_post();
 
             get_template_part( 'templates/list', 'index' );
 
         endwhile; ?>
+        </div><!-- /.grid -->
 
-        <nav>
-            <ul class="pager">
-                <li><?php next_posts_link( 'Previous' ); ?></li>
-                <li><?php previous_posts_link( 'Next' ); ?></li>
-            </ul>
-        </nav>
+            <div class="posts-nav col-sm-12"><?php the_posts_navigation(); ?></div>
 
             <?php endif;
         ?>
