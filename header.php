@@ -22,14 +22,7 @@
 <div class="blog-masthead">
     <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'exodus' ); ?></a>
 
-    <nav id="site-navigation" class="main-navigation blog-nav col-md-8" role="navigation">
-        <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'exodus' ); ?></button>
-        <?php
-            wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) );
-            wp_nav_menu( array( 'theme_location' => 'secondary', 'menu_class' => 'secondary' ) );
-        ?>
-    </nav><!-- #site-navigation -->
-    <header class="blog-header">
+    <header class="blog-header container">
         <div class="site-branding">
             <?php
             $site_title = get_bloginfo( 'name' );
@@ -42,12 +35,19 @@
                     <?php printf( esc_html__('Go to the home page of %1$s', 'exodus'), $site_title ); ?>
             </div>
             <?php
-            if ( is_front_page() && is_home() ) :
+            if ( is_front_page() || is_home() ) :
                 $description = get_bloginfo( 'description', 'display' );
                 if ( $description || is_customize_preview() ) : ?>
                 <p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
             <?php endif; endif; ?>
         </div><!-- .site-branding -->
+        <nav id="site-navigation" class="main-navigation blog-nav" role="navigation">
+            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'exodus' ); ?></button>
+            <?php
+            wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) );
+            // wp_nav_menu( array( 'theme_location' => 'secondary', 'menu_class' => 'secondary' ) );
+            ?>
+        </nav><!-- #site-navigation -->
     </header>
 </div>
 <?php if ( !is_front_page() && !is_home() ) : get_template_part( 'templates/the-strip'); endif; ?>

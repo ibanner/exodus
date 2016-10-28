@@ -50,7 +50,7 @@ function exodus_setup() {
     // This theme uses wp_nav_menu() in one location.
     register_nav_menus( array(
         'primary' => esc_html__( 'Primary Menu', 'exodus' ),
-        'secondary' => esc_html__( 'Secondary Menu', 'exodus' ),
+        /*'secondary' => esc_html__( 'Secondary Menu', 'exodus' ),*/
     ) );
 
     /*
@@ -109,7 +109,8 @@ function exodus_scripts() {
     // wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/jquery-3.1.1.min.js', array(), '3.1.1', true );
 
     // Local
-    wp_enqueue_style( 'bootstrap-blog', get_template_directory_uri() . '/css/blog.css' );
+    wp_enqueue_style( 'exodus', get_template_directory_uri() . '/style.css' );
+    //wp_enqueue_style( 'bootstrap-blog', get_template_directory_uri() . '/css/blog.css' );
     wp_enqueue_script( 'exodus-navigation', get_template_directory_uri() . '/js/navigation.js', array( 'jquery' ), '20151215', true );
     wp_localize_script( 'exodus-navigation', 'screenReaderText', array(
         'expand'   => '<span class="screen-reader-text">' . __( 'expand child menu', 'exodus' ) . '</span>',
