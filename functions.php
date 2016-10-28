@@ -53,6 +53,7 @@ function exodus_setup() {
         /*'secondary' => esc_html__( 'Secondary Menu', 'exodus' ),*/
     ) );
 
+    add_theme_support( 'post-formats', array( 'gallery' , 'image' , 'video' , 'audio' , 'link' , 'quote' ) );
     /*
      * Switch default core markup for search form, comment form, and comments
      * to output valid HTML5.
@@ -89,7 +90,7 @@ add_action( 'after_setup_theme', 'exodus_content_width', 0 );
 function exodus_add_custom_types( $query ) {
     if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
         $query->set( 'post_type', array(
-            'post', 'nav_menu_item' , 'ritual', 'text' , 'event'
+            'post', 'nav_menu_item' , 'ritual', 'text'
         ));
         return $query;
     }
@@ -137,10 +138,10 @@ add_action( 'wp_enqueue_scripts', 'exodus_scripts' );
 
 require get_template_directory() . '/inc/custom-header.php';
 require get_template_directory() . '/inc/template-tags.php';
+require get_template_directory() . '/inc/cpt-config.php';           // Register Custom Post Types locally
 require get_template_directory() . '/inc/extras.php';               // Custom functions that act independently of the theme templates.
 require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
-
 
 /* -------------------------------------------------
 // 3. Custom Settings Pages
