@@ -93,7 +93,19 @@ function exodus_add_custom_types( $query ) {
             'post', 'nav_menu_item' , 'ritual', 'text'
         ));
         return $query;
+    } elseif ( is_home() && $query->is_main_query() ) {
+        $query->set( 'post_type', array( 'post', 'ritual', 'text' ) );
+        return $query;
     }
+
+    // Show posts of 'post', 'page' and 'movie' post types on home page
+    /*add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
+
+    function add_my_post_types_to_query( $query ) {
+        if ( is_home() && $query->is_main_query() )
+            $query->set( 'post_type', array( 'post', 'page', 'movie' ) );
+        return $query;
+    }*/
 }
 add_filter( 'pre_get_posts', 'exodus_add_custom_types' );
 
