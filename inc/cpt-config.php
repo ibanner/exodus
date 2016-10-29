@@ -80,3 +80,73 @@ function exodus_register_my_cpts() {
 
 // End of exodus_register_my_cpts()
 }
+
+/*-------------------------------------------------------------------------------
+	Set Admin Custom Columns
+-------------------------------------------------------------------------------*/
+
+// Set Custom Columns for "Text" CPT
+add_filter('manage_text_posts_columns', 'set_custom_edit_text_columns');
+add_action('manage_text_posts_custom_column', 'custom_text_columns', 10, 2);
+
+function set_custom_edit_text_columns($new_columns) {
+    // $new_columns['cb'] = '<input type="checkbox" />';
+    $new_columns['id'] = __('ID');
+    $new_columns['thumbnail'] = __('Thumbnail' , 'exodus' );
+    $new_columns['excerpt'] = __('Excerpt' , 'exodus' );
+    // $new_columns['title'] = _x('Text Title', 'column name');
+    $new_columns['author'] = __('Author' , 'exodus' );
+    $new_columns['categories'] = __('Categories' , 'exodus' );
+    // $new_columns['date'] = _x('Date', 'column name');
+
+    return $new_columns;
+}
+
+function custom_text_columns($column_name, $id) {
+    switch ($column_name) {
+        case 'id':
+            echo $id;
+            break;
+        case 'thumbnail':
+            echo the_post_thumbnail(array (100,100));
+            break;
+        case 'excerpt':
+            echo the_excerpt();
+            break;
+        default:
+            break;
+    } // end switch
+}
+
+// Set Custom Columns for "Ritual" CPT
+add_filter('manage_ritual_posts_columns', 'set_custom_edit_ritual_columns');
+add_action('manage_ritual_posts_custom_column', 'custom_ritual_columns', 10, 2);
+
+function set_custom_edit_ritual_columns($new_columns) {
+    // $new_columns['cb'] = '<input type="checkbox" />';
+    $new_columns['id'] = __('ID');
+    $new_columns['thumbnail'] = __('Thumbnail' , 'exodus' );
+    $new_columns['excerpt'] = __('Excerpt' , 'exodus' );
+    // $new_columns['title'] = _x('Ritual Title', 'column name');
+    $new_columns['author'] = __('Author' , 'exodus' );
+    $new_columns['categories'] = __('Categories' , 'exodus' );
+    // $new_columns['date'] = _x('Date', 'column name');
+
+    return $new_columns;
+}
+
+function custom_ritual_columns($column_name, $id) {
+    switch ($column_name) {
+        case 'id':
+            echo $id;
+            break;
+        case 'thumbnail':
+            echo the_post_thumbnail(array (100,100));
+            break;
+        case 'excerpt':
+            echo the_excerpt();
+            break;
+        default:
+            break;
+    } // end switch
+}  
