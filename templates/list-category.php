@@ -7,7 +7,7 @@
 
         <?php if ( has_post_thumbnail() ) {?>
             <div class="grid-thumbnail">
-                <?php the_post_thumbnail('small'); ?>
+                <?php the_post_thumbnail('medium' , ['class' => 'img-responsive responsive--full']); ?>
             </div>
             <div class="article-meta">
                 <span class="caption"><?php exodus_cpt_label(); ?>

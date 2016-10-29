@@ -10,7 +10,7 @@
             <div class="grid-sizer col-xs-12 col-sm-6 col-md-3"></div>
             <?php while ( have_posts() ) : the_post();
 
-            get_template_part( 'templates/list', 'index' );
+            get_template_part( 'templates/list' );
 
         endwhile; ?>
         </div><!-- /.grid -->

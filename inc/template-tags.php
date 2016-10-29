@@ -31,10 +31,8 @@ if ( ! function_exists( 'exodus_cpt_label' ) ) :
      */
     function exodus_cpt_label() {
         $post_type = get_post_type();
-        $cpt_slugs = cptui_get_post_type_slugs();
         $archive = get_post_type_archive_link( $post_type );
-        if (in_array( $post_type , $cpt_slugs)) : echo '<a href="' . $archive . '" class="article-label article-label--' . $post_type . '">' . get_option( $post_type ) . '</a>';
-        endif;
+        echo '<a href="' . $archive . '" class="article-label article-label--' . $post_type . '">' . get_option( $post_type ) . '</a>';
     }
 endif;
 

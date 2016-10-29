@@ -94,6 +94,13 @@ h6 .h6 {
     font-size: 1.4rem !important;
 }
 
+.caption {
+    font-size: 0.8rem;
+}
+
+.caption-label {
+    font-weight: bold;
+}
 
 /*********************/
 /* # ACCESSIBILITY
@@ -711,25 +718,90 @@ li.sub-cat {
 
 .grid-item h2 {
     font-size: 1.4rem;
+    text-align: initial;
+    margin: 10px;
+    border: none;
 }
 
-.grid-item p,
-.grid-item .caption {
+.grid-item p {
     font-size: 0.9rem;
+    text-align: initial;
+    margin: 1em 10px;
 }
 
+span.type.caption {
+    border-bottom: 2px solid;
+    margin: 10px;
+}
+
+.type a:hover,
+.type a:focus {
+    text-decoration: none;
+    background-color: #e7e7e7;
+}
+
+#bookmark {
+    float: right;
+    padding: .5em;
+    color: lightgrey;
+}
+
+#bookmark:hover,
+#bookmark:focus {
+    color: grey;
+    background: #e7e7e7;
+}
 .grid-item article {
     border: 1px solid lightgrey;
     border-radius: 4px;
-    padding: 10px;
     margin-bottom: 10px;
+    text-align: initial;
 }
 
 .grid-item .article-meta {
     text-align: initial;
     padding-top: 0.7em;
+    margin: 1em 10px;
 }
 
+.the-categories,
+.social-meta ul {
+    display: inline;
+    list-style-type: none;
+    padding: 0;
+}
+
+li.category, .social-meta ul li {
+    display: inline;
+    text-align: center;
+}
+
+li.category:after {
+    content: ", ";
+}
+
+li.category:last-child:after {
+    content: none;
+}
+
+.social-meta ul li {
+    text-align: center;
+    width: 50%;
+    line-height: 2.4rem;
+    display: inline-block;
+    border-right: 1px solid lightgrey;
+    border-bottom: 4px solid #c8ddf0;
+}
+
+.social-meta ul li:hover,
+.social-meta ul li:focus {
+    background: #e7e7e7;
+}
+
+.social-meta ul li:last-child {
+    float: right;
+    border-right: none;
+}
 /* ## Home */
 
 .home {
@@ -808,11 +880,6 @@ object {
 
 .byline a {
     font-weight: bold;
-}
-
-.article-meta {
-    text-align: center;
-    font-size: 90%;
 }
 
 .article-label {
@@ -911,7 +978,7 @@ li.community {
 }
 
 .blog-footer a {
-    padding: 40px 0;
+    padding: 15px 0;
     color: #428bca;
 }
 
