@@ -149,4 +149,4 @@ function custom_ritual_columns($column_name, $id) {
         default:
             break;
     } // end switch
-}  
+}
