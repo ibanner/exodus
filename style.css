@@ -809,12 +809,23 @@ li.category:last-child:after {
     text-align: center;
 }
 
-.tile {
+.category-tiles {
+    list-style-type: none;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 2em;
+    padding: 0;
+}
+
+.cat-item {
     background: #c8ddf0;
     margin-bottom: 1.6em;
     border: 1px solid lightgrey;
     border-radius: 4px;
     padding: 10px;
+    display: inline-flex;
+    min-width: 20%;
+    min-height: 5em;
 }
 
 .search-box {
