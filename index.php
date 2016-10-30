@@ -11,9 +11,12 @@
                 'order'      => 'DESC',
                 'title_li'   => '',
                 'hide_empty'    => false,
-                'include'       => array(14,15,16,17),
+                'exclude'       => 1,
+                'parent'        => 0
             );
-            wp_list_categories($args); ?>
+            wp_list_categories($args);
+            // get_categories($args);
+            ?>
         </ul>
     </div>
     <div class="row">
