@@ -7,6 +7,7 @@ if ( x == 'rtl') {
         percentPosition: true,
         originLeft: false
 
+
     });
     // console.log('originLeft: false');
 } else {

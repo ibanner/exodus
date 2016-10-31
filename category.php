@@ -16,14 +16,20 @@
                 <?php if ( $sub_cats ) : ?>
                     <h2 class="screen-reader-text"><?php esc_html_e( "Sub-Categories" , 'exodus' ); ?></h2>
                     <ul class="sub-cats">
+                        <div class="button-group filters-button-group">
                         <?php
                         foreach ( $sub_cats as $category ) {
-                            printf( '<li class="sub-cat"><a href="%1$s"><button class="btn btn-info">%2$s</button></a></li>',
+                            echo '<button class="btn btn-info sub-cat" data-filter=".category-' . esc_html( $category->slug ) . '">' . esc_html( $category->name ) . '</button>';
+                        }
+
+                        /*foreach ( $sub_cats as $category ) {
+                            printf( '<li class="sub-cat element-item ' . esc_html( $category->slug ) . '"><a href="%1$s"><button class="btn btn-info">%2$s</button></a></li>',
                                 esc_url( get_category_link( $category->term_id ) ),
                                 esc_html( $category->name )
                             );
-                        }
+                        }*/
                         ?>
+                        </div>
                     </ul>
 
                 <?php endif; ?>

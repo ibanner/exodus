@@ -1,4 +1,4 @@
-<div class="grid-item col-xs-12 col-sm-6 col-md-3">
+<div <?php post_class('grid-item element-item col-xs-12 col-sm-6 col-md-3'); ?>>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <span class="type caption"><?php exodus_cpt_label(); ?></span>
         <i id="bookmark" class="fa fa-bookmark-o" aria-hidden="true"></i>

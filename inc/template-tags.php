@@ -38,6 +38,20 @@ endif;
 
 /******************************************************/
 
+if ( ! function_exists( 'exodus_category_as_style' ) ) :
+    /**
+     * Prints a translatable CPT label
+     */
+    function exodus_category_as_style() {
+        $categories = the_category();
+        foreach($categories as $category) {
+            echo esc_url( get_category_link( $category->slug ) ) . ' ';
+        }
+    }
+endif;
+
+/******************************************************/
+
 if ( ! function_exists( 'exodus_the_communities' ) ) :
     /**
      * Prints HTML with the list of communities this post is related to.

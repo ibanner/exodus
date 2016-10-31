@@ -818,7 +818,6 @@ li.category:last-child:after {
 }
 
 .cat-item {
-    background: #c8ddf0;
     margin-bottom: 1.6em;
     border: 1px solid lightgrey;
     border-radius: 4px;
@@ -826,6 +825,11 @@ li.category:last-child:after {
     display: inline-flex;
     min-width: 20%;
     min-height: 5em;
+}
+
+.cat-item:hover,
+.cat-item:focus {
+    background: #c8ddf0;
 }
 
 .search-box {
