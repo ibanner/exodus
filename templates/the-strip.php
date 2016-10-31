@@ -9,7 +9,7 @@
                 ',false);
                     var_dump($breadcrumbs);
                 }*/
-                if (is_archive()) {
+                if ( is_category()) {
                     // $case = 'Archive'; var_dump($case);
                     echo get_category_parents( $cat, true, ' &raquo; ' );
                 } elseif (is_singular()) {
