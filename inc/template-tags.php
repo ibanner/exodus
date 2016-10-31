@@ -31,8 +31,10 @@ if ( ! function_exists( 'exodus_cpt_label' ) ) :
      */
     function exodus_cpt_label() {
         $post_type = get_post_type();
-        $archive = get_post_type_archive_link( $post_type );
-        echo '<a href="' . $archive . '" class="article-label article-label--' . $post_type . '">' . get_option( $post_type ) . '</a>';
+        $post_format = get_post_format();
+        $archive_cpt = get_post_type_archive_link( $post_type );
+        $archive_format = get_post_format_link( $post_format );
+        echo '<a href="' . ( $post_format ? $archive_format : $archive_cpt ) . '" class="article-label article-label--' . ( $post_format ? $post_format : $post_type ) . '">' . ( $post_format ? esc_html__('Video' , 'exodus' ) : (get_option( $post_type ))) . '</a>';
     }
 endif;
 
