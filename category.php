@@ -12,11 +12,11 @@
     <div class="row">
         <div id="main" class="col-sm-12 blog-main single-column">
             <div class="category category--<?php echo single_cat_title(); ?>">
-                <h1 class="category-title"><?php single_cat_title(); ?></h1>
+                <h1 class="category-title row"><?php single_cat_title(); ?></h1>
                 <?php if ( $sub_cats ) : ?>
                     <h2 class="screen-reader-text"><?php esc_html_e( "Sub-Categories" , 'exodus' ); ?></h2>
-                    <div class="sub-cats">
-                        <div class="button-group filter-button-group col-6-md col-12-sm" data-filter-group="category">
+                    <div class="sub-cats row">
+                        <div class="button-group filter-button-group category col-md-6 col-sm-12" data-filter-group="category">
                             <button class="button btn btn-info sub-cat active" aria-pressed="true" data-filter="*"><?php esc_html_e( "Show All" , 'exodus' ); ?></button>
                         <?php
                         foreach ( $sub_cats as $category ) {
@@ -32,10 +32,11 @@
                         }*/
                         ?>
                         </div>
-                        <div class="button-group filter-button-group col-6-md col-12-sm" data-filter-group="type">
-                            <button class="button btn btn-info sub-cat active" aria-pressed="true" data-filter="*"><?php esc_html_e( "Show All" , 'exodus' ); ?></button>
-                            <button class="button btn btn-info sub-cat" aria-pressed="true" data-filter=".text"><?php esc_html_e( "Text" , 'exodus' ); ?></button>
-                            <button class="button btn btn-info sub-cat" aria-pressed="true" data-filter=".ritual"><?php esc_html_e( "Ritual" , 'exodus' ); ?></button>
+                        <div class="button-group filter-button-group type col-md-6 col-sm-12" data-filter-group="type">
+                            <button class="button btn btn-warning sub-cat active" aria-pressed="true" data-filter="*"><?php esc_html_e( "Show All" , 'exodus' ); ?></button>
+                            <button class="button btn btn-warning sub-cat" aria-pressed="false" data-filter=".text"><?php esc_html_e( "Text" , 'exodus' ); ?></button>
+                            <button class="button btn btn-warning sub-cat" aria-pressed="false" data-filter=".ritual"><?php esc_html_e( "Ritual" , 'exodus' ); ?></button>
+                            <button class="button btn btn-warning sub-cat" aria-pressed="false" data-filter=".format-video"><?php esc_html_e( "Video" , 'exodus' ); ?></button>
                         </div>
                     </div>
 

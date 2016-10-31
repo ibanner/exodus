@@ -692,6 +692,24 @@ li.article-field {
     margin-bottom: 2em;
 }
 
+.sub-cats .type {
+    /*margin-top: 10px;*/
+}
+
+@media screen and (min-width: 37em){
+    .sub-cats {
+        text-align: start;
+    }
+
+    .sub-cats .type {
+        text-align: right;
+        margin-top: 0;
+    }
+}
+.filter-button-group {
+    /*display: inherit;*/
+}
+
 
 /* ## Isotope / Masonry */
 
