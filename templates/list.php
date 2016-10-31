@@ -34,7 +34,7 @@
         <?php } ?>
         <div class="social-meta caption">
             <ul>
-                <li>0 Comments</li>
+                <li><a href="<?php comments_link(); ?>"><?php comments_number(); ?></a></li>
                 <li>Share This</li>
             </ul>
         </div>
