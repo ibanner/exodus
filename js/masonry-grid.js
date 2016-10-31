@@ -3,9 +3,10 @@ var x = document.getElementsByTagName("html")[0].getAttribute("dir");
 if ( x == 'rtl') {
     jQuery('.grid').masonry({
         itemSelector: '.grid-item',
-        columnWidth: '.grid-sizer',
+        columnWidth: '.grid-item',
         percentPosition: true,
-        originLeft: false
+        originLeft: false,
+        resizesContainer: true
 
 
     });
@@ -13,8 +14,9 @@ if ( x == 'rtl') {
 } else {
     jQuery('.grid').masonry({
         itemSelector: '.grid-item',
-        columnWidth: '.grid-sizer',
-        percentPosition: true
+        columnWidth: '.grid-item',
+        percentPosition: true,
+        resizesContainer: true
     });
     // console.log('originLeft: true');
 }

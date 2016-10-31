@@ -15,11 +15,13 @@
                 <h1 class="category-title"><?php single_cat_title(); ?></h1>
                 <?php if ( $sub_cats ) : ?>
                     <h2 class="screen-reader-text"><?php esc_html_e( "Sub-Categories" , 'exodus' ); ?></h2>
-                    <ul class="sub-cats">
-                        <div class="button-group filters-button-group">
+                    <div class="sub-cats">
+                        <div class="button-group filter-button-group">
+                            <button class="button btn btn-info sub-cat active" aria-pressed="true" data-filter="*"><?php esc_html_e( "Show All" , 'exodus' ); ?></button>
                         <?php
                         foreach ( $sub_cats as $category ) {
-                            echo '<button class="btn btn-info sub-cat" data-filter=".category-' . esc_html( $category->slug ) . '">' . esc_html( $category->name ) . '</button>';
+                            echo '<button class="button btn btn-info sub-cat" aria-pressed="false" data-filter=".category-' . esc_html( $category->slug ) . '">' . esc_html( $category->name ) . '</button>
+                            ';
                         }
 
                         /*foreach ( $sub_cats as $category ) {
@@ -30,13 +32,13 @@
                         }*/
                         ?>
                         </div>
-                    </ul>
+                    </div>
 
                 <?php endif; ?>
                 <?php
                 if ( have_posts() ) : ?>
                     <div class="grid">
-                        <div class="grid-sizer col-xs-12 col-sm-6 col-md-3"></div>
+<!--                        <div class="grid-sizer col-xs-12 col-sm-6 col-md-3"></div>-->
                         <?php /* Start the Loop */
                         while ( have_posts() ) : the_post();
 

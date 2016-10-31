@@ -51,6 +51,10 @@ body {
     font-size: 1.2rem;
 }
 
+/*html, body {*/
+    /*height: 100%;*/
+/*}*/
+
 h1, .h1,
 h2, .h2,
 h3, .h3,
@@ -611,8 +615,8 @@ h6 .h6 {
 .category-title,
 .archive-title {
     /*margin-bottom: 5px;*/
-    font-size: 2.6rem;
-    line-height: 1.3em;
+    font-size: 1.6rem;
+    line-height: 2em;
     text-align: center;
     border-bottom: 1px solid #e5e5e5;
 }
@@ -621,8 +625,8 @@ h6 .h6 {
     .article-title,
     .category-title,
     .archive-title {
-        font-size: 1.6rem;
-        line-height: 1.3em;
+        font-size: 2.6rem;
+        line-height: 2em;
     }
 }
 
@@ -682,25 +686,18 @@ li.article-field {
 }
 
 .sub-cats {
-    list-style-type: none;
-    padding: 0 0 10px 0;
     text-align: center;
-    border-bottom: 1px solid #c8ddf0;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 10px;
+    margin-bottom: 2em;
 }
 
-li.sub-cat {
-    display: inline-block;
-    margin: 0 10px;
-}
 
-.sub-cat .btn {
-    font-size: 1em;
-}
-
-/* ## Masonry */
+/* ## Isotope / Masonry */
 
 .grid {
     max-width: 1200px;
+    /*height: 80%;*/
 }
 
 .grid:after {
@@ -712,7 +709,7 @@ li.sub-cat {
 /* Responsive Column Width */
 
 .grid-item {
-    height: auto;
+    /*height: auto;*/
     float: left;
 }
 
