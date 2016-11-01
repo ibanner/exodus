@@ -1,3 +1,6 @@
+<?php
+$fvid = get_field('featured_video');
+?>
 <div <?php post_class('grid-item element-item col-xs-12 col-sm-6 col-md-3'); ?>>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <span class="type caption"><?php exodus_cpt_label(); ?></span>
@@ -27,9 +30,11 @@
                 ?>
             </ul>
         </div><!-- /.article-meta -->
-        <?php if ( has_post_thumbnail() ) {?>
+        <?php if ( !empty($fvid) ) {
+                the_field('featured_video');
+        } elseif ( has_post_thumbnail() ) {?>
             <div class="grid-thumbnail">
-                <?php the_post_thumbnail('large' , ['class' => 'img-responsive responsive--full']); ?>
+                <?php the_post_thumbnail('large' , ['class' => 'img-responsive responsive--full']) ?>
             </div>
         <?php } ?>
         <div class="social-meta caption">

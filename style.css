@@ -883,6 +883,12 @@ object {
     max-width: 100%;
 }
 
+.grid-item embed,
+.grid-item iframe,
+.grid-item object {
+    height: auto;
+}
+
 /* ## Author Info */
 
 .author-info {
