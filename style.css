@@ -835,8 +835,8 @@ li.category:last-child:after {
 
 .category .panel-heading,
 .sub-cat-list {
-    color: #31708f;
-    background-color: hsla(0, 0%, 100%, 0.8);
+    /*color: #31708f;*/
+    /*background-color: hsla(0, 0%, 100%, 0.8);*/
     font-size: 0.8em;
 }
 
