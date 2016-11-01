@@ -5,6 +5,13 @@ $fvid = get_field('featured_video');
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <span class="type caption"><?php exodus_cpt_label(); ?></span>
         <i id="bookmark" class="fa fa-bookmark-o" aria-hidden="true"></i>
+        <?php if ( !empty($fvid) ) {
+            the_field('featured_video');
+        } elseif ( has_post_thumbnail() ) {?>
+            <div class="grid-thumbnail">
+                <?php the_post_thumbnail('full' , ['class' => 'img-responsive responsive--full']) ?>
+            </div>
+        <?php } ?>
         <h2 class="article-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
         <div class="grid-excerpt">
             <?php the_excerpt(); ?>
@@ -30,13 +37,6 @@ $fvid = get_field('featured_video');
                 ?>
             </ul>
         </div><!-- /.article-meta -->
-        <?php if ( !empty($fvid) ) {
-                the_field('featured_video');
-        } elseif ( has_post_thumbnail() ) {?>
-            <div class="grid-thumbnail">
-                <?php the_post_thumbnail('large' , ['class' => 'img-responsive responsive--full']) ?>
-            </div>
-        <?php } ?>
         <div class="social-meta caption">
             <ul>
                 <li><a href="<?php comments_link(); ?>"><?php comments_number(); ?></a></li>
