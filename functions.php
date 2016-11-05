@@ -130,6 +130,10 @@ function exodus_scripts() {
     wp_enqueue_script( 'isotope', 'https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.min.js' , array(), '3.0' , true );
     wp_enqueue_script( 'isotope-filter', get_template_directory_uri() . '/js/isotope.js', array( 'jquery' ), '3.0', true );
     // wp_enqueue_script( 'fitColumns', get_template_directory_uri() . '/js/fit-columns.js', array( 'jquery' ), '', true );
+    wp_enqueue_script( 'exodus-social-bypass', get_template_directory_uri() . '/js/social-bypass.js', array( 'jquery' ), '0.1', true );
+    wp_localize_script( 'exodus-social-bypass', 'spanLabel', array(
+        'Share This'   => __( 'Share This', 'exodus' )
+    ) );
 
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -175,7 +179,8 @@ function custom_settings_page() { ?>
         <h1>Custom Settings</h1>
         <form method="post" action="options.php">
             <?php
-            settings_fields('section');
+            settings_fields('article-type-labels');
+            settings_fields('social-sharing-buttons');
             do_settings_sections('theme-options');
             submit_button();
             ?>
@@ -196,15 +201,32 @@ function setting_label_text() { ?>
     <input type="text" name="text" id="text" value="<?php echo get_option('text'); ?>" />
 <?php }
 
-function custom_settings_page_setup() {
-    add_settings_section('section', __('Article Type Labels', 'exodus') , null, 'theme-options');
-    add_settings_field('ritual', __('Ritual' , 'exodus') , 'setting_label_ritual', 'theme-options', 'section');
-    add_settings_field('event', __('Event' , 'exodus') , 'setting_label_event', 'theme-options', 'section');
-    add_settings_field('text', __('Text' , 'exodus') , 'setting_label_text', 'theme-options', 'section');
+// Social Sharing Shortcodes
+function setting_label_social_loop() { ?>
+    <input type="text" name="social-loop" id="social-loop" value="<?php echo get_option('social-loop'); ?>" />
+<?php }
 
-    register_setting('section', 'ritual');
-    register_setting('section', 'event');
-    register_setting('section', 'text');
+function setting_label_social_single() { ?>
+    <input type="text" name="social-single" id="social-single" value="<?php echo get_option('social-single'); ?>" />
+<?php }
+
+function custom_settings_page_setup() {
+    add_settings_section('article-type-labels', __('Article Type Labels', 'exodus') , null, 'theme-options');
+    add_settings_field('ritual', __('Ritual' , 'exodus') , 'setting_label_ritual', 'theme-options', 'article-type-labels');
+    add_settings_field('event', __('Event' , 'exodus') , 'setting_label_event', 'theme-options', 'article-type-labels');
+    add_settings_field('text', __('Text' , 'exodus') , 'setting_label_text', 'theme-options', 'article-type-labels');
+
+    add_settings_section('social-sharing-buttons', __('Social Sharing Shortcodes', 'exodus') , null, 'theme-options');
+    add_settings_field('social-loop', __('In Lists' , 'exodus') , 'setting_label_social_loop', 'theme-options', 'social-sharing-buttons');
+    add_settings_field('social-single', __('In Single Pages' , 'exodus') , 'setting_label_social_single', 'theme-options', 'social-sharing-buttons');
+
+
+    register_setting('article-type-labels', 'ritual');
+    register_setting('article-type-labels', 'event');
+    register_setting('article-type-labels', 'text');
+    register_setting('social-sharing-buttons', 'social-loop');
+    register_setting('social-sharing-buttons', 'social-single');
+
 }
 add_action( 'admin_init', 'custom_settings_page_setup' );
 

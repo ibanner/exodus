@@ -818,6 +818,42 @@ li.category:last-child:after {
     float: right;
     border-right: none;
 }
+
+.grid-item .dropdownWrapper,
+.grid-item .dropdownWrapper:hover,
+.grid-item .dropdownWrapper:focus {
+    color: #337ab7;
+    display: inline-block;
+    background: inherit;
+    border: none !important;
+    width: 100%;
+    font-family: inherit !important;
+    font-size: inherit !important;
+}
+
+.grid-item .dropdownWrapper:hover,
+.grid-item .dropdownWrapper:focus {
+    text-decoration: underline;
+}
+
+.grid-item .dropdownPanel {
+    background: #fff;
+    border-color: #428bca;
+    border-radius: 4px;
+}
+
+.grid-item .dropdownPanel:before {
+    border-bottom-color: #428bca;
+}
+
+.grid-item .dropdownPanel .sgmbShare .jssocials-shares > div {
+    float: initial;
+}
+
+.grid-item #dropdownLabel-share-list {
+    padding: inherit;
+}
+
 /* ## Home */
 
 .home {

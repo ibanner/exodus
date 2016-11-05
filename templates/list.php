@@ -1,6 +1,14 @@
 <?php
 $fvid = get_field('featured_video');
+$social_option = get_option('social-loop');
+
+if ( has_shortcode( $social_option , 'sgmb') ) {
+    $social = do_shortcode( $social_option );
+} else {
+    $social = __('Not Set' , 'exodus'); //TODO Probably some extra guidance is required
+}
 ?>
+
 <div <?php post_class('grid-item element-item col-xs-12 col-sm-6 col-md-3'); ?>>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <span class="type caption"><?php exodus_cpt_label(); ?></span>
@@ -40,7 +48,7 @@ $fvid = get_field('featured_video');
         <div class="social-meta caption">
             <ul>
                 <li><a href="<?php comments_link(); ?>"><?php comments_number(); ?></a></li>
-                <li>Share This</li>
+                <li><?php echo $social; ?></li>
             </ul>
         </div>
     </article><!-- /.article -->
