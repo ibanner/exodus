@@ -102,6 +102,21 @@ function exodus_add_custom_types( $query ) {
 }
 add_filter( 'pre_get_posts', 'exodus_add_custom_types' );
 
+// Google Analytics Code
+add_action('wp_footer', 'add_ga_code');
+function add_ga_code() {
+    $code = get_option('ga-code');
+    if (!empty($code)) {
+        echo '<!-- Google Analytics -->';
+        echo '<script>';
+        echo "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', '" . $code . "', 'auto');ga('send', 'pageview');";
+        echo '</script>';
+        echo '<!-- End Google Analytics -->';
+    } else {
+        echo '<!-- Google Analytics Tracking Code Not Set -->';
+    }
+}
+
 
 /* -------------------------------------------------
 // 1. Add scripts and stylesheets
@@ -181,6 +196,7 @@ function custom_settings_page() { ?>
             <?php
             settings_fields('article-type-labels');
             settings_fields('social-sharing-buttons');
+            settings_fields('google-analytics');
             do_settings_sections('theme-options');
             submit_button();
             ?>
@@ -211,6 +227,11 @@ function setting_label_social_single() { ?>
     <input type="text" name="social-single" id="social-single" value="<?php echo get_option('social-single'); ?>" />
 <?php }
 
+// Set Google Analytics Tracking Code
+function setting_label_ga_code() { ?>
+    <input type="text" name="ga-code" id="ga-code" value="<?php echo get_option('ga-code'); ?>" />
+<?php }
+
 function custom_settings_page_setup() {
     add_settings_section('article-type-labels', __('Article Type Labels', 'exodus') , null, 'theme-options');
     add_settings_field('ritual', __('Ritual' , 'exodus') , 'setting_label_ritual', 'theme-options', 'article-type-labels');
@@ -221,12 +242,16 @@ function custom_settings_page_setup() {
     add_settings_field('social-loop', __('In Lists' , 'exodus') , 'setting_label_social_loop', 'theme-options', 'social-sharing-buttons');
     add_settings_field('social-single', __('In Single Pages' , 'exodus') , 'setting_label_social_single', 'theme-options', 'social-sharing-buttons');
 
+    add_settings_section('google-analytics', __('Google Analytics', 'exodus') , null, 'theme-options');
+    add_settings_field('text', __('Tracking Code' , 'exodus') , 'setting_label_ga_code', 'theme-options', 'google-analytics');
+
 
     register_setting('article-type-labels', 'ritual');
     register_setting('article-type-labels', 'event');
     register_setting('article-type-labels', 'text');
     register_setting('social-sharing-buttons', 'social-loop');
     register_setting('social-sharing-buttons', 'social-single');
+    register_setting('google-analytics', 'ga-code');
 
 }
 add_action( 'admin_init', 'custom_settings_page_setup' );
