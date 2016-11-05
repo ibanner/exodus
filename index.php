@@ -11,14 +11,14 @@
                 'orderby' => 'id',
                 'hide_empty' => false,
                 'exclude'       => 1,
-                'parent'        => 0
+                'parent'        => 0,
             ) );
 
             foreach ( $top_cats as $category ) {
                 $sub_cats = get_categories( array (
                         'orderby' => 'id',
                         'hide_empty' => false,
-                        'parent'        => $category->term_id
+                        'parent'        => $category->term_id,
                     )
                 );
                 /*$cat_background_url = get_field("featured-image", "category_' . $category->term_id . '");
@@ -30,11 +30,15 @@
                 echo '<div class="category panel panel-info">';
                 echo '<div class="panel-heading"><h2><a href="' . esc_url( get_category_link($category) ) . '">' . esc_html( $category->name ) .  '</a></h2></div>';
                 echo '<div class="panel-body"><ul class="sub-cat-list">';
+                $i = 0;
                 foreach ( $sub_cats as $sub_cat ) {
                     echo '<li class="sub-cat-link"><a href="' . esc_url( get_category_link($sub_cat) ) . '">' . esc_html( $sub_cat->name ) .  '</a></li>';
+                    $i++;
+                    if ($i == 3) {break;}
                 }
-                echo '</ul></div>';
-                echo '</div></div>';
+                echo '</ul>';
+                echo '<button id="top-cat-link" class="btn btn-default"><a href="' . esc_url( get_category_link($category) ) . '">' . __('More...' , 'exodus') . '</a></button>';
+                echo '</div></div></div>';
             }
             ?>
         </div><!-- /.category-tiles -->

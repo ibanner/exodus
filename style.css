@@ -884,6 +884,10 @@ li.category:last-child:after {
     text-align: start;
 }
 
+#top-cat-link {
+    float: right;
+}
+
 .cat-item {
     margin-bottom: 1.6em;
     border: 1px solid lightgrey;
@@ -898,6 +902,8 @@ li.category:last-child:after {
 .cat-item:focus {
     background: #c8ddf0;
 }
+
+
 
 .search-box {
     padding-bottom: 2em;
