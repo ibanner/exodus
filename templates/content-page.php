@@ -4,7 +4,6 @@
     <?php if ( has_post_thumbnail() ) {
         the_post_thumbnail();
     } ?>
-    Page-Page-Page!!!!!!!! <!--//TODO remove this-->
     <?php the_content(); ?>
 
 </div><!-- /.article -->

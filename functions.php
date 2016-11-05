@@ -145,8 +145,8 @@ function exodus_scripts() {
     wp_enqueue_script( 'isotope', 'https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.min.js' , array(), '3.0' , true );
     wp_enqueue_script( 'isotope-filter', get_template_directory_uri() . '/js/isotope.js', array( 'jquery' ), '3.0', true );
     // wp_enqueue_script( 'fitColumns', get_template_directory_uri() . '/js/fit-columns.js', array( 'jquery' ), '', true );
-    wp_enqueue_script( 'exodus-social-bypass', get_template_directory_uri() . '/js/social-bypass.js', array( 'jquery' ), '0.1', true );
-    wp_localize_script( 'exodus-social-bypass', 'spanLabel', array(
+    wp_enqueue_script( 'exodus-plugin-hacks', get_template_directory_uri() . '/js/plugin-hacks.js', array( 'jquery' ), '0.1', true );
+    wp_localize_script( 'exodus-plugin-hacks', 'spanLabel', array(
         'Share This'   => __( 'Share This', 'exodus' )
     ) );
 
@@ -274,3 +274,24 @@ function exodus_widgets_init() {
     ) );
 }
 add_action( 'widgets_init', 'exodus_widgets_init' );
+
+/****************************************/
+
+function my_kses_post( $value ) {
+
+    // is array
+    if( is_array($value) ) {
+
+        return array_map('my_kses_post', $value);
+
+    }
+
+
+    // return
+    return wp_kses_post( $value );
+
+}
+
+add_filter('acf/update_value', 'my_kses_post', 10, 1);
+
+/*******************************************/

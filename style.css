@@ -258,6 +258,7 @@ h6 .h6 {
     line-height: 1.6em;
     color: white;
     background-color: #428bca;
+    text-align: start;
 }
 
 .main-navigation a:hover,
@@ -335,8 +336,10 @@ h6 .h6 {
     font-size: 14px;
     line-height: 27px;
     position: relative;
-    top: 0;
-    left: 1px;
+    top: -4px;
+    /*top: 0;*/
+    left: 0;
+    /*left: 1px;*/
     width: 27px;
 }
 
@@ -465,8 +468,8 @@ h6 .h6 {
     .main-navigation a,
     .main-navigation ul ul li:last-child a {
         border-bottom: none;
-        background-color: transparent;
-        color: #fff;
+        /*background-color: transparent;
+        color: #fff;*/
     }
 
     /* Add an outline on hovered and focused menu items */
@@ -493,7 +496,7 @@ h6 .h6 {
         display: block;
         z-index: 10;
         margin-left: 0;
-        background: #fff;
+        background: #428bca;
     }
 
     .main-navigation ul ul ul.toggled-on {
@@ -511,7 +514,7 @@ h6 .h6 {
         right: 12px;
         border: none;
         background-color: transparent;
-        color: #428bca;
+        /*color: #428bca;*/
     }
 
     .dropdown-toggle::after {
@@ -603,6 +606,7 @@ h6 .h6 {
 
 #main {
     margin: 1.8em auto;
+    min-height: 600px;
 }
 
 .content-wrapper {
@@ -613,6 +617,7 @@ h6 .h6 {
 
 .article-title,
 .category-title,
+.page-title,
 .archive-title {
     /*margin-bottom: 5px;*/
     font-size: 1.6rem;
@@ -624,6 +629,7 @@ h6 .h6 {
 @media screen and (min-width: 37.5em){
     .article-title,
     .category-title,
+    .page-title,
     .archive-title {
         font-size: 2.6rem;
         line-height: 2em;
@@ -1042,6 +1048,15 @@ li.community {
 .comment-form-comment label {
     display: block;
     padding-bottom: 1em;
+}
+
+.acf-fields > .acf-field {
+    padding: 15px 0 !important;
+}
+
+.acf-field .acf-label p,
+.acf-field .acf-label label {
+    font-size: inherit !important;
 }
 
 
