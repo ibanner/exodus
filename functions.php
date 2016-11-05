@@ -153,7 +153,13 @@ require get_template_directory() . '/inc/extras.php';               // Custom fu
 require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
-include get_template_directory() . '/inc/temp-template-tags.php';   // Template Tags sandbox - DEV only
+// TGM - Required Plugins
+require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
+add_action( 'tgmpa_register', 'exodus_register_required_plugins' );
+require get_template_directory() . '/inc/required-plugins.php';
+
+// Template Tags sandbox - DEV only
+include get_template_directory() . '/inc/temp-template-tags.php';
 
 /* -------------------------------------------------
 // 3. Custom Settings Pages
