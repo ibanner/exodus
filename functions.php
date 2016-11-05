@@ -204,6 +204,7 @@ function setting_label_text() { ?>
 // Social Sharing Shortcodes
 function setting_label_social_loop() { ?>
     <input type="text" name="social-loop" id="social-loop" value="<?php echo get_option('social-loop'); ?>" />
+    <p><?php _e( "<b>Important:</b> Please Make sure to enable 'Toggle dropdown to show buttons' for this shortcode" , 'exodus') ?></p>
 <?php }
 
 function setting_label_social_single() { ?>
