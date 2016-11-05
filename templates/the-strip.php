@@ -11,7 +11,12 @@
                 }*/
                 if ( is_category()) {
                     // $case = 'Archive'; var_dump($case);
-                    echo get_category_parents( $cat, true, ' &raquo; ' );
+                    echo get_category_parents($cat, true, ' &raquo; ');
+                } elseif (is_page()) {
+                    // $case = 'Page'; var_dump($case);
+                    ?>
+                    <p class="breadcrumbs"><a href="<?php echo get_home_url(); ?>"><?php _e( ' Home ' , 'exodus' ) ?></a><?php _e( ' &raquo; ' , 'exodus' ) ?><span class="you-are-here"> <?php the_title();?></span></p>
+                    <?php
                 } elseif (is_singular()) {
                     // $case = 'Singular'; var_dump($case);
                     $category = get_the_category($id);
