@@ -18,7 +18,7 @@
                     endwhile; ?>
                 </div><!-- /.grid -->
 
-                <div class="posts-nav col-sm-12"><?php the_posts_navigation(); ?></div>
+                <div class="posts-nav col-sm-12"><?php exodus_posts_navigation(); ?></div>
             </div><!-- /.archive -->
 
             <?php endif;
