@@ -31,7 +31,13 @@ function exodus_register_required_plugins() {
             'name'      => 'Social',
             'slug'      => 'social-media-builder',
             'required'  => true,
-        )
+        ),
+
+        array(
+            'name'      => 'Nav Menu Roles',
+            'slug'      => 'nav-menu-roles',
+            'required'  => false,
+        ),
     );
 
     /*
