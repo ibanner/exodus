@@ -150,3 +150,38 @@ function custom_ritual_columns($column_name, $id) {
             break;
     } // end switch
 }
+
+/*-------------------------------------------------------------------------------
+	Register "My Siddur" Taxonomy
+-------------------------------------------------------------------------------*/
+
+add_action( 'init', 'exodus_register_my_siddur' );
+function exodus_register_my_siddur()
+{
+    $labels = array(
+        "name" => __('Siddurim', 'exodus'),
+        "singular_name" => __('My Siddur', 'exodus')
+    );
+
+    $args = array(
+        "label" => __('Siddurim', 'exodus'),
+        "labels" => $labels,
+        "public" => false,
+        "hierarchical" => true,
+        "capabilities"  => array(
+            "manage_terms"  => "manage_siddurim",
+            "edit_terms"    => "manage_siddurim",
+            "delete_terms"  => "manage_siddurim"
+        ),
+        /*"show_ui" => true,
+        "show_in_menu" => true,
+        "show_in_nav_menus" => true,*/
+        "query_var" => true,
+        "rewrite" => array('slug' => 'siddur', 'with_front' => true,),
+        "show_admin_column" => false,
+        "show_in_rest" => false,
+        "rest_base" => "",
+        "show_in_quick_edit" => false,
+    );
+    register_taxonomy("siddurim", array("text","ritual","post"), $args);
+}
