@@ -5,7 +5,7 @@ var $grid = jQuery('.grid').isotope({
 // store filter for each group
 var filters = {};
 
-jQuery('.sub-cats').on( 'click', '.button', function() {
+jQuery('.isotope-ui').on( 'click', '.button', function() {
     var $this = jQuery(this);
     // get group key
     var $buttonGroup = $this.parents('.button-group');
