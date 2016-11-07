@@ -936,7 +936,10 @@ li.category:last-child:after {
     background: #c8ddf0;
 }
 
-
+#search-form-wrapper {
+    margin: 65px 0 85px;
+}
+/*
 
 .search-box {
     padding-bottom: 2em;
@@ -951,6 +954,7 @@ li.category:last-child:after {
     padding: 0.5em;
     border-radius: 50px;
 }
+*/
 
 /* ## Content Elements */
 img {

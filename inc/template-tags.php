@@ -382,3 +382,16 @@ function exodus_siddur_toggle_markup( $case ) {
     return sprintf( $template, sanitize_html_class( $case ), esc_url($url) , esc_html($tooltip) , esc_html($tooltip) , $fa_class );
 }
 
+/******************************************************/
+
+function exodus_search_form() {
+echo '<form role="search" method="get" class="search-form" action="' . home_url( "/" ) . '">';
+    echo '<div class="form-group">';
+    echo '<label>';
+        echo '<span class="screen-reader-text">' . _x( 'Search for:', 'label' ) .'</span>';
+        echo '<input type="search" class="search-field form-control input-lg" placeholder="' . /*esc_attr_x( 'Search …', 'placeholder' ) . */'" value="' . get_search_query() .'" name="s" title="' . esc_attr_x( 'Search for:', 'label' ) . '" />';
+    echo '</label>';
+    echo '<input type="submit" class="search-submit btn btn-info btn-lg" value="' . esc_attr_x( 'Search', 'submit button' ) . '" />';
+    echo '</div>';
+echo '</form>';
+}
