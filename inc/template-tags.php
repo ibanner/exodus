@@ -40,34 +40,6 @@ endif;
 
 /******************************************************/
 
-if ( ! function_exists( 'exodus_the_communities' ) ) :
-    /**
-     * Prints HTML with the list of communities this post is related to.
-     */
-    function exodus_the_communities() {
-        $post = get_the_ID();
-        if ( is_singular() ) {
-            echo the_terms(
-                $post ,
-                'community' ,
-                '<li class="community"><button class="btn btn-info btn-xs">' ,
-                '</a></button></li><li class="community"><button class="btn btn-info btn-xs">' ,
-                '</a></button></li>'
-            );
-        } else {
-            echo the_terms(
-                $post ,
-                'community' ,
-                '<span class="community caption">' ,
-                ', </a></span><span class="community caption">' ,
-                '</a></span>'
-            );
-        }
-
-    }
-endif;
-
-/******************************************************/
 if ( ! function_exists( 'exodus_get_article_fields' )) :
     function exodus_get_article_fields() {
         if ( 'ritual' === get_post_type() ) {
