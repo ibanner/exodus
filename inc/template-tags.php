@@ -189,3 +189,146 @@ function exodus_category_transient_flusher() {
 }
 add_action( 'edit_category', 'exodus_category_transient_flusher' );
 add_action( 'save_post',     'exodus_category_transient_flusher' );
+
+/******************************************************/
+
+if ( ! function_exists( 'exodus_get_posts_navigation' ) ) :
+    /**
+     * Doc
+     */
+    function exodus_get_posts_navigation( $args = array() ) {
+        $navigation = '';
+
+        // Don't print empty markup if there's only one page.
+        if ( $GLOBALS['wp_query']->max_num_pages > 1 ) {
+            $args = wp_parse_args( $args, array(
+                'prev_text'          => __( 'Older' , 'exodus' ),
+                'next_text'          => __( 'Newer' , 'exodus' ),
+                'screen_reader_text' => __( 'Posts navigation' , 'exodus' ),
+            ) );
+
+            $next_link = get_previous_posts_link( $args['next_text'] );
+            $prev_link = get_next_posts_link( $args['prev_text'] );
+
+            if ( $prev_link ) {
+                $navigation .= '<li class="previous">' . $prev_link . '</li>';
+            }
+
+            if ( $next_link ) {
+                $navigation .= '<li class="next">' . $next_link . '</li>';
+            }
+
+            $navigation = exodus_navigation_markup( $navigation, 'posts-navigation', $args['screen_reader_text'] );
+        }
+
+        return $navigation;
+    }
+
+    /**
+     * Displays the navigation to next/previous set of posts, when applicable.
+     *
+     * @since 4.1.0
+     *
+     * @param array $args Optional. See get_the_posts_navigation() for available arguments.
+     *                    Default empty array.
+     */
+    function exodus_posts_navigation( $args = array() ) {
+        echo exodus_get_posts_navigation( $args );
+    }
+
+endif;
+
+/******************************************************/
+
+/**
+ * Wraps passed links in navigational markup.
+ *
+ * @since 4.1.0
+ * @access private
+ *
+ * @param string $links              Navigational links.
+ * @param string $class              Optional. Custom class for nav element. Default: 'posts-navigation'.
+ * @param string $screen_reader_text Optional. Screen reader text for nav element. Default: 'Posts navigation'.
+ * @return string Navigation template tag.
+ */
+function exodus_navigation_markup( $links, $class = 'posts-navigation', $screen_reader_text = '' ) {
+    if ( empty( $screen_reader_text ) ) {
+        $screen_reader_text = __( 'Posts navigation' );
+    }
+
+    $template = '
+	<nav class="navigation %1$s" role="navigation">
+		<h2 class="screen-reader-text">%2$s</h2>
+		<ul class="pager">%3$s</ul>
+	</nav>';
+
+    /**
+     * Filters the navigation markup template.
+     *
+     * Note: The filtered template HTML must contain specifiers for the navigation
+     * class (%1$s), the screen-reader-text value (%2$s), and placement of the
+     * navigation links (%3$s):
+     *
+     *     <nav class="navigation %1$s" role="navigation">
+     *         <h2 class="screen-reader-text">%2$s</h2>
+     *         <div class="nav-links">%3$s</div>
+     *     </nav>
+     *
+     * @since 4.4.0
+     *
+     * @param string $template The default template.
+     * @param string $class    The class passed by the calling function.
+     * @return string Navigation template.
+     */
+    $template = apply_filters( 'navigation_markup_template', $template, $class );
+
+    return sprintf( $template, sanitize_html_class( $class ), esc_html( $screen_reader_text ), $links );
+}
+
+/******************************************************/
+
+if ( ! function_exists( 'exodus_siddur_button' ) ) :
+    /**
+     * Displays a toggle button to add/remove an item from the Siddur
+     */
+    function exodus_siddur_button() {
+        $siddur = 'siddur_' . get_current_user_id() . '_1';
+
+        $case = 'add';
+        if (!is_user_logged_in()) {
+            $case = 'anon';             // Anonymous User
+        } elseif ( has_term( $siddur , 'siddurim' ) ) {
+            $case = 'remove';           // Post exists in the Siddur
+        }
+
+        echo exodus_siddur_button_markup($case);
+    }
+
+endif;
+
+/*
+ * Construct the markup for the Siddur add/remove button
+ */
+function exodus_siddur_button_markup( $case ) {
+
+    $template = '
+    <a id="siddur-%1$s" class="siddur btn btn-info btn-lg" href="%2$s" title="%3$s" rel="nofollow">
+        <i class="fa %4$s" aria-hidden="true"></i>
+        %5$s
+    </a>';
+
+    $nonce = wp_create_nonce( 'exodus-siddur-' . $case );
+    $url = '?sidaction=' . $case . '&nonce=' . $nonce;
+    $fa_class = 'fa-bookmark-o';
+    $cta = __( 'Add to <b>My Siddur</b>' , 'exodus' );
+
+    if ($case == 'anon') {
+        $cta = __( 'Add to <b>My Siddur</b> <small>(Login)</small>' , 'exodus' );
+        $url = wp_login_url(get_permalink() . '?sidaction=add&nonce=' . $nonce);
+    } elseif ($case == 'remove') {
+        $fa_class = 'fa-bookmark';
+        $cta = __( 'Remove from <b>My Siddur</b>' , 'exodus' );
+    }
+
+    return sprintf( $template, sanitize_html_class( $case ), esc_url($url) , sanitize_html_class( $cta ) , $fa_class , $cta );
+}

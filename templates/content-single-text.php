@@ -3,34 +3,20 @@ $creator = get_field( 'creator' );
 $background = get_field( 'background' );
 $commentary = get_field( 'commentary' );
 $the_text = get_field( 'the_text' );
+$alert = exodus_siddur_action_handler();
 ?>
 
 <div class="article article--text">
     <h1 class="article-title"><?php the_title(); ?></h1>
-    <!--<p class="article-meta"><?php /*/*the_date(); */ /* esc_html_e( 'Posted by', 'exodus'); */?> <a href="#author-info"><?php /*the_author(); */?></a></p>-->
 
-    <div class="cpt-meta">
-        <span class="caption"><?php exodus_cpt_label(); ?> | <?php esc_html_e( 'Categories:', 'exodus'); ?></span>
-        <ul class="the-categories">
-            <?php
-            $categories = get_the_category();
-            if (!empty($categories)) { ?>
-            <ul class="the-categories">
-                <?php
-                $cat_count = count($categories);
-                $i = 1;
-                foreach($categories as $category) {
-                    echo '<li class="category caption"><a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( get_cat_name( $category->term_id ) ) . '</a></li>';
-                    if ($i == 6 && $i < $cat_count) {
-                        echo '<li class="category caption more"> [...]</li>';
-                        break;
-                    }
-                    $i++;
-                }
-                }
-            ?>
-        </ul>
-    </div><!-- /.cpt-meta -->
+    <div class="article-meta row">
+        <div class="col-xs-12 col-md-8">
+            <?php exodus_cpt_label(); ?> | <?php esc_html_e( 'Categories:', 'exodus'); ?> <?php echo get_the_category_list(', '); ?>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <?php exodus_siddur_button(); ?>
+        </div>
+    </div><!-- /.article-meta -->
 
     <div class="content-wrapper row">
 

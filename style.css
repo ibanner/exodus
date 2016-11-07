@@ -661,6 +661,22 @@ li.article-field {
     font-weight: bold;
 }
 
+a.siddur {
+    width: 100%;
+    margin-top: 1em;
+    text-align: start;
+}
+
+a.siddur i {
+    margin-right: 1em;
+}
+
+@media screen and (min-width: 50em){
+    a.siddur {
+        margin-top: 0;
+    }
+}
+
 .the-content {
     padding-top: 2em;
 }
@@ -761,14 +777,14 @@ span.type.caption {
     background-color: #e7e7e7;
 }
 
-#bookmark {
+#siddur-toggle {
     float: right;
     padding: .5em;
     color: lightgrey;
 }
 
-#bookmark:hover,
-#bookmark:focus {
+#siddur-toggle:hover,
+#siddur-toggle:focus {
     color: grey;
     background: #e7e7e7;
 }
@@ -786,13 +802,15 @@ span.type.caption {
 }
 
 .the-categories,
+.post-categories,
 .social-meta ul {
     display: inline;
     list-style-type: none;
     padding: 0;
 }
 
-li.category, .social-meta ul li {
+li.category, .social-meta ul li,
+.post-categories li {
     display: inline;
     text-align: center;
 }

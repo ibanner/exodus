@@ -298,3 +298,46 @@ function my_kses_post( $value ) {
 add_filter('acf/update_value', 'my_kses_post', 10, 1);
 
 /*******************************************/
+
+if ( ! function_exists( 'exodus_siddur_action_handler' ) ) :
+    /**
+     * This function will handle clearing od Siddur add/remove requests
+     */
+    function exodus_siddur_action_handler() {
+
+        $alert = '';
+
+        if (
+            isset($_GET['sidaction']) &&
+            isset($_GET['nonce'])
+        ) {
+            $siddur = 'siddur_' . get_current_user_id() . '_1';
+
+            if (
+                $_GET['sidaction'] === 'add' &&
+                wp_verify_nonce($_GET['nonce'], 'exodus-siddur-add')
+            ) {
+                wp_set_object_terms( get_the_ID() , $siddur , 'siddurim' , true );
+            } elseif (
+                $_GET['sidaction'] === 'remove' &&
+                wp_verify_nonce($_GET['nonce'], 'exodus-siddur-remove')
+            ) {
+                wp_remove_object_terms( get_the_ID() , $siddur , 'siddurim' );
+            }
+
+            // So how did it go?
+            if ($_GET['sidaction'] === 'add' && has_term($siddur, 'siddurim' )) {
+                $alert = 'success_add';
+            } elseif ($_GET['sidaction'] === 'remove' && !has_term($siddur, 'siddurim' )) {
+                $alert = 'success_remove';
+            } elseif ($_GET['sidaction'] === 'add' && !has_term($siddur, 'siddurim' )) {
+                $alert = 'fail_add';
+            } elseif ($_GET['sidaction'] === 'remove' && has_term($siddur, 'siddurim' )) {
+                $alert = 'fail_remove';
+            }
+        }
+        return $alert;
+    }
+
+endif;
+

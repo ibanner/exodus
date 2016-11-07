@@ -4,17 +4,20 @@ $background = get_field( 'background' );
 $participants = get_field( 'participants' );
 $location = get_field( 'location' );
 $timing = get_field( 'timing' );
+$alert = exodus_siddur_action_handler();
 ?>
 
 <div class="article article--ritual">
 
     <h1 class="article-title"><?php the_title(); ?></h1>
 
-    <div class="article-meta">
-        <span class="caption"><?php exodus_cpt_label(); ?> | <?php esc_html_e( 'Communities', 'exodus'); ?></span>
-        <ul class="the-communities">
-            <?php exodus_the_communities(); ?>
-        </ul>
+    <div class="article-meta row">
+        <div class="col-xs-12 col-md-8">
+            <?php exodus_cpt_label(); ?> | <?php esc_html_e( 'Categories:', 'exodus'); ?> <?php echo get_the_category_list(', '); ?>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <?php exodus_siddur_button(); ?>
+        </div>
     </div><!-- /.article-meta -->
 
     <div class="content-wrapper row">
