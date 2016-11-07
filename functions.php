@@ -309,6 +309,7 @@ if ( ! function_exists( 'exodus_siddur_action_handler' ) ) :
 
         if (
             isset($_GET['sidaction']) &&
+            isset($_GET['post_id']) &&
             isset($_GET['nonce'])
         ) {
             $siddur = 'siddur_' . get_current_user_id() . '_1';
@@ -317,22 +318,22 @@ if ( ! function_exists( 'exodus_siddur_action_handler' ) ) :
                 $_GET['sidaction'] === 'add' &&
                 wp_verify_nonce($_GET['nonce'], 'exodus-siddur-add')
             ) {
-                wp_set_object_terms( get_the_ID() , $siddur , 'siddurim' , true );
+                wp_set_object_terms( $_GET['post_id'] , $siddur , 'siddurim' , true );
             } elseif (
                 $_GET['sidaction'] === 'remove' &&
                 wp_verify_nonce($_GET['nonce'], 'exodus-siddur-remove')
             ) {
-                wp_remove_object_terms( get_the_ID() , $siddur , 'siddurim' );
+                wp_remove_object_terms( $_GET['post_id'] , $siddur , 'siddurim' );
             }
 
             // So how did it go?
-            if ($_GET['sidaction'] === 'add' && has_term($siddur, 'siddurim' )) {
+            if ($_GET['sidaction'] === 'add' && has_term($siddur, 'siddurim' , $_GET['post_id'] )) {
                 $alert = 'success_add';
-            } elseif ($_GET['sidaction'] === 'remove' && !has_term($siddur, 'siddurim' )) {
+            } elseif ($_GET['sidaction'] === 'remove' && !has_term($siddur, 'siddurim' , $_GET['post_id'])) {
                 $alert = 'success_remove';
-            } elseif ($_GET['sidaction'] === 'add' && !has_term($siddur, 'siddurim' )) {
+            } elseif ($_GET['sidaction'] === 'add' && !has_term($siddur, 'siddurim' , $_GET['post_id'])) {
                 $alert = 'fail_add';
-            } elseif ($_GET['sidaction'] === 'remove' && has_term($siddur, 'siddurim' )) {
+            } elseif ($_GET['sidaction'] === 'remove' && has_term($siddur, 'siddurim' , $_GET['post_id'])) {
                 $alert = 'fail_remove';
             }
         }

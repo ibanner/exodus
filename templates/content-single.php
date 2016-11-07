@@ -1,5 +1,6 @@
 <?php
 $fvid = get_field('featured_video');
+$alert = exodus_siddur_action_handler();
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

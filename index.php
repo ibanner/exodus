@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+get_header();
+$alert = exodus_siddur_action_handler();
+?>
 
     <div class="row">
         <div class="search-box">

@@ -2,6 +2,7 @@
 $curuser = get_current_user_id();
 $siddur = 'siddur_' . $curuser . '_1';
 get_header();
+$alert = exodus_siddur_action_handler();
 ?>
 
     <div class="row">

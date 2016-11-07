@@ -6,6 +6,7 @@
         'parent'  => $term->term_id,
         'hide_empty' => false,
     ) );
+    $alert = exodus_siddur_action_handler();
 ?>
 
     <div class="row">

@@ -787,6 +787,11 @@ span.type.caption {
     color: lightgrey;
 }
 
+.siddur-toggle-remove i {
+    color: #f0ad4e !important;
+    border-color: #eea236;
+}
+
 #siddur-toggle:hover,
 #siddur-toggle:focus {
     color: grey;
