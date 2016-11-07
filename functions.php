@@ -342,3 +342,8 @@ if ( ! function_exists( 'exodus_siddur_action_handler' ) ) :
 
 endif;
 
+/* Hack WP Login Styles */
+function exodus_login_styles() { ?>
+    <style type="text/css"> #login h1 a, .login h1 a { background-image: none; width: 100%; padding-bottom: 30px; font-size: 3rem; text-indent: 0; } body.login { background: #c8ddf0; } .login label { color: #fff  !important; } .login form { background: #428bca !important; } </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'exodus_login_styles' );
