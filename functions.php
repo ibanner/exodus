@@ -186,7 +186,7 @@ add_action( 'tgmpa_register', 'exodus_register_required_plugins' );
 require get_template_directory() . '/inc/required-plugins.php';
 
 // Template Tags sandbox - DEV only
-include get_template_directory() . '/inc/temp-template-tags.php';
+// include get_template_directory() . '/inc/temp-template-tags.php';
 
 /* -------------------------------------------------
 // 3. Custom Settings Pages
