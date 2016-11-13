@@ -121,7 +121,7 @@ function add_ga_code() {
 add_action( 'user_register' , 'exodus_create_siddur' , 10 , 1 );
 function exodus_create_siddur($user_id) {
     $siddur = 'siddur_' . $user_id . '_1';
-    if ( !is_exists_term( $siddur ) ) {
+    if ( !term_exists( $siddur ) ) {
         wp_insert_term( $siddur , 'siddurim' , array('slug' => $siddur));
     }
 }
