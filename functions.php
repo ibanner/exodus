@@ -164,7 +164,7 @@ function exodus_scripts() {
     }
 
     // Add Google Fonts
-    wp_enqueue_style( 'exodus-google-fonts', 'https://fonts.googleapis.com/css?family=Assistant:400,700|Tinos:400,700&subset=hebrew' );
+    wp_enqueue_style( 'exodus-google-fonts', 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Open+Sans:400,700&subset=hebrew' );
 }
 
 add_action( 'wp_enqueue_scripts', 'exodus_scripts' );
