@@ -1,27 +1,33 @@
 <?php if ( post_password_required() ) {
     return;
 } ?>
-<div id="comments" class="comments-area">
-    <?php if ( have_comments() ) : ?>
-        <h3 class="comments-title">
-            <?php
-            printf( _nx( 'One comment on “%2$s”', '%1$s comments on “%2$s”', get_comments_number(), 'comments title'),
-                number_format_i18n( get_comments_number() ), get_the_title() );
-            ?>
-        </h3>
-        <ul class="comment-list">
-            <?php
-            wp_list_comments( array(
-                'short_ping'  => true,
-                'avatar_size' => 50,
-            ) );
-            ?>
-        </ul>
-    <?php endif; ?>
-    <?php if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
-        <p class="no-comments">
-            <?php _e( 'Comments are closed.' ); ?>
-        </p>
-    <?php endif; ?>
-    <?php comment_form(); ?>
+<div id="comments" class="row">
+    <h4 class="meta-title"><?php esc_html_e( 'Discuss this', 'exodus'); ?></h4>
+    <div class="comments-area inlet caption"><?php if (have_comments()) : ?>
+            <p class="comments-title h3 caption">
+                <?php
+                printf(_nx('One comment on “%2$s”', '%1$s comments on “%2$s”', get_comments_number(), 'comments title'),
+                    number_format_i18n(get_comments_number()), get_the_title());
+                ?>
+            </p>
+            <ul class="comment-list">
+                <?php
+                wp_list_comments(array(
+                    'short_ping' => true,
+                    'avatar_size' => 50,
+                ));
+                ?>
+            </ul>
+        <?php endif; ?>
+        <?php if (!comments_open() && get_comments_number() && post_type_supports(get_post_type(), 'comments')) : ?>
+            <p class="no-comments">
+                <?php _e('Comments are closed.'); ?>
+            </p>
+        <?php endif; ?>
+        <?php
+        $comments_args = array(
+            'logged_in_as' => '<p class="logged-in-as">' . sprintf(__('Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account" class="log-out">Not You?</a>', 'exodus'), admin_url('profile.php'), $user_identity, wp_logout_url(apply_filters('the_permalink', get_permalink()))) . '</p>',
+        );
+        comment_form($comments_args);
+        ?></div>
 </div>
