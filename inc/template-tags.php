@@ -16,7 +16,7 @@ function exodus_author_info() {
     $a = cptui_get_post_type_slugs();
     $post_type = get_post_type();
     echo '<p class="h4">'. esc_html__('About the Author' , 'exodus' ) .'</p>';
-    echo  '<div class="author-avatar">' . get_avatar( $author_id ) . '</div>'; // TODO add alt value
+    echo '<div class="author-avatar">' . get_avatar( $author_id ) . '</div>'; // TODO add alt value
     echo '<div class="byline author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></div>'; // WPCS: XSS OK.
     echo '<div class="author-description">' . get_the_author_meta( 'description', $author_id) . '</div>';
 }
@@ -24,7 +24,7 @@ function exodus_author_info() {
 endif;
 
 /******************************************************/
-
+// TODO -- To Be Deprecated
 if ( ! function_exists( 'exodus_cpt_label' ) ) :
     /**
      * Prints a translatable CPT label
@@ -39,7 +39,7 @@ if ( ! function_exists( 'exodus_cpt_label' ) ) :
 endif;
 
 /******************************************************/
-
+// TODO -- To Be Deprecated
 if ( ! function_exists( 'exodus_get_article_fields' )) :
     function exodus_get_article_fields() {
         if ( 'ritual' === get_post_type() ) {
@@ -312,7 +312,7 @@ endif;
 function exodus_siddur_button_markup( $case ) {
 
     $template = '
-    <a id="siddur-%1$s" class="siddur btn btn-info btn-lg" href="%2$s" title="%3$s" rel="nofollow">
+    <a id="siddur-%1$s" class="siddur btn btn-info" href="%2$s" title="%3$s" rel="nofollow">
         <i class="fa %4$s" aria-hidden="true"></i>
         %5$s
     </a>';
@@ -395,3 +395,5 @@ echo '<form role="search" method="get" class="search-form" action="' . home_url(
     echo '</div>';
 echo '</form>';
 }
+
+/*******************************************************/
