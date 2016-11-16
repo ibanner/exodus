@@ -175,6 +175,7 @@ add_action( 'wp_enqueue_scripts', 'exodus_scripts' );
 
 require get_template_directory() . '/inc/custom-header.php';
 require get_template_directory() . '/inc/template-tags.php';
+require get_template_directory() . '/inc/options.php';
 require get_template_directory() . '/inc/cpt-config.php';           // Register Custom Post Types locally
 require get_template_directory() . '/inc/extras.php';               // Custom functions that act independently of the theme templates.
 require get_template_directory() . '/inc/customizer.php';
@@ -191,78 +192,6 @@ require get_template_directory() . '/inc/required-plugins.php';
 /* -------------------------------------------------
 // 3. Custom Settings Pages
 ------------------------------------------------- */
-function custom_settings_add_menu() {
-    add_menu_page( 'Custom Settings', 'Custom Settings', 'manage_options', 'custom-settings', 'custom_settings_page', null, 99);
-}
-add_action( 'admin_menu', 'custom_settings_add_menu' );
-
-// Create Custom Global Settings
-function custom_settings_page() { ?>
-    <div class="wrap">
-        <h1>Custom Settings</h1>
-        <form method="post" action="options.php">
-            <?php
-            settings_fields('article-type-labels');
-            settings_fields('social-sharing-buttons');
-            settings_fields('google-analytics');
-            do_settings_sections('theme-options');
-            submit_button();
-            ?>
-        </form>
-    </div>
-<?php }
-
-// Post Type Labels Override
-function setting_label_ritual() { ?>
-    <input type="text" name="ritual" id="ritual" value="<?php echo get_option('ritual'); ?>" />
-<?php }
-
-function setting_label_event() { ?>
-    <input type="text" name="event" id="event" value="<?php echo get_option('event'); ?>" />
-<?php }
-
-function setting_label_text() { ?>
-    <input type="text" name="text" id="text" value="<?php echo get_option('text'); ?>" />
-<?php }
-
-// Social Sharing Shortcodes
-function setting_label_social_loop() { ?>
-    <input type="text" name="social-loop" id="social-loop" value="<?php echo get_option('social-loop'); ?>" />
-    <p><?php _e( "<b>Important:</b> Please Make sure to enable 'Toggle dropdown to show buttons' for this shortcode" , 'exodus') ?></p>
-<?php }
-
-function setting_label_social_single() { ?>
-    <input type="text" name="social-single" id="social-single" value="<?php echo get_option('social-single'); ?>" />
-<?php }
-
-// Set Google Analytics Tracking Code
-function setting_label_ga_code() { ?>
-    <input type="text" name="ga-code" id="ga-code" value="<?php echo get_option('ga-code'); ?>" />
-<?php }
-
-function custom_settings_page_setup() {
-    add_settings_section('article-type-labels', __('Article Type Labels', 'exodus') , null, 'theme-options');
-    add_settings_field('ritual', __('Ritual' , 'exodus') , 'setting_label_ritual', 'theme-options', 'article-type-labels');
-    add_settings_field('event', __('Event' , 'exodus') , 'setting_label_event', 'theme-options', 'article-type-labels');
-    add_settings_field('text', __('Text' , 'exodus') , 'setting_label_text', 'theme-options', 'article-type-labels');
-
-    add_settings_section('social-sharing-buttons', __('Social Sharing Shortcodes', 'exodus') , null, 'theme-options');
-    add_settings_field('social-loop', __('In Lists' , 'exodus') , 'setting_label_social_loop', 'theme-options', 'social-sharing-buttons');
-    add_settings_field('social-single', __('In Single Pages' , 'exodus') , 'setting_label_social_single', 'theme-options', 'social-sharing-buttons');
-
-    add_settings_section('google-analytics', __('Google Analytics', 'exodus') , null, 'theme-options');
-    add_settings_field('text', __('Tracking Code' , 'exodus') , 'setting_label_ga_code', 'theme-options', 'google-analytics');
-
-
-    register_setting('article-type-labels', 'ritual');
-    register_setting('article-type-labels', 'event');
-    register_setting('article-type-labels', 'text');
-    register_setting('social-sharing-buttons', 'social-loop');
-    register_setting('social-sharing-buttons', 'social-single');
-    register_setting('google-analytics', 'ga-code');
-
-}
-add_action( 'admin_init', 'custom_settings_page_setup' );
 
 /* -------------------------------------------------
 // 4. Widget Areas
