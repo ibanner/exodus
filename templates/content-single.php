@@ -4,6 +4,14 @@ $fvid = get_field('featured_video');
 $alert = exodus_siddur_action_handler();
 $post_types = get_the_terms( get_the_ID() , 'post_types_tax');
 $post_type_label = $post_types[0]->name;
+$social_option = get_option('social-single');
+
+if ( has_shortcode( $social_option , 'sgmb') ) {
+    $social = do_shortcode( $social_option );
+} else {
+    $social = __('Not Set' , 'exodus'); //TODO Probably some extra guidance is required
+}
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -15,7 +23,7 @@ $post_type_label = $post_types[0]->name;
         </div><!-- /.siddur-button-->
     </div><!-- /.article-meta -->
 
-    <div class="content-wrapper row">
+    <div class="content-wrapper row section">
 
         <div class="content inlet">
 
@@ -36,11 +44,14 @@ $post_type_label = $post_types[0]->name;
         </div><!-- /.more-info -->
         <div class="article-cats inlet caption">
             <?php esc_html_e( 'Categories:', 'exodus'); ?> <?php echo get_the_category_list(', '); ?> | <?php printf( esc_html__( 'This %1$s article was posted on ', 'exodus' ) , $post_type_label ); // WPCS: XSS OK. ?> <?php echo get_the_date(); ?>
-        </div><!-- /.more-info -->
+        </div><!-- /.article-cats -->
+        <div class="article-cats inlet caption">
+            <?php echo $social; ?>
+        </div><!-- /.article-cats -->
 
     </div><!-- /.content-wrapper -->
 
-    <div id="author-info" class="author-info row">
+    <div id="author-info" class="author-info row section">
         <?php exodus_author_info(); ?>
     </div><!-- /.author-info -->
 
