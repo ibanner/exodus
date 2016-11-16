@@ -58,7 +58,6 @@ function setting_label_social_loop() { ?>
 
 function setting_label_social_single() { ?>
     <input type="text" name="social-single" id="social-single" value="<?php echo get_option('social-single'); ?>" />
-    <?php var_dump(get_option('social-single')); ?>
 <?php }
 
 // Set Google Analytics Tracking Code

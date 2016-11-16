@@ -176,6 +176,7 @@ add_action( 'wp_enqueue_scripts', 'exodus_scripts' );
 require get_template_directory() . '/inc/custom-header.php';
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/options.php';
+require get_template_directory() . '/inc/siddur.php';
 require get_template_directory() . '/inc/cpt-config.php';           // Register Custom Post Types locally
 require get_template_directory() . '/inc/extras.php';               // Custom functions that act independently of the theme templates.
 require get_template_directory() . '/inc/customizer.php';
@@ -190,11 +191,7 @@ require get_template_directory() . '/inc/required-plugins.php';
 // include get_template_directory() . '/inc/temp-template-tags.php';
 
 /* -------------------------------------------------
-// 3. Custom Settings Pages
-------------------------------------------------- */
-
-/* -------------------------------------------------
-// 4. Widget Areas
+// 3. Widget Areas
 ------------------------------------------------- */
 
 /* @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar */
