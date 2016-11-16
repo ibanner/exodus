@@ -31,7 +31,7 @@ if ( has_shortcode( $social_option , 'sgmb') ) {
                 the_field('featured_video');
             } elseif ( has_post_thumbnail() ) {?>
                 <div class="grid-thumbnail">
-                    <?php the_post_thumbnail('large' , ['class' => 'img-responsive responsive--full']) ?>
+                    <?php the_post_thumbnail('full' , ['class' => 'img-responsive responsive--full']) ?>
                 </div>
             <?php } ?>
 
