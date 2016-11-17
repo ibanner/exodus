@@ -46,7 +46,7 @@ if ( has_shortcode( $social_option , 'sgmb') ) {
             <?php esc_html_e( 'Categories:', 'exodus'); ?> <?php echo get_the_category_list(', '); ?> | <?php printf( esc_html__( 'This %1$s article was posted on ', 'exodus' ) , $post_type_label ); // WPCS: XSS OK. ?> <?php echo get_the_date(); ?>
         </div><!-- /.article-cats -->
         <div class="article-cats inlet caption">
-            <?php echo $social; ?>
+            <?php exodus_social_links('social-single'); ?>
         </div><!-- /.article-cats -->
 
     </div><!-- /.content-wrapper -->

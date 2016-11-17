@@ -39,6 +39,17 @@ if ( ! function_exists( 'exodus_cpt_label' ) ) :
 endif;
 
 /******************************************************/
+if ( ! function_exists( 'exodus_post_type_tax_label' ) ) :
+    /**
+     * Prints a translatable CPT label
+     */
+    function exodus_post_type_tax_label() {
+        $post_type_term = get_the_terms( get_the_ID() ,'post_types_tax');
+        echo '<a href="#" class="article-label article-label">' . $post_type_term[0]->name . '</a>';
+    }
+endif;
+
+/******************************************************/
 // TODO -- To Be Deprecated
 if ( ! function_exists( 'exodus_get_article_fields' )) :
     function exodus_get_article_fields() {
@@ -287,9 +298,6 @@ function exodus_navigation_markup( $links, $class = 'posts-navigation', $screen_
 
 /******************************************************/
 
-
-/******************************************************/
-
 function exodus_search_form() {
 echo '<form role="search" method="get" class="search-form" action="' . home_url( "/" ) . '">';
     echo '<div class="form-group">';
@@ -303,3 +311,14 @@ echo '</form>';
 }
 
 /*******************************************************/
+
+function exodus_social_links($location) {
+    $social_option = get_option($location);
+
+    if ( strpos( $social_option , 'sgmb') === 1 ) {
+        $social = do_shortcode( $social_option );
+    } else {
+        $social = __('Not Set' , 'exodus'); //TODO Probably some extra guidance is required
+    }
+    echo $social;
+}

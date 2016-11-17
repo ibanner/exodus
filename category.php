@@ -36,10 +36,15 @@
 
                 <?php endif; ?>
                 <?php
+
                 if ( have_posts() ) : ?>
                     <div class="grid">
 
                         <?php /* Start the Loop */
+
+
+
+
                         while ( have_posts() ) : the_post();
 
                             get_template_part( 'templates/list' );
