@@ -15,7 +15,7 @@ function exodus_author_info() {
     $author_id = get_the_author_meta( 'ID' );
     $a = cptui_get_post_type_slugs();
     $post_type = get_post_type();
-    echo '<p class="h4 meta-title">'. esc_html__('About the Author' , 'exodus' ) .'</p>';
+    echo '<p class="h4 meta-title">'. esc_html__('About the Author' , "exodus" ) .'</p>';
     echo '<div class="author-avatar">' . get_avatar( $author_id ) . '</div>'; // TODO add alt value
     echo '<div class="byline author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></div>'; // WPCS: XSS OK.
     echo '<div class="author-description">' . get_the_author_meta( 'description', $author_id) . '</div>';
@@ -34,18 +34,67 @@ if ( ! function_exists( 'exodus_cpt_label' ) ) :
         $post_format = get_post_format();
         $archive_cpt = get_post_type_archive_link( $post_type );
         $archive_format = get_post_format_link( $post_format );
-        echo '<a href="' . ( $post_format ? $archive_format : $archive_cpt ) . '" class="article-label article-label--' . ( $post_format ? $post_format : $post_type ) . '">' . ( $post_format ? esc_html__('Video' , 'exodus' ) : (get_option( $post_type ))) . '</a>';
+        echo '<a href="' . ( $post_format ? $archive_format : $archive_cpt ) . '" class="article-label article-label--' . ( $post_format ? $post_format : $post_type ) . '">' . ( $post_format ? esc_html__('Video' , "exodus" ) : (get_option( $post_type ))) . '</a>';
     }
 endif;
 
 /******************************************************/
 if ( ! function_exists( 'exodus_post_type_tax_label' ) ) :
     /**
-     * Prints a translatable CPT label
+     * Prints a translatable Post Type Tax term label
      */
     function exodus_post_type_tax_label() {
         $post_type_term = get_the_terms( get_the_ID() ,'post_types_tax');
         echo '<a href="#" class="article-label article-label">' . $post_type_term[0]->name . '</a>';
+    }
+endif;
+
+/******************************************************/
+if ( ! function_exists( 'exodus_post_type_tax_filter_ui' ) ) :
+    /**
+     * Prints a translatable Post Type Tax term label
+     */
+    function exodus_post_types_tax_filter_ui() {
+        $terms = get_terms( array(
+            'taxonomy' => 'post_types_tax',
+            'hide_empty' => true,
+        ) );
+        if ($terms) {
+            echo '<div class="btn-group button-group filter-group type" data-filter-group="type">';
+            echo '<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="current-filter-type">' . esc_html__( "All Types" , "exodus" ) . '</span> <i id="#caret" class="fa fa-caret-down" aria-hidden="true"></i></button>';
+            echo '<ul class="dropdown-menu ul-isotope post-types-tax">';
+            echo '<li><a href="#" class="btn-isotope active" aria-pressed="true" title="' . esc_html__( "All Types" , "exodus" ) . '" data-filter="*">' . esc_html__( "All Types" , "exodus" ) . '</a></li>';
+            echo '<li role="separator" class="divider"></li>';
+            foreach ($terms as $term) {
+                echo '<li><a href="#" class="btn-isotope" aria-pressed="false" title="' . esc_html__($term->name) . '" data-filter=".post_types_tax-' . esc_html__( $term->slug ) . '">' . esc_html__($term->name) . '</a></li>';
+            }
+            echo '</ul></div><!-- ul.dropdown-menu -->';
+        } else {
+            echo 'No Terms here!';
+        }
+    }
+endif;
+
+/******************************************************/
+if ( ! function_exists( 'exodus_post_format_filter_ui' ) ) :
+    /**
+     * Prints a translatable post format label
+     */
+    function exodus_post_format_filter_ui() {
+        $formats = get_post_format_slugs();
+        if ($formats) {
+            echo '<div class="btn-group button-group filter-group format" data-filter-group="format">';
+                echo '<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="current-filter-format">' . esc_html__( "All Formats" , "exodus" ) . '</span> <i  id="#caret" class="fa fa-caret-down" aria-hidden="true"></i></button>';
+                echo '<ul class="dropdown-menu ul-isotope format">';
+                    echo '<li><a href="#" class="btn-isotope active" aria-pressed="true" title="' . esc_html__( "All Formats" , "exodus" ) . '" data-filter="*">' . esc_html__( "All Formats" , "exodus" ) . '</a></li>';
+                    echo '<li role="separator" class="divider"></li>';
+                foreach ($formats as $format) {
+                    echo '<li><a href="#" class="btn-isotope" aria-pressed="false" title="' . get_post_format_string($format) . '" data-filter=".format-' . esc_html__( $format ) . '">' . get_post_format_string($format) . '</a></li>';
+                }
+                echo '</ul></div><!-- ul.dropdown-menu -->';
+        } else {
+            echo 'No Terms here!';
+        }
     }
 endif;
 
@@ -58,9 +107,9 @@ if ( ! function_exists( 'exodus_get_article_fields' )) :
             $location = get_field( 'location' );
             $timing = get_field( 'timing' );
             echo '<ul class="article-fields ritual row">';
-                echo '<li class="article-field participants col-xs-12 col-sm-4"><h4 class="article-field-title caption">' . esc_html__('Participants' , 'exodus' ) . '</h4>' . $participants . '</li>';
-                echo '<li class="article-field location col-xs-12 col-sm-4"><h4 class="article-field-title caption">' . esc_html__('Location' , 'exodus' ) . '</h4>' . $location . '</li>';
-                echo '<li class="article-field timing col-xs-12 col-sm-4"><h4 class="article-field-title caption">' . esc_html__('Timing' , 'exodus' ) . '</h4>' . $timing . '</li>';
+                echo '<li class="article-field participants col-xs-12 col-sm-4"><h4 class="article-field-title caption">' . esc_html__('Participants' , "exodus" ) . '</h4>' . $participants . '</li>';
+                echo '<li class="article-field location col-xs-12 col-sm-4"><h4 class="article-field-title caption">' . esc_html__('Location' , "exodus" ) . '</h4>' . $location . '</li>';
+                echo '<li class="article-field timing col-xs-12 col-sm-4"><h4 class="article-field-title caption">' . esc_html__('Timing' , "exodus" ) . '</h4>' . $timing . '</li>';
             echo '</ul>';
         } /*elseif ( 'text' === get_post_type() ) { //TODO saving for later, maybe
 
@@ -101,12 +150,12 @@ function exodus_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		esc_html_x( 'Posted on %s', 'post date', 'exodus' ),
+		esc_html_x( 'Posted on %s', 'post date', "exodus" ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
 	$byline = sprintf(
-		esc_html_x( 'by %s', 'post author', 'exodus' ),
+		esc_html_x( 'by %s', 'post author', "exodus" ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -127,29 +176,29 @@ function exodus_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'exodus' ) );
+		$categories_list = get_the_category_list( esc_html__( ', ', "exodus" ) );
 		if ( $categories_list && exodus_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'exodus' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', "exodus" ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'exodus' ) );
+		$tags_list = get_the_tag_list( '', esc_html__( ', ', "exodus" ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'exodus' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', "exodus" ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
 		/* translators: %s: post title */
-		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'exodus' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
+		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', "exodus" ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
 		echo '</span>';
 	}
 
 	edit_post_link(
 		sprintf(
 			/* translators: %s: Name of current post */
-			esc_html__( 'Edit %s', 'exodus' ),
+			esc_html__( 'Edit %s', "exodus" ),
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
 		'<span class="edit-link">',
@@ -213,9 +262,9 @@ if ( ! function_exists( 'exodus_get_posts_navigation' ) ) :
         // Don't print empty markup if there's only one page.
         if ( $GLOBALS['wp_query']->max_num_pages > 1 ) {
             $args = wp_parse_args( $args, array(
-                'prev_text'          => __( 'Older' , 'exodus' ),
-                'next_text'          => __( 'Newer' , 'exodus' ),
-                'screen_reader_text' => __( 'Posts navigation' , 'exodus' ),
+                'prev_text'          => __( 'Older' , "exodus" ),
+                'next_text'          => __( 'Newer' , "exodus" ),
+                'screen_reader_text' => __( 'Posts navigation' , "exodus" ),
             ) );
 
             $next_link = get_previous_posts_link( $args['next_text'] );
@@ -318,7 +367,7 @@ function exodus_social_links($location) {
     if ( strpos( $social_option , 'sgmb') === 1 ) {
         $social = do_shortcode( $social_option );
     } else {
-        $social = __('Not Set' , 'exodus'); //TODO Probably some extra guidance is required
+        $social = __('Not Set' , "exodus"); //TODO Probably some extra guidance is required
     }
     echo $social;
 }
