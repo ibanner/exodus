@@ -4,31 +4,41 @@ var $grid = jQuery('.grid').isotope({
 
 // store filter for each group
 var filters = {};
+var filterLabel = '';
+var currentFilter ='';
 
-jQuery('.isotope-ui').on( 'click', '.button', function() {
+    jQuery('.filter-group').on( 'click', 'a', function() {
     var $this = jQuery(this);
     // get group key
-    var $buttonGroup = $this.parents('.button-group');
+    var $buttonGroup = $this.parents('.filter-group');
     var filterGroup = $buttonGroup.attr('data-filter-group');
     // set filter for group
     filters[ filterGroup ] = $this.attr('data-filter');
     // combine filters
     var filterValue = concatValues( filters );
+    // Retrieve filter label text
+    filterLabel = $this.attr('title');
+    // construct selector for current filter label element
+    currentFilter = '.current-filter-' + filterGroup;
+    // change current filter label text
+    $buttonGroup.find(currentFilter).html(filterLabel);
     // set filter for Isotope
     $grid.isotope({ filter: filterValue });
+    console.log('filterGroup', filterGroup);
 });
 
 
-/* bind filter button click
-jQuery('.filter-button-group').on( 'click', 'button', function() {
+// bind filter button click
+jQuery('.filter-group').on( 'click', 'a', function() {
     var filterValue = jQuery(this).attr('data-filter');
     $grid.isotope({ filter: filterValue });
-}); */
+    console.log('currentFilter', currentFilter);
+});
 
 // change active class on buttons
-jQuery('.button-group').each( function( i, buttonGroup ) {
+jQuery('.filter-group').each( function( i, buttonGroup ) {
     var $buttonGroup = jQuery( buttonGroup );
-    $buttonGroup.on( 'click', 'button', function() {
+    $buttonGroup.on( 'click', 'a', function() {
         $buttonGroup.find('.active').removeClass('active');
         jQuery( this ).addClass('active');
         $buttonGroup.prop("aria-pressed", false);

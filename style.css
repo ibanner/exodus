@@ -326,7 +326,7 @@ a.no-decor {
     display: block;
 }
 
-.dropdown-toggle {
+.nav-dropdown-toggle {
     position: absolute;
     height: 27px;
     width: 27px;
@@ -344,7 +344,7 @@ a.no-decor {
     text-transform: lowercase; /* Stop screen readers from reading the text as capital letters */
 }
 
-.dropdown-toggle:after {
+.nav-dropdown-toggle:after {
     content: "\f078";
     font-size: 14px;
     line-height: 27px;
@@ -356,13 +356,13 @@ a.no-decor {
     width: 27px;
 }
 
-.dropdown-toggle:hover,
-.dropdown-toggle:focus {
+.nav-dropdown-toggle:hover,
+.nav-dropdown-toggle:focus {
     background-color: #fff;
     color: #000;
 }
 
-.dropdown-toggle.toggle-on:after {
+.nav-dropdown-toggle.toggle-on:after {
     content: "\f077";
 }
 
@@ -522,7 +522,7 @@ a.no-decor {
     }
 
     /* Simplify the drop-down toggle */
-    .dropdown-toggle {
+    .nav-dropdown-toggle {
         top: 11px;
         right: 12px;
         border: none;
@@ -530,7 +530,7 @@ a.no-decor {
         /*color: #428bca;*/
     }
 
-    .dropdown-toggle::after {
+    .nav-dropdown-toggle::after {
         line-height: 27px;
         width: 27px;
     }
@@ -716,6 +716,7 @@ a.siddur i {
     font-weight: bold;
 }
 
+/*
 .sub-cats,
 .categories {
     text-align: center;
@@ -741,9 +742,7 @@ a.siddur i {
         margin-top: 0;
     }
 }
-.filter-button-group {
-    /*display: inherit;*/
-}
+*/
 
 .meta-title {
     padding: 1em;
@@ -765,6 +764,53 @@ a.siddur i {
 }
 
 /* ## Isotope / Masonry */
+
+/* ### Isotope UI */
+
+.isotope-ui {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 10px;
+    margin-bottom: 2em;
+}
+
+.filter-group {
+    min-width: 45%;
+}
+
+@media screen and (min-width: 37em){
+    .isotope-ui {
+        text-align: start;
+    }
+
+    .filter-group {
+        min-width: 160px;
+        margin: 0 15px;
+    }
+
+    .filter-group.format {
+        float: right;
+    }
+}
+
+.filter-group button {
+    width: 100%;
+    text-align: start;
+}
+
+.filter-group i {
+    float:right;
+}
+
+.dropdown-menu {
+    min-width: 100%;
+}
+
+.isotope-ui li a.active {
+    font-weight: bold;
+}
+
+/* ### Grid */
 
 .grid {
     max-width: 1200px;
