@@ -120,6 +120,24 @@ if ( ! function_exists( 'exodus_get_article_fields' )) :
 endif;
 
 /******************************************************/
+
+if ( ! function_exists( 'exodus_wpml_switch' )) :
+    function exodus_wpml_switch() {
+        $languages = apply_filters( 'wpml_active_languages', NULL, 'orderby=id&order=desc' );
+
+        if ( !empty( $languages ) ) {
+            foreach( $languages as $l ) {
+                if ( !$l['active'] ) echo '<a href="' . $l['url'] . '">';
+                if ( $l['active'] ) echo '<span class="active-language">';
+                echo '<img class="lang-flag" src="' . $l['country_flag_url'] . '" height="28" alt="' . $l['language_code'] . '" width="28" />';
+                if ( !$l['active'] ) echo '</a> ';
+                if ( $l['active'] ) echo '</span> ';
+            }
+        }
+    }
+endif;
+
+/******************************************************/
 if ( ! function_exists( 'exodus_lorem_ipsum' )) :
 function exodus_lorem_ipsum() {
     if ( is_rtl() === true ) {
