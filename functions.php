@@ -47,10 +47,11 @@ function exodus_setup() {
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 828, 360, true );
 
-    // This theme uses wp_nav_menu() in one location.
+    // This theme uses wp_nav_menu() in 2 locations.
     register_nav_menus( array(
         'primary' => esc_html__( 'Primary Menu', 'exodus' ),
-        /*'secondary' => esc_html__( 'Secondary Menu', 'exodus' ),*/
+        'secondary' => esc_html__( 'Secondary Menu', 'exodus' ),
+        'account' => esc_html__( 'Account Menu', 'exodus' ),
     ) );
 
     add_theme_support( 'post-formats', array( 'gallery' , 'image' , 'video' , 'audio' , 'link' , 'quote' ) );
