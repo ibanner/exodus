@@ -786,7 +786,7 @@ ul.account li a {
 /* ## All Content Types */
 
 #main {
-    margin: 1.8em auto;
+    /*margin: 1.8em auto;*/
     min-height: 600px;
 }
 
@@ -983,7 +983,7 @@ a.siddur i {
 /* ### Grid */
 
 .grid {
-    max-width: 1200px;
+    /*max-width: 1200px;*/
     /*height: 80%;*/
 }
 
@@ -998,6 +998,37 @@ a.siddur i {
 .grid-item {
     /*height: auto;*/
     float: left;
+    width: 100%;
+}
+
+@media screen and (min-width: 600px){
+    .grid-item {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 800px){
+    .grid-item {
+        width: 33%;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    .grid-item {
+        width: 25%;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .grid-item {
+        width: 20%;
+    }
+}
+
+@media screen and (min-width: 1500px){
+    .grid-item {
+        width: 16%;
+    }
 }
 
 .grid-item h2 {

@@ -80,5 +80,5 @@
     </div>
 </header>
 <?php /*if ( !is_front_page() && !is_home() ) : get_template_part( 'templates/the-strip'); endif; */?>
-<div class="container">
+<div class="container-fluid">
     <section id="content" class="site-content">
