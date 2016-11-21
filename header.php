@@ -19,37 +19,66 @@
 
 <body id="top" <?php body_class(); ?>>
 
-<div class="blog-masthead">
+<header class="blog-masthead">
     <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'exodus' ); ?></a>
 
-    <header class="blog-header container">
-        <div class="site-branding">
+    <div class="container clearfix">
+        <div class="left-header">
+            <?php exodus_wpml_switch(); ?>
+
+
+            <form id="header-search" action="<?php bloginfo('wpurl'); ?>" method="get" _lpchecked="1">
+                <input type="text" name="s" value="Search">
+                <button type="submit" class="btn btn-link"><i id="search-icon" class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
+
+        </div><!-- .left-header -->
+
+        <!-- Start Site Branding -->
             <?php
+
             $site_title = get_bloginfo( 'name' );
+
             if ( is_front_page() && is_home() ) : ?>
-                <h1 class="site-title"><a href="<?php bloginfo('wpurl'); ?>"><?php echo $site_title; ?></a></h1>
+
+                <h1 class="home site-title"><a href="<?php bloginfo('wpurl'); ?>"><?php echo $site_title; ?></a></h1>
+
             <?php else : ?>
+
                 <p class="h1 site-title"><a href="<?php bloginfo('wpurl'); ?>"><?php echo $site_title; ?></a></p>
+
             <?php endif; ?>
+
             <div class="screen-reader-text">
                     <?php printf( esc_html__('Go to the home page of %1$s', 'exodus'), $site_title ); ?>
             </div>
-            <?php
-            if ( is_front_page() || is_home() ) :
-                $description = get_bloginfo( 'description', 'display' );
-                if ( $description || is_customize_preview() ) : ?>
-                <p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-            <?php endif; endif; ?>
-        </div><!-- .site-branding -->
+
+        <!-- End Site Branding -->
+
+        <div class="right-header">
+
+            <div class="btn-group">
+                <button id="account-icon" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i id="my-account" class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    <span class="sr-only">My Account</span>
+                </button>
+
+                <div id="account-menu" class="dropdown-menu dropdown-menu-right">
+                    <?php wp_nav_menu( array( 'theme_location' => 'account', 'menu_class' => 'account' ) ); ?>
+                </div>
+            </div>
+        </div><!-- .right-header -->
+    </div>
+
+    <div class="container-fluid clearfix strip">
         <nav id="site-navigation" class="main-navigation blog-nav" role="navigation">
-            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'exodus' ); ?></button>
+            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i id="bar-icon" class="fa fa-bars icon-border" aria-hidden="true"></i><span class="sr-only"><?php esc_html_e( 'Menu', 'exodus' ); ?></span></button>
             <?php
-            wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) );
-            // wp_nav_menu( array( 'theme_location' => 'secondary', 'menu_class' => 'secondary' ) );
+            wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu secondary' ) );
             ?>
         </nav><!-- #site-navigation -->
-    </header>
-</div>
-<?php if ( !is_front_page() && !is_home() ) : get_template_part( 'templates/the-strip'); endif; ?>
+    </div>
+</header>
+<?php /*if ( !is_front_page() && !is_home() ) : get_template_part( 'templates/the-strip'); endif; */?>
 <div class="container">
-    <div id="content" class="site-content">
+    <section id="content" class="site-content">

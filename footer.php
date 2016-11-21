@@ -1,4 +1,4 @@
-</div><!-- /#content -->
+</section><!-- /#content -->
 </div><!-- /.container -->
 
 
