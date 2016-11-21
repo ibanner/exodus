@@ -11,7 +11,7 @@
 
     <div class="row">
         <div id="main" class="col-sm-12 blog-main single-column">
-            <div class="category category--<?php echo single_cat_title(); ?>">
+            <div class="category category--<?php echo $term->slug; ?>">
                 <h1 class="category-title row"><?php single_cat_title(); ?></h1>
                 <h2 class="screen-reader-text"><?php esc_html_e( "Article Filters" , 'exodus' ); ?></h2>
                 <div class="isotope-ui row">
