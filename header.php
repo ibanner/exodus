@@ -41,7 +41,7 @@
 
             if ( is_front_page() && is_home() ) : ?>
 
-                <h1 class="home site-title"><a href="<?php bloginfo('wpurl'); ?>"><?php echo $site_title; ?></a></h1>
+                <h1 class="site-title"><a href="<?php bloginfo('wpurl'); ?>"><?php echo $site_title; ?></a></h1>
 
             <?php else : ?>
 
@@ -79,6 +79,10 @@
         </nav><!-- #site-navigation -->
     </div>
 </header>
-<?php /*if ( !is_front_page() && !is_home() ) : get_template_part( 'templates/the-strip'); endif; */?>
-<div class="container-fluid">
-    <section id="content" class="site-content">
+<?php if ( is_singular() ) {
+    echo '<div class="container">';
+} else {
+    echo '<div class="container-fluid">';
+} ?>
+
+<section id="content" class="site-content">

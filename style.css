@@ -256,6 +256,11 @@ header .container {
     background-color: #03a9f4;
 }
 
+.wpml-switch {
+    display: inline-block;
+    float: left;
+}
+
 .active-language {
     border: 2px solid white;
     border-radius: 50%;
@@ -360,7 +365,8 @@ img.lang-flag {
     #header-search {
         position: relative;
         top: -2px;
-        float: none;
+        float: left;
+        margin-left: 10px;
     }
 
     #header-search button {
@@ -740,28 +746,8 @@ ul.account li a {
 }
 
 /*********************/
-/* # THE STRIP
+/* # CONTENT
 /*********************/
-
-.the-strip {
-    background: #f5f5f5;
-    padding: 20px 0;
-    width: 100%;
-    max-height: 4.5em;
-    line-height: 1em;
-    font-size: 1rem;
-    padding: 1em 0;
-}
-
-@media screen and (min-width: 50em) {
-    .the-strip {
-        max-height: 3em;
-    }
-
-    .the-strip .form {
-        text-align: right;
-    }
-}
 
 .site-content {
     padding-top: 20px;
@@ -778,10 +764,6 @@ ul.account li a {
         padding-top: 60px;
     }
 }
-
-/*********************/
-/* # CONTENT
-/*********************/
 
 /* ## All Content Types */
 

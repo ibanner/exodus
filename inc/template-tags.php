@@ -126,6 +126,7 @@ if ( ! function_exists( 'exodus_wpml_switch' )) :
         $languages = apply_filters( 'wpml_active_languages', NULL, 'orderby=id&order=desc' );
 
         if ( !empty( $languages ) ) {
+            echo '<div class="wpml-switch">';
             foreach( $languages as $l ) {
                 if ( !$l['active'] ) echo '<a href="' . $l['url'] . '">';
                 if ( $l['active'] ) echo '<span class="active-language">';
@@ -133,6 +134,7 @@ if ( ! function_exists( 'exodus_wpml_switch' )) :
                 if ( !$l['active'] ) echo '</a> ';
                 if ( $l['active'] ) echo '</span> ';
             }
+            echo '</div>';
         }
     }
 endif;
