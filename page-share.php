@@ -17,16 +17,16 @@
                 <div class="share-form jumbotron">
                     <?php acf_form(array(
 
-                        'id' => 'share-ritual',
+                        'id' => 'share-post',
                         'post_id' => 'new_post',
                         'new_post' => array(
-                            'post_type'     => 'ritual',
+                            'post_type'     => 'post',
                             'post_status'   => 'pending'
                         ),
                         'post_title' => true,
                         'post_content' => true,
                         'submit_value' => __("Submit for review", 'exodus'),
-                        'updated_message' => __("<b>Success!</b> Your ritual was submitted successfully and will be reviewed shortly.", 'exodus'),
+                        'updated_message' => __("<b>Success!</b> Your article was submitted successfully and will be reviewed shortly.", 'exodus'),
                         // 'honeypot' => true
 
                     )); ?>
