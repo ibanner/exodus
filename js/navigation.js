@@ -116,22 +116,26 @@
     var position, direction, previous;
 
     $(window).scroll(function(){
-        if( $(this).scrollTop() >= position ){
-            direction = 'down';
-            if(direction !== previous){
-                $('.menu-toggle').addClass('off-screen');
-
-                previous = direction;
-            }
+        if( $(this).scrollTop() == 0 ) {
+            $('.menu-toggle').removeClass('hovering');
         } else {
-            direction = 'up';
-            if(direction !== previous){
-                $('.menu-toggle').removeClass('off-screen');
+            if( $(this).scrollTop() >= position ){
+                direction = 'down';
+                if(direction !== previous){
+                    $('.menu-toggle').addClass('off-screen hovering');
 
-                previous = direction;
+                    previous = direction;
+                }
+            } else {
+                direction = 'up';
+                if(direction !== previous){
+                    $('.menu-toggle').removeClass('off-screen');
+
+                    previous = direction;
+                }
             }
+            position = $(this).scrollTop();
         }
-        position = $(this).scrollTop();
     });
 
     /**
