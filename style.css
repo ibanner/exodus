@@ -189,6 +189,10 @@ body.home {
     border-radius: 0;
 }
 
+.flexslider-empty {
+    min-height: 220px;
+}
+
 .slide-caption {
     position: absolute;
     color: #fff;
@@ -219,8 +223,9 @@ body.home {
         font-size: 100%;
     }
 
-
-
+    .flexslider-empty {
+        min-height: 400px;
+    }
 }
 
 /*********************/
