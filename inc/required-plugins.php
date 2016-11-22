@@ -38,6 +38,30 @@ function exodus_register_required_plugins() {
             'slug'      => 'nav-menu-roles',
             'required'  => false,
         ),
+
+        array(
+            'name'      => 'Post Views Counter',
+            'slug'      => 'post-views-counter',
+            'required'  => false,
+        ),
+
+        array(
+            'name'      => 'LTR-RTL Admin',
+            'slug'      => 'ltrrtl-admin-content',
+            'required'  => false,
+        ),
+
+        array(
+            'name'      => 'WPML',
+            'slug'      => 'sitepress-multilingual-cms',
+            'required'  => false,
+        ),
+
+        array(
+            'name'      => 'Printer Friendly',
+            'slug'      => 'printfriendly',
+            'required'  => false,
+        ),
     );
 
     /*
