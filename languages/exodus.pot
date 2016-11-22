@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-25 18:47+0000\n"
+"POT-Creation-Date: 2016-11-22 09:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,15 +14,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: footer.php:5
-msgid "Site by"
+#: 404.php:14
+msgid "Page not found."
 msgstr ""
 
-#: footer.php:5
-msgid "The Contechnician"
+#: 404.php:15
+msgid "It's not you, it's us."
+msgstr ""
+
+#: 404.php:15
+msgid "Here's a link to the homepage"
+msgstr ""
+
+#: category.php:32
+msgid "View Subcategories"
+msgstr ""
+
+#: category.php:44 index.php:11
+msgid "Article Filters"
+msgstr ""
+
+#: category.php:69
+msgid "There's Nothing Here yet"
+msgstr ""
+
+#: comments.php:5
+msgid "Discuss this"
+msgstr ""
+
+#: comments.php:31
+#, php-format
+msgid ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
+"this account\" class=\"log-out\">Not You?</a>"
 msgstr ""
 
 #: footer.php:7
+msgid "Site by"
+msgstr ""
+
+#: footer.php:7
+msgid "The Contechnician"
+msgstr ""
+
+#: footer.php:9
 msgid "Back to top"
 msgstr ""
 
@@ -34,74 +69,330 @@ msgstr ""
 msgid "Secondary Menu"
 msgstr ""
 
-#: functions.php:107
+#: functions.php:54
+msgid "Account Menu"
+msgstr ""
+
+#: functions.php:147
 msgid "expand child menu"
 msgstr ""
 
-#: functions.php:108
+#: functions.php:148
 msgid "collapse child menu"
 msgstr ""
 
-#: functions.php:170
-msgid "Article Type Labels"
+#: functions.php:159
+msgid "Share This"
 msgstr ""
 
-#: functions.php:171
-msgid "Ritual"
-msgstr ""
-
-#: functions.php:172
-msgid "Event"
-msgstr ""
-
-#: functions.php:173
-msgid "Text"
-msgstr ""
-
-#: functions.php:189
+#: functions.php:207
 msgid "Articles Sidebar"
 msgstr ""
 
-#: functions.php:191
+#: functions.php:209
 msgid "These widgets will appear in article pages."
 msgstr ""
 
-#: header.php:23
+#: header.php:27
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:26
+#: header.php:57
+#, php-format
+msgid "Go to the home page of %1$s"
+msgstr ""
+
+#: header.php:86
 msgid "Menu"
 msgstr ""
 
-#: header.php:42
-#, php-format
-msgid "Go to the home page of %1$s"
+#: page-my-account.php:16 page-my-siddur.php:31
+msgid "Are you lost, dear friend?"
+msgstr ""
+
+#: page-my-account.php:17 page-my-siddur.php:32
+msgid "You need to log in"
+msgstr ""
+
+#: page-my-account.php:17 page-my-siddur.php:32
+msgid "or"
+msgstr ""
+
+#: page-my-account.php:17 page-my-siddur.php:32
+msgid "sign up"
+msgstr ""
+
+#: page-my-account.php:17 page-my-siddur.php:32
+msgid " to see this page."
+msgstr ""
+
+#: page-my-account.php:27
+msgid "Update Account"
+msgstr ""
+
+#: page-my-account.php:28
+msgid "<b>Success!</b> Your account is now up-to-date with the new info."
+msgstr ""
+
+#: page-my-siddur.php:39
+msgid "Your Siddur is still empty!"
+msgstr ""
+
+#: page-my-siddur.php:40
+msgid "Add your favorite items to your Siddur, for quick access."
+msgstr ""
+
+#: page-my-siddur.php:73 inc/cpt-config.php:99 inc/cpt-config.php:132
+msgid "Categories"
+msgstr ""
+
+#: page-my-siddur.php:76 page-my-siddur.php:88
+msgid "Show All"
+msgstr ""
+
+#: page-my-siddur.php:89 inc/cpt-config.php:45 inc/options.php:75
+msgid "Text"
+msgstr ""
+
+#: page-my-siddur.php:90 inc/cpt-config.php:7 inc/options.php:73
+msgid "Ritual"
+msgstr ""
+
+#: page-my-siddur.php:91 inc/template-tags.php:37
+msgid "Video"
+msgstr ""
+
+#: page-share.php:28
+msgid "Submit for review"
+msgstr ""
+
+#: page-share.php:29
+msgid ""
+"<b>Success!</b> Your article was submitted successfully and will be reviewed "
+"shortly."
+msgstr ""
+
+#: inc/cpt-config.php:6 inc/cpt-config.php:8 inc/cpt-config.php:22
+msgid "Rituals"
+msgstr ""
+
+#: inc/cpt-config.php:9
+msgid "All Rituals"
+msgstr ""
+
+#: inc/cpt-config.php:10 inc/cpt-config.php:48
+msgid "Add New"
+msgstr ""
+
+#: inc/cpt-config.php:11
+msgid "Add New Ritual"
+msgstr ""
+
+#: inc/cpt-config.php:12
+msgid "Edit Ritual"
+msgstr ""
+
+#: inc/cpt-config.php:13
+msgid "New Ritual"
+msgstr ""
+
+#: inc/cpt-config.php:14
+msgid "View Ritual"
+msgstr ""
+
+#: inc/cpt-config.php:15
+msgid "Search Rituals"
+msgstr ""
+
+#: inc/cpt-config.php:16
+msgid "No Rituals Found"
+msgstr ""
+
+#: inc/cpt-config.php:17
+msgid "No Rituals found in the trash"
+msgstr ""
+
+#: inc/cpt-config.php:18
+msgid "Parent Ritual:"
+msgstr ""
+
+#: inc/cpt-config.php:44 inc/cpt-config.php:46 inc/cpt-config.php:60
+msgid "Texts"
+msgstr ""
+
+#: inc/cpt-config.php:47
+msgid "All Texts"
+msgstr ""
+
+#: inc/cpt-config.php:49
+msgid "Add New Text"
+msgstr ""
+
+#: inc/cpt-config.php:50
+msgid "Edit Text"
+msgstr ""
+
+#: inc/cpt-config.php:51
+msgid "New Text"
+msgstr ""
+
+#: inc/cpt-config.php:52
+msgid "View Text"
+msgstr ""
+
+#: inc/cpt-config.php:53
+msgid "Search Text"
+msgstr ""
+
+#: inc/cpt-config.php:54
+msgid "No Texts found."
+msgstr ""
+
+#: inc/cpt-config.php:55
+msgid "No Texts found in the trash"
+msgstr ""
+
+#: inc/cpt-config.php:56
+msgid "Parent Text"
+msgstr ""
+
+#: inc/cpt-config.php:95 inc/cpt-config.php:128
+msgid "Thumbnail"
+msgstr ""
+
+#: inc/cpt-config.php:96 inc/cpt-config.php:129
+msgid "Excerpt"
+msgstr ""
+
+#: inc/cpt-config.php:98 inc/cpt-config.php:131
+msgid "Author"
+msgstr ""
+
+#: inc/cpt-config.php:162 inc/cpt-config.php:164 inc/cpt-config.php:174
+msgid "Post Types"
+msgstr ""
+
+#: inc/cpt-config.php:163
+msgid "Post Type"
+msgstr ""
+
+#: inc/cpt-config.php:165
+msgid "All Post Types"
+msgstr ""
+
+#: inc/cpt-config.php:166
+msgid "Edit Post Type"
+msgstr ""
+
+#: inc/cpt-config.php:167
+msgid "View Post Type"
+msgstr ""
+
+#: inc/cpt-config.php:168
+msgid "Update Post Type"
+msgstr ""
+
+#: inc/cpt-config.php:169
+msgid "Add New Post Type"
+msgstr ""
+
+#: inc/cpt-config.php:170
+msgid "New Post Type Name"
+msgstr ""
+
+#: inc/cpt-config.php:205 inc/cpt-config.php:210
+msgid "Siddurim"
+msgstr ""
+
+#: inc/cpt-config.php:206
+msgid "My Siddur"
+msgstr ""
+
+#: inc/options.php:7 inc/options.php:7 inc/options.php:25
+msgid "Exodus Settings"
+msgstr ""
+
+#: inc/options.php:56
+msgid ""
+"<b>Important:</b> Please Make sure to enable 'Toggle dropdown to show "
+"buttons' for this shortcode"
+msgstr ""
+
+#: inc/options.php:72
+msgid "Article Type Labels"
+msgstr ""
+
+#: inc/options.php:74
+msgid "Event"
+msgstr ""
+
+#: inc/options.php:77
+msgid "Social Sharing Shortcodes"
+msgstr ""
+
+#: inc/options.php:78
+msgid "In Lists"
+msgstr ""
+
+#: inc/options.php:79
+msgid "In Single Pages"
+msgstr ""
+
+#: inc/options.php:81
+msgid "Google Analytics"
+msgstr ""
+
+#: inc/options.php:82
+msgid "Tracking Code"
+msgstr ""
+
+#: inc/siddur.php:37
+msgid "Add to <b>My Siddur</b>"
+msgstr ""
+
+#: inc/siddur.php:40
+msgid "Add to <b>My Siddur</b> <small>(Login)</small>"
+msgstr ""
+
+#: inc/siddur.php:44
+msgid "Remove from <b>My Siddur</b>"
+msgstr ""
+
+#: inc/siddur.php:85
+msgid "Add to My Siddur"
+msgstr ""
+
+#: inc/siddur.php:88
+msgid "Add to My Siddur (Login First)"
+msgstr ""
+
+#: inc/siddur.php:92
+msgid "Remove from My Siddur"
 msgstr ""
 
 #: inc/template-tags.php:18
 msgid "About the Author"
 msgstr ""
 
-#: inc/template-tags.php:67
-msgid "Participants"
+#: inc/template-tags.php:51
+msgid "Type N/A"
 msgstr ""
 
-#: inc/template-tags.php:68 templates/content-single-ritual.php:28
-msgid "Location"
+#: inc/template-tags.php:68 inc/template-tags.php:70 inc/template-tags.php:70
+msgid "All Types"
 msgstr ""
 
-#: inc/template-tags.php:69 templates/content-single-ritual.php:30
-msgid "Timing"
+#: inc/template-tags.php:91 inc/template-tags.php:93 inc/template-tags.php:93
+msgid "All Formats"
 msgstr ""
 
-#: inc/template-tags.php:110
+#: inc/template-tags.php:189
 #, php-format
 msgctxt "post date"
 msgid "Posted on %s"
 msgstr ""
 
-#: inc/template-tags.php:115
+#: inc/template-tags.php:194
 #, php-format
 msgctxt "post author"
 msgid "by %s"
@@ -109,70 +400,105 @@ msgstr ""
 
 #. translators: used between list items, there is a space after the comma
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:136 inc/template-tags.php:142
+#: inc/template-tags.php:215 inc/template-tags.php:221
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:138
+#: inc/template-tags.php:217
 #, php-format
 msgid "Posted in %1$s"
 msgstr ""
 
-#: inc/template-tags.php:144
+#: inc/template-tags.php:223
 #, php-format
 msgid "Tagged %1$s"
 msgstr ""
 
 #. translators: %s: post title
-#: inc/template-tags.php:151
+#: inc/template-tags.php:230
 #, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
 #. translators: %s: Name of current post
-#: inc/template-tags.php:158
+#: inc/template-tags.php:237
 #, php-format
 msgid "Edit %s"
 msgstr ""
 
-#: templates/content-single-ritual.php:14 templates/content-single-text.php:12
-msgid "Communities"
+#: inc/template-tags.php:301
+msgid "Older"
 msgstr ""
 
-#: templates/content-single-ritual.php:23
-msgid "Scenario"
+#: inc/template-tags.php:302
+msgid "Newer"
+msgstr ""
+
+#: inc/template-tags.php:303
+msgid "Posts navigation"
+msgstr ""
+
+#: inc/template-tags.php:406 templates/content-single.php:12
+msgid "Not Set"
+msgstr ""
+
+#: templates/content-single-ritual.php:16 templates/content-single-text.php:14
+#: templates/content-single.php:46
+msgid "Categories:"
 msgstr ""
 
 #: templates/content-single-ritual.php:26
+msgid "Scenario"
+msgstr ""
+
+#: templates/content-single-ritual.php:29
 msgid "The Participants"
 msgstr ""
 
-#: templates/content-single-ritual.php:36 templates/content-single-text.php:37
+#: templates/content-single-ritual.php:31
+msgid "Location"
+msgstr ""
+
+#: templates/content-single-ritual.php:33
+msgid "Timing"
+msgstr ""
+
+#: templates/content-single-ritual.php:39 templates/content-single-text.php:40
 msgid "Text Background"
 msgstr ""
 
-#: templates/content-single-text.php:21
+#: templates/content-single-text.php:24
 msgid "The Text"
 msgstr ""
 
-#: templates/content-single-text.php:26
+#: templates/content-single-text.php:29
 msgid "Text Source"
 msgstr ""
 
-#: templates/content-single-text.php:32
+#: templates/content-single-text.php:35
 msgid "Commentary"
 msgstr ""
 
-#: templates/content-single.php:3
-msgid "Posted by"
+#: templates/content-single.php:41
+msgid "More about this..."
+msgstr ""
+
+#: templates/content-single.php:46
+#, php-format
+msgid "This %1$s article was posted on "
 msgstr ""
 
 #: templates/content.php:6
+#, php-format
 msgctxt "comments title"
 msgid "One Comment"
 msgid_plural "%1$s Comments"
 msgstr[0] ""
 msgstr[1] ""
+
+#: templates/list-category.php:15 templates/list-category.php:25
+msgid "Communities"
+msgstr ""
 
 #: templates/related-content.php:2
 msgid "More About This"
@@ -192,10 +518,6 @@ msgstr ""
 
 #: templates/related-content.php:57
 msgid "More Rituals..."
-msgstr ""
-
-#: templates/the-strip.php:4
-msgid "Here Be Breadcrumbs!"
 msgstr ""
 
 #. Name of the theme
