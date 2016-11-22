@@ -52,12 +52,6 @@ function exodus_register_required_plugins() {
         ),
 
         array(
-            'name'      => 'WPML',
-            'slug'      => 'sitepress-multilingual-cms',
-            'required'  => false,
-        ),
-
-        array(
             'name'      => 'Printer Friendly',
             'slug'      => 'printfriendly',
             'required'  => false,
