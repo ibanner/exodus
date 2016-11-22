@@ -159,6 +159,11 @@ function exodus_scripts() {
         'Share This'   => __( 'Share This', 'exodus' )
     ) );
 
+    if (is_home() || is_front_page()) {
+        wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/css/flexslider.css' , array(), '2.6.2' );
+        wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/js/jquery.flexslider.js', array( 'jquery' ), '20151215', true );
+    }
+
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );

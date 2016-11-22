@@ -81,3 +81,18 @@ function exodus_settings_page_setup() {
     add_settings_section('google-analytics', __('Google Analytics', 'exodus') , null, 'exodus-settings-page');
     add_settings_field('text', __('Tracking Code' , 'exodus') , 'setting_label_ga_code', 'exodus-settings-page', 'google-analytics');
 }
+
+/************************************************/
+//      ACF Options Page
+//      @https://www.advancedcustomfields.com/resources/acf_add_options_page/
+/************************************************/
+
+$args = array(
+    'page_title' => 'Homepage Slider',
+    'menu_title' => '',
+    'parent_slug' => 'exodus-settings-page',
+);
+
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page($args);
+}

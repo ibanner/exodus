@@ -14,7 +14,11 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <?php wp_head();?>
+    <?php
+    wp_head();
+    if (is_home() || is_front_page()) { ?>
+        <script type="text/javascript" charset="utf-8">jQuery(window).load(function() {jQuery('.flexslider').flexslider();});</script>
+    <?php }?>
 </head>
 
 <body id="top" <?php body_class(); ?>>
@@ -69,6 +73,13 @@
             </div>
         </div><!-- .right-header -->
     </div>
+
+    <?php
+    if ( is_front_page() && is_home() ) : ?>
+
+        <div id="hero" class="container-fluid clearfix hero"><?php exodus_flexslider(); ?></div>
+
+    <?php endif; ?>
 
     <div class="container-fluid clearfix strip">
         <nav id="site-navigation" class="main-navigation blog-nav" role="navigation">

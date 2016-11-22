@@ -99,27 +99,6 @@ if ( ! function_exists( 'exodus_post_format_filter_ui' ) ) :
 endif;
 
 /******************************************************/
-// TODO -- To Be Deprecated
-if ( ! function_exists( 'exodus_get_article_fields' )) :
-    function exodus_get_article_fields() {
-        if ( 'ritual' === get_post_type() ) {
-            $participants = get_field( 'participants' );
-            $location = get_field( 'location' );
-            $timing = get_field( 'timing' );
-            echo '<ul class="article-fields ritual row">';
-                echo '<li class="article-field participants col-xs-12 col-sm-4"><h4 class="article-field-title caption">' . esc_html__('Participants' , "exodus" ) . '</h4>' . $participants . '</li>';
-                echo '<li class="article-field location col-xs-12 col-sm-4"><h4 class="article-field-title caption">' . esc_html__('Location' , "exodus" ) . '</h4>' . $location . '</li>';
-                echo '<li class="article-field timing col-xs-12 col-sm-4"><h4 class="article-field-title caption">' . esc_html__('Timing' , "exodus" ) . '</h4>' . $timing . '</li>';
-            echo '</ul>';
-        } /*elseif ( 'text' === get_post_type() ) { //TODO saving for later, maybe
-
-        } elseif ( 'event' === get_post_type() ) {
-
-        }*/
-    }
-endif;
-
-/******************************************************/
 
 if ( ! function_exists( 'exodus_wpml_switch' )) :
     function exodus_wpml_switch() {
@@ -136,6 +115,39 @@ if ( ! function_exists( 'exodus_wpml_switch' )) :
             }
             echo '</div>';
         }
+    }
+endif;
+
+/******************************************************/
+
+if ( ! function_exists( 'exodus_flexslider' )) :
+    function exodus_flexslider() {
+
+    if( have_rows('hero_slides' , 'options') ):
+        echo '<div class="flexslider">
+                <ul class="slides">';
+        while( have_rows('hero_slides' , 'options') ): the_row();
+            // vars
+            $title = get_sub_field('title');
+            $sub_title = get_sub_field('sub-title');
+            $image = get_sub_field('slide_image');
+            if (!empty(get_sub_field('target_category'))) {
+                $target = get_category_link(get_sub_field('target_category'));
+            } else {
+                $target = get_the_permalink(get_sub_field('target_article'));
+            }
+
+            echo '<li>';
+                echo '<div class="slide-caption">';
+                echo '<h1>' . $title . '</h1>';
+                echo '<p>' . $sub_title . '</p>';
+                echo '</div>';
+                echo '<a href="' . $target . '"><img src="' . $image . '" /></a>';
+            echo '</li>';
+        endwhile;
+        echo '</ul>';
+        echo '</div>';
+    endif;
     }
 endif;
 
