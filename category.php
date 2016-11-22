@@ -63,7 +63,7 @@
 
                         endwhile; ?>
                     </div><!-- /.grid -->
-                    <div class="posts-nav col-sm-12"><?php the_posts_navigation(); ?></div>
+                    <!--<div class="posts-nav col-sm-12"><?php /*// the_posts_navigation(); */?></div>-->
                 <?php else :
 
                     echo wpautop( __( "There's Nothing Here yet" , 'exodus' ) );
