@@ -43,7 +43,6 @@ $alert = exodus_siddur_action_handler();
                         } elseif ( $query->have_posts() ) { ?>
 
                             <?php
-                            var_dump( $query->have_posts() );
 
                             /* Set empty var to collect all post categories */
                             $categories = '';
@@ -71,26 +70,10 @@ $alert = exodus_siddur_action_handler();
 
                             if ( $categories_unique ) : ?>
                                 <h2 class="screen-reader-text"><?php esc_html_e( "Categories" , 'exodus' ); ?></h2>
-                            <div class="categories isotope-ui row">
-                                <div class="button-group filter-button-group category col-md-6 col-sm-12" data-filter-group="category">
-                                    <button class="button btn btn-info btn-isotope cat active" aria-pressed="true" data-filter="*"><?php esc_html_e( "Show All" , 'exodus' ); ?></button>
-                                    <?php
-                                    foreach ( $categories_unique as $category_id ) {
-                                        // Get the category object from the ID
-                                        $category = get_category($category_id);
-                                        echo '<button class="button btn btn-info btn-isotope cat" aria-pressed="false" data-filter=".category-' . esc_html( $category->slug ) . '">' . esc_html( $category->name ) . '</button>
-                                        ';
-                                    }
-
-                                    ?>
+                                <div class="isotope-ui row">
+                                    <?php exodus_post_types_tax_filter_ui(); ?>
+                                    <?php exodus_post_format_filter_ui(); ?>
                                 </div>
-                                <div class="button-group filter-button-group type col-md-6 col-sm-12" data-filter-group="type">
-                                    <button class="button btn btn-warning sub-cat active" aria-pressed="true" data-filter="*"><?php esc_html_e( "Show All" , 'exodus' ); ?></button>
-                                    <button class="button btn btn-warning sub-cat" aria-pressed="false" data-filter=".text"><?php esc_html_e( "Text" , 'exodus' ); ?></button>
-                                    <button class="button btn btn-warning sub-cat" aria-pressed="false" data-filter=".ritual"><?php esc_html_e( "Ritual" , 'exodus' ); ?></button>
-                                    <button class="button btn btn-warning sub-cat" aria-pressed="false" data-filter=".format-video"><?php esc_html_e( "Video" , 'exodus' ); ?></button>
-                                </div>
-                            </div>
 
                             <?php endif; ?>
 
@@ -106,7 +89,7 @@ $alert = exodus_siddur_action_handler();
 
                                     endwhile; ?>
                                 </div><!-- /.grid -->
-                                <div class="posts-nav col-sm-12"><?php the_posts_navigation(); ?></div>
+                                <!--<div class="posts-nav col-sm-12"><?php /*// the_posts_navigation(); */?></div>-->
                             <?php endif;
                         } ?>
 

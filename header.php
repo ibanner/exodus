@@ -90,10 +90,10 @@
         </nav><!-- #site-navigation -->
     </div>
 </header>
-<?php if ( is_singular() ) {
-    echo '<div class="container">';
-} else {
+<?php if ( !is_singular() || is_page('my-siddur')) {
     echo '<div class="container-fluid">';
+} else {
+    echo '<div class="container">';
 } ?>
 
 <section id="content" class="site-content">
