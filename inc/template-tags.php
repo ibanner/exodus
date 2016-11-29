@@ -86,14 +86,14 @@ if ( ! function_exists( 'exodus_post_format_filter_ui' ) ) :
      * Prints a translatable post format label
      */
     function exodus_post_format_filter_ui() {
-        $formats = get_post_format_slugs();
-        if ($formats) {
+        if ( current_theme_supports( 'post-formats' ) ) {
+            $post_formats = get_theme_support( 'post-formats' );
             echo '<div class="btn-group button-group filter-group format" data-filter-group="format">';
                 echo '<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="current-filter-format">' . esc_html__( "All Formats" , "exodus" ) . '</span> <i  id="#caret" class="fa fa-caret-down" aria-hidden="true"></i></button>';
                 echo '<ul class="dropdown-menu ul-isotope format">';
                     echo '<li><a href="#" class="btn-isotope active" aria-pressed="true" title="' . esc_html__( "All Formats" , "exodus" ) . '" data-filter="*">' . esc_html__( "All Formats" , "exodus" ) . '</a></li>';
                     echo '<li role="separator" class="divider"></li>';
-                foreach ($formats as $format) {
+                foreach ($post_formats[0] as $format) {
                     echo '<li><a href="#" class="btn-isotope" aria-pressed="false" title="' . get_post_format_string($format) . '" data-filter=".format-' . esc_html__( $format ) . '">' . get_post_format_string($format) . '</a></li>';
                 }
                 echo '</ul></div><!-- ul.dropdown-menu -->';
