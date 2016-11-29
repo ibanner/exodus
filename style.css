@@ -1374,6 +1374,10 @@ object {
     font-weight: bold;
 }
 
+a.article-label.color-red {
+    color: red !important;
+}
+
 ul.the-communities {
     list-style-type: none;
     padding: 0;

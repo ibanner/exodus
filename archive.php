@@ -1,30 +1,37 @@
 <?php
 get_header();
+$alert = exodus_siddur_action_handler();
 ?>
 
     <div class="row">
-
-        <div id="main" class="col-sm-12 blog-main">
+        <div id="main" class="col-sm-12 blog-main single-column">
             <div class="archive">
-                <h1 class="archive-title"><?php the_archive_title(); ?></h1>
-            <div class="grid">
-            <?php
-            if ( have_posts() ) : ?>
-                <div class="grid-sizer col-xs-12 col-sm-6 col-md-3"></div>
-                    <?php while ( have_posts() ) : the_post();
+                <h1 class="archive-title row"><?php the_archive_title(); ?></h1>
 
-                        get_template_part( 'templates/list' );
+                <h2 class="screen-reader-text"><?php esc_html_e( "Article Filters" , 'exodus' ); ?></h2>
+                <div class="isotope-ui row">
+                    <?php exodus_post_types_tax_filter_ui(); ?>
+                    <?php exodus_post_format_filter_ui(); ?>
+                </div>
 
-                    endwhile; ?>
-            </div><!-- /.grid -->
+                <?php
 
-            <div class="posts-nav col-sm-12"><?php exodus_posts_navigation(); ?></div>
-            </div><!-- /.archive -->
+                if ( have_posts() ) : ?>
+                    <div class="grid row section">
+                        <?php /* Start the Loop */
 
-            <?php endif;
-            ?>
+                        while ( have_posts() ) : the_post();
+                            get_template_part( 'templates/list' );                            endwhile; ?>
+                    </div><!-- /.grid -->
+                    <div class="posts-nav col-sm-12"><?php the_posts_navigation(); ?></div>
+                <?php else :
 
-        </div> <!-- /.blog-main -->
+                    echo wpautop( __( "There's Nothing Here yet" , 'exodus' ) );
+                    // get_template_part( 'templates/content', 'none' );
+
+                endif; ?>
+            </div><!-- /.category -->
+        </div><!-- /.blog-main -->
     </div> <!-- /.row -->
 
 <?php get_footer(); ?>

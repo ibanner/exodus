@@ -51,17 +51,10 @@
 
                 if ( have_posts() ) : ?>
                     <div class="grid row section">
-
                         <?php /* Start the Loop */
 
-
-
-
-                        while ( have_posts() ) : the_post();
-
-                            get_template_part( 'templates/list' );
-
-                        endwhile; ?>
+                            while ( have_posts() ) : the_post();
+                                get_template_part( 'templates/list' );                            endwhile; ?>
                     </div><!-- /.grid -->
                     <div class="posts-nav col-sm-12"><?php the_posts_navigation(); ?></div>
                 <?php else :
