@@ -25,7 +25,7 @@ $alert = exodus_siddur_action_handler();
                     endwhile; ?>
                 </div><!-- /.grid -->
 
-                <!--<div class="posts-nav col-sm-12"><?php /*// exodus_posts_navigation(); */?></div>-->
+                <div class="posts-nav col-sm-12"><?php exodus_posts_navigation(); ?></div>
 
             <?php endif;
             ?>
