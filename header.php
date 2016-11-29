@@ -32,7 +32,7 @@
 
 
             <form id="header-search" action="<?php bloginfo('wpurl'); ?>" method="get" _lpchecked="1">
-                <input type="text" name="s" value="Search">
+                <input type="text" name="s" placeholder="Search">
                 <button type="submit" class="btn btn-link"><i id="search-icon" class="fa fa-search" aria-hidden="true"></i></button>
             </form>
 
@@ -66,7 +66,7 @@
             <div class="btn-group">
                 <button id="account-icon" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i id="my-account" class="fa fa-user-circle-o" aria-hidden="true"></i>
-                    <span class="sr-only">My Account</span>
+                    <span class="sr-only"><?php _e('My Account' , 'exodus'); ?></span>
                 </button>
 
                 <div id="account-menu" class="dropdown-menu dropdown-menu-right">
