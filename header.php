@@ -39,24 +39,26 @@
         </div><!-- .left-header -->
 
         <!-- Start Site Branding -->
-            <?php
+        <div id="site-title">
+            <a href="<?php bloginfo('wpurl'); ?>">
+        <?php
 
             $site_title = get_bloginfo( 'name' );
 
             if ( is_front_page() && is_home() ) : ?>
 
-                <h1 class="site-title"><a href="<?php bloginfo('wpurl'); ?>"><?php echo $site_title; ?></a></h1>
+                <h1 class="site-title"><?php echo $site_title; ?></h1>
 
             <?php else : ?>
 
-                <p class="h1 site-title"><a href="<?php bloginfo('wpurl'); ?>"><?php echo $site_title; ?></a></p>
+                <p class="h1 site-title"><?php echo $site_title; ?></p>
 
             <?php endif; ?>
-
+            </a>
             <div class="screen-reader-text">
                     <?php printf( esc_html__('Go to the home page of %1$s', 'exodus'), $site_title ); ?>
             </div>
-
+        </div>
         <!-- End Site Branding -->
 
         <div class="right-header">
