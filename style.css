@@ -392,6 +392,19 @@ img.lang-flag {
     box-sizing: border-box;
 }
 
+#header-search input[type=text]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: white;
+}
+#header-search input[type=text]::-moz-placeholder { /* Firefox 19+ */
+    color: white;
+}
+#header-search input[type=text]:-ms-input-placeholder { /* IE 10+ */
+    color: white;
+}
+#header-search input[type=text]:-moz-placeholder { /* Firefox 18- */
+    color: white;
+}
+
 #header-search input[type=text]:focus {
     background: #fff;
     border: none;

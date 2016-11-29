@@ -32,7 +32,7 @@
 
 
             <form id="header-search" action="<?php bloginfo('wpurl'); ?>" method="get" _lpchecked="1">
-                <input type="text" name="s" placeholder="Search">
+                <input type="text" name="s" placeholder="<?php _e( 'Search' , 'exodus' ); ?>">
                 <button type="submit" class="btn btn-link"><i id="search-icon" class="fa fa-search" aria-hidden="true"></i></button>
             </form>
 
