@@ -52,6 +52,12 @@ function exodus_register_required_plugins() {
         ),
 
         array(
+            'name'      => 'Categories Metabox Enhanced',
+            'slug'      => 'categories-metabox-enhanced',
+            'required'  => false,
+        ),
+
+        array(
             'name'      => 'Printer Friendly',
             'slug'      => 'printfriendly',
             'required'  => false,
