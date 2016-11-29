@@ -189,8 +189,25 @@ body.home {
     border-radius: 0;
 }
 
+.flexslider .slides img {
+    height: 220px;
+}
+
+@media screen and (min-width: 50em) {
+    .flexslider .slides img {
+        height: auto;
+    }
+}
+
 .flexslider-empty {
     min-height: 220px;
+}
+
+.flex-direction-nav a,
+.flex-direction-nav a:before {
+    color: rgba(255,255,255,0.8) !important;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3) !important;
+    font-size: 32px !important;
 }
 
 .slide-caption {
@@ -199,7 +216,9 @@ body.home {
     text-shadow: 1px 1px rgba(0, 0, 0, .4);
     text-align: center;
     top: 50px;
-    width: 100%;
+    width: 80%;
+    right: 10%;
+    left: 10%;
     font-size: inherit;
 }
 
