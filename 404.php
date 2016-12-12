@@ -12,7 +12,7 @@ get_header();
                     <?php
                         echo '<div class="alert alert-warning text-center" role="alert">';
                         echo '<p class="lead h1">' . __("Page not found.", 'exodus') . '</p>';
-                        echo __("It's not you, it's us.", 'exodus') . ' <a href="' . site_url() . '" class="alert-link">' . __("Here's a link to the homepage", 'exodus') . '</a>.';
+                        echo __("It's not you, it's us.", 'exodus') . ' <a href="' . site_url() . '" class="alert-link">' . __("Here, grab a link to the homepage", 'exodus') . '</a>.';
                         echo '</div>';
                     ?>
                 </div>
