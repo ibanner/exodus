@@ -55,23 +55,40 @@ if ( ! function_exists( 'exodus_post_type_tax_label' ) ) :
 endif;
 
 /******************************************************/
-if ( ! function_exists( 'exodus_post_type_tax_filter_ui' ) ) :
+if ( ! function_exists( 'exodus_post_type_tax_droplist_ui' ) ) :
     /**
      * Prints a translatable Post Type Tax term label
      */
-    function exodus_post_types_tax_filter_ui() {
+    function exodus_post_types_tax_droplist_ui($active) {
+        $active_type = '';
+        $active_type_label = __( "All Types" , "exodus" );
+        if ($active) {
+            $active_type = get_terms( array(
+                'taxonomy' => 'post_types_tax',
+                'slug' => $active,
+            ) );
+            $active_type_label = $active_type[0]->name;
+        }
         $terms = get_terms( array(
             'taxonomy' => 'post_types_tax',
             'hide_empty' => true,
         ) );
         if ($terms) {
             echo '<div class="btn-group button-group filter-group type" data-filter-group="type">';
-            echo '<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="current-filter-type">' . esc_html__( "All Types" , "exodus" ) . '</span> <i id="#caret" class="fa fa-caret-down" aria-hidden="true"></i></button>';
-            echo '<ul class="dropdown-menu ul-isotope post-types-tax">';
-            echo '<li><a href="#" class="btn-isotope active" aria-pressed="true" title="' . esc_html__( "All Types" , "exodus" ) . '" data-filter="*">' . esc_html__( "All Types" , "exodus" ) . '</a></li>';
+            echo '<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="current-filter-type">' . $active_type_label . '</span> <i id="#caret" class="fa fa-caret-down" aria-hidden="true"></i></button>';
+            echo '<ul class="dropdown-menu post-types-tax">';
+            $url = esc_url(add_query_arg('type',false));
+            echo '<li><a href="' . $url . '"';
+                if (!$active) {echo 'class="active" aria-pressed="true" ';}
+                else {echo 'aria-pressed="false" ';}
+            echo 'title="' . esc_html__( "All Types" , "exodus" ) . '">' . esc_html__( "All Types" , "exodus" ) . '</a></li>';
             echo '<li role="separator" class="divider"></li>';
             foreach ($terms as $term) {
-                echo '<li><a href="#" class="btn-isotope" aria-pressed="false" title="' . esc_html__($term->name) . '" data-filter=".post_types_tax-' . esc_html__( $term->slug ) . '">' . esc_html__($term->name) . '</a></li>';
+                $url = esc_url(add_query_arg('type',$term->slug));
+                echo '<li><a href="' . $url . '"';
+                    if ($active == $term->slug) {echo 'class="active" aria-pressed="true" ';}
+                    else {echo 'aria-pressed="false" ';}
+                    echo 'title="' . esc_html__($term->name) . '">' . esc_html__($term->name) . '</a></li>';
             }
             echo '</ul></div><!-- ul.dropdown-menu -->';
         } else {
@@ -81,24 +98,35 @@ if ( ! function_exists( 'exodus_post_type_tax_filter_ui' ) ) :
 endif;
 
 /******************************************************/
-if ( ! function_exists( 'exodus_post_format_filter_ui' ) ) :
+if ( ! function_exists( 'exodus_post_format_droplist_ui' ) ) :
     /**
      * Prints a translatable post format label
      */
-    function exodus_post_format_filter_ui() {
+    function exodus_post_format_droplist_ui($active) {
         if ( current_theme_supports( 'post-formats' ) ) {
+
+            $active_format_label = $active ? get_post_format_string($active) : __( "All Formats" , "exodus" );
+
             $post_formats = get_theme_support( 'post-formats' );
             echo '<div class="btn-group button-group filter-group format" data-filter-group="format">';
-                echo '<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="current-filter-format">' . esc_html__( "All Formats" , "exodus" ) . '</span> <i  id="#caret" class="fa fa-caret-down" aria-hidden="true"></i></button>';
-                echo '<ul class="dropdown-menu ul-isotope format">';
-                    echo '<li><a href="#" class="btn-isotope active" aria-pressed="true" title="' . esc_html__( "All Formats" , "exodus" ) . '" data-filter="*">' . esc_html__( "All Formats" , "exodus" ) . '</a></li>';
-                    echo '<li role="separator" class="divider"></li>';
+                echo '<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="current-filter-format">' . $active_format_label . '</span> <i  id="#caret" class="fa fa-caret-down" aria-hidden="true"></i></button>';
+                echo '<ul class="dropdown-menu format">';
+                $url = esc_url(add_query_arg('format',false));
+                echo '<li><a href="' . $url . '"';
+                if (!$active) {echo 'class="active" aria-pressed="true" ';}
+                else {echo 'aria-pressed="false" ';}
+                echo 'title="' . esc_html__( "All Formats" , "exodus" ) . '">' . esc_html__( "All Formats" , "exodus" ) . '</a></li>';
+                echo '<li role="separator" class="divider"></li>';
                 foreach ($post_formats[0] as $format) {
-                    echo '<li><a href="#" class="btn-isotope" aria-pressed="false" title="' . get_post_format_string($format) . '" data-filter=".format-' . esc_html__( $format ) . '">' . get_post_format_string($format) . '</a></li>';
+                    $url = esc_url(add_query_arg('format',$format));
+                    echo '<li><a href="' . $url . '"';
+                    if ($active == $format) {echo 'class="active" aria-pressed="true" ';}
+                    else {echo 'aria-pressed="false" ';}
+                    echo 'title="' . get_post_format_string($format) . '">' . get_post_format_string($format) . '</a></li>';
                 }
                 echo '</ul></div><!-- ul.dropdown-menu -->';
         } else {
-            echo 'No Terms here!';
+            echo 'No formats here!';
         }
     }
 endif;

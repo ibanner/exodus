@@ -8,6 +8,8 @@
         'parent'  => $term->term_id,
         'hide_empty' => false,
     ) );
+    $type = (isset($_GET['type'])) ? $_GET['type'] : ''; // Get type filter param
+    $format = (isset($_GET['format'])) ? $_GET['format'] : ''; // Get format filter param
     $alert = exodus_siddur_action_handler();
 ?>
 
@@ -42,27 +44,18 @@
                 }
                 ?>
                 <h2 class="screen-reader-text"><?php esc_html_e( "Article Filters" , 'exodus' ); ?></h2>
-                <div class="isotope-ui row">
-                    <?php exodus_post_types_tax_filter_ui(); ?>
-                    <?php exodus_post_format_filter_ui(); ?>
+                <div class="filter-ui row">
+                    <?php exodus_post_types_tax_droplist_ui($type); ?>
+                    <?php exodus_post_format_droplist_ui($format); ?>
                 </div>
 
-                <?php
+                <div id="masonry-grid">
 
-                if ( have_posts() ) : ?>
-                    <div class="grid row section">
-                        <?php /* Start the Loop */
+                    <?php
+                    echo do_shortcode('[ajax_load_more post_type="post" images_loaded="true" category="'. $term->slug .'" post_format="'. $format .'" taxonomy="post_types_tax" taxonomy_terms="'. $type .'" taxonomy_operator="IN"]');
+                    ?>
 
-                            while ( have_posts() ) : the_post();
-                                get_template_part( 'templates/list' );                            endwhile; ?>
-                    </div><!-- /.grid -->
-                    <div class="posts-nav col-sm-12"><?php the_posts_navigation(); ?></div>
-                <?php else :
-
-                    echo wpautop( __( "There's Nothing Here yet" , 'exodus' ) );
-                    // get_template_part( 'templates/content', 'none' );
-
-                endif; ?>
+                </div>
             </div><!-- /.category -->
         </div><!-- /.blog-main -->
     </div> <!-- /.row -->

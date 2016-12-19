@@ -1016,7 +1016,7 @@ a.siddur i {
 
 /* ### Isotope UI */
 
-.isotope-ui {
+.filter-ui {
     text-align: center;
     border-bottom: 1px solid #e5e5e5;
     border-top: 1px solid #e5e5e5;
@@ -1029,7 +1029,7 @@ a.siddur i {
 }
 
 @media screen and (min-width: 37em){
-    .isotope-ui {
+    .filter-ui {
         text-align: start;
     }
 
@@ -1058,7 +1058,7 @@ a.siddur i {
     }
 }
 
-.isotope-ui li a.active {
+.filter-ui li a.active {
     font-weight: bold;
 }
 
@@ -1081,6 +1081,7 @@ a.siddur i {
     /*height: auto;*/
     float: left;
     width: 100%;
+    padding: 0 10px !important;
 }
 
 @media screen and (min-width: 600px){
@@ -1162,28 +1163,29 @@ span.type.caption {
     background: #f0f0f0;
 }
 
-.grid-placeholder {
-
-}
-
 .grid-item .article-meta {
     text-align: initial;
     padding-top: 0.7em;
     margin: 1em 10px;
 }
 
+.grid-excerpt {
+    margin: 10px;
+}
+
 .the-categories,
-.post-categories,
-.social-meta ul {
+.post-categories {
     display: inline;
     list-style-type: none;
     padding: 0;
 }
 
-li.category, .social-meta ul li,
+li.category,
 .post-categories li {
     display: inline;
     text-align: center;
+    margin-bottom: 0 !important;
+    overflow: visible;
 }
 
 li.category:after {
@@ -1194,7 +1196,11 @@ li.category:last-child:after {
     content: none;
 }
 
-.social-meta ul li {
+#social-meta {
+    padding: 0;
+}
+
+#social-meta div {
     text-align: center;
     width: 50%;
     line-height: 2rem;
@@ -1204,12 +1210,12 @@ li.category:last-child:after {
     border-bottom: 4px solid #c8ddf0;
 }
 
-.social-meta ul li:hover,
-.social-meta ul li:focus {
+#social-meta div:hover,
+#social-meta div:focus {
     background: #e7e7e7;
 }
 
-.social-meta ul li:last-child {
+#social-meta .share-this {
     float: right;
     border-right: none;
 }
