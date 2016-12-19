@@ -1220,41 +1220,25 @@ li.category:last-child:after {
     border-right: none;
 }
 
-.grid-item .dropdownWrapper,
-.grid-item .dropdownWrapper:hover,
-.grid-item .dropdownWrapper:focus {
-    color: #337ab7;
-    display: inline-block;
-    background: inherit;
-    border: none !important;
-    width: 100%;
-    font-family: inherit !important;
-    font-size: inherit !important;
+a.jssocials-share-link {
+    padding: 0 3px;
 }
 
-.grid-item .dropdownWrapper:hover,
-.grid-item .dropdownWrapper:focus {
-    text-decoration: underline;
+.fa-facebook-square {
+    color: #3b5998
 }
 
-.grid-item .dropdownPanel {
-    background: #fff;
-    border-color: #428bca;
-    border-radius: 4px;
+.fa-twitter-square {
+    color: #00aced
 }
 
-.grid-item .dropdownPanel:before {
-    border-bottom-color: #428bca;
+.fa-pinterest-square {
+    color: #cb2027
 }
 
-.grid-item .dropdownPanel .sgmbShare .jssocials-shares > div {
-    float: initial;
+.fa-google-plus-square {
+    color: #dd4b39
 }
-
-.grid-item #dropdownLabel-share-list {
-    padding: inherit;
-}
-
 /* ## Home */
 
 .home {

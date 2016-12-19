@@ -442,3 +442,30 @@ function exodus_social_links($location) {
     }
     echo $social;
 }
+/*******************************************************/
+
+function exodus_social_tooltip() {
+    $platforms = array(
+        array(
+            'slug'  => 'facebook',
+            'url'   => 'https://facebook.com/sharer/sharer.php?u='
+        ),
+        array(
+            'slug'  => 'twitter',
+            'url'   => 'https://twitter.com/share?url='
+        ),
+        array(
+            'slug'  => 'pinterest',
+            'url'   => 'https://pinterest.com/pin/create/bookmarklet/?url='
+        ),
+        array(
+            'slug'  => 'google-plus',
+            'url'   => 'https://plus.google.com/share?url='
+        ),
+    );
+
+    foreach ($platforms as $platform) {
+        $url = $platform['url'];
+        echo '<a class="jssocials-share-link" href="'. $url . esc_url(get_the_permalink()) . '" target="_blank"><i class="fa fa-lg fa-'. $platform['slug'] .'-square" aria-hidden="true"></i></a>';
+    }
+}
