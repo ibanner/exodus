@@ -136,12 +136,11 @@ function exodus_scripts() {
     wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' , array(), '3.3.7' );
     wp_enqueue_style( 'font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' , array(), '4.7.0' );
     // wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', array(), '', true );
-    wp_enqueue_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js', array('jquery'), '3.3.6', true );
+    wp_enqueue_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js', array('jquery'), '3.3.5', true );
     // wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/jquery-3.1.1.min.js', array(), '3.1.1', true );
 
     // Local
     wp_enqueue_style( 'exodus', get_template_directory_uri() . '/style.css' );
-    //wp_enqueue_style( 'bootstrap-blog', get_template_directory_uri() . '/css/blog.css' );
     wp_enqueue_script( 'exodus-navigation', get_template_directory_uri() . '/js/navigation.js', array( 'jquery' ), '20151215', true );
     wp_localize_script( 'exodus-navigation', 'screenReaderText', array(
         'expand'   => '<span class="screen-reader-text">' . __( 'expand child menu', 'exodus' ) . '</span>',
@@ -149,21 +148,26 @@ function exodus_scripts() {
     ) );
     wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
     wp_enqueue_script( 'exodus-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-    wp_enqueue_script( 'masonry');
-    wp_enqueue_script( 'masonry-grid', get_template_directory_uri() . '/js/masonry-grid.js', array( 'jquery' ), '', true );
-    wp_enqueue_script( 'isotope', 'https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.min.js' , array(), '3.0' , true );
-    wp_enqueue_script( 'isotope-filter', get_template_directory_uri() . '/js/isotope.js', array( 'jquery' ), '3.0', true );
-    // wp_enqueue_script( 'fitColumns', get_template_directory_uri() . '/js/fit-columns.js', array( 'jquery' ), '', true );
-    wp_enqueue_script( 'exodus-plugin-hacks', get_template_directory_uri() . '/js/plugin-hacks.js', array( 'jquery' ), '0.1', true );
-    wp_localize_script( 'exodus-plugin-hacks', 'spanLabel', array(
-        'Share This'   => __( 'Share This', 'exodus' )
-    ) );
+
+
 
     if (is_home() || is_front_page()) {
         wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/css/flexslider.css' , array(), '2.6.2' );
         wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/js/jquery.flexslider.js', array( 'jquery' ), '20151215', true );
     }
 
+    if (is_home() || is_front_page() || is_category() || is_archive() || is_search()) {
+        wp_enqueue_style( 'ajax-load-more', get_template_directory_uri() . '/css/alm.css' );
+        wp_enqueue_script( 'masonry');
+        wp_enqueue_script( 'imagesloaded');
+        wp_enqueue_script( 'masonry-alm', get_template_directory_uri() . '/js/masonry-alm.js', array( 'jquery' ), '', true );
+        // wp_enqueue_script( 'masonry-grid', get_template_directory_uri() . '/js/masonry-grid.js', array( 'jquery' ), '', true );
+        // wp_enqueue_script( 'isotope', 'https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.min.js' , array(), '3.0' , true );
+        // wp_enqueue_script( 'isotope-filter', get_template_directory_uri() . '/js/isotope.js', array( 'jquery' ), '3.0', true );
+        // wp_enqueue_script( 'fitColumns', get_template_directory_uri() . '/js/fit-columns.js', array( 'jquery' ), '', true );
+    }
+
+    wp_enqueue_script( 'exodus-plugin-hacks', get_template_directory_uri() . '/js/plugin-hacks.js', array( 'jquery' ), '0.1', true );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
@@ -274,6 +278,7 @@ if ( ! function_exists( 'exodus_siddur_action_handler' ) ) :
 
 endif;
 
+/*******************************************/
 /* Hack WP Login Styles */
 function exodus_login_styles() { ?>
     <style type="text/css"> #login h1 a, .login h1 a { background-image: none; width: 100%; padding-bottom: 30px; font-size: 3rem; text-indent: 0; } body.login { background: #c8ddf0; } .login label { color: #fff  !important; } .login form { background: #03A9F4 !important; } </style>

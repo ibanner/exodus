@@ -16,6 +16,7 @@
     <![endif]-->
     <?php
     wp_head();
+    $home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
     if (is_home() || is_front_page()) { ?>
         <script type="text/javascript" charset="utf-8">jQuery(window).load(function() {jQuery('.flexslider').flexslider();});</script>
     <?php }?>
@@ -31,7 +32,7 @@
             <?php exodus_wpml_switch(); ?>
 
 
-            <form id="header-search" action="<?php bloginfo('wpurl'); ?>" method="get" _lpchecked="1">
+            <form id="header-search" action="<?php echo $home_url; ?>" method="get" _lpchecked="1">
                 <input type="text" name="s" placeholder="<?php _e( 'Search' , 'exodus' ); ?>">
                 <button type="submit" class="btn btn-link"><i id="search-icon" class="fa fa-search" aria-hidden="true"></i></button>
             </form>
@@ -40,7 +41,7 @@
 
         <!-- Start Site Branding -->
         <div id="site-title">
-            <a href="<?php bloginfo('wpurl'); ?>">
+            <a href="<?php echo $home_url; ?>">
         <?php
 
             $site_title = get_bloginfo( 'name' );
