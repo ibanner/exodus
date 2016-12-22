@@ -3,6 +3,8 @@
     $term = get_queried_object();
     $children = get_term_children($term->cat_ID , 'category');
     $parent = wp_get_term_taxonomy_parent_id($term->cat_ID , 'category');
+    $cat = get_query_var('cat');
+    $category = get_category ($cat);
     $sub_cats = get_categories( array(
         'orderby' => 'id',
         'parent'  => $term->term_id,
@@ -52,7 +54,8 @@
                 <div id="masonry-grid">
 
                     <?php
-                    echo do_shortcode('[ajax_load_more post_type="post" images_loaded="true" category="'. $term->slug .'" post_format="'. $format .'" taxonomy="post_types_tax" taxonomy_terms="'. $type .'" taxonomy_operator="IN"]');
+                    $button_label = __('Older Items' , 'exodus');
+                    echo do_shortcode('[ajax_load_more post_type="post" images_loaded="true" category="'. $category->slug .'" post_format="'. $format .'" taxonomy="post_types_tax" taxonomy_terms="'. $type .'" taxonomy_operator="IN" button_label="'. $button_label .'"]');
                     ?>
 
                 </div>

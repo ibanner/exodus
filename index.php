@@ -19,7 +19,8 @@ $alert = exodus_siddur_action_handler();
             <div id="masonry-grid">
 
             <?php
-            echo do_shortcode('[ajax_load_more post_type="post" images_loaded="true" button_label="Load Older Items"]');
+            $button_label = __('Older Items' , 'exodus');
+            echo do_shortcode('[ajax_load_more post_type="post" images_loaded="true" button_label="'. $button_label .'"]');
             ?>
 
             </div>
