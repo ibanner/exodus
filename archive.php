@@ -1,37 +1,26 @@
 <?php
 get_header();
+$type = (isset($_GET['type'])) ? $_GET['type'] : '';
+$format = (isset($_GET['format'])) ? $_GET['format'] : '';
+$ids = exodus_alm_query_ids('index');
 $alert = exodus_siddur_action_handler();
 ?>
 
-    <div class="row">
-        <div id="main" class="col-sm-12 blog-main single-column">
-            <div class="archive">
-                <h1 class="archive-title row"><?php the_archive_title(); ?></h1>
+<div class="row">
+    <div id="main" class="col-sm-12 blog-main single-column">
+        <div id="archive">
+            <h1 class="archive-title row"><?php the_archive_title(); ?></h1>
 
-                <h2 class="screen-reader-text"><?php esc_html_e( "Article Filters" , 'exodus' ); ?></h2>
-                <div class="isotope-ui row">
-                    <?php exodus_post_types_tax_filter_ui(); ?>
-                    <?php exodus_post_format_filter_ui(); ?>
-                </div>
-
-                <?php
-
-                if ( have_posts() ) : ?>
-                    <div class="grid row section">
-                        <?php /* Start the Loop */
-
-                        while ( have_posts() ) : the_post();
-                            get_template_part( 'templates/list' );                            endwhile; ?>
-                    </div><!-- /.grid -->
-                    <div class="posts-nav col-sm-12"><?php the_posts_navigation(); ?></div>
-                <?php else :
-
-                    echo wpautop( __( "There's Nothing Here yet" , 'exodus' ) );
-                    // get_template_part( 'templates/content', 'none' );
-
-                endif; ?>
-            </div><!-- /.category -->
-        </div><!-- /.blog-main -->
-    </div> <!-- /.row -->
+            <h2 class="screen-reader-text"><?php esc_html_e( "Article Filters" , 'exodus' ); ?></h2>
+            <div class="isotope-ui row">
+                <?php exodus_post_types_tax_droplist_ui($type); ?>
+                <?php exodus_post_format_droplist_ui($format); ?>
+            </div>
+            <div id="masonry-grid">
+                <?php exodus_alm_shortcode($ids,$type,$format) ?>
+            </div>
+        </div><!-- /.category -->
+    </div><!-- /.blog-main -->
+</div> <!-- /.row -->
 
 <?php get_footer(); ?>

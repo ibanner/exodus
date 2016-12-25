@@ -156,7 +156,7 @@ function exodus_scripts() {
         wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/js/jquery.flexslider.js', array( 'jquery' ), '20151215', true );
     }
 
-    if (is_home() || is_front_page() || is_category() || is_archive() || is_search()) {
+    if (is_home() || is_front_page() || is_category() || is_archive() || is_search() || is_page('my-siddur')) {
         wp_enqueue_style( 'ajax-load-more', get_template_directory_uri() . '/css/alm.css' );
         wp_enqueue_script( 'masonry');
         wp_enqueue_script( 'imagesloaded');
@@ -237,7 +237,7 @@ add_filter('acf/update_value', 'my_kses_post', 10, 1);
 
 if ( ! function_exists( 'exodus_siddur_action_handler' ) ) :
     /**
-     * This function will handle clearing od Siddur add/remove requests
+     * This function will handle clearing Siddur add/remove requests
      */
     function exodus_siddur_action_handler() {
 
@@ -284,3 +284,88 @@ function exodus_login_styles() { ?>
     <style type="text/css"> #login h1 a, .login h1 a { background-image: none; width: 100%; padding-bottom: 30px; font-size: 3rem; text-indent: 0; } body.login { background: #c8ddf0; } .login label { color: #fff  !important; } .login form { background: #03A9F4 !important; } </style>
 <?php }
 add_action( 'login_enqueue_scripts', 'exodus_login_styles' );
+
+/*******************************************/
+
+if (! function_exists( 'exodus_alm_query_ids' )) {
+
+    function exodus_alm_query_ids($loop) {
+
+        $ids = '';
+        $args = '';
+
+    if ($loop == 'my-siddur') {
+
+        $curuser = get_current_user_id();
+        $siddur = 'siddur_' . $curuser . '_1';
+        $args = array(
+            'post_type' => 'post',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'siddurim',
+                    'field' => 'slug',
+                    'terms' => $siddur,
+                ),
+            ),
+        );
+
+    } elseif ($loop == 'index') {
+
+        $ids = get_option('sticky_posts');
+        rsort($ids);
+
+        $args = array(
+            'post__not_in' => $ids,
+            'posts_per_page' => -1,
+        );
+    }
+        $the_query = new WP_Query($args);
+
+        while ($the_query->have_posts()) {
+            $the_query->the_post();
+            $ids[] = get_the_ID();
+        }
+
+        $ids = implode(', ', $ids);
+
+        return $ids;
+    }
+}
+/*******************************************/
+
+if (! function_exists('exodus_alm_shortcode')) {
+    function exodus_alm_shortcode($ids,$type,$format) {
+        // Get params from URL
+        $search = (isset($_GET['s'])) ? $_GET['s'] : '';
+        $shortcode = '[ajax_load_more post_type="post" images_loaded="true"'; // basic shortcode start
+
+        // Start Building the shortcode
+
+        if (is_search()) {
+
+            $shortcode .= ' search="'. $search .'"';
+
+        } elseif (is_category()) {
+
+            $cat = get_query_var('cat');
+            $category = get_category ($cat);
+            $shortcode .= ' category="'. $category->slug .'"';
+
+        } elseif (isset($ids)) {
+            $shortcode .= ' post__in="'.$ids.'" orderby="post__in"';
+        }
+
+        if (!empty($type)) {
+            $shortcode .= ' taxonomy="post_types_tax" taxonomy_terms="'. $type .'" taxonomy_operator="IN"';
+        }
+
+        if (!empty($format)) {
+            $shortcode .= ' post_format="'. $format .'"';
+        }
+
+        $button_label = __('Older Items' , 'exodus');
+        $shortcode .= ' button_label="'. $button_label .'"]';
+
+        echo do_shortcode($shortcode);
+    }
+}

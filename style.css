@@ -865,6 +865,8 @@ ul.account li a {
 .article-title,
 .category-title,
 .page-title,
+.search-title,
+.siddur-title,
 .archive-title {
     /*margin-bottom: 5px;*/
     font-size: 1.6rem;
@@ -877,6 +879,8 @@ ul.account li a {
     .article-title,
     .category-title,
     .page-title,
+    .search-title,
+    .siddur-title,
     .archive-title {
         font-size: 2.6rem;
         line-height: 2em;
