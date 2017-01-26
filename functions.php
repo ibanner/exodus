@@ -345,6 +345,11 @@ if (! function_exists('exodus_alm_shortcode')) {
 
             $shortcode .= ' search="'. $search .'"';
 
+        } elseif (is_author()) {
+
+            $author = get_query_var('author');
+            $shortcode .= ' author="'. $author .'"';
+
         } elseif (is_category()) {
 
             $cat = get_query_var('cat');

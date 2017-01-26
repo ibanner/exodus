@@ -1,5 +1,6 @@
 <?php
 get_header();
+$qobject = get_queried_object();
 $type = (isset($_GET['type'])) ? $_GET['type'] : '';
 $format = (isset($_GET['format'])) ? $_GET['format'] : '';
 $ids = exodus_alm_query_ids('index');
@@ -8,8 +9,8 @@ $alert = exodus_siddur_action_handler();
 
 <div class="row">
     <div id="main" class="col-sm-12 blog-main single-column">
-        <div id="archive">
-            <h1 class="archive-title row"><?php the_archive_title(); ?></h1>
+        <div id="author">
+            <h1 class="archive-title row"><?php echo __( 'Posts by: ' , 'exodus' ) . $qobject->display_name; ?></h1>
 
             <h2 class="screen-reader-text"><?php esc_html_e( "Article Filters" , 'exodus' ); ?></h2>
             <div class="filter-ui row">

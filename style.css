@@ -1132,7 +1132,8 @@ a.siddur i {
     margin: 0.8em 10px;
 }
 
-span.type.caption {
+.type.caption,
+.author.caption {
     border-bottom: 2px solid;
     margin: 10px;
 }

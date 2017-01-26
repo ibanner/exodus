@@ -13,7 +13,8 @@
         <?php } ?>
             </div>
         </a>
-        <h2 class="article-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+        <h2 class="article-title<?php if(is_sticky()) {echo ' sticky';} ?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+        <span class="author caption"><?php the_author_posts_link(); ?></span>
         <a class="no-decor" href="<?php the_permalink(); ?>">
             <div class="grid-excerpt">
                 <?php the_excerpt(); ?>
