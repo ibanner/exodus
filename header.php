@@ -77,12 +77,7 @@
         </div><!-- .right-header -->
     </div>
 
-    <?php
-    if ( is_front_page() && is_home() ) : ?>
-
-        <div id="hero" class="container-fluid clearfix hero"><?php exodus_flexslider(); ?></div>
-
-    <?php endif; ?>
+    <?php get_template_part('sections/home-slider'); ?>
 
     <div class="container-fluid clearfix strip">
         <nav id="site-navigation" class="main-navigation blog-nav" role="navigation">
