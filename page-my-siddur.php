@@ -29,13 +29,9 @@ $alert = exodus_siddur_action_handler();
                         echo ' <a href="/wp-login.php" class="alert-link">' . __("Add your favorite items to your Siddur, for quick access.", 'exodus') . '</a>';
                         echo '</div></div>';
 
-                    } else { ?>
+                    } else {
 
-                        <h2 class="screen-reader-text"><?php esc_html_e( "Categories" , 'exodus' ); ?></h2>
-                        <div class="filter-ui row">
-                            <?php exodus_post_types_tax_droplist_ui($type); ?>
-                            <?php exodus_post_format_droplist_ui($format); ?>
-                        </div>
+                        include( locate_template( 'sections/filter-row.php', false, false ) ); ?>
 
                         <div id="masonry-grid">
                             <?php exodus_alm_shortcode($ids,$type,$format) ?>

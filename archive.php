@@ -10,12 +10,7 @@ $alert = exodus_siddur_action_handler();
     <div id="main" class="col-sm-12 blog-main single-column">
         <div id="archive">
             <h1 class="archive-title row"><?php the_archive_title(); ?></h1>
-
-            <h2 class="screen-reader-text"><?php esc_html_e( "Article Filters" , 'exodus' ); ?></h2>
-            <div class="filter-ui row">
-                <?php exodus_post_types_tax_droplist_ui($type); ?>
-                <?php exodus_post_format_droplist_ui($format); ?>
-            </div>
+                <?php include( locate_template( 'sections/filter-row.php', false, false ) ); ?>
             <div id="masonry-grid">
                 <?php exodus_alm_shortcode($ids,$type,$format) ?>
             </div>
