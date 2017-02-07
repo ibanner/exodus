@@ -98,7 +98,7 @@ if ( ! function_exists( 'exodus_post_type_tax_droplist_ui' ) ) :
 endif;
 
 /******************************************************/
-if ( ! function_exists( 'exodus_post_format_droplist_ui' ) ) :
+if ( ! function_exists( 'exodus_post_format_droplist_ui' ) ) :  // TODO -- To Be Deprecated
     /**
      * Prints a translatable post format label
      */
