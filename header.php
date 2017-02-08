@@ -28,16 +28,19 @@
     <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'exodus' ); ?></a>
 
     <div class="container clearfix">
-        <div class="left-header">
+
+        <div class="left-header <?php echo ( is_front_page() && is_home() ) ? 'hidden-xs' : '' ; ?>">
             <?php exodus_wpml_switch(); ?>
+            <?php if ( !is_front_page() && !is_home() ) : ?>
 
 
             <form id="header-search" action="<?php echo $home_url; ?>" method="get" _lpchecked="1">
                 <input type="text" name="s" placeholder="<?php _e( 'Search' , 'exodus' ); ?>">
                 <button type="submit" class="btn btn-link"><i id="search-icon" class="fa fa-search" aria-hidden="true"></i></button>
             </form>
-
+            <?php endif; ?>
         </div><!-- .left-header -->
+
 
         <!-- Start Site Branding -->
         <div id="site-title">
@@ -77,7 +80,16 @@
         </div><!-- .right-header -->
     </div>
 
-    <?php get_template_part('sections/home-slider'); ?>
+    <?php if ( is_front_page() && is_home() ) : ?>
+
+    <div id="home-search" class="container clearfix">
+
+        <p class="h3"><?php _e( 'Pick a Jewish Brain' , 'exodus'); ?></p>
+        <?php get_search_form(); ?>
+
+    </div>
+
+    <?php endif; ?>
 
     <div class="container-fluid clearfix strip">
         <nav id="site-navigation" class="main-navigation blog-nav" role="navigation">
