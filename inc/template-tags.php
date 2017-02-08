@@ -75,7 +75,7 @@ if ( ! function_exists( 'exodus_post_type_tax_droplist_ui' ) ) :
         ) );
         if ($terms) {
             echo '<div class="btn-group button-group filter-group type" data-filter-group="type">';
-            echo '<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="current-filter-type">' . $active_type_label . '</span> <i id="#caret" class="fa fa-caret-down" aria-hidden="true"></i></button>';
+            echo '<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="current-filter-type">' . $active_type_label . '</span> <i id="#caret" class="fa fa-caret-down" aria-hidden="true"></i></button>';
             echo '<ul class="dropdown-menu post-types-tax">';
             $url = esc_url(add_query_arg('type',false));
             echo '<li><a href="' . $url . '"';
@@ -133,6 +133,23 @@ endif;
 
 /******************************************************/
 
+if ( ! function_exists( 'exodus_article_count' )) :
+    function exodus_article_count() {
+    echo '<span class="article-count caption hidden-xs">';
+        $cat = is_category() ? get_queried_object_id() : '0';
+        $args = array(
+            'numberposts'   => '-1',
+            'category'      => $cat,
+        );
+        $post_count = sizeof(get_posts($args));
+        printf( esc_html__('Found %1$s articles', 'exodus'), $post_count );
+    echo '</span>';
+        // var_dump();
+    }
+endif;
+
+/******************************************************/
+
 if ( ! function_exists( 'exodus_wpml_switch' )) :
     function exodus_wpml_switch() {
         $languages = apply_filters( 'wpml_active_languages', NULL, 'orderby=id&order=desc' );
@@ -153,7 +170,7 @@ endif;
 
 /******************************************************/
 
-if ( ! function_exists( 'exodus_flexslider' )) :
+if ( ! function_exists( 'exodus_flexslider' )) : //TODO to be deprecated
     function exodus_flexslider() {
 
     if( have_rows('hero_slides' , 'options') ):

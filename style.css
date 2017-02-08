@@ -166,7 +166,7 @@ body {
 }
 
 body.home {
-    padding-top: 351px;
+    padding-top: 265px;
 }
 
 /*  ## Home Search */
@@ -1050,7 +1050,7 @@ a.siddur i {
 }
 
 .filter-group {
-    min-width: 45%;
+    width: 100%;
 }
 
 @media screen and (min-width: 37em){
@@ -1059,12 +1059,13 @@ a.siddur i {
     }
 
     .filter-group {
-        min-width: 160px;
+        width: 160px;
         margin: 0 15px;
     }
 
-    .filter-group.format {
+    .article-count {
         float: right;
+        line-height: 34px;
     }
 }
 
