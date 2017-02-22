@@ -476,6 +476,18 @@ img.lang-flag {
     }
 }
 
+/* ## Live Search */
+
+.searchwp-live-search-result {
+    text-align: start;
+    border-bottom: 1px solid #d5d5d5;
+}
+
+.searchwp-live-search-result p {
+    border-bottom: none !important;
+}
+
+
 /* ## Navigation */
 
 .main-navigation {
