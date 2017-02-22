@@ -10,8 +10,8 @@ $sub_cats = get_categories( array(
     'parent'  => $term->term_id,
     'hide_empty' => false,
 ) );
+$ids = exodus_alm_query_ids('cat');
 $type = (isset($_GET['type'])) ? $_GET['type'] : '';
-$format = (isset($_GET['format'])) ? $_GET['format'] : '';
 $alert = exodus_siddur_action_handler();
 ?>
 
@@ -47,7 +47,7 @@ $alert = exodus_siddur_action_handler();
             ?>
                 <?php include( locate_template( 'sections/filter-row.php', false, false ) ); ?>
             <div id="masonry-grid">
-                <?php exodus_alm_shortcode('',$type,$format) ?>
+                <?php exodus_alm_shortcode($ids,$type) ?>
             </div>
         </div><!-- /.category -->
     </div><!-- /.blog-main -->

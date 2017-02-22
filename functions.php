@@ -286,6 +286,12 @@ function exodus_login_styles() { ?>
 add_action( 'login_enqueue_scripts', 'exodus_login_styles' );
 
 /*******************************************/
+/*             ALM Functions               */
+/*******************************************/
+
+add_filter( 'alm_debug', '__return_true' );
+
+/*******************************************/
 
 if (! function_exists( 'exodus_alm_query_ids' )) {
 
@@ -318,6 +324,27 @@ if (! function_exists( 'exodus_alm_query_ids' )) {
             'post__not_in' => $ids,
             'posts_per_page' => -1,
         );
+
+    } elseif ($loop == 'cat') {
+
+        $stickies = get_option('sticky_posts');
+        $ids = array();
+
+        if (!is_array($stickies)) {
+            $ids[0] = $stickies;
+        } else {
+            foreach ($stickies as $sticky) {
+                if (has_category(get_query_var('cat'),$sticky)) {
+                    $ids[] = $sticky;
+                }
+            }
+        }
+
+        $args = array(
+            'posts_per_page' => -1,
+            'post__not_in' => $ids,
+            'cat' => get_query_var('cat'),
+        );
     }
         $the_query = new WP_Query($args);
 
@@ -327,6 +354,7 @@ if (! function_exists( 'exodus_alm_query_ids' )) {
         }
 
         $ids = implode(', ', $ids);
+        wp_reset_postdata();
 
         return $ids;
     }
@@ -334,10 +362,11 @@ if (! function_exists( 'exodus_alm_query_ids' )) {
 /*******************************************/
 
 if (! function_exists('exodus_alm_shortcode')) {
-    function exodus_alm_shortcode($ids,$type,$format) {
+    function exodus_alm_shortcode($ids,$type) {
         // Get params from URL
         $search = (isset($_GET['s'])) ? $_GET['s'] : '';
         $shortcode = '[ajax_load_more post_type="post" posts_per_page="12" images_loaded="true"'; // basic shortcode start
+        //preloaded="true" preloaded_amount="12"
 
         // Start Building the shortcode
 
@@ -350,22 +379,18 @@ if (! function_exists('exodus_alm_shortcode')) {
             $author = get_query_var('author');
             $shortcode .= ' author="'. $author .'"';
 
-        } elseif (is_category()) {
+        } /*elseif (is_category()) {
 
             $cat = get_query_var('cat');
             $category = get_category ($cat);
             $shortcode .= ' category="'. $category->slug .'"';
 
-        } elseif (isset($ids)) {
+        }*/ elseif (isset($ids)) {
             $shortcode .= ' post__in="'.$ids.'" orderby="post__in"';
         }
 
         if (!empty($type)) {
             $shortcode .= ' taxonomy="post_types_tax" taxonomy_terms="'. $type .'" taxonomy_operator="IN"';
-        }
-
-        if (!empty($format)) {
-            $shortcode .= ' post_format="'. $format .'"';
         }
 
         $button_label = __('Older Items' , 'exodus');
