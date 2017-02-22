@@ -98,40 +98,6 @@ if ( ! function_exists( 'exodus_post_type_tax_droplist_ui' ) ) :
 endif;
 
 /******************************************************/
-if ( ! function_exists( 'exodus_post_format_droplist_ui' ) ) :  // TODO -- To Be Deprecated
-    /**
-     * Prints a translatable post format label
-     */
-    function exodus_post_format_droplist_ui($active) {
-        if ( current_theme_supports( 'post-formats' ) ) {
-
-            $active_format_label = $active ? get_post_format_string($active) : __( "All Formats" , "exodus" );
-
-            $post_formats = get_theme_support( 'post-formats' );
-            echo '<div class="btn-group button-group filter-group format" data-filter-group="format">';
-                echo '<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="current-filter-format">' . $active_format_label . '</span> <i  id="#caret" class="fa fa-caret-down" aria-hidden="true"></i></button>';
-                echo '<ul class="dropdown-menu format">';
-                $url = esc_url(add_query_arg('format',false));
-                echo '<li><a href="' . $url . '"';
-                if (!$active) {echo 'class="active" aria-pressed="true" ';}
-                else {echo 'aria-pressed="false" ';}
-                echo 'title="' . esc_html__( "All Formats" , "exodus" ) . '">' . esc_html__( "All Formats" , "exodus" ) . '</a></li>';
-                echo '<li role="separator" class="divider"></li>';
-                foreach ($post_formats[0] as $format) {
-                    $url = esc_url(add_query_arg('format',$format));
-                    echo '<li><a href="' . $url . '"';
-                    if ($active == $format) {echo 'class="active" aria-pressed="true" ';}
-                    else {echo 'aria-pressed="false" ';}
-                    echo 'title="' . get_post_format_string($format) . '">' . get_post_format_string($format) . '</a></li>';
-                }
-                echo '</ul></div><!-- ul.dropdown-menu -->';
-        } else {
-            echo 'No formats here!';
-        }
-    }
-endif;
-
-/******************************************************/
 
 if ( ! function_exists( 'exodus_article_count' )) :
     function exodus_article_count() {
