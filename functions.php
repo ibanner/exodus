@@ -12,38 +12,13 @@
 */
 
 if ( ! function_exists( 'exodus_setup' ) ) :
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
+
 function exodus_setup() {
-    /*
-     * Make theme available for translation.
-     * Translations can be filed in the /languages/ directory.
-     * If you're building a theme based on Kol Ehad, use a find and replace
-     * to change 'exodus' to the name of your theme in all the template files.
-     */
+
     load_theme_textdomain( 'exodus', get_template_directory() . '/languages' );
 
-    // Add default posts and comments RSS feed links to head.
-    add_theme_support( 'automatic-feed-links' );
-
-    /*
-     * Let WordPress manage the document title.
-     * By adding theme support, we declare that this theme does not use a
-     * hard-coded <title> tag in the document head, and expect WordPress to
-     * provide it for us.
-     */
-    add_theme_support( 'title-tag' );
-
-    /*
-     * Enable support for Post Thumbnails on posts and pages.
-     *
-     * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-     */
+    add_theme_support( 'automatic-feed-links' );    // Add default posts and comments RSS feed links to head.
+    add_theme_support( 'title-tag' );               //Let WordPress manage the document title.
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 1170, 658, true );
 
@@ -55,17 +30,7 @@ function exodus_setup() {
     ) );
 
     add_theme_support( 'post-formats', array( 'gallery' , 'image' , 'video' , 'audio' , 'link' , 'quote' ) );
-    /*
-     * Switch default core markup for search form, comment form, and comments
-     * to output valid HTML5.
-     */
-    add_theme_support( 'html5', array(
-        'search-form',
-        'comment-form',
-        'comment-list',
-        'gallery',
-        'caption',
-    ) );
+    add_theme_support( 'html5', array('search-form','comment-form','comment-list','gallery','caption' ) );
 
     // Set up the WordPress core custom background feature.
     add_theme_support( 'custom-background', apply_filters( 'exodus_custom_background_args', array(
@@ -76,32 +41,10 @@ function exodus_setup() {
 endif;
 add_action( 'after_setup_theme', 'exodus_setup' );
 
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
 function exodus_content_width() {
     $GLOBALS['content_width'] = apply_filters( 'exodus_content_width', 1170 );
 }
 add_action( 'after_setup_theme', 'exodus_content_width', 0 );
-
-// Show CPTs on archive pages
-/*function exodus_add_custom_types( $query ) {
-    if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
-        $query->set( 'post_type', array(
-            'post', 'nav_menu_item' , 'ritual', 'text'
-        ));
-        return $query;
-    } elseif ( is_home() && $query->is_main_query() ) {
-        $query->set( 'post_type', array( 'post', 'ritual', 'text' ) );
-        return $query;
-    }
-
-}
-add_filter( 'pre_get_posts', 'exodus_add_custom_types' );*/
 
 // Google Analytics Code
 add_action('wp_footer', 'add_ga_code');
@@ -338,6 +281,9 @@ if (! function_exists( 'exodus_alm_query_ids' )) {
             'posts_per_page' => -1,
             'post__not_in' => $ids,
             'cat' => get_query_var('cat'),
+            /*'orderby' => 'meta_value_num',
+            'meta_key' => 'article_order date',
+            'order' => 'ASC',*/
         );
     }
         $the_query = new WP_Query($args);
