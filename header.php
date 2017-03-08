@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <?php
+    wp_head();
+    $home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
+    if (is_home() || is_front_page()) { ?>
+        <script type="text/javascript" charset="utf-8">jQuery(window).load(function() {jQuery('.flexslider').flexslider();});</script>
+    <?php }?>
+</head>
+
+<body id="top" <?php body_class(); ?>>
+
+<header class="blog-masthead">
+    <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'exodus' ); ?></a>
+
+    <div class="container clearfix">
+
+        <div class="left-header <?php echo ( is_front_page() && is_home() ) ? 'hidden-xs' : '' ; ?>">
+            <?php exodus_wpml_switch(); ?>
+            <?php if ( !is_front_page() && !is_home() ) : ?>
+
+
+            <form id="header-search" action="<?php echo $home_url; ?>" method="get" _lpchecked="1">
+                <input type="text" name="s" placeholder="<?php _e( 'Search' , 'exodus' ); ?>">
+                <button type="submit" class="btn btn-link"><i id="search-icon" class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
+            <?php endif; ?>
+        </div><!-- .left-header -->
+
+
+        <!-- Start Site Branding -->
+        <div id="site-title">
+            <a href="<?php echo $home_url; ?>">
+        <?php
+
+            $site_title = get_bloginfo( 'name' );
+
+            if ( is_front_page() && is_home() ) : ?>
+
+                <h1 class="site-title"><?php echo $site_title; ?></h1>
+
+            <?php else : ?>
+
+                <p class="h1 site-title"><?php echo $site_title; ?></p>
+
+            <?php endif; ?>
+            </a>
+            <div class="screen-reader-text">
+                    <?php printf( esc_html__('Go to the home page of %1$s', 'exodus'), $site_title ); ?>
+            </div>
+        </div>
+        <!-- End Site Branding -->
+
+        <div class="right-header">
+
+            <div class="btn-group">
+                <button id="account-icon" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i id="my-account" class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    <span class="sr-only"><?php _e('My Account' , 'exodus'); ?></span>
+                </button>
+
+                <div id="account-menu" class="dropdown-menu dropdown-menu-right">
+                    <?php wp_nav_menu( array( 'theme_location' => 'account', 'menu_class' => 'account' ) ); ?>
+                </div>
+            </div>
+        </div><!-- .right-header -->
+    </div>
+
+    <?php if ( is_front_page() && is_home() ) : ?>
+
+    <div id="home-search" class="container clearfix">
+
+        <p class="h3"><?php _e( 'Pick a Jewish Brain' , 'exodus'); ?></p>
+        <?php get_search_form(); ?>
+
+    </div>
+
+    <?php endif; ?>
+
+    <div class="container-fluid clearfix strip">
+        <nav id="site-navigation" class="main-navigation blog-nav" role="navigation">
+            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i id="bar-icon" class="fa fa-bars icon-border" aria-hidden="true"></i><span class="sr-only"><?php esc_html_e( 'Menu', 'exodus' ); ?></span></button>
+            <?php
+            wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu secondary' ) );
+            ?>
+        </nav><!-- #site-navigation -->
+    </div>
+</header>
+<?php if ( !is_singular() || is_page('my-siddur')) {
+    echo '<div class="container-fluid">';
+} else {
+    echo '<div class="container">';
+} ?>
+
+<section id="content" class="site-content">

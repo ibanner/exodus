@@ -1,0 +1,518 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Exodus\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-19 21:06+0000\n"
+"PO-Revision-Date: 2016-12-19 21:07+0000\n"
+"Last-Translator: itay <itay@ibanner.co.il>\n"
+"Language-Team: Hebrew\n"
+"Language: he-IL\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: 404.php:15
+msgid "Here, grab a link to the homepage"
+msgstr "הנה, יש פה קישור לעמוד הבית"
+
+#: header.php:36
+msgid "Search"
+msgstr "חיפוש"
+
+#: header.php:70
+msgid "My Account"
+msgstr "החשבון שלי"
+
+#: inc/cpt-config.php:13
+msgid "New Ritual"
+msgstr ""
+
+#: inc/cpt-config.php:14
+msgid "View Ritual"
+msgstr ""
+
+#: inc/cpt-config.php:15
+msgid "Search Rituals"
+msgstr ""
+
+#: inc/cpt-config.php:16
+msgid "No Rituals Found"
+msgstr ""
+
+#: inc/cpt-config.php:17
+msgid "No Rituals found in the trash"
+msgstr ""
+
+#: inc/cpt-config.php:18
+msgid "Parent Ritual:"
+msgstr ""
+
+#: inc/cpt-config.php:44 inc/cpt-config.php:46 inc/cpt-config.php:60
+msgid "Texts"
+msgstr ""
+
+#: inc/cpt-config.php:47
+msgid "All Texts"
+msgstr ""
+
+#: inc/cpt-config.php:49
+msgid "Add New Text"
+msgstr ""
+
+#: inc/cpt-config.php:50
+msgid "Edit Text"
+msgstr ""
+
+#: inc/cpt-config.php:51
+msgid "New Text"
+msgstr ""
+
+#: inc/cpt-config.php:52
+msgid "View Text"
+msgstr ""
+
+#: inc/cpt-config.php:53
+msgid "Search Text"
+msgstr ""
+
+#: inc/cpt-config.php:54
+msgid "No Texts found."
+msgstr ""
+
+#: inc/cpt-config.php:55
+msgid "No Texts found in the trash"
+msgstr ""
+
+#: inc/cpt-config.php:56
+msgid "Parent Text"
+msgstr ""
+
+#: 404.php:14
+msgid "Page not found."
+msgstr "העמוד לא נמצא"
+
+#: 404.php:15
+msgid "It's not you, it's us."
+msgstr "זה לא את/ה, זה אנחנו."
+
+#: archive.php:11 category.php:46 category_bk.php:46 index.php:14
+#: index_bk.php:11 search.php:15
+msgid "Article Filters"
+msgstr "סינון מאמרים"
+
+#: archive.php:29 category_bk.php:64
+msgid "There's Nothing Here yet"
+msgstr "אין פה שום דבר עדיין"
+
+#: category.php:34 category_bk.php:34
+msgid "View Subcategories"
+msgstr "צפייה בתתי-קטגוריות"
+
+#: comments.php:5
+msgid "Discuss this"
+msgstr "לדבר על זה"
+
+#: comments.php:31
+#, php-format
+msgid ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
+"this account\" class=\"log-out\">Not You?</a>"
+msgstr ""
+"מחובר בתור <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"יציאה מהחשבון "
+"הזה\" class=\"log-out\">לא את/ה?</a>"
+
+#: footer.php:7
+msgid "Site by"
+msgstr "אתר:"
+
+#: footer.php:7
+msgid "The Contechnician"
+msgstr "התוכנאי - אינטרנט עסקי יעיל"
+
+#: footer.php:9
+msgid "Back to top"
+msgstr "חזרה למעלה"
+
+#: functions.php:52
+msgid "Primary Menu"
+msgstr "תפריט עיקרי"
+
+#: functions.php:53
+msgid "Secondary Menu"
+msgstr "תפריט משני"
+
+#: functions.php:54
+msgid "Account Menu"
+msgstr "תפריט חשבון"
+
+#: functions.php:146
+msgid "expand child menu"
+msgstr "הרחב תת-תפריט"
+
+#: functions.php:147
+msgid "collapse child menu"
+msgstr "צמצם תת-תפריט"
+
+#: functions.php:211
+msgid "Articles Sidebar"
+msgstr "טור-צד - מאמרים"
+
+#: functions.php:213
+msgid "These widgets will appear in article pages."
+msgstr "הווידג'טים הללו יופיעו בעמודי מאמרים"
+
+#: header.php:28
+msgid "Skip to content"
+msgstr "דלג לתוכן"
+
+#: header.php:60
+#, php-format
+msgid "Go to the home page of %1$s"
+msgstr "לך לעמוד הבית של %1$s"
+
+#: header.php:89
+msgid "Menu"
+msgstr "תפריט"
+
+#: page-my-account.php:16 page-my-siddur.php:31
+msgid "Are you lost, dear friend?"
+msgstr "הלכת לאיבוד?"
+
+#: page-my-account.php:17 page-my-siddur.php:32
+msgid "You need to log in"
+msgstr "עליך להתחבר"
+
+#: page-my-account.php:17 page-my-siddur.php:32
+msgid "or"
+msgstr "או"
+
+#: page-my-account.php:17 page-my-siddur.php:32
+msgid "sign up"
+msgstr "להירשם"
+
+#: page-my-account.php:17 page-my-siddur.php:32
+msgid " to see this page."
+msgstr "כדי לצפות בעמוד הזה."
+
+#: page-my-account.php:27
+msgid "Update Account"
+msgstr "עדכון חשבון"
+
+#: page-my-account.php:28
+msgid "<b>Success!</b> Your account is now up-to-date with the new info."
+msgstr "הצלחה! החשבון שלך מעודכן עם הנתונים החדשים."
+
+#: page-my-siddur.php:39
+msgid "Your Siddur is still empty!"
+msgstr "הסידור שלך עדיין ריק!"
+
+#: page-my-siddur.php:40
+msgid "Add your favorite items to your Siddur, for quick access."
+msgstr "כדאי להוסיף לכאן מאמרים, כדי לקבל גישה מהירה ונוחה אליהם."
+
+#: page-my-siddur.php:72 inc/cpt-config.php:99 inc/cpt-config.php:132
+msgid "Categories"
+msgstr "קטגוריות"
+
+#: page-share.php:28
+msgid "Submit for review"
+msgstr "שלח לאישור"
+
+#: page-share.php:29
+msgid ""
+"<b>Success!</b> Your article was submitted successfully and will be reviewed "
+"shortly."
+msgstr "כל הכבוד! המאמר שלך נשלח בהצלחה ויאושר בקרוב."
+
+#: inc/cpt-config.php:6 inc/cpt-config.php:8 inc/cpt-config.php:22
+msgid "Rituals"
+msgstr "טקסים"
+
+#: inc/cpt-config.php:7
+msgid "Ritual"
+msgstr "טקס"
+
+#: inc/cpt-config.php:9
+msgid "All Rituals"
+msgstr "כל הטקסים"
+
+#: inc/cpt-config.php:10 inc/cpt-config.php:48
+msgid "Add New"
+msgstr "הוסף חדש"
+
+#: inc/cpt-config.php:11
+msgid "Add New Ritual"
+msgstr "הוסף טקס חדש"
+
+#: inc/cpt-config.php:12
+msgid "Edit Ritual"
+msgstr "ערוך טקס"
+
+#: inc/cpt-config.php:45
+msgid "Text"
+msgstr "טקסט"
+
+#: inc/cpt-config.php:95 inc/cpt-config.php:128
+msgid "Thumbnail"
+msgstr "תמונה מוקטנת"
+
+#: inc/cpt-config.php:96 inc/cpt-config.php:129
+msgid "Excerpt"
+msgstr "תקציר"
+
+#: inc/cpt-config.php:98 inc/cpt-config.php:131
+msgid "Author"
+msgstr "מחבר"
+
+#: inc/cpt-config.php:162 inc/cpt-config.php:164 inc/cpt-config.php:174
+msgid "Post Types"
+msgstr "סוגי מאמרים"
+
+#: inc/cpt-config.php:163
+msgid "Post Type"
+msgstr "סוג מאמר"
+
+#: inc/cpt-config.php:165
+msgid "All Post Types"
+msgstr "כל סוגי המאמרים"
+
+#: inc/cpt-config.php:166
+msgid "Edit Post Type"
+msgstr "ערוך סוג מאמר"
+
+#: inc/cpt-config.php:167
+msgid "View Post Type"
+msgstr "צפה בסוג מאמר"
+
+#: inc/cpt-config.php:168
+msgid "Update Post Type"
+msgstr "עדכן סוג מאמר"
+
+#: inc/cpt-config.php:169
+msgid "Add New Post Type"
+msgstr "הוסף סוג מאמר חדש"
+
+#: inc/cpt-config.php:170
+msgid "New Post Type Name"
+msgstr "שם סוג המאמר החדש"
+
+#: inc/cpt-config.php:205 inc/cpt-config.php:210
+msgid "Siddurim"
+msgstr "סידורים"
+
+#: inc/cpt-config.php:206
+msgid "My Siddur"
+msgstr "הסידור שלי"
+
+#: inc/options.php:7 inc/options.php:7 inc/options.php:21
+msgid "Exodus Settings"
+msgstr "הגדרות Exodus"
+
+#: inc/options.php:49
+msgid "Social Sharing Shortcodes"
+msgstr "שורטקודים לשיתוף ברשתות חברתיות"
+
+#: inc/options.php:50
+msgid "In Single Pages"
+msgstr "במאמרים עצמם"
+
+#: inc/options.php:52
+msgid "Google Analytics"
+msgstr "Google Analytics"
+
+#: inc/options.php:53
+msgid "Tracking Code"
+msgstr "קוד מעקב"
+
+#: inc/siddur.php:37
+msgid "Add to <b>My Siddur</b>"
+msgstr "הוסף ל<b>סידור שלי</b>"
+
+#: inc/siddur.php:40
+msgid "Add to <b>My Siddur</b> <small>(Login)</small>"
+msgstr "הוסף ל<b>סידור שלי</b> <small>(התחברות)</small>"
+
+#: inc/siddur.php:44
+msgid "Remove from <b>My Siddur</b>"
+msgstr "הסר מה<b>סידור שלי</b>"
+
+#: inc/siddur.php:85
+msgid "Add to My Siddur"
+msgstr "הוסף לסידור שלי"
+
+#: inc/siddur.php:88
+msgid "Add to My Siddur (Login First)"
+msgstr "הוסף ל<b>סידור שלי</b> <small>(התחברות)</small>"
+
+#: inc/siddur.php:92
+msgid "Remove from My Siddur"
+msgstr "להסיר מהסידור שלי"
+
+#: inc/template-tags.php:18
+msgid "About the Author"
+msgstr "אודות המחבר"
+
+#: inc/template-tags.php:37
+msgid "Video"
+msgstr "וידאו"
+
+#: inc/template-tags.php:52
+msgid "Type N/A"
+msgstr "Type N/A"
+
+#: inc/template-tags.php:64 inc/template-tags.php:84 inc/template-tags.php:84
+msgid "All Types"
+msgstr "כל הסוגים"
+
+#: inc/template-tags.php:108 inc/template-tags.php:118
+#: inc/template-tags.php:118
+msgid "All Formats"
+msgstr "כל הפורמטים"
+
+#: inc/template-tags.php:224
+#, php-format
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr "הועלה ביום %s"
+
+#: inc/template-tags.php:229
+#, php-format
+msgctxt "post author"
+msgid "by %s"
+msgstr "על ידי %s"
+
+#. translators: used between list items, there is a space after the comma
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:250 inc/template-tags.php:256
+msgid ", "
+msgstr ", "
+
+#: inc/template-tags.php:252
+#, php-format
+msgid "Posted in %1$s"
+msgstr "הועלה אל %1$s"
+
+#: inc/template-tags.php:258
+#, php-format
+msgid "Tagged %1$s"
+msgstr "תגיות: %1$s"
+
+#. translators: %s: post title
+#: inc/template-tags.php:265
+#, php-format
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr "לכתוב תגובה<span class=\"screen-reader-text\"> על %s</span>"
+
+#. translators: %s: Name of current post
+#: inc/template-tags.php:272
+#, php-format
+msgid "Edit %s"
+msgstr "לערוך את %s"
+
+#: inc/template-tags.php:336
+msgid "Older"
+msgstr "ישנים יותר"
+
+#: inc/template-tags.php:337
+msgid "Newer"
+msgstr "חדשים יותר"
+
+#: inc/template-tags.php:338
+msgid "Posts navigation"
+msgstr "ניווט בפוסטים"
+
+#: inc/template-tags.php:441 templates/content-single.php:12
+msgid "Not Set"
+msgstr "לא הוגדר"
+
+#: templates/content-single-ritual.php:16 templates/content-single-text.php:14
+#: templates/content-single.php:46
+msgid "Categories:"
+msgstr "קטגוריות:"
+
+#: templates/content-single-ritual.php:26
+msgid "Scenario"
+msgstr "הלכה למעשה"
+
+#: templates/content-single-ritual.php:29
+msgid "The Participants"
+msgstr "המשתתפים"
+
+#: templates/content-single-ritual.php:31
+msgid "Location"
+msgstr "מיקום"
+
+#: templates/content-single-ritual.php:33
+msgid "Timing"
+msgstr "עיתוי"
+
+#: templates/content-single-ritual.php:39 templates/content-single-text.php:40
+msgid "Text Background"
+msgstr "רקע רעיוני"
+
+#: templates/content-single-text.php:24
+msgid "The Text"
+msgstr "נוסח הטקסט"
+
+#: templates/content-single-text.php:29
+msgid "Text Source"
+msgstr "מקור הטקסט"
+
+#: templates/content-single-text.php:35
+msgid "Commentary"
+msgstr "פרשנות"
+
+#: templates/content-single.php:41
+msgid "More about this..."
+msgstr "עוד על זה...."
+
+#: templates/content-single.php:46
+#, php-format
+msgid "This %1$s article was posted on "
+msgstr "מאמר ה%1$s הזה פורסם ביום"
+
+#: templates/content.php:6
+#, php-format
+msgctxt "comments title"
+msgid "One Comment"
+msgid_plural "%1$s Comments"
+msgstr[0] "תגובה אחת"
+msgstr[1] "%1$s תגובות"
+
+#: templates/list-category.php:15 templates/list-category.php:25
+msgid "Communities"
+msgstr "נהוג בקהילות:"
+
+#: templates/related-content.php:2
+msgid "More About This"
+msgstr "עוד על זה"
+
+#: templates/related-content.php:6
+msgid "Related Texts"
+msgstr "טקסטים קשורים"
+
+#: templates/related-content.php:28
+msgid "More Texts..."
+msgstr "עוד טקסטים..."
+
+#: templates/related-content.php:33
+msgid "Related Rituals"
+msgstr "טקסים קשורים"
+
+#: templates/related-content.php:57
+msgid "More Rituals..."
+msgstr "עוד טקסים..."
+
+#. Name of the theme
+msgid "Exodus"
+msgstr "Exodus"
+
+#. Description of the theme
+msgid "Bootstrap Blog template converted to WordPress. Thanks Tania Rascia!"
+msgstr "Bootstrap Blog template converted to WordPress. Thanks Tania Rascia!"
+
+#. Author of the theme
+msgid "Itay Banner"
+msgstr "איתי בנר"
