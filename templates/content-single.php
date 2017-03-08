@@ -30,7 +30,7 @@ if ( has_shortcode( $social_option , 'sgmb') ) {
                 <?php if ( !empty($fvid) ) {
                     the_field('featured_video');
                 } elseif ( has_post_thumbnail() ) {
-                    the_post_thumbnail('full' , ['class' => 'img-responsive responsive--full']);
+                    the_post_thumbnail('post-thumbnail' , ['class' => 'img-responsive responsive--full']);
                 } ?>
             </div>
                 <?php the_content(); ?>
