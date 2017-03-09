@@ -6,8 +6,7 @@
 /* 0. Exodus Setup
 /* 1. Add scripts and stylesheets
 /* 2. Theme Support
-/* 3. Custom Settings Pages
-/* 4. Widget Areas
+/* 3. Admin Stuff
 
 */
 
@@ -138,7 +137,7 @@ require get_template_directory() . '/inc/required-plugins.php';
 // include get_template_directory() . '/inc/temp-template-tags.php';
 
 /* -------------------------------------------------
-// 3. Widget Areas
+// 3. Admin Stuff
 ------------------------------------------------- */
 
 /* @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar */
@@ -155,6 +154,15 @@ function exodus_widgets_init() {
     ) );
 }
 add_action( 'widgets_init', 'exodus_widgets_init' );
+
+// Support menu-order for posts
+
+function exodus_posts_menu_order()
+{
+    add_post_type_support( 'post', 'page-attributes' );
+}
+
+add_action( 'admin_init', 'exodus_posts_menu_order' );
 
 /****************************************/
 
@@ -234,64 +242,96 @@ if (! function_exists( 'exodus_alm_query_ids' )) {
 
     function exodus_alm_query_ids($loop) {
 
-        $ids = '';
-        $args = '';
+    // 1. Setup vars
 
-    if ($loop == 'my-siddur') {
+        $args_unordered = '';
+        $args_ordered = '';
+        $ids_unordered = '';
+        $ids_ordered = '';
 
-        $curuser = get_current_user_id();
-        $siddur = 'siddur_' . $curuser . '_1';
-        $args = array(
-            'post_type' => 'post',
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'siddurim',
-                    'field' => 'slug',
-                    'terms' => $siddur,
+    // 2. Get the unordered posts first (menu_order = 0) into $ids_unordered
+
+        if ($loop == 'my-siddur') {
+
+            $curuser = get_current_user_id();
+            $siddur = 'siddur_' . $curuser . '_1';
+            $args_unordered = array(
+                'post_type' => 'post',
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'siddurim',
+                        'field' => 'slug',
+                        'terms' => $siddur,
+                    ),
                 ),
-            ),
-        );
+            );
 
-    } elseif ($loop == 'index') {
+        } elseif ($loop == 'index') {
 
-        $ids = get_option('sticky_posts');
-        rsort($ids);
+            $args_unordered = array(
+                'posts_per_page' => -1,
+                'menu_order' => 0,
+            );
 
-        $args = array(
-            'post__not_in' => $ids,
-            'posts_per_page' => -1,
-        );
+        } elseif ($loop == 'cat') {
 
-    } elseif ($loop == 'cat') {
+            $args_unordered = array(
+                'posts_per_page' => -1,
+                'cat' => get_query_var('cat'),
+                'menu_order' => 0,
+            );
+        }
 
-        $stickies = get_option('sticky_posts');
-        $ids = array();
+        $query_unordered = new WP_Query($args_unordered);
 
-        if (!is_array($stickies)) {
-            $ids[0] = $stickies;
-        } else {
-            foreach ($stickies as $sticky) {
-                if (has_category(get_query_var('cat'),$sticky)) {
-                    $ids[] = $sticky;
-                }
+        while ($query_unordered->have_posts()) {
+            $query_unordered->the_post();
+            $ids_unordered[] = get_the_ID();
+        }
+
+    // 3. Get the ordered posts into $ids_ordered by filtering the unordered
+
+        if ($loop == 'index') {
+
+            $args_ordered = array(
+                'posts_per_page' => -1,
+                'post__not_in' => $ids_unordered,
+                'orderby' => 'menu_order',
+                'order' => 'ASC',
+            );
+
+        } elseif ($loop == 'cat') {
+
+            $args_ordered = array(
+                'posts_per_page' => -1,
+                'cat' => get_query_var('cat'),
+                'post__not_in' => $ids_unordered,
+                'orderby' => 'menu_order',
+                'order' => 'ASC',
+            );
+
+        }
+
+        if ($loop != 'my-siddur') {
+
+            $query_ordered = new WP_Query($args_ordered);
+
+            while ($query_ordered->have_posts()) {
+                $query_ordered->the_post();
+                $ids_ordered[] = get_the_ID();
             }
+
+    // 4. Merge $ids_ordered and $ids_unordered
+
+        $ids = array_merge($ids_ordered,$ids_unordered);
+
+        } else {
+
+            $ids = $ids_unordered;
+
         }
 
-        $args = array(
-            'posts_per_page' => -1,
-            'post__not_in' => $ids,
-            'cat' => get_query_var('cat'),
-            /*'orderby' => 'meta_value_num',
-            'meta_key' => 'article_order date',
-            'order' => 'ASC',*/
-        );
-    }
-        $the_query = new WP_Query($args);
-
-        while ($the_query->have_posts()) {
-            $the_query->the_post();
-            $ids[] = get_the_ID();
-        }
+    // 5. Implode and return
 
         $ids = implode(', ', $ids);
         wp_reset_postdata();
