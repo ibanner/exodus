@@ -862,6 +862,10 @@ ul.account li a {
     background-color: #f0ad4e;
 }
 
+.cta-item-2 a {
+    background-color: #167ac6;
+}
+
 /*********************/
 /* # CONTENT
 /*********************/
@@ -962,6 +966,10 @@ a.siddur i {
     a.siddur {
         margin-top: 0;
     }
+}
+
+.featured-media {
+    text-align: center;
 }
 
 .the-content {
@@ -1066,18 +1074,9 @@ a.siddur i {
 }
 
 @media screen and (min-width: 37em){
-    .filter-ui {
-        text-align: start;
-    }
-
     .filter-group {
         width: 160px;
         margin: 0 15px;
-    }
-
-    .article-count {
-        float: right;
-        line-height: 34px;
     }
 }
 
@@ -1120,6 +1119,7 @@ a.siddur i {
     float: left;
     width: 100%;
     padding: 0 10px !important;
+    margin-bottom: 10px !important;
 }
 
 @media screen and (min-width: 600px){
@@ -1146,9 +1146,9 @@ a.siddur i {
     }
 }
 
-@media screen and (min-width: 1500px){
+@media screen and (min-width: 1600px){
     .grid-item {
-        width: 16%;
+        width: 12.5%;
     }
 }
 

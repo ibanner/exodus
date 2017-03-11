@@ -75,7 +75,7 @@ if ( ! function_exists( 'exodus_post_type_tax_droplist_ui' ) ) :
         ) );
         if ($terms) {
             echo '<div class="btn-group button-group filter-group type" data-filter-group="type">';
-            echo '<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="current-filter-type">' . $active_type_label . '</span> <i id="#caret" class="fa fa-caret-down" aria-hidden="true"></i></button>';
+            echo '<button type="button" class="btn btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="current-filter-type">' . $active_type_label . '</span> <i id="#caret" class="fa fa-caret-down" aria-hidden="true"></i></button>';
             echo '<ul class="dropdown-menu post-types-tax">';
             $url = esc_url(add_query_arg('type',false));
             echo '<li><a href="' . $url . '"';
