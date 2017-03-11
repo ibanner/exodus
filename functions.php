@@ -6,46 +6,20 @@
 /* 0. Exodus Setup
 /* 1. Add scripts and stylesheets
 /* 2. Theme Support
-/* 3. Custom Settings Pages
-/* 4. Widget Areas
+/* 3. Admin Stuff
 
 */
 
 if ( ! function_exists( 'exodus_setup' ) ) :
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
+
 function exodus_setup() {
-    /*
-     * Make theme available for translation.
-     * Translations can be filed in the /languages/ directory.
-     * If you're building a theme based on Kol Ehad, use a find and replace
-     * to change 'exodus' to the name of your theme in all the template files.
-     */
+
     load_theme_textdomain( 'exodus', get_template_directory() . '/languages' );
 
-    // Add default posts and comments RSS feed links to head.
-    add_theme_support( 'automatic-feed-links' );
-
-    /*
-     * Let WordPress manage the document title.
-     * By adding theme support, we declare that this theme does not use a
-     * hard-coded <title> tag in the document head, and expect WordPress to
-     * provide it for us.
-     */
-    add_theme_support( 'title-tag' );
-
-    /*
-     * Enable support for Post Thumbnails on posts and pages.
-     *
-     * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-     */
+    add_theme_support( 'automatic-feed-links' );    // Add default posts and comments RSS feed links to head.
+    add_theme_support( 'title-tag' );               //Let WordPress manage the document title.
     add_theme_support( 'post-thumbnails' );
-    set_post_thumbnail_size( 828, 360, true );
+    set_post_thumbnail_size( 1170, 658, true );
 
     // This theme uses wp_nav_menu() in 2 locations.
     register_nav_menus( array(
@@ -55,17 +29,7 @@ function exodus_setup() {
     ) );
 
     add_theme_support( 'post-formats', array( 'gallery' , 'image' , 'video' , 'audio' , 'link' , 'quote' ) );
-    /*
-     * Switch default core markup for search form, comment form, and comments
-     * to output valid HTML5.
-     */
-    add_theme_support( 'html5', array(
-        'search-form',
-        'comment-form',
-        'comment-list',
-        'gallery',
-        'caption',
-    ) );
+    add_theme_support( 'html5', array('search-form','comment-form','comment-list','gallery','caption' ) );
 
     // Set up the WordPress core custom background feature.
     add_theme_support( 'custom-background', apply_filters( 'exodus_custom_background_args', array(
@@ -76,32 +40,10 @@ function exodus_setup() {
 endif;
 add_action( 'after_setup_theme', 'exodus_setup' );
 
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
 function exodus_content_width() {
     $GLOBALS['content_width'] = apply_filters( 'exodus_content_width', 1170 );
 }
 add_action( 'after_setup_theme', 'exodus_content_width', 0 );
-
-// Show CPTs on archive pages
-/*function exodus_add_custom_types( $query ) {
-    if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
-        $query->set( 'post_type', array(
-            'post', 'nav_menu_item' , 'ritual', 'text'
-        ));
-        return $query;
-    } elseif ( is_home() && $query->is_main_query() ) {
-        $query->set( 'post_type', array( 'post', 'ritual', 'text' ) );
-        return $query;
-    }
-
-}
-add_filter( 'pre_get_posts', 'exodus_add_custom_types' );*/
 
 // Google Analytics Code
 add_action('wp_footer', 'add_ga_code');
@@ -195,7 +137,7 @@ require get_template_directory() . '/inc/required-plugins.php';
 // include get_template_directory() . '/inc/temp-template-tags.php';
 
 /* -------------------------------------------------
-// 3. Widget Areas
+// 3. Admin Stuff
 ------------------------------------------------- */
 
 /* @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar */
@@ -212,6 +154,44 @@ function exodus_widgets_init() {
     ) );
 }
 add_action( 'widgets_init', 'exodus_widgets_init' );
+
+// Support menu-order for posts
+
+function exodus_posts_menu_order()
+{
+    add_post_type_support( 'post', 'page-attributes' );
+}
+
+add_action( 'admin_init', 'exodus_posts_menu_order' );
+
+/****************************************/
+
+add_filter('acf/validate_value/type=oembed', 'exodus_acf_validate_oembed', 10, 4);
+
+function exodus_acf_validate_oembed( $valid, $value, $field, $input ){
+
+    // - Supported YouTube URL formats:
+    //   - http://www.youtube.com/watch?v=My2FRPA3Gf8
+    //   - http://youtu.be/My2FRPA3Gf8
+    // - Supported Vimeo URL formats:
+    //   - http://vimeo.com/25451551
+    //   - http://player.vimeo.com/video/25451551
+    // - Also supports relative URLs:
+    //   - //player.vimeo.com/video/25451551
+    // Source: http://stackoverflow.com/questions/5612602/improving-regex-for-parsing-youtube-vimeo-urls
+
+    // bail early if value is already invalid
+    if( empty($value) || !$valid ) {return $valid;}
+
+    $pattern = '/(http:\/\/|https:\/\/|)(player.|www.)?(vimeo\.com|youtube\.com|youtu\.be)\/(video\/|embed\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(\&\S+)?/';
+    $match = preg_match($pattern, $value);
+
+    if ( !empty($value) && $match != 1) {
+        $valid = "This isn't a valid video URL (Currently supporting YouTube and Vimeo only).";
+    }
+
+    return $valid;
+}
 
 /****************************************/
 
@@ -291,61 +271,96 @@ if (! function_exists( 'exodus_alm_query_ids' )) {
 
     function exodus_alm_query_ids($loop) {
 
-        $ids = '';
-        $args = '';
+    // 1. Setup vars
 
-    if ($loop == 'my-siddur') {
+        $args_unordered = '';
+        $args_ordered = '';
+        $ids_unordered = '';
+        $ids_ordered = '';
 
-        $curuser = get_current_user_id();
-        $siddur = 'siddur_' . $curuser . '_1';
-        $args = array(
-            'post_type' => 'post',
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'siddurim',
-                    'field' => 'slug',
-                    'terms' => $siddur,
+    // 2. Get the unordered posts first (menu_order = 0) into $ids_unordered
+
+        if ($loop == 'my-siddur') {
+
+            $curuser = get_current_user_id();
+            $siddur = 'siddur_' . $curuser . '_1';
+            $args_unordered = array(
+                'post_type' => 'post',
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'siddurim',
+                        'field' => 'slug',
+                        'terms' => $siddur,
+                    ),
                 ),
-            ),
-        );
+            );
 
-    } elseif ($loop == 'index') {
+        } elseif ($loop == 'index') {
 
-        $ids = get_option('sticky_posts');
-        rsort($ids);
+            $args_unordered = array(
+                'posts_per_page' => -1,
+                'menu_order' => 0,
+            );
 
-        $args = array(
-            'post__not_in' => $ids,
-            'posts_per_page' => -1,
-        );
+        } elseif ($loop == 'cat') {
 
-    } elseif ($loop == 'cat') {
+            $args_unordered = array(
+                'posts_per_page' => -1,
+                'cat' => get_query_var('cat'),
+                'menu_order' => 0,
+            );
+        }
 
-        $stickies = get_option('sticky_posts');
-        $ids = array();
+        $query_unordered = new WP_Query($args_unordered);
 
-        if (!is_array($stickies)) {
-            $ids[0] = $stickies;
-        } else {
-            foreach ($stickies as $sticky) {
-                if (has_category(get_query_var('cat'),$sticky)) {
-                    $ids[] = $sticky;
-                }
+        while ($query_unordered->have_posts()) {
+            $query_unordered->the_post();
+            $ids_unordered[] = get_the_ID();
+        }
+
+    // 3. Get the ordered posts into $ids_ordered by filtering the unordered
+
+        if ($loop == 'index') {
+
+            $args_ordered = array(
+                'posts_per_page' => -1,
+                'post__not_in' => $ids_unordered,
+                'orderby' => 'menu_order',
+                'order' => 'ASC',
+            );
+
+        } elseif ($loop == 'cat') {
+
+            $args_ordered = array(
+                'posts_per_page' => -1,
+                'cat' => get_query_var('cat'),
+                'post__not_in' => $ids_unordered,
+                'orderby' => 'menu_order',
+                'order' => 'ASC',
+            );
+
+        }
+
+        if ($loop != 'my-siddur') {
+
+            $query_ordered = new WP_Query($args_ordered);
+
+            while ($query_ordered->have_posts()) {
+                $query_ordered->the_post();
+                $ids_ordered[] = get_the_ID();
             }
+
+    // 4. Merge $ids_ordered and $ids_unordered
+
+        $ids = array_merge($ids_ordered,$ids_unordered);
+
+        } else {
+
+            $ids = $ids_unordered;
+
         }
 
-        $args = array(
-            'posts_per_page' => -1,
-            'post__not_in' => $ids,
-            'cat' => get_query_var('cat'),
-        );
-    }
-        $the_query = new WP_Query($args);
-
-        while ($the_query->have_posts()) {
-            $the_query->the_post();
-            $ids[] = get_the_ID();
-        }
+    // 5. Implode and return
 
         $ids = implode(', ', $ids);
         wp_reset_postdata();
@@ -391,5 +406,50 @@ if (! function_exists('exodus_alm_shortcode')) {
         $shortcode .= ' button_label="'. $button_label .'"]';
 
         echo do_shortcode($shortcode);
+    }
+}
+
+/*******************************************/
+/*            POST VALIDATION              */
+/*******************************************/
+
+add_action('save_post', 'exodus_validate_thumbnail_size');
+
+function exodus_validate_thumbnail_size($post_id) {
+
+    // Only validate post type of post
+    if( get_post_type( $post_id ) != 'post' )
+        return;
+
+    // Only validate if featured image is set
+    if ( !has_post_thumbnail( $post_id ) )
+        return;
+
+    // Check post has a thumbnail
+    $thumb = get_post_thumbnail_id( $post_id );
+    $tsize = wp_get_attachment_image_src( $thumb , 'full' );
+
+
+    if ( $tsize[1] < 1170 ) {
+        // Confirm validate thumbnail has failed
+        set_transient( "exodus_validate_thumbnail_size_failed", "true" );
+
+        // Remove this action so we can resave the post as a draft and then reattach the post
+        remove_action('save_post', 'exodus_validate_thumbnail_size');
+        delete_post_thumbnail( $post_id );
+        add_action('save_post', 'exodus_validate_thumbnail_size');
+    } else {
+        // If the post has a thumbnail delete the transient
+        delete_transient( "exodus_validate_thumbnail_size_failed" );
+    }
+}
+
+add_action('admin_notices', 'exodus_validate_thumbnail_size_error');
+function exodus_validate_thumbnail_size_error()
+{
+    // check if the transient is set, and display the error message
+    if ( get_transient( "exodus_validate_thumbnail_size_failed" ) == "true" ) {
+        echo "<div id='message' class='error'><p><strong>" . __('The Featured image you set was too small and was removed. Please set another image, at least 1170px wide!' , 'exodus' ) . "</strong></p></div>";
+        delete_transient( "exodus_validate_thumbnail_size_failed" );
     }
 }

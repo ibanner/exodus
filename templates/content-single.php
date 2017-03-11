@@ -26,17 +26,14 @@ if ( has_shortcode( $social_option , 'sgmb') ) {
     <div class="content-wrapper row section">
 
         <div class="content inlet">
-
-            <?php if ( !empty($fvid) ) {
-                the_field('featured_video');
-            } elseif ( has_post_thumbnail() ) {?>
-                <div class="grid-thumbnail">
-                    <?php the_post_thumbnail('full' , ['class' => 'img-responsive responsive--full']) ?>
-                </div>
-            <?php } ?>
-
-            <?php the_content(); ?>
-
+            <div class="featured-media">
+                <?php if ( !empty($fvid) ) {
+                    the_field('featured_video');
+                } elseif ( has_post_thumbnail() ) {
+                    the_post_thumbnail('post-thumbnail' , ['class' => 'img-responsive responsive--full']);
+                } ?>
+            </div>
+                <?php the_content(); ?>
         </div><!-- /.content inlet -->
         <h4 class="meta-title"><?php esc_html_e( 'More about this...', 'exodus'); ?></h4>
         <div class="more-info inlet">

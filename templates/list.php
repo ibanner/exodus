@@ -20,9 +20,6 @@
                 <?php the_excerpt(); ?>
             </div>
         </a>
-        <div class="article-meta caption">
-            <?php ?>
-        </div><!-- /.article-meta -->
         <div class="social-meta caption">
             <ul>
                 <li><a href="<?php comments_link(); ?>"><?php comments_number(); ?></a></li>
