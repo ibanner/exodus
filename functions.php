@@ -166,6 +166,36 @@ add_action( 'admin_init', 'exodus_posts_menu_order' );
 
 /****************************************/
 
+add_filter('acf/validate_value/type=oembed', 'exodus_acf_validate_oembed', 10, 4);
+
+function exodus_acf_validate_oembed( $valid, $value, $field, $input ){
+
+    // - Supported YouTube URL formats:
+    //   - http://www.youtube.com/watch?v=My2FRPA3Gf8
+    //   - http://youtu.be/My2FRPA3Gf8
+    // - Supported Vimeo URL formats:
+    //   - http://vimeo.com/25451551
+    //   - http://player.vimeo.com/video/25451551
+    // - Also supports relative URLs:
+    //   - //player.vimeo.com/video/25451551
+    // Source: http://stackoverflow.com/questions/5612602/improving-regex-for-parsing-youtube-vimeo-urls
+
+    // bail early if value is already invalid
+    if( empty($value) || !$valid ) {return $valid;}
+
+    $pattern = '/(http:\/\/|https:\/\/|)(player.|www.)?(vimeo\.com|youtube\.com|youtu\.be)\/(video\/|embed\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(\&\S+)?/';
+    $match = preg_match($pattern, $value);
+
+    if ( !empty($value) && $match != 1) {
+        $valid = "This isn't a valid video URL (Currently supporting YouTube and Vimeo only). Value is: '" . $value . "'. Is Empty? [" . empty($value) . "] Is Null? [" . is_null($value) . "]";
+        //$value = '';
+    }
+
+    return $valid;
+}
+
+/****************************************/
+
 function my_kses_post( $value ) {
 
     // is array
