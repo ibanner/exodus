@@ -187,8 +187,7 @@ function exodus_acf_validate_oembed( $valid, $value, $field, $input ){
     $match = preg_match($pattern, $value);
 
     if ( !empty($value) && $match != 1) {
-        $valid = "This isn't a valid video URL (Currently supporting YouTube and Vimeo only). Value is: '" . $value . "'. Is Empty? [" . empty($value) . "] Is Null? [" . is_null($value) . "]";
-        //$value = '';
+        $valid = "This isn't a valid video URL (Currently supporting YouTube and Vimeo only).";
     }
 
     return $valid;
