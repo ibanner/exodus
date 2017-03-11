@@ -1119,6 +1119,7 @@ a.siddur i {
     float: left;
     width: 100%;
     padding: 0 10px !important;
+    margin-bottom: 10px !important;
 }
 
 @media screen and (min-width: 600px){
@@ -1147,7 +1148,7 @@ a.siddur i {
 
 @media screen and (min-width: 1500px){
     .grid-item {
-        width: 16%;
+        width: 12.5%;
     }
 }
 
