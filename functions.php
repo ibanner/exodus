@@ -352,7 +352,7 @@ if (! function_exists( 'exodus_alm_query_ids' )) {
 
     // 4. Merge $ids_ordered and $ids_unordered
 
-        $ids = array_merge($ids_ordered,$ids_unordered);
+        $ids = is_array($ids_ordered) ? array_merge($ids_ordered,$ids_unordered) : $ids_unordered;
 
         } else {
 
