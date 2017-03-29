@@ -275,8 +275,8 @@ if (! function_exists( 'exodus_alm_query_ids' )) {
 
         $args_unordered = '';
         $args_ordered = '';
-        $ids_unordered = '';
-        $ids_ordered = '';
+        $ids_unordered = array();
+        $ids_ordered = array();
 
     // 2. Get the unordered posts first (menu_order = 0) into $ids_unordered
 
