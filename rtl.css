@@ -13,7 +13,7 @@ Version: 0.1
 /*********************/
 
 body {
-    font-family: "Open Sans" , sans-serif;
+    font-family: "Open Sans Hebrew" , sans-serif;
     direction: rtl;
     unicode-bidi: embed;
 }
@@ -28,13 +28,13 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-    font-family: "Open Sans" , sans-serif;
+    font-family: "Open Sans Hebrew" , sans-serif;
 }
 
 h4.caption, .h4.caption,
 h5.caption, .h5.caption,
 h6.caption, .h6.caption {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans Hebrew", sans-serif;
 }
 
 
