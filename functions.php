@@ -136,14 +136,12 @@ require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 add_action( 'tgmpa_register', 'exodus_register_required_plugins' );
 require get_template_directory() . '/inc/required-plugins.php';
 
-// Template Tags sandbox - DEV only
-// include get_template_directory() . '/inc/temp-template-tags.php';
+// Admin Functions
+include get_template_directory() . '/admin/admin-hooks.php';
 
 /* -------------------------------------------------
 // 3. Admin Stuff
 ------------------------------------------------- */
-
-/* @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar */
 
 function exodus_widgets_init() {
     register_sidebar( array(
