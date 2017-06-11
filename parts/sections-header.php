@@ -57,7 +57,7 @@ $type = (isset($_GET['type'])) ? $_GET['type'] : '';
 
     <nav id="site-navigation" class="page-head__navbar main-navigation" role="navigation">
         <?php
-        wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu secondary' ) );
+        wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu primary' ) );
         ?>
         <div class="main-navigation__more">
             <button type="button" class="btn btn-link"><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>

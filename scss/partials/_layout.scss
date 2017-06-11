@@ -32,6 +32,16 @@
     height: 40px;
   }
 
+.page-foot {
+  width: 100%;
+  background-color: $color-bg-footer;
+  height: 60px;
+}
+
+  .page-foot__colophon {
+    line-height: 60px;
+  }
+
 /*------------------------------------*\
   #WRAPPERS
 \*------------------------------------*/
