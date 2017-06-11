@@ -1,0 +1,37 @@
+/*-------------------------------------------------------------------------------
+	FONTS
+-------------------------------------------------------------------------------*/
+
+// Font Family Stacks
+$font-open-sans: 'Open Sans', 'Open Sans Hebrew', sans-serif;
+$font-roboto-slab: 'Roboto Slab', serif;
+$font-roboto: 'Roboto', serif;
+
+// Weights
+$font-bold: 700;
+$font-normal: 400;
+
+/*-------------------------------------------------------------------------------
+	COLORS
+-------------------------------------------------------------------------------*/
+
+// Logo Colors
+
+$color-logo-red:              #ee6352;
+$color-logo-blue:             #617ca7;
+$color-logo-yellow:           #e3c088;
+
+$logo-path-svg:               url("../images/vectors/logo.svg");
+
+// Backgrounds
+
+// Other Colors
+
+$shadow-black_60:             rgba(0, 0, 0, 0.6);
+
+/*-------------------------------------------------------------------------------
+	RESPONSIVE
+-------------------------------------------------------------------------------*/
+
+$break-small: 320px;
+$break-large: 1024px;

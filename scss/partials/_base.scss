@@ -1,0 +1,22 @@
+@import   "../modules/all";
+
+// Base Font
+$base-font-family:  $font-roboto;
+$base-font-size:    15px;
+$base-font-weight:  $font-normal;
+$base-line-height:  1.45;
+
+// Theme colors
+$color-font-base:     #555555;
+$color-font-sr:       #21759b;
+
+$color-bg-base:       #f9f9f9;
+$color-bg-primary:    #f0f0f0;
+$color-bg-highlight:  #cbd8ea;
+$color-bg-sr:         #f1f1f1;
+
+$color-highlight:     $color-logo-blue;
+
+// Dimensions
+$height-nav-top:      55px;
+$height-nav-main:     50px;

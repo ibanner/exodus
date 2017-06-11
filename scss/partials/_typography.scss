@@ -1,0 +1,130 @@
+@import "../modules/mixins";
+
+/*------------------------------------*\
+  #GENERAL
+\*------------------------------------*/
+
+html {
+  font-size:    $base-font-size;
+  line-height:  $base-line-height;
+  font-family:  $base-font-family;
+
+  @include respond-to(mobile) { font-size: 105%; } // min-width: 37.5em
+  @include respond-to(tablet) { font-size: 110%; } // min-width: 40.em
+}
+
+/*------------------------------------*\
+  #HEADINGS
+\*------------------------------------*/
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  @include font;
+  color: $color-font-base;
+  font-weight: $font-bold;
+  clear: both;
+}
+
+body {
+  @include font;
+  line-height: 1.5;
+  font-size: 1.2rem;
+}
+h1, .h1 {
+  font-size: 2.4rem !important;
+  line-height: 1.3em;
+}
+
+h2, .h2 {
+  font-size: 2.2rem !important;
+  line-height: 1.3em;
+}
+
+h3, .h3 {
+  font-size: 2rem !important;
+  line-height: 1.3em;
+}
+
+h4, .h4 {
+  font-size: 1.8rem !important;
+  line-height: 1.3em;
+
+  &.caption {
+    font-family: $font-open-sans;
+  }
+}
+
+h5, .h5 {
+  font-size: 1.6rem !important;
+  line-height: 1.3em;
+  &.caption {
+    font-family: $font-open-sans;
+  }
+}
+
+h6, .h6 {
+  font-size: 1.4rem !important;
+  line-height: 1.3em;
+
+  &.caption {
+    font-family: $font-open-sans;
+  }
+}
+
+.caption {
+  font-size: 0.8rem;
+
+  &-label {
+    font-weight: $font-bold;
+  }
+}
+
+/*------------------------------------*\
+  #LINKS
+\*------------------------------------*/
+
+a {
+  color: $color-highlight;
+
+  .no-decor {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.a--block {
+  display: inline-block;
+}
+
+.logo-link {
+  height: $height-nav-top;
+  line-height: $height-nav-top;
+}
+
+.btn {
+  color: $color-highlight;
+}
+
+  .btn__menu-toggle {
+    @include reset;
+    color: $color-highlight;
+  }
+
+.btn--logo {
+  background-image: $logo-path-svg;
+  height: 30px;
+  width: 75px;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  display: block;
+}
+
+/*------------------------------------*\
+  #FORMS
+\*------------------------------------*/
+
+.input {
+  border-radius: 1rem;
+  background-color: #fff;
+  border: none;
+  padding: 5px;
+}

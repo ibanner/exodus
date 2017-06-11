@@ -1,0 +1,18 @@
+@import "../modules/mixins";
+
+/*------------------------------------*\
+  #MEDIA ELEMENTS
+\*------------------------------------*/
+
+/**
+ * Extending `.page-head {}` from _layout.scss.
+ */
+
+%site-logo {
+  height: inherit;
+}
+
+.site-logo--header {
+  @extend .page-head__top;
+  padding: 8px;
+}
