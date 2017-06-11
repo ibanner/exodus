@@ -24,82 +24,8 @@
 
 <body id="top" <?php body_class(); ?>>
 
-<header class="blog-masthead">
-    <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'exodus' ); ?></a>
+<?php get_template_part('parts/sections' , 'header'); ?>
 
-    <div class="container clearfix">
-
-        <div class="left-header <?php echo ( is_front_page() && is_home() ) ? 'hidden-xs' : '' ; ?>">
-            <?php exodus_wpml_switch(); ?>
-            <?php if ( !is_front_page() && !is_home() ) : ?>
-
-
-            <form id="header-search" action="<?php echo $home_url; ?>" method="get" _lpchecked="1">
-                <input type="text" name="s" placeholder="<?php _e( 'Search' , 'exodus' ); ?>">
-                <button type="submit" class="btn btn-link"><i id="search-icon" class="fa fa-search" aria-hidden="true"></i></button>
-            </form>
-            <?php endif; ?>
-        </div><!-- .left-header -->
-
-
-        <!-- Start Site Branding -->
-        <div id="site-title">
-            <a href="<?php echo $home_url; ?>">
-        <?php
-
-            $site_title = get_bloginfo( 'name' );
-
-            if ( is_front_page() && is_home() ) : ?>
-
-                <h1 class="site-title"><?php echo $site_title; ?></h1>
-
-            <?php else : ?>
-
-                <p class="h1 site-title"><?php echo $site_title; ?></p>
-
-            <?php endif; ?>
-            </a>
-            <div class="screen-reader-text">
-                    <?php printf( esc_html__('Go to the home page of %1$s', 'exodus'), $site_title ); ?>
-            </div>
-        </div>
-        <!-- End Site Branding -->
-
-        <div class="right-header">
-
-            <div class="btn-group">
-                <button id="account-icon" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i id="my-account" class="fa fa-user-circle-o" aria-hidden="true"></i>
-                    <span class="sr-only"><?php _e('My Account' , 'exodus'); ?></span>
-                </button>
-
-                <div id="account-menu" class="dropdown-menu dropdown-menu-right">
-                    <?php wp_nav_menu( array( 'theme_location' => 'account', 'menu_class' => 'account' ) ); ?>
-                </div>
-            </div>
-        </div><!-- .right-header -->
-    </div>
-
-    <?php if ( is_front_page() && is_home() ) : ?>
-
-    <div id="home-search" class="container clearfix">
-
-        <p class="h3"><?php _e( 'Pick a Jewish Brain' , 'exodus'); ?></p>
-        <?php get_search_form(); ?>
-
-    </div>
-
-    <?php endif; ?>
-
-    <div class="container-fluid clearfix strip">
-        <nav id="site-navigation" class="main-navigation blog-nav" role="navigation">
-            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i id="bar-icon" class="fa fa-bars icon-border" aria-hidden="true"></i><span class="sr-only"><?php esc_html_e( 'Menu', 'exodus' ); ?></span></button>
-            <?php
-            wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu secondary' ) );
-            ?>
-        </nav><!-- #site-navigation -->
-    </div>
-</header>
 <?php if ( !is_singular() || is_page('my-siddur')) {
     echo '<div class="container-fluid">';
 } else {
