@@ -29,7 +29,27 @@ endif;
 
 /******************************************************/
 
-if ( ! function_exists( 'exodus_author-info' ) ) :
+if ( ! function_exists( 'exodus_author_byline' ) ) :
+
+    /**
+     * Prints HTML with author avatar and name (clickable).
+     */
+
+function exodus_author_byline() {
+    $author_id = get_the_author_meta( 'ID' );
+    $args = array( 'class' => 'author-byline__avatar  img-round', );
+    $avatar = get_avatar( $author_id, 24 , '' , esc_attr( get_the_author() ) , $args );
+    echo '<div class="author-byline">';
+        echo $avatar;
+        echo '<a class="author-byline__name url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a>'; // WPCS: XSS OK.
+    echo '</div>';
+}
+
+endif;
+
+/******************************************************/
+
+if ( ! function_exists( 'exodus_author_info' ) ) :
 
     /**
      * Prints HTML with meta information on the current author.
