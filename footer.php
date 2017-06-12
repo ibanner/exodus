@@ -1,5 +1,4 @@
-</section><!-- /#content -->
-</main><!-- /.container -->
+</main>
 
 
 <footer class="page-foot">
