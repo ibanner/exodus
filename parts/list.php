@@ -1,3 +1,5 @@
+<!-- This should be pasted in the ALM admin settings -->
+
 <li class="grid-item">
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -7,7 +9,7 @@
 
             <?php if ( get_field('featured_video') ) {
 
-                exodus_alm_oembed_strip('featured_video');
+                exodus_acf_oembed_strip('featured_video');
 
             } elseif ( has_post_thumbnail() ) {
                 the_post_thumbnail('medium' , array('title' => get_the_title(), 'alt' => get_the_title()));
