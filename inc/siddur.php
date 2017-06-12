@@ -134,7 +134,7 @@ endif;
 function exodus_siddur_toggle_markup( $case ) {
 
     $template = '
-    <a class="siddur-toggle-%1$s" href="%2$s" title="%3$s" rel="nofollow" tooltip="%4$s">
+    <a class="siddur-toggle siddur-toggle--%1$s" href="%2$s" title="%3$s" rel="nofollow" tooltip="%4$s">
         <i id="siddur-toggle" class="fa %5$s" aria-hidden="true"></i>
     </a>';
 

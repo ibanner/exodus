@@ -30,22 +30,22 @@ body {
   font-size: 1rem;
 }
 h1, .h1 {
-  font-size: 2.4rem !important;
+  font-size: 2.4rem;
   line-height: 1.3em;
 }
 
 h2, .h2 {
-  font-size: 2.2rem !important;
+  font-size: 2.2rem;
   line-height: 1.3em;
 }
 
 h3, .h3 {
-  font-size: 2rem !important;
+  font-size: 2rem;
   line-height: 1.3em;
 }
 
 h4, .h4 {
-  font-size: 1.8rem !important;
+  font-size: 1.8rem;
   line-height: 1.3em;
 
   &.caption {
@@ -54,7 +54,7 @@ h4, .h4 {
 }
 
 h5, .h5 {
-  font-size: 1.6rem !important;
+  font-size: 1.6rem;
   line-height: 1.3em;
   &.caption {
     font-family: $font-open-sans;
@@ -84,11 +84,6 @@ h6, .h6 {
 
 a {
   color: $color-highlight;
-
-  .no-decor {
-    text-decoration: none;
-    color: inherit;
-  }
 }
 
 .a--block {
@@ -127,4 +122,12 @@ a {
   background-color: #fff;
   border: none;
   padding: 5px;
+}
+
+/*------------------------------------*\
+  #MEDIA
+\*------------------------------------*/
+
+.img-round {
+  border-radius: 50% !important;
 }

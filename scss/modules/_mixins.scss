@@ -94,3 +94,7 @@
     @media only screen and (min-width: $break-large) { @content; }
   }
 }
+
+@mixin respond-to-min($width) {
+  @media only screen and (min-width: $width) { @content; }
+}

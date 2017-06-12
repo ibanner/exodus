@@ -77,9 +77,9 @@ if ( ! function_exists( 'exodus_post_type_tax_label' ) ) :
         $post_type_term = get_the_terms( get_the_ID() ,'post_types_tax');
         $term_page = get_term_link( $post_type_term[0] ,'post_types_tax');
         if ($post_type_term) {
-            echo '<a href="' . $term_page . '" class="article-label">' . $post_type_term[0]->name . '</a>';
+            echo '<a href="' . $term_page . '" class="type-label  type-label--' . esc_attr($post_type_term[0]->slug) . '">' . $post_type_term[0]->name . '</a>';
         } elseif (current_user_can('edit_posts')) {
-            edit_post_link( __( "Type N/A" , "exodus" ), null , '</a>' , null , 'article-label color-red' );
+            edit_post_link( __( "Type N/A" , "exodus" ), null , '</a>' , null , 'type-label  type-label--none' );
         }
     }
 endif;
