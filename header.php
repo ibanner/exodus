@@ -27,9 +27,9 @@
 <?php get_template_part('parts/sections' , 'header'); ?>
 
 <?php if ( !is_singular() || is_page('my-siddur')) {
-    echo '<div class="container-fluid">';
+    echo '<main class="page-body page-body--archive container-fluid" role="main">';
 } else {
-    echo '<div class="container">';
+    echo '<main class="page-body page-body--single container" role="main">';
 } ?>
 
 <section id="content" class="site-content">
