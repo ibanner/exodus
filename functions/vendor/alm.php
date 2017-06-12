@@ -158,3 +158,58 @@ if (! function_exists('exodus_alm_shortcode')) {
         echo do_shortcode($shortcode);
     }
 }
+
+/*******************************************/
+
+if (! function_exists('exodus_alm_oembed_filter')) {
+
+    function exodus_alm_oembed_filter( $field, array $params = array(), $attributes = "" ) {
+
+        /**
+         * Based on what I found here: https://www.advancedcustomfields.com/resources/oembed/
+         */
+
+        // get iframe HTML
+        $iframe = get_field($field);
+
+        // use preg_match to find iframe src
+        preg_match('/src="(.+?)"/', $iframe, $matches);
+        $src = $matches[1];
+
+        $new_src = add_query_arg($params, $src);
+
+        $iframe = str_replace($src, $new_src, $iframe);
+
+        // add extra attributes to iframe html
+        // $attributes = 'frameborder="0"';
+
+        $iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
+
+        // return $iframe
+        return $iframe;
+    }
+
+}
+
+/*******************************************/
+
+if (! function_exists('exodus_alm_oembed_strip')) {
+
+    function exodus_alm_oembed_strip($field) {
+
+        /**
+         * Based on what I found here: https://www.advancedcustomfields.com/resources/oembed/
+         */
+
+        $params = array(
+            'controls'      => 0,
+            'hd'            => 1,
+            'autohide'      => 1,
+            'showinfo'      => 0,
+            'rel'           => 0,
+        );
+
+        $iframe = exodus_alm_oembed_filter($field,$params);
+        echo $iframe;
+    }
+}

@@ -7,7 +7,7 @@
 
             <?php if ( get_field('featured_video') ) {
 
-                the_field('featured_video');
+                exodus_alm_oembed_strip('featured_video');
 
             } elseif ( has_post_thumbnail() ) {
                 the_post_thumbnail('medium' , array('title' => get_the_title(), 'alt' => get_the_title()));
