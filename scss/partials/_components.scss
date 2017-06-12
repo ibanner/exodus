@@ -374,6 +374,10 @@ button.alm-load-more-btn.loading:before {
   color: #ffffff;
   margin-left: -10px;
   padding: 2px 10px 2px 30px;
+
+  &:active, &:hover {
+    text-decoration: none;
+  }
 }
 
 .type-label--customs {

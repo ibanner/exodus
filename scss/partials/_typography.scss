@@ -29,52 +29,43 @@ body {
   line-height: 1.5;
   font-size: 1rem;
 }
+
 h1, .h1 {
   font-size: 2.4rem;
-  line-height: 1.3em;
+
+  &.article-title {
+    text-align: center;
+
+    @include respond-to(desktop) {font-size: 3.3rem}
+  }
 }
 
 h2, .h2 {
   font-size: 2.2rem;
-  line-height: 1.3em;
 }
 
 h3, .h3 {
   font-size: 2rem;
-  line-height: 1.3em;
 }
 
 h4, .h4 {
   font-size: 1.8rem;
-  line-height: 1.3em;
-
-  &.caption {
-    font-family: $font-open-sans;
-  }
 }
 
 h5, .h5 {
   font-size: 1.6rem;
-  line-height: 1.3em;
-  &.caption {
-    font-family: $font-open-sans;
-  }
 }
 
 h6, .h6 {
   font-size: 1.4rem !important;
-  line-height: 1.3em;
-
-  &.caption {
-    font-family: $font-open-sans;
-  }
 }
 
-.caption {
-  font-size: 0.8rem;
+p {
 
-  &-label {
-    font-weight: $font-bold;
+  .page-body--single & {
+    font-size: 1.2rem;
+
+    // @include respond-to(desktop) {font-size: 3.3rem}
   }
 }
 

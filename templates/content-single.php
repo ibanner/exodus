@@ -14,42 +14,49 @@ if ( has_shortcode( $social_option , 'sgmb') ) {
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div class="row">
+    <div class="col-sm-12">
+        <article id="post-<?php the_ID(); ?>" <?php post_class("wrapper--article"); ?> role="article">
 
-    <div class="article-meta row">
-        <h1 class="article-title"><?php the_title(); ?></h1>
-        <div class="siddur-button">
-            <?php exodus_siddur_button(); ?>
-        </div><!-- /.siddur-button-->
-    </div><!-- /.article-meta -->
+                <h1 class="article-title"><?php the_title(); ?></h1>
 
-    <div class="content-wrapper row section">
+                <div class="article-meta">
 
-        <div class="content inlet">
-            <div class="featured-media">
-                <?php if ( !empty($fvid) ) {
-                    the_field('featured_video');
-                } elseif ( has_post_thumbnail() ) {
-                    the_post_thumbnail('post-thumbnail' , ['class' => 'img-responsive responsive--full']);
-                } ?>
-            </div>
-                <?php the_content(); ?>
-        </div><!-- /.content inlet -->
-        <h4 class="meta-title"><?php esc_html_e( 'More about this...', 'exodus'); ?></h4>
-        <div class="more-info inlet">
-            <?php the_field( 'more_info' ); ?>
-        </div><!-- /.more-info -->
-        <div class="article-cats inlet caption">
-            <?php esc_html_e( 'Categories:', 'exodus'); ?> <?php echo get_the_category_list(', '); ?> | <?php printf( esc_html__( 'This %1$s article was posted on ', 'exodus' ) , $post_type_label ); // WPCS: XSS OK. ?> <?php echo get_the_date(); ?>
-        </div><!-- /.article-cats -->
-        <div class="article-cats inlet caption">
-            <?php exodus_social_links('social-single'); ?>
-        </div><!-- /.article-cats -->
+                    <div class="siddur-button">
+                        <?php exodus_siddur_button(); ?>
+                    </div><!-- /.siddur-button-->
 
-    </div><!-- /.content-wrapper -->
+                </div><!-- /.article-meta -->
 
-    <div id="author-info" class="author-info row section">
-        <?php exodus_author_info(); ?>
-    </div><!-- /.author-info -->
+                <div class="content inlet">
 
-</article><!-- /.article -->
+                    <div class="featured-media">
+                        <?php if ( !empty($fvid) ) {
+                            exodus_acf_oembed_strip('featured_video');
+                        } elseif ( has_post_thumbnail() ) {
+                            the_post_thumbnail('post-thumbnail' , ['class' => 'img-responsive responsive--full']);
+                        } ?>
+                    </div>
+
+                        <?php the_content(); ?>
+
+                </div><!-- /.content inlet -->
+
+                <h4 class="meta-title"><?php esc_html_e( 'More about this...', 'exodus'); ?></h4>
+                <div class="more-info inlet">
+                    <?php the_field( 'more_info' ); ?>
+                </div><!-- /.more-info -->
+                <div class="article-cats inlet caption">
+                    <?php esc_html_e( 'Categories:', 'exodus'); ?> <?php echo get_the_category_list(', '); ?> | <?php printf( esc_html__( 'This %1$s article was posted on ', 'exodus' ) , $post_type_label ); // WPCS: XSS OK. ?> <?php echo get_the_date(); ?>
+                </div><!-- /.article-cats -->
+                <div class="article-cats inlet caption">
+                    <?php exodus_social_links('social-single'); ?>
+                </div><!-- /.article-cats -->
+
+            <div id="author-info" class="author-info <!--container-->">
+                <?php exodus_author_info(); ?>
+            </div><!-- /.author-info -->
+
+        </article><!-- /.article -->
+    </div>
+</div><!-- /.container -->

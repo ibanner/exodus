@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
-    <div class="row">
+    <!--<div class="row">-->
 
-        <div id="main" class="col-sm-12 blog-main single-column">
+        <!--<div id="main" class="col-sm-12 blog-main single-column">-->
 
             <?php
             if ( have_posts() ) : while ( have_posts() ) : the_post();
@@ -15,8 +15,8 @@
             endwhile; endif;
             ?>
 
-        </div> <!-- /#main -->
+        <!--</div>--> <!-- /#main -->
 
-    </div> <!-- /.row -->
+    <!--</div>--> <!-- /.row -->
 
 <?php get_footer(); ?>
