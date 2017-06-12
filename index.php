@@ -8,7 +8,7 @@ $alert = exodus_siddur_action_handler();
 <div class="row">
     <div id="main" class="col-sm-12 blog-main">
         <div id="index">
-                <?php include( locate_template( 'sections/filter-row.php', false, false ) ); ?>
+                <?php // include( locate_template( 'sections/filter-row.php', false, false ) ); ?>
             <div id="masonry-grid">
                 <?php exodus_alm_shortcode($ids,$type); ?>
             </div>
