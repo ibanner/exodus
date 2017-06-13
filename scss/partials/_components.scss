@@ -340,6 +340,7 @@ button.alm-load-more-btn.loading:before {
 
   .grid-item__title-link {
     color: $color-font-base;
+    font-weight: $font-bold;
 
     &:hover {
       text-decoration: none;

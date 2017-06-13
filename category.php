@@ -15,42 +15,42 @@ $type = (isset($_GET['type'])) ? $_GET['type'] : '';
 $alert = exodus_siddur_action_handler();
 ?>
 
-<div class="row">
-    <div id="main" class="col-sm-12 blog-main single-column">
-        <div class="category">
-            <?php
 
-            if ($parent) {
-                echo '<p id="parent-cat-label" class="caption"><span>' . get_the_category_by_ID($parent) . '</span></p>';
-            }
-            ?>
-            <h1 class="category-title row"><?php single_cat_title(); ?></h1>
-            <?php
+<section class="wrapper--category">
 
-            if ($children) {
-                echo '<nav id="sub-cats" class="navbar navbar-default">
-                <div class="container-fluid">
-                <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sub-cat-list" aria-expanded="false">
-                    <i class="fa fa-angle-double-down" aria-hidden="true"></i>
-                    <span class="sr-only">' . esc_html__( "View Subcategories" , "exodus" ) . '</span>
-                </button>';
-                echo '<div class="collapse navbar-collapse" id="sub-cat-list">';
-                    echo '<ul class="nav navbar-nav">';
-                    foreach ($children as $child) {
-                        echo '<li><a href="'. get_category_link($child) . '">' . get_the_category_by_ID($child) . '</a></li>';
-                    }
-                    echo '</ul>';
-                echo '</div>';
-            echo '</div></div></nav>';
+    <?php
+    /*if ($parent) {
+        echo '<p id="parent-cat-label" class="category__title--parent"><span>' . get_the_category_by_ID($parent) . '</span></p>';
+    }*/
+    ?>
+
+    <h1 class="category__title"><?php single_cat_title(); ?></h1>
+
+    <?php
+    /*if ($children) {
+        echo '<nav id="sub-cats" class="navbar navbar-default">
+        <div class="container-fluid">
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sub-cat-list" aria-expanded="false">
+            <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+            <span class="sr-only">' . esc_html__( "View Subcategories" , "exodus" ) . '</span>
+        </button>';
+        echo '<div class="collapse navbar-collapse" id="sub-cat-list">';
+            echo '<ul class="nav navbar-nav">';
+            foreach ($children as $child) {
+                echo '<li><a href="'. get_category_link($child) . '">' . get_the_category_by_ID($child) . '</a></li>';
             }
-            ?>
-                <?php include( locate_template( 'sections/filter-row.php', false, false ) ); ?>
-            <div id="masonry-grid">
-                <?php exodus_alm_shortcode($ids,$type) ?>
-            </div>
-        </div><!-- /.category -->
-    </div><!-- /.blog-main -->
-</div> <!-- /.row -->
+            echo '</ul>';
+        echo '</div>';
+    echo '</div></div></nav>';
+    }*/
+    ?>
+
+</section><!-- /.wrapper--category -->
+
+<section id="masonry-grid" class="wrapper--grid">
+    <?php exodus_alm_shortcode($ids,$type) ?>
+</section>
+
 
 <?php get_footer(); ?>
