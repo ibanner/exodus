@@ -18,16 +18,16 @@
     wp_head();
     $home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
     if (is_home() || is_front_page()) { ?>
-        <script type="text/javascript" charset="utf-8">jQuery(window).load(function() {jQuery('.flexslider').flexslider();});</script>
+        <!--<script type="text/javascript" charset="utf-8">jQuery(window).load(function() {jQuery('.flexslider').flexslider();});</script>-->
     <?php }?>
 </head>
 
 <body id="top" <?php body_class(); ?>>
 
-<?php get_template_part('parts/sections' , 'header'); ?>
+    <?php get_template_part('parts/sections' , 'header'); ?>
 
-<?php if ( !is_singular() || is_page('my-siddur')) {
-    echo '<main class="page-body container-fluid page-body--archive" role="main">';
-} else {
-    echo '<main class="page-body container-fluid page-body--single" role="main">';
-} ?>
+    <?php if ( !is_singular() || is_page('my-siddur')) {
+        echo '<main class="page-body container-fluid page-body--archive" role="main">';
+    } else {
+        echo '<main class="page-body container-fluid page-body--single" role="main">';
+    } ?>
