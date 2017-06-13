@@ -22,6 +22,7 @@ function exodus_scripts() {
     // Local
     wp_enqueue_style( 'exodus', get_template_directory_uri() . '/css/main.css' );
     wp_enqueue_script( 'exodus-navigation', get_template_directory_uri() . '/js/min/navigation.min.js', array( 'jquery' ), '20151215', true );
+    wp_enqueue_script( 'exodus-navtemp', get_template_directory_uri() . '/js/min/navtemp.min.js', array( 'jquery' ), '20170613', true );
     wp_localize_script( 'exodus-navigation', 'screenReaderText', array(
         'expand'   => '<span class="screen-reader-text">' . __( 'expand child menu', 'exodus' ) . '</span>',
         'collapse' => '<span class="screen-reader-text">' . __( 'collapse child menu', 'exodus' ) . '</span>',
