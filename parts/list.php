@@ -12,7 +12,7 @@
                 exodus_acf_oembed_strip('featured_video');
 
             } elseif ( has_post_thumbnail() ) {
-                the_post_thumbnail('medium' , array('title' => get_the_title(), 'alt' => get_the_title()));
+                the_post_thumbnail('medium' , array('title' => get_the_title(), 'alt' => get_the_title(), 'class' => 'img-responsive responsive--full'));
             } else { ?>
                 <img class="grid-placeholder img-responsive responsive--full" src="<?php bloginfo('template_directory'); ?>/images/feat_placeholder.jpg">
             <?php } ?>
