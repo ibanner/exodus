@@ -86,6 +86,11 @@ a {
 .logo-link {
   height: $height-nav-top;
   line-height: $height-nav-top;
+
+  .home & {
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .btn {

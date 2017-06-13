@@ -85,9 +85,34 @@
   background-color: transparent;
   background-size: cover;
   height: 100%;
+  position: relative;
+
+  .page-head__masthead {
+    position: absolute;
+    display: block;
+    top: 130px;
+    height: 90px;
+    width: 225px;
+    left: 50%;
+    margin-left: -112.5px;
+
+    @include respond-to-min(769px) {
+      top: 100px;
+    }
+  }
 
   .search-form--header {
     display: block;
+  }
+
+  @include respond-to-min(769px) {
+    height: 400px;
+    background-position: center 65%;
+  }
+
+  .page-head__navbar {
+    position: absolute;
+    bottom: 0;
   }
 
 }
@@ -137,7 +162,8 @@
   }
 
   .main-navigation__more {
-    display: block;
+    display: none;
+    // display: block;
     position: absolute;
     top: 0;
     right: 0;
