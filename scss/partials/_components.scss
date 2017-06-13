@@ -77,6 +77,22 @@
     }
   }
 
+
+
+
+.home header {
+  background-image: $path-home-bg;
+  background-color: transparent;
+  background-size: cover;
+  height: 100%;
+
+  .search-form--header {
+    display: block;
+  }
+
+}
+
+
 /*------------------------------------*\
   #NAVIGATION
 \*------------------------------------*/

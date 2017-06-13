@@ -24,12 +24,20 @@
     @extend .page-head;
     background-color: $color-bg-primary;
     height: 50px;
+
+    .home & {
+      background-color: transparent;
+    }
   }
 
   .page-head__navbar {
     @extend .page-head;
     background-color: $color-bg-highlight;
     height: 40px;
+
+    .home & {
+      @include respond-to-max(768px) {display: none;}
+    }
   }
 
 
@@ -51,6 +59,10 @@
   background-color: $color-bg-footer;
   height: 60px;
   margin-top: 15px;
+
+  .home & {
+    @include respond-to-max(768px) {display: none;}
+  }
 }
 
   .page-foot__colophon {
@@ -78,6 +90,10 @@
 
 .wrapper--grid, .wrapper--category {
   margin-top: 15px;
+
+  .home & {
+    @include respond-to-max(768px) {display: none;}
+  }
 }
 
 .wrapper--article, .wrapper--comments {

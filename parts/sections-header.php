@@ -39,9 +39,8 @@ $type = (isset($_GET['type'])) ? $_GET['type'] : '';
                 </div>
             </div>
 
-            <!--<div class="lang-switch">-->
-                <?php exodus_wpml_switch(); ?>
-<!--            </div>-->
+            <?php exodus_wpml_switch(); ?>
+
         </div>
 
     </section>
