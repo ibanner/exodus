@@ -102,7 +102,25 @@
   }
 
   .search-form--header {
-    display: block;
+    margin: 0 15%;
+
+    .input {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    @include respond-to-max(768px) {
+      display: block;
+      margin: 25% 10% 0;
+
+      .btn-group {
+        width: 100%;
+
+        i {
+          float: right;
+        }
+      }
+    }
   }
 
   @include respond-to-min(769px) {

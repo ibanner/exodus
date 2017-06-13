@@ -16,7 +16,7 @@ $type = (isset($_GET['type'])) ? $_GET['type'] : '';
 
 ?>
 
-<header role="banner" class="page-head">
+<header id="header" role="banner" class="page-head">
 
     <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'exodus' ); ?></a>
 
