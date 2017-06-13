@@ -395,7 +395,7 @@ button.alm-load-more-btn.loading:before {
   background-color: $thought-bg-color;
 }
 
-.type-label--nusic {
+.type-label--music {
   @extend .type-label;
   background-color: $music-bg-color;
 }
@@ -420,6 +420,65 @@ button.alm-load-more-btn.loading:before {
     color: $color-logo-yellow;
   }
 }
+
+/*------------------------------------*\
+  #ARTICLE
+\*------------------------------------*/
+
+.article__meta {
+  text-align: center;
+  margin: 15px 0;
+}
+
+a.article__meta--siddur {
+  background-color: $color-highlight;
+  color: #ffffff;
+}
+
+.article__part--author-info {
+  border-top: 1px solid $color-font-base;
+  padding-top: 15px;
+  position: relative;
+  height: 65px;
+  margin-bottom: 20px;
+}
+
+.author-info__details, .author-info__avatar {
+  position: absolute;
+  top: 15px;
+}
+
+.author-info__avatar {
+  left: 0;
+}
+
+.author-info__details {
+  left: 60px
+}
+
+.author-info__name {
+  font-weight: $font-bold;
+}
+
+/*------------------------------------*\
+  #COMMENTS
+\*------------------------------------*/
+
+.comments-area {
+  h3 {
+    font-size: 1.6rem;
+    font-weight: $font-normal;
+  }
+
+  p {
+    margin-top: $base-font-size;
+  }
+
+  label {
+    font-weight: $font-bold;
+  }
+}
+
 
 /*------------------------------------*\
   #FOOTER

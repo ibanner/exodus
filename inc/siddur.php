@@ -83,7 +83,7 @@ endif;
 function exodus_siddur_button_markup( $case ) {
 
     $template = '
-    <a id="siddur-%1$s" class="siddur btn btn-info" href="%2$s" title="%3$s" rel="nofollow">
+    <a id="siddur-%1$s" class="article__meta--siddur input input--button btn btn-info" href="%2$s" title="%3$s" rel="nofollow">
         <i class="fa %4$s" aria-hidden="true"></i>
         %5$s
     </a>';

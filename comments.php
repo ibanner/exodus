@@ -6,15 +6,15 @@
     <div class="col-sm-12">
         <section id="comments" class="wrapper--comments">
 
-            <div class="<!--container-->">
+            <div class="comments-area">
 
-                <h4 class="meta-title primary"><?php esc_html_e('Discuss this', 'exodus'); ?></h4>
+                <h2 class="comments-area__title"><?php esc_html_e('Discuss this', 'exodus'); ?></h2>
                 <?php if (have_comments()) : ?>
-                    <h4 class="meta-title secondary">
+                    <h3 class="comments-area__count">
                         <small><?php printf(_nx('One comment on “%2$s”', '%1$s comments on “%2$s”', get_comments_number(), 'comments title'),
                                 number_format_i18n(get_comments_number()), get_the_title()); ?></small>
-                    </h4>
-                    <div id="comments-list" class="comments-area inlet caption">
+                    </h3>
+                    <div id="comments-list" class="comments-area__list">
                         <ul class="comment-list">
                             <?php
                             wp_list_comments(array(
@@ -33,9 +33,9 @@
                 <?php endif; ?>
                 <?php
                 $comments_args = array(
-                    'title_reply_before' => '<h4 id="reply-title" class="meta-title secondary">',
-                    'title_reply_after' => '</h4>
-                        <div id="comments-form" class="comments-area inlet caption">',
+                    'title_reply_before' => '<h3 id="reply-title" class="meta-title secondary">',
+                    'title_reply_after' => '</h3>
+                        <div id="comments-form" class="comments-area__form">',
                     'logged_in_as' => '<p class="logged-in-as">' . sprintf(__('Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account" class="log-out">Not You?</a>', 'exodus'), admin_url('profile.php'), $user_identity, wp_logout_url(apply_filters('the_permalink', get_permalink()))) . '</p>',
                 );
                 comment_form($comments_args);

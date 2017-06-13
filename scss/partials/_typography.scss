@@ -19,13 +19,14 @@ html {
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   @include font;
-  color: $color-font-base;
+  color: $color-font-heading;
   font-weight: $font-bold;
   clear: both;
 }
 
 body {
   @include font;
+  color: $color-font-base;
   line-height: 1.5;
   font-size: 1rem;
 }
@@ -33,7 +34,7 @@ body {
 h1, .h1 {
   font-size: 2.4rem;
 
-  &.article-title {
+  &.article__title {
     text-align: center;
 
     @include respond-to(desktop) {font-size: 3.3rem}
@@ -75,6 +76,10 @@ p {
 
 a {
   color: $color-highlight;
+
+  .page-body--single & {
+    color: #527ec0;
+  }
 }
 
 .a--block {
@@ -115,10 +120,28 @@ a {
   padding: 5px;
 }
 
+.input--textarea {
+  width: 100%;
+  max-width: 960px;
+}
+
+.input--button {
+  background-color: $color-logo-red;
+  color: #ffffff;
+  font-size: $base-font-size;
+  padding: 6px 16px;
+  text-decoration: none;
+}
+
 /*------------------------------------*\
   #MEDIA
 \*------------------------------------*/
 
 .img-round {
   border-radius: 50% !important;
+}
+
+.img-responsive {
+  margin-left: auto;
+  margin-right: auto;
 }
