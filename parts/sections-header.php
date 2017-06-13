@@ -63,4 +63,10 @@ $type = (isset($_GET['type'])) ? $_GET['type'] : '';
         </div>
     </nav><!-- #site-navigation -->
 
+    <nav id="account-navigation" class="page-head__account-nav secondary-navigation" role="navigation">
+        <?php
+        wp_nav_menu( array( 'theme_location' => 'account', 'menu_class' => 'nav-menu account' ) );
+        ?>
+    </nav><!-- #account-navigation -->
+
 </header>
