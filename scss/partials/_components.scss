@@ -81,11 +81,15 @@
 
 
 .home header {
-  background-image: $path-home-bg;
+  background-image: $path-home-bg-mobile;
   background-color: transparent;
   background-size: cover;
   height: 100%;
   position: relative;
+
+  @include respond-to-min(769px) {
+    background-image: $path-home-bg;
+  }
 
   .page-head__masthead {
     position: absolute;

@@ -25,8 +25,8 @@ $type = (isset($_GET['type'])) ? $_GET['type'] : '';
         <div class="wrapper--head-top">
             <div class="page-head__menu-toggle">
                 <button class="btn__menu-toggle menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-                    <i id="bar-icon" class="fa fa-bars icon-border" aria-hidden="true"></i>
-                    <span class="sr-only"><?php esc_html_e('Menu', 'exodus'); ?></span>
+                    <i class="svg-bg svg-menu_toggle svg-menu_toggle-open"></i>
+                    <span class="sr-only"><?php esc_html_e( 'Menu', 'exodus' ); ?></span>
                 </button>
             </div>
 

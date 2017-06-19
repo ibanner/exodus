@@ -16,3 +16,49 @@
   @extend .page-head__top;
   padding: 8px;
 }
+
+/*------------------------------------*\
+  #SVG ICONS
+\*------------------------------------*/
+
+.svg {
+  &.svg-menu_toggle {
+    height: 32px;
+  }
+}
+
+/*------------------------------------*\
+  #SVG BUTTONS
+\*------------------------------------*/
+
+.svg-bg {
+  display: block;
+}
+
+@each $icon in logo-mini, logo-minimized, logo, menu_toggle-close, menu_toggle-open, menu-about, menu-add, menu-contact, menu-profile, menu-sign_out, post_actions-download, post_actions-print, post_actions-send, post_meta-comments, post_meta-fav-notselected, post_meta-fav-selected, post_meta-fav, post_meta-views, search-large, search-mini, select_arrow-down, select_arrow-up, sharing-facebook, sharing-main, sharing-pinterest, sharing-twitter, type-custom, type-how_to, type-misc, type-music, type-thought {
+  .svg-bg.svg-#{$icon} {
+    background-image: url('../images/vectors/#{$icon}.svg');
+  }
+}
+
+  .svg-menu_toggle{
+    background-size: 32px;
+    background-position: center;
+  }
+
+  .svg-menu_toggle-close {
+    height: 32px;
+    width: 32px;
+  }
+
+  .svg-menu_toggle-open {
+    height: 33px;
+    width: 36px;
+    background-repeat: no-repeat;
+  }
+
+/*
+@each $state in close, open {
+    .svg-menu_toggle-#{$state} {
+    }
+  }*/
