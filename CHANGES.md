@@ -10,13 +10,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Graphic assets by [Thisanddot.com](http://www.thisanddot.com/):
     - Header background images - 2 versions (mobile & desktop)
     - Vector images for logo, buttons and icons
+- Parallax script by [Materializecss.com](http://materializecss.com/)
 
 ### Changed
 - Implement new graphic design by [Thisanddot.com](http://www.thisanddot.com/):
     - Header bg image responds to screen width (mobile <= 768 > desktop)
     - New CSS & JS for menu-toggle
     - New icons for WPML switch (**Should be uploaded to uploads/flags**)
-    - New look for home header (default state)
+    - New parallax effect for home & archive header (default state)
 
 ### Fixed
 ### Deprecated

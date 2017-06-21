@@ -65,18 +65,33 @@
 
 .svg-search--large,
 .svg-search-large {
-  height: 20px;
+  height: 14px;
   vertical-align: middle;
+
+  .home & {
+    height: 20px;
+  }
+
+  @include respond-to-min(769px) {
+    height: 20px;
+  }
 }
 
 .svg-select_arrow {
   height: 9px;
   width: 12px;
   position: absolute;
-  top: 17px;
+  top: 9px;
   right: 14px;
-  // background-size: 32px;
   background: center no-repeat;
+
+  .home & {
+    top: 17px;
+  }
+
+  @include respond-to-min(769px) {
+    top: 17px;
+  }
 
   .filter-group.type.open & {
     @extend .svg-bg.svg-select_arrow-up;

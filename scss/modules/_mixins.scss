@@ -102,3 +102,35 @@
 @mixin respond-to-max($width) {
   @media only screen and (max-width: $width) { @content; }
 }
+
+/*-------------------------------------------------------------------------------
+    PARALLAX
+-------------------------------------------------------------------------------*/
+
+@mixin parallax-container($height) {
+  position: relative;
+  overflow: hidden;
+  height: $height;
+}
+
+@mixin parallax {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+
+  img {
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    transform: translateX(-50%);
+  }
+}

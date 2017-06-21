@@ -15,10 +15,17 @@ $login_url = wp_login_url();
 $signup_url = $login_url . '?action=register';
 $site_title = get_bloginfo( 'name' );
 $type = (isset($_GET['type'])) ? $_GET['type'] : '';
+$p_container = ( exodus_is_parallax_page() ) ? 'parallax-container' : '';
 
 ?>
 
-<header id="header" role="banner" class="page-head">
+<header id="header" role="banner" class="page-head <?php echo $p_container; ?>">
+
+    <?php if ( exodus_is_parallax_page() ) : ?>
+    <div class="parallax">
+        <img src="/wp-content/themes/exodus/images/home_bg_791.jpg">
+    </div>
+    <?php endif; ?>
 
     <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'exodus' ); ?></a>
 

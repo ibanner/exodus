@@ -13,11 +13,19 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 // Add scripts and stylesheets
 ------------------------------------------------- */
 function exodus_scripts() {
+    // Materialize
+    if (is_home() || is_front_page() || is_category() || is_archive() || is_search() || is_page('my-siddur')) {
+        // wp_enqueue_style( 'materialize', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css' , array(), '0.98.2' );
+        wp_enqueue_script( 'materialize', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js', array( 'jquery' ), '0.98.2', true );
+        wp_enqueue_script( 'parallax', get_template_directory_uri() . '/js/min/materialize-parallax.min.js', array( 'jquery' ), '20170621', true );
+    }
+
     // Bootstrap
     wp_dequeue_style( 'searchwp-live-search' );
     wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' , array(), '3.3.7' );
     wp_enqueue_style( 'font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' , array(), '4.7.0' );
     wp_enqueue_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js', array('jquery'), '3.3.5', true );
+
 
     // Local
     wp_enqueue_style( 'exodus', get_template_directory_uri() . '/css/main.css' );
@@ -29,14 +37,6 @@ function exodus_scripts() {
     ) );
     wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/min/navigation.min.js', array(), '20151215', true );
     wp_enqueue_script( 'exodus-skip-link-focus-fix', get_template_directory_uri() . '/js/min/skip-link-focus-fix.min.js', array(), '20151215', true );
-    // wp_enqueue_script( 'live-js', get_template_directory_uri() . '/js/min/live.min.js', array(), '20151215', true );
-
-
-
-    /*if (is_home() || is_front_page()) {
-        wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/css/flexslider.css' , array(), '2.6.2' );
-        wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/js/min/jquery.flexslider.min.js', array( 'jquery' ), '20151215', true );
-    }*/
 
     if (is_home() || is_front_page() || is_category() || is_archive() || is_search() || is_page('my-siddur')) {
         wp_enqueue_script( 'masonry');

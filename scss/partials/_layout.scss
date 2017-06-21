@@ -14,8 +14,10 @@
 
   .page-head__top {
     @extend .page-head;
-
-    height: $height-nav-top;
+    background-color: $color-bg-base;
+    position: absolute;
+    top: 0;
+    height: 58px;
     display: inline-block;
     padding: 16px 15px 0;
 
@@ -27,24 +29,29 @@
   .page-head__search {
     @extend .page-head;
     background-color: $color-bg-primary;
+    position: absolute;
+    top: 58px;
 
     .home & {
       background-color: transparent;
-      position: absolute;
       top: 270px;
 
       @include respond-to-min(768px) {
         top: 245px;
-        display: flex;
-        justify-content: center;
       }
+    }
+
+    @include respond-to-min(768px) {
+      top: 245px;
+      display: flex;
+      justify-content: center;
     }
   }
 
   .page-head__navbar {
     @extend .page-head;
     background-color: $color-bg-highlight;
-    height: 40px;
+    height: 45px;
 
     .home & {
       @include respond-to-max(768px) {display: none;}
@@ -93,17 +100,27 @@
 \*------------------------------------*/
 
 .wrapper--head-top {
-  height: 32px;
+  height: 26px;
   line-height: 32px;
   vertical-align: middle;
   text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include respond-to-min(769px) {
+    height: 32px;
+    display: block;
+  }
 }
 
 .wrapper--grid, .wrapper--category {
   margin-top: 15px;
 
   .home & {
-    @include respond-to-max(768px) {display: none;}
+    @include respond-to-max(768px) {
+      display: none;
+    }
   }
 }
 

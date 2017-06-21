@@ -82,6 +82,23 @@ register_default_headers( array(
 ));
 
 /*-------------------------------------------------------------------------------
+	PARALLAX
+-------------------------------------------------------------------------------*/
+
+/**
+ *  Checks if the current page should display the parallax header
+ *
+ * @return boolean
+ */
+function exodus_is_parallax_page() {
+    $is_parallax = false;
+    if (is_home() || is_front_page() || is_category() || is_archive() || is_search() || is_page('my-siddur')) {
+        $is_parallax = true;
+    }
+    return $is_parallax;
+}
+
+/*-------------------------------------------------------------------------------
 	GOOGLE ANALYTICS CODE
 -------------------------------------------------------------------------------*/
 
