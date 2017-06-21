@@ -27,6 +27,81 @@ if ( ! function_exists( 'exodus_the_default_logo' ) ) :
 
 endif;
 
+/**
+ * Echoes a link to "my-account" page
+ *
+ * @Since:   2.0.0
+ *
+ */
+
+if ( ! function_exists( 'exodus_my_account_link' ) ):
+
+    function exodus_my_account_link($text = 'name') {
+
+        if ( is_user_logged_in() ) {
+
+            $target = get_page_by_path('my-account');
+
+            switch ($text) {
+                case 'name':
+                    $current_user = wp_get_current_user();
+                    $link = $current_user->display_name;
+                    break;
+                default:
+                    $link = __('My Account', 'exodus');
+            }
+
+            echo '<a href="' . get_page_link($target->ID) . '" role="link">' . $link .'</a>';
+
+        }
+    }
+
+endif;
+
+/**
+ * Echoes the current user's avatar.
+ *
+ * @Since:   2.0.0
+ *
+ * @param   int $size   Sets the dimensions for the avatar in px. defaults to '32'.
+ */
+
+if ( ! function_exists( 'exodus_current_user_avatar' ) ):
+
+    function exodus_current_user_avatar($size = 32) {
+
+        if ( is_user_logged_in() ) {
+
+            // if a user is logged-in, show their avatar. if no avatar is available, show the generic avatar
+            $default = get_template_directory_uri() . '/images/vectors/menu-profile.svg';
+            $args = array( 'class' => 'current-user__avatar  img-round', );
+            $avatar = get_avatar( get_current_user_id(), $size , esc_url( $default ), esc_attr( get_current_user() ) , $args );
+            echo $avatar;
+
+        }
+    }
+
+endif;
+
+/**
+ * Echoes the default user avatar.
+ *
+ * @Since:   2.0.0
+ *
+ * @param   int $size   Sets the dimensions for the avatar in px. defaults to '32'.
+ */
+
+if ( ! function_exists( 'exodus_default_user_avatar' ) ):
+
+    function exodus_default_user_avatar($size = 32) {
+
+        $default = get_template_directory_uri() . '/images/vectors/menu-profile.svg';
+        echo '<img src="' . $default . '" height="' . $size . '" alt="' . __( "Default User Avatar" , "exodus" ) . '" class="current-user__avatar  current-user__avatar--default  img-round" role="img">';
+
+    }
+
+endif;
+
 /******************************************************/
 
 if ( ! function_exists( 'exodus_author_byline' ) ) :
@@ -114,7 +189,7 @@ if ( ! function_exists( 'exodus_post_type_tax_droplist_ui' ) ) :
         ) );
         if ($terms) {
             echo '<div class="btn-group button-group filter-group type" data-filter-group="type">';
-            echo '<button type="button" class="input input--select btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="current-filter-type">' . $active_type_label . '</span> <i id="#caret" class="fa fa-caret-down" aria-hidden="true"></i></button>';
+            echo '<button type="button" class="input input--select btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="current-filter-type">' . $active_type_label . '</span>' . exodus_get_icon('select_arrow', 'down', 'icon' , esc_attr('Arrow - Down', 'exodus')) . '</button>';
             echo '<ul class="dropdown-menu post-types-tax">';
             $url = esc_url(add_query_arg('type',false));
             echo '<li><a href="' . $url . '"';
@@ -453,4 +528,42 @@ if ( ! function_exists( 'exodus_social_tooltip' ) ) :
         }
     }
 
+endif;
+
+/**
+ * Gets the SVG file contents for an icon, button or logo file.
+ *
+ * @since 2.0.0
+ *
+ * @param string $subset        Name of the group the icon belongs to (filename prefix).
+ * @param string $variant       Name of specific icon for display the .SVG file to display. Sets the right path and suffix.
+ * @param string $output        Optional. inject|icon|img (default):
+ *                                  - "inject" for inline SVG injection.
+ *                                  - "icon" for an <i> element with the icon slug in the class, and sr-only ALT text
+ *                                  - "img" for an <img> element with ALT attribute.
+ * @param string $alt           Optional. ALT text for <img> element.
+ * @return string               The
+ */
+
+if ( ! function_exists('exodus_get_icon') ) :
+
+    function exodus_get_icon($subset, $variant, $output = 'img', $alt) {
+
+        $path = '/images/vectors/';
+        $file_name = $subset . '-' . $variant;
+        $class = 'svg-' . $subset . ' svg-' . $subset . '-' . $variant;
+        $src = get_template_directory_uri() . $path . $file_name . '.svg';
+
+        switch ($output) {
+            case 'inject':
+                $inject = file_get_contents($src);
+                return $inject;
+            case 'icon':
+                $icon = '<i class="svg-bg ' . $class . '" role="img"></i><span class="sr-only">' . $alt . '</span>';
+                return $icon;
+            default:
+                $img = '<img src="' . $src . '" class="svg  ' . $class . '" alt="' . $alt . '" role="img">';
+                return $img;
+        }
+    }
 endif;

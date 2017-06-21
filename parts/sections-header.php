@@ -11,6 +11,8 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 //vars
 $home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
+$login_url = wp_login_url();
+$signup_url = $login_url . '?action=register';
 $site_title = get_bloginfo( 'name' );
 $type = (isset($_GET['type'])) ? $_GET['type'] : '';
 
@@ -41,6 +43,31 @@ $type = (isset($_GET['type'])) ? $_GET['type'] : '';
 
             <?php exodus_wpml_switch(); ?>
 
+            <div class="page-head__my-account hidden-xs">
+
+                <?php if ( ! is_user_logged_in() ) : ?>
+
+                    <p class="anon">
+                        <a href="<?php echo esc_url($login_url); ?>" role="link"><?php _e('Log In', 'exodus'); ?></a> /
+                        <a href="<?php echo esc_url($signup_url); ?>" role="link"><?php _e('Sign Up', 'exodus'); ?></a>
+                        <?php exodus_default_user_avatar(); ?>
+                    </p>
+
+                <?php else: ?>
+
+                    <p class="logged-in">
+
+                        <?php
+                        exodus_my_account_link();
+                        exodus_current_user_avatar();
+                        ?>
+
+                    </p>
+
+                <?php endif; ?>
+
+            </div>
+
         </div>
 
     </section>
@@ -48,8 +75,8 @@ $type = (isset($_GET['type'])) ? $_GET['type'] : '';
 
     <section class="page-head__search" role="search">
         <form id="header-search" class="search-form search-form--header" action="<?php echo $home_url; ?>" method="get" _lpchecked="1">
-            <input type="text" class="input input--search" name="s" placeholder="<?php _e( 'Pick a Jewish brain' , 'exodus' ); ?>">
-            <button type="submit" class="btn btn-link input__search-icon"><i id="search-icon" class="fa fa-search" aria-hidden="true"></i></button>
+            <input type="text" class="input input--search" name="s" placeholder="<?php esc_attr_e( 'Pick a Jewish brain' , 'exodus' ); ?>">
+            <button type="submit" class="btn btn-link input__search-icon"><?php echo exodus_get_icon('search', 'large', 'img' , esc_attr('Search Icon', 'exodus')); ?></button>
             <?php exodus_post_types_tax_droplist_ui($type); ?>
         </form>
     </section>

@@ -23,6 +23,8 @@ $color-logo-yellow:           #e3c088;
 
 $logo-path-svg:               url("../images/vectors/logo.svg");
 $path-home-bg:                url("../images/home_placeholder.jpg");
+$path-home-bg-mobile:         url("../images/home_placeholder_mobile.jpg");
+$path-icons:                  "../images/vectors/";
 
 // Backgrounds
 
@@ -34,5 +36,5 @@ $shadow-black_60:             rgba(0, 0, 0, 0.6);
 	RESPONSIVE
 -------------------------------------------------------------------------------*/
 
-$break-small: 320px;
+$break-small: 768px;
 $break-large: 1024px;

@@ -10,7 +10,6 @@
   display: inline-block;
   vertical-align: middle;
   height: inherit;
-  width: 100px;
 }
 
 .page-head__menu-toggle {
@@ -26,20 +25,29 @@
 .wpml-switch {
   float: right;
   text-align: right;
+
+  @include respond-to-min($break-small) {
+    float: left;
+    padding-left: 15px;
+  }
+
+  svg {
+    display: inline-block;
+    height: 32px;
+    margin-left: 15px;
+    color: #ffffff;
+    /*stroke: #cccccb;
+    stroke-width: 1px;*/
+  }
 }
 
-  .wpml-switch__link,
-  .wpml-switch__flag {
-    display: inline-block;
-    height: 30px;
-  }
-
-  .wpml-switch__flag {
-    margin-left: 10px;
-  }
+.wpml-switch__link svg {
+  opacity: 0.5;
+  color: #f0f0f0;
+}
 
 .search-form--header {
-  padding: 10px;
+  padding: 0 10px;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -55,21 +63,24 @@
   }
 
   .input--search {
-    padding-left: 30px;
+    padding-left: 50px;
+    vertical-align: middle;
   }
 
   .input--select {
     background-color: $color-logo-red;
     color: #ffffff;
-    padding: 5px 10px;
+    padding: 5px 10px 5px 17px;
     border-color: $color-logo-red;
   }
 }
 
   .input__search-icon {
     position: absolute;
-    left: 10px;
-    padding: 0 10px;
+    top: 0;
+    left: 25px;
+    padding: 0;
+    height: 44px;
 
     i {
       height: 28px;
@@ -94,28 +105,53 @@
   .page-head__masthead {
     position: absolute;
     display: block;
-    top: 130px;
-    height: 90px;
-    width: 225px;
+    top: 146px;
+    height: 65px;
+    width: 163px;
     left: 50%;
-    margin-left: -112.5px;
+    margin-left: -81.5px;
 
     @include respond-to-min(769px) {
-      top: 100px;
+      top: 113px;
+      height: 76px;
+      width: 192px;
+      margin-left: -96px;
     }
   }
 
   .search-form--header {
-    margin: 0 15%;
+    margin: 0 15px;
+
+    @include respond-to-min(769px) {
+      width: 826px;
+    }
 
     .input {
       margin-bottom: 15px;
       text-align: left;
+      height: 44px;
+      border-radius: 22px;
+      width: 100%;
+      font-size: 16px;
+
+      @include respond-to-min(769px) {
+        margin: 0;
+      }
+    }
+
+    @include respond-to-min(769px) {
+      .input--search {
+        width: 650px;
+      }
+
+      .input--select {
+        width: 156px;
+        margin-left: 20px;
+      }
     }
 
     @include respond-to-max(768px) {
       display: block;
-      margin: 25% 10% 0;
 
       .btn-group {
         width: 100%;
@@ -135,6 +171,28 @@
   .page-head__navbar {
     position: absolute;
     bottom: 0;
+  }
+
+  .page-head__my-account {
+    font-size: 18px;
+    font-weight: $font-bold;
+
+    .anon,
+    .logged-in {
+      display: inline-flex;
+      display: -webkit-inline-flex;
+      float: right;
+
+      a {
+        padding: 0 6px;
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  .current-user__avatar--default {
+    margin-left: 12px;
+    background: #f0f0f0;
   }
 
 }

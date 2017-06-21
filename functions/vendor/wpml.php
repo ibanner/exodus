@@ -7,6 +7,8 @@
  * Time: 09:50
  */
 
+
+
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 /******************************************************/
@@ -21,12 +23,13 @@ if ( ! function_exists( 'exodus_wpml_switch' )) :
 
                 if ( $l['active'] ) {
 
-                    echo '<img class="wpml-switch__flag wpml-switch__flag--active" src="' . $l['country_flag_url'] . '" height="30" alt="' . $l['language_code'] . '" width="30" />';
+                    echo file_get_contents($l['country_flag_url']);
+                    // echo '<img class="wpml-switch__flag wpml-switch__flag--active" src="' . $l['country_flag_url'] . '" height="32" alt="' . $l['language_code'] . '" width="32" />';
 
                 } else {
 
                     echo '<a href="' . $l['url'] . '" class="wpml-switch__link">';
-                    echo '<img class="wpml-switch__flag" src="' . $l['country_flag_url'] . '" height="30" alt="' . $l['language_code'] . '" width="30" />';
+                    echo file_get_contents($l['country_flag_url']);
                     echo '</a>';
 
                 }

@@ -52,7 +52,7 @@
   }
 
   .svg-menu_toggle-open {
-    height: 33px;
+    height: 30px;
     width: 36px;
     background-repeat: no-repeat;
   }
@@ -62,3 +62,23 @@
     .svg-menu_toggle-#{$state} {
     }
   }*/
+
+.svg-search--large,
+.svg-search-large {
+  height: 20px;
+  vertical-align: middle;
+}
+
+.svg-select_arrow {
+  height: 9px;
+  width: 12px;
+  position: absolute;
+  top: 17px;
+  right: 14px;
+  // background-size: 32px;
+  background: center no-repeat;
+
+  .filter-group.type.open & {
+    @extend .svg-bg.svg-select_arrow-up;
+  }
+}

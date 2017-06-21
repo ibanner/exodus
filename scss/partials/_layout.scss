@@ -17,18 +17,27 @@
 
     height: $height-nav-top;
     display: inline-block;
-    padding: 10px;
+    padding: 16px 15px 0;
+
+    @include respond-to-min($break-small) {
+      padding: 25px 27px 0;
+    }
   }
 
   .page-head__search {
     @extend .page-head;
     background-color: $color-bg-primary;
-    height: 50px;
 
     .home & {
       background-color: transparent;
       position: absolute;
-      top: 220px;
+      top: 270px;
+
+      @include respond-to-min(768px) {
+        top: 245px;
+        display: flex;
+        justify-content: center;
+      }
     }
   }
 
