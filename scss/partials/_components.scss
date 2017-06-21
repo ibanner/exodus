@@ -41,10 +41,17 @@
   }
 }
 
-.wpml-switch__link svg {
-  opacity: 0.5;
-  color: #f0f0f0;
+.wpml-switch__link {
+  svg {
+    opacity: 0.5;
+    color: #f0f0f0;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
 }
+
 
 .search-form--header {
   padding: 0 10px;

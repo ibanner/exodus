@@ -28,7 +28,7 @@ if ( ! function_exists( 'exodus_wpml_switch' )) :
 
                 } else {
 
-                    echo '<a href="' . $l['url'] . '" class="wpml-switch__link">';
+                    echo '<a href="' . $l['url'] . '" class="wpml-switch__link a--block">';
                     echo file_get_contents($l['country_flag_url']);
                     echo '</a>';
 

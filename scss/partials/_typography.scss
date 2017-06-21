@@ -81,6 +81,11 @@ a {
 
 .a--block {
   display: inline-block;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .logo-link {
