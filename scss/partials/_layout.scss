@@ -115,9 +115,10 @@
 }
 
 .wrapper--grid, .wrapper--category {
-  margin-top: 15px;
 
   .home & {
+    margin-top: 15px;
+    
     @include respond-to-max(768px) {
       display: none;
     }

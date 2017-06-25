@@ -36,6 +36,20 @@ h1, .h1 {
   text-align: center;
 
   @include respond-to(desktop) {font-size: 3.3rem}
+
+  &.category__title,
+  &.search__title,
+  &.my-siddur__title,
+  &.author__title,
+  &.archive__title {
+    font-size: 1.7em;
+    font-weight: $font-normal;
+    line-height: 2.4em;
+
+    em {
+      font-weight: $font-bold;
+    }
+  }
 }
 
 h2, .h2 {
@@ -86,6 +100,10 @@ a {
   &:hover {
     text-decoration: none;
   }
+}
+
+.no-decor {
+  text-decoration: none !important;
 }
 
 .logo-link {

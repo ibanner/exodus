@@ -7,7 +7,7 @@ $alert = exodus_siddur_action_handler();
 
 
 <section class="wrapper--search">
-    <h1 class="search__title"><?php printf( esc_html__( 'Search Results for: %1$s' , 'exodus' ), $term); ?></h1>
+    <h1 class="search__title"><?php exodus_grid_title(); ?></h1>
 </section>
 
 <section id="masonry-grid" class="wrapper--grid">

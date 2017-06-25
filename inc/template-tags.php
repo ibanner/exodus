@@ -567,3 +567,42 @@ if ( ! function_exists('exodus_get_icon') ) :
         }
     }
 endif;
+
+/**
+ * Displays the proper archive title by page type
+ *
+ * @since 2.0.0
+ *
+ * @return string   The page title between <em> tags, with the appropriate prefix prepended.
+ */
+
+if ( ! function_exists('exodus_grid_title') ) :
+
+    function exodus_grid_title() {
+
+        $prefix = '';
+
+        if ( is_category() ) {
+            $prefix = __( 'Articles filed under' , 'exodus' );
+            $title = single_cat_title( '', false );
+        } elseif ( is_tag() ) {
+            $prefix = __( 'Articles tagged' , 'exodus' );
+            $title = single_tag_title( '', false );
+        } elseif ( is_search() ) {
+            $prefix = __( 'Search Results for' , 'exodus' );
+            $title = (isset($_GET['s'])) ? $_GET['s'] : ''; // Get 's' querystring param
+        } elseif ( is_tax() ) {
+            $tax = get_taxonomy( get_queried_object()->taxonomy );
+            $prefix = $tax->labels->singular_name;
+            $title = single_term_title( '', false );
+        } elseif ( is_author() ) {
+            $prefix = __( 'Articles by' , 'exodus' );
+            $title = '<span class="vcard">' . get_the_author() . '</span>';
+        } else {
+            $title = __( 'Archive for' , 'exodus' );
+        }
+
+        $markup = $prefix . ' <em>' . $title . '</em>';
+        echo $markup;
+    }
+endif;

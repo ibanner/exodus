@@ -24,7 +24,7 @@ $alert = exodus_siddur_action_handler();
     }*/
     ?>
 
-    <h1 class="category__title"><?php single_cat_title(); ?></h1>
+    <h1 class="category__title"><?php exodus_grid_title(); ?></h1>
 
     <?php
     /*if ($children) {

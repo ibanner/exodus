@@ -88,6 +88,8 @@ $p_container = ( exodus_is_parallax_page() ) ? 'parallax-container' : '';
         </form>
     </section>
 
+    <?php if ( ! is_single() ) : ?>
+
     <nav id="site-navigation" class="page-head__navbar main-navigation" role="navigation">
         <?php
         wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu primary' ) );
@@ -96,6 +98,8 @@ $p_container = ( exodus_is_parallax_page() ) ? 'parallax-container' : '';
             <button type="button" class="btn btn-link"><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
         </div>
     </nav><!-- #site-navigation -->
+
+    <?php endif; ?>
 
     <nav id="account-navigation" class="page-head__account-nav secondary-navigation" role="navigation">
         <?php
