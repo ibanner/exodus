@@ -319,14 +319,13 @@ header.parallax-container {
 .menu-categories-container {
   padding: 10px;
   width: 100%;
-  height: 40px;
+  height: 45px;
   overflow: auto;
 }
 
   .main-navigation ul {
-    max-height: 20px;
+    height: 100%;
     display: table;
-    // width: 100%;
     padding-right: 40px;
   }
 
@@ -337,18 +336,31 @@ header.parallax-container {
     padding-right: 10px;
   }
 
-  .main-navigation a {
-    padding: 1px 10px;
-    background-color: $color-highlight;
-    @include border-radius(12px);
-    color: $color-bg-highlight;
-    text-align: center;
-    font-size: 12px;
-    vertical-align: text-top;
+  .main-navigation {
 
-    &:hover {
-      text-decoration: none;
+    a {
+      padding: 3px 10px;
+      background-color: $color-highlight;
+      @include border-radius(12px);
+      color: #ffffff;
+      text-align: center;
+      font-size: 12px;
+      vertical-align: text-top;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+
     }
+
+    .current-menu-item a {
+      @include border-radius(12px);
+      text-decoration: none;
+      background-color: #ffffff;
+      color: $color-highlight;
+    }
+
   }
 
   .main-navigation__more {
@@ -586,6 +598,7 @@ button.alm-load-more-btn.loading:before {
   border-bottom-right-radius: 4px;
   text-align: initial;
   background-color: $grid-item-bg;
+  color: $color-font-base;
 
   h2 {
     font-size: 1.2rem;
@@ -596,20 +609,12 @@ button.alm-load-more-btn.loading:before {
     font-weight: $font-normal;
   }
 
-  .grid-item__title-link, .grid-item__excerpt {
-    color: $color-font-base;
+  .grid-item__title-link, .grid-item__title-link:hover, .grid-item__excerpt, .grid-item__excerpt:hover {
     text-decoration: none;
+    color: $color-font-base;
   }
 }
 
-  .grid-item__title-link {
-    color: $color-font-base;
-    font-weight: $font-bold;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
 
 .author-byline {
   line-height: 3rem;

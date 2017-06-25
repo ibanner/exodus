@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - New CSS & JS for menu-toggle
     - New icons for WPML switch (**Should be uploaded to uploads/flags**)
     - New parallax effect for home & archive header (default state)
+    - Categories menu styling (hover and active states) 
+- New template tag `exodus_grid_title()` to show the relevant archive page title by the context 
 
 ### Fixed
 ### Deprecated
