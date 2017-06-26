@@ -32,6 +32,8 @@ endif;
  *
  * @Since:   2.0.0
  *
+ * @param int $avatar_size  Optional. Size in px of the avatar for display. defaults to 32.
+ *
  */
 
 if ( ! function_exists( 'exodus_session_info' ) ):

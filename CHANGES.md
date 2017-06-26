@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## Unreleased
 ### Added
 - This beautiful CHANGELOG.md file
 - Graphic assets by [Thisanddot.com](http://www.thisanddot.com/):
@@ -24,3 +24,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 ### Deprecated
 ### Removed
+
+## On Hold
+- Account Menu Icons
+- New post type label styles
+- Change header state with scrolling
+- Replace Siddur button icon
