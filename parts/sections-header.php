@@ -116,6 +116,7 @@ $p_container = ( exodus_is_parallax_page() ) ? 'parallax-container' : '';
 
     <nav id="account-navigation" class="page-head__account-nav secondary-navigation" role="navigation">
         <?php
+        exodus_session_info(53);
         wp_nav_menu( array( 'theme_location' => 'account', 'menu_class' => 'nav-menu account' ) );
         ?>
     </nav><!-- #account-navigation -->

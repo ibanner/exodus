@@ -181,3 +181,37 @@
     height: 100%;
   }
 }
+
+/*------------------------------------*\
+  #ADMIN BAR VISIBLE
+\*------------------------------------*/
+
+.admin-bar {
+  &.single {
+    .page-head__top {
+      top: $h-wp-adminbar-mobile;
+
+      @include respond-to-min(768px) {
+        top: $h-wp-adminbar-desktop;
+      }
+    }
+
+    .page-head__search {
+      top: $h-wp-adminbar-mobile + $h-header-mobile;
+
+      @include respond-to-min(768px) {
+        top: $h-wp-adminbar-desktop + $h-header-desktop-min;
+      }
+    }
+  }
+
+  &.home {
+    .page-head__search {
+      top: 270px;
+
+      @include respond-to-min(768px) {
+        top: 245px;
+      }
+    }
+  }
+}

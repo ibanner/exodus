@@ -467,9 +467,9 @@ header.parallax-container {
 .page-head__account-nav {
   display: none;
   background-color: #fff;
-  padding: 15px;
+  padding: 0 15px;
   position: fixed;
-  top: 55px;
+  top: $h-header-mobile;
   z-index: 9999;
   width: 80%;
   height: 100%;
@@ -490,6 +490,25 @@ header.parallax-container {
 
   .toggled & {
     display: block;
+  }
+}
+
+
+.session-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 27px;
+  margin-bottom: 40px;
+
+  p {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: $font-bold;
+
+    a {
+      display: inline;
+    }
   }
 }
 

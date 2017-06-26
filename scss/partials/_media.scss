@@ -89,7 +89,7 @@
   right: 14px;
   background: center no-repeat;
 
-  @include has-parallax() {
+  .home & {
     top: 17px;
   }
 

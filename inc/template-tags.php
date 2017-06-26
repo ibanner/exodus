@@ -28,6 +28,38 @@ if ( ! function_exists( 'exodus_the_default_logo' ) ) :
 endif;
 
 /**
+ * Displays the session info, per context.
+ *
+ * @Since:   2.0.0
+ *
+ */
+
+if ( ! function_exists( 'exodus_session_info' ) ):
+
+    function exodus_session_info($avatar_size) {
+
+        $login_url = wp_login_url();
+        $signup_url = $login_url . '?action=register';
+        $login_link = '<a href="'. esc_url($login_url) . '" role="link">' . __('Log In', 'exodus') . '</a>';
+        $signup_link = '<a href="'. esc_url($signup_url) . '" role="link">' . __('Sign Up', 'exodus') . '</a>';
+
+        echo '<div class="session-info">';
+
+            if ( ! is_user_logged_in() ) {
+
+                echo '<p class="anon">' . sprintf('%1$s / %2$s', $login_link, $signup_link) . exodus_default_user_avatar($avatar_size) . '</p>';
+
+            } else {
+                echo '<p class="logged-in">' . exodus_my_account_link() . exodus_default_user_avatar($avatar_size) . '</p>';
+            }
+
+        echo '</div><!-- .session-info-->';
+
+    }
+
+endif;
+
+/**
  * Echoes a link to "my-account" page
  *
  * @Since:   2.0.0
