@@ -134,3 +134,9 @@
     transform: translateX(-50%);
   }
 }
+
+@mixin has-parallax() {
+  .home &, .category &, .archive &, .author &, .search & {
+    @content
+  }
+}

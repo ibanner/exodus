@@ -17,12 +17,16 @@
     background-color: $color-bg-base;
     position: absolute;
     top: 0;
-    height: 58px;
+    height: $h-header-mobile;
     display: inline-block;
     padding: 16px 15px 0;
 
     @include respond-to-min($break-small) {
       padding: 25px 27px 0;
+    }
+
+    .single & {
+      height: $h-header-desktop-min;
     }
   }
 
@@ -30,7 +34,7 @@
     @extend .page-head;
     background-color: $color-bg-primary;
     position: absolute;
-    top: 58px;
+    top: $h-header-mobile;
 
     .home & {
       background-color: transparent;
@@ -45,24 +49,46 @@
       top: 245px;
       display: flex;
       justify-content: center;
+
+      .single & {
+        display: none;
+      }
+    }
+  }
+
+  .page-head__mini-search {
+    display: none;
+
+    @include respond-to-min(768px) {
+      .single & {
+        display: block;
+        float: left;
+        margin-left: 15px;
+      }
     }
   }
 
   .page-head__navbar {
     @extend .page-head;
     background-color: $color-bg-highlight;
-    height: 45px;
+    height: $h-nav-cats;
 
     .home & {
-      @include respond-to-max(768px) {display: none;}
+      @include respond-to-max(768px) {
+        display: none;
+      }
     }
   }
 
 
 
 
-.page-body {
-  // padding: 15px;
+.page-body--single {
+  margin-top: $h-header-mobile + $h-search-mobile;
+
+  @include respond-to-min(768px) {
+    margin-top: $h-header-desktop-min;
+  }
 }
 
 .page-body--archive {
@@ -75,7 +101,7 @@
 .page-foot {
   width: 100%;
   background-color: $color-bg-footer;
-  height: 60px;
+  height: $h-footer;
   margin-top: 15px;
 
   .home & {
@@ -84,7 +110,7 @@
 }
 
   .page-foot__colophon {
-    line-height: 60px;
+    line-height: $h-footer;
   }
 
 /*------------------------------------*\
@@ -111,6 +137,12 @@
   @include respond-to-min(769px) {
     height: 32px;
     display: block;
+
+    .single & {
+      display: block;
+      // justify-content: space-between;
+      // align-items: center;
+    }
   }
 }
 

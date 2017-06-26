@@ -42,11 +42,15 @@
 }
 
   .svg-menu_toggle{
-    background-size: 32px;
+    background-size: 22.6px;
     background-position: center;
+
+    height: 32px;
+    width: 22.6px;
+    background-repeat: no-repeat;
   }
 
-  .svg-menu_toggle-close {
+  /*.svg-menu_toggle-close {
     height: 32px;
     width: 32px;
   }
@@ -55,7 +59,7 @@
     height: 30px;
     width: 36px;
     background-repeat: no-repeat;
-  }
+  }*/
 
 /*
 @each $state in close, open {
@@ -85,13 +89,13 @@
   right: 14px;
   background: center no-repeat;
 
-  .home & {
+  @include has-parallax() {
     top: 17px;
   }
 
-  @include respond-to-min(769px) {
+  /*@include respond-to-min(769px) {
     top: 17px;
-  }
+  }*/
 
   .filter-group.type.open & {
     @extend .svg-bg.svg-select_arrow-up;
