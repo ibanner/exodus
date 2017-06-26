@@ -584,15 +584,21 @@ header.parallax-container {
 
   .home & {
     margin-left: 0;
+  }
 
-    @include respond-to(not-mobile) {
+  @include respond-to(not-mobile) {
+    margin-left: 20px;
+    min-width: 160px;
+
+    .parallax-container & {
       margin-left: 20px;
+      min-width: 160px;
     }
   }
 
-  @include respond-to(tablet) {
+  /*@include respond-to(tablet) {
     min-width: 160px;
-  }
+  }*/
 
 
   .dropdown-menu {
