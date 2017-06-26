@@ -27,7 +27,7 @@
   float: right;
   text-align: right;
 
-  @include respond-to-min($break-small) {
+  @include respond-to(not-mobile) {
     float: left;
     padding-left: 30px;
   }
@@ -38,7 +38,7 @@
     margin-left: 12px;
     color: #ffffff;
 
-    @include respond-to-min($break-small) {
+    @include respond-to(not-mobile) {
       height: $h-header-top;
       margin-left: 15px;
     }
@@ -93,7 +93,7 @@
       font-size: inherit;
     }
 
-    @include respond-to-min(769px) {
+    @include respond-to(not-mobile) {
       padding-left: 50px;
       font-size: inherit;
     }
@@ -118,7 +118,7 @@
       top: 0;
     }
 
-    @include respond-to-min(769px) {
+    @include respond-to(not-mobile) {
       height: 44px;
       top: initial;
 
@@ -148,7 +148,7 @@ header.parallax-container {
     @include parallax-container(100%);
   }
 
-  @include respond-to-min(769px) {
+  @include respond-to(not-mobile) {
     @include parallax-container(387px);
 
     .home & {
@@ -162,7 +162,7 @@ header.parallax-container {
     .home & {
       display: block;
     }
-    @include respond-to-min(769px) {
+    @include respond-to(not-mobile) {
       @include parallax;
     }
   }
@@ -172,14 +172,14 @@ header.parallax-container {
       background-color: transparent;
     }
 
-    @include respond-to-min(769px) {
+    @include respond-to(not-mobile) {
       background-color: transparent;
     }
   }
 
 
   .page-head__search {
-    @include respond-to-min(769px) {
+    @include respond-to(not-mobile) {
       background-color: transparent;
     }
   }
@@ -205,7 +205,11 @@ header.parallax-container {
     margin: 0 15px;
   }
 
-  @include respond-to-min(769px) {
+  @include respond-to(not-mobile) {
+    width: 100%;
+  }
+
+  @include respond-to-min($break-large) {
     width: 826px;
 
     .single & {
@@ -227,7 +231,7 @@ header.parallax-container {
       font-size: 16px;
     }
 
-    @include respond-to-min(769px) {
+    @include respond-to(not-mobile) {
       margin: 0;
       border-radius: $h-header-top;
       font-size: 16px;
@@ -246,7 +250,7 @@ header.parallax-container {
   .input--search {
     width: 100%;
 
-    @include respond-to-min(769px) {
+    @include respond-to(not-mobile) {
       width: 650px;
 
       .single & {
@@ -258,7 +262,7 @@ header.parallax-container {
   .input--select {
 
 
-    @include respond-to-min(769px) {
+    @include respond-to(not-mobile) {
       width: 156px;
       margin-left: 20px;
 
@@ -275,7 +279,7 @@ header.parallax-container {
 
   .home & {
 
-    @include respond-to-max(768px) {
+    @include respond-to(mobile) {
       display: block;
 
       .btn-group {
@@ -307,7 +311,7 @@ header.parallax-container {
     margin-left: -81.5px;
   }
 
-  @include respond-to-min(769px) {
+  @include respond-to(desktop) {
     top: 10px;
     height: 60px;
     width: 151.58px;
@@ -465,12 +469,12 @@ header.parallax-container {
 
 
 .page-head__account-nav {
-  display: none;
-  background-color: #fff;
+  // display: none;
+  // background-color: #fff;
   padding: 0 15px;
-  position: fixed;
+  // position: fixed;
   top: $h-header-mobile;
-  z-index: 9999;
+  // z-index: 9999;
   width: calc(100% - 64px);
   height: 100%;
   font-size: 130%;
@@ -478,20 +482,31 @@ header.parallax-container {
   -moz-box-shadow: 64px 1px 1px $shadow-mobile-menu;
   box-shadow: 64px 1px 1px $shadow-mobile-menu;
 
-  @include respond-to-min($break-small + 1) {
+  @include respond-to(not-mobile) {
     width: 188px;
     height: auto;
-    border: 1px solid $border-tooltip;
+    /*border: 1px solid $border-tooltip;
     border-radius: 7px;
     padding: 5px 0;
     position: absolute;
-    z-index: 1;
+    z-index: 1;*/
     top: 58px;
     left: 27px;
-    margin-left: -5px;
+    // margin-left: -5px;
     -webkit-box-shadow: 1px 1px 1px $shadow-mobile-menu;
     -moz-box-shadow: 1px 1px 1px $shadow-mobile-menu;
     box-shadow: 1px 1px 1px $shadow-mobile-menu;
+
+    /*&::before {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 15px;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent $border-tooltip transparent;
+    }*/
 
     &::before {
       content: "";
@@ -544,6 +559,45 @@ header.parallax-container {
     }
   }
 }
+
+
+
+
+.filter-group.type {
+  .dropdown-menu {
+    min-width: inherit;
+    width: 105.5px;
+    margin-top: 10px;
+    font-size: 12px;
+    top: 33px;
+    position: absolute;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent $border-tooltip transparent;
+    }
+
+    li {
+      a {
+        line-height: 30px;
+        padding: 0 15px;
+      }
+    }
+
+    @include respond-to(tablet) {
+      width: 211px;
+    }
+  }
+
+}
+
+
 
 /*------------------------------------*\
   #ARCHIVE GRID

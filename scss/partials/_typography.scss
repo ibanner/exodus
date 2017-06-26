@@ -128,7 +128,7 @@ a {
     background-image: $logo-path-svg;
   }
 
-  @include respond-to-min(769px) {
+  @include respond-to(desktop) {
     background-image: $logo-path-svg;
   }
 }

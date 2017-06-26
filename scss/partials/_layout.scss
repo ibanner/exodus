@@ -21,14 +21,14 @@
     display: inline-block;
     padding: 16px 15px 0;
 
-    @include respond-to-min($break-small) {
+    @include respond-to(desktop) {
       padding: 25px 27px 0;
     }
 
     .single & {
       height: $h-header-mobile;
 
-      @include respond-to-min($break-small) {
+      @include respond-to(desktop) {
         height: $h-header-desktop-min;
       }
     }
@@ -44,12 +44,12 @@
       background-color: transparent;
       top: 270px;
 
-      @include respond-to-min(768px) {
+      @include respond-to(desktop) {
         top: 245px;
       }
     }
 
-    @include respond-to-min(768px) {
+    @include respond-to(desktop) {
       top: 245px;
       display: flex;
       justify-content: center;
@@ -63,7 +63,7 @@
   .page-head__mini-search {
     display: none;
 
-    @include respond-to-min(768px) {
+    @include respond-to(desktop) {
       .single & {
         display: block;
         float: left;
@@ -78,8 +78,10 @@
     height: $h-nav-cats;
 
     .home & {
-      @include respond-to-max(768px) {
-        display: none;
+      display: none;
+
+      @include respond-to(not-mobile) {
+        display: block;
       }
     }
   }
@@ -90,7 +92,7 @@
 .page-body--single {
   margin-top: $h-header-mobile + $h-search-mobile;
 
-  @include respond-to-min(768px) {
+  @include respond-to(desktop) {
     margin-top: $h-header-desktop-min;
   }
 }
@@ -138,7 +140,7 @@
   justify-content: space-between;
   align-items: center;
 
-  @include respond-to-min(769px) {
+  @include respond-to(not-mobile) {
     height: 32px;
     display: block;
 
@@ -186,6 +188,47 @@
   }
 }
 
+.wrapper--tooltip {
+  display: none;
+  background-color: #fff;
+  // padding: 0 15px;
+  position: fixed;
+  // top: $h-header-mobile;
+  z-index: 100;
+  // width: calc(100% - 64px);
+  // height: 100%;
+  // font-size: 130%;
+  -webkit-box-shadow: 1px 1px 1px $shadow-mobile-menu;
+  -moz-box-shadow: 1px 1px 1px $shadow-mobile-menu;
+  box-shadow: 1px 1px 1px $shadow-mobile-menu;
+
+  @include respond-to-min($break-small + 1) {
+    // width: 188px;
+    // height: auto;
+    border: 1px solid $border-tooltip;
+    border-radius: 7px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 100;
+    // top: 58px;
+    // left: 27px;
+    margin-left: -5px;
+    -webkit-box-shadow: 1px 1px 1px $shadow-mobile-menu;
+    -moz-box-shadow: 1px 1px 1px $shadow-mobile-menu;
+    box-shadow: 1px 1px 1px $shadow-mobile-menu;
+
+  }
+
+  /*a {
+    margin: 10px;
+    display: block;
+  }*/
+
+  /*.toggled & {
+    display: block;
+  }*/
+}
+
 /*------------------------------------*\
   #ADMIN BAR VISIBLE
 \*------------------------------------*/
@@ -195,7 +238,7 @@
     .page-head__top {
       top: $h-wp-adminbar-mobile;
 
-      @include respond-to-min(768px) {
+      @include respond-to(desktop) {
         top: $h-wp-adminbar-desktop;
       }
     }
@@ -203,7 +246,7 @@
     .page-head__search {
       top: $h-wp-adminbar-mobile + $h-header-mobile;
 
-      @include respond-to-min(768px) {
+      @include respond-to(desktop) {
         top: $h-wp-adminbar-desktop + $h-header-desktop-min;
       }
     }
@@ -213,7 +256,7 @@
     .page-head__search {
       top: 270px;
 
-      @include respond-to-min($break-small + 1px) {
+      @include respond-to(not-mobile) {
         top: 245px;
       }
     }
@@ -222,7 +265,7 @@
   .page-head__account-nav {
     top: $h-wp-adminbar-mobile + $h-header-mobile;
 
-    @include respond-to-min(768px) {
+    @include respond-to(desktop) {
       top: $h-wp-adminbar-desktop + $h-header-desktop-min;
     }
   }
