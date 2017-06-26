@@ -189,13 +189,13 @@ header.parallax-container {
     bottom: 0;
   }
 
-  .current-user__avatar--default {
-    margin-left: 12px;
-    background: #f0f0f0;
-  }
 
 }
 
+.current-user__avatar--default {
+  margin-left: 12px;
+  background: #f0f0f0;
+}
 
 
 
@@ -471,12 +471,12 @@ header.parallax-container {
   position: fixed;
   top: $h-header-mobile;
   z-index: 9999;
-  width: 80%;
+  width: calc(100% - 64px);
   height: 100%;
   font-size: 130%;
-  -webkit-box-shadow: 2px 1px 1px whitesmoke;
-  -moz-box-shadow: 2px 1px 1px whitesmoke;
-  box-shadow: 2px 1px 1px whitesmoke;
+  -webkit-box-shadow: 64px 1px 1px $shadow-mobile-menu;
+  -moz-box-shadow: 64px 1px 1px $shadow-mobile-menu;
+  box-shadow: 64px 1px 1px $shadow-mobile-menu;
 
   @include respond-to(desktop) {
     height: auto;
@@ -500,6 +500,11 @@ header.parallax-container {
   flex-direction: column;
   margin-top: 27px;
   margin-bottom: 40px;
+
+  .current-user__avatar {
+    width: 53px;
+    margin-left: calc(50% - 26.5px);
+  }
 
   p {
     text-align: center;

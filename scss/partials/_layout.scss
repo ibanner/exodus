@@ -26,7 +26,11 @@
     }
 
     .single & {
-      height: $h-header-desktop-min;
+      height: $h-header-mobile;
+
+      @include respond-to-min($break-small) {
+        height: $h-header-desktop-min;
+      }
     }
   }
 
@@ -209,9 +213,17 @@
     .page-head__search {
       top: 270px;
 
-      @include respond-to-min(768px) {
+      @include respond-to-min($break-small + 1px) {
         top: 245px;
       }
+    }
+  }
+
+  .page-head__account-nav {
+    top: $h-wp-adminbar-mobile + $h-header-mobile;
+
+    @include respond-to-min(768px) {
+      top: $h-wp-adminbar-desktop + $h-header-desktop-min;
     }
   }
 }

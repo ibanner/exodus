@@ -50,23 +50,6 @@
     background-repeat: no-repeat;
   }
 
-  /*.svg-menu_toggle-close {
-    height: 32px;
-    width: 32px;
-  }
-
-  .svg-menu_toggle-open {
-    height: 30px;
-    width: 36px;
-    background-repeat: no-repeat;
-  }*/
-
-/*
-@each $state in close, open {
-    .svg-menu_toggle-#{$state} {
-    }
-  }*/
-
 .svg-search--large,
 .svg-search-large {
   height: 14px;
@@ -92,10 +75,6 @@
   .home & {
     top: 17px;
   }
-
-  /*@include respond-to-min(769px) {
-    top: 17px;
-  }*/
 
   .filter-group.type.open & {
     @extend .svg-bg.svg-select_arrow-up;
