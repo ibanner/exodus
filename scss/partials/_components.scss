@@ -64,7 +64,7 @@
 .search-form {
   padding: 0 15px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   position: relative;
   height: $h-search-mobile;
@@ -104,26 +104,27 @@
     color: #ffffff;
     padding: 5px 10px 5px 17px;
     border-color: $color-logo-red;
+    margin-right: 0;
   }
 }
 
   .input__search-icon {
     position: absolute;
+    top: 0;
     left: 25px;
     padding: 0;
     height: $h-header-top - 2px;
 
     .home & {
       height: 44px;
-      top: 0;
     }
 
     @include respond-to(not-mobile) {
       height: 44px;
-      top: initial;
+      // top: initial;
 
       .home & {
-        top: initial;
+        // top: initial;
       }
 
       .single & {
@@ -247,32 +248,32 @@ header.parallax-container {
     }
   }
 
-  .input--search {
+  /*.input--search {
     width: 100%;
 
     @include respond-to(not-mobile) {
-      width: 650px;
+      max-width: 650px;
 
       .single & {
         width: 200px;
       }
     }
-  }
+  }*/
 
   .input--select {
 
 
     @include respond-to(not-mobile) {
-      width: 156px;
+      // width: 156px;
       margin-left: 20px;
 
-      @include has-parallax() {
-        margin-left: 20px;  // override Bootstrap
+      .parallax-container & {
+        // margin-left: 20px;  // override Bootstrap
       }
 
       .single & {
-        margin-left: 10px;  // override Bootstrap
-        width: 114px;
+        // margin-left: 10px;  // override Bootstrap
+        // width: 114px;
       }
     }
   }
@@ -297,11 +298,11 @@ header.parallax-container {
 
 
 .page-head__masthead {
-  position: absolute;
   display: block;
+  position: absolute;
+  left: 50%;
   height: 34px;
   width: 34px;
-  left: 50%;
   margin-left: -17px;
 
   .home & {
@@ -311,13 +312,27 @@ header.parallax-container {
     margin-left: -81.5px;
   }
 
+  @include respond-to(tablet) {
+    top: 10px;
+    height: 34px;
+    width: 34px;
+    margin-left: -17px;
+
+    .parallax-container & {
+      top: 113px;
+      height: 76px;
+      width: 192px;
+      margin-left: -96px;
+    }
+  }
+
   @include respond-to(desktop) {
     top: 10px;
     height: 60px;
     width: 151.58px;
     margin-left: -75.79px;
 
-    @include has-parallax(){
+    .parallax-container & {
       top: 113px;
       height: 76px;
       width: 192px;
@@ -564,13 +579,31 @@ header.parallax-container {
 
 
 .filter-group.type {
+  min-width: 105.5px;
+  margin-left: 10px;
+
+  .home & {
+    margin-left: 0;
+
+    @include respond-to(not-mobile) {
+      margin-left: 20px;
+    }
+  }
+
+  @include respond-to(tablet) {
+    min-width: 160px;
+  }
+
+
   .dropdown-menu {
     min-width: inherit;
-    width: 105.5px;
+    width: inherit;
     margin-top: 10px;
     font-size: 12px;
     top: 33px;
     position: absolute;
+    display: none;
+    // margin-left: inherit;
 
     &::before {
       content: "";
@@ -584,17 +617,20 @@ header.parallax-container {
     }
 
     li {
+      display: block;
+      min-width: inherit;
+
       a {
         line-height: 30px;
         padding: 0 15px;
       }
     }
 
-    @include respond-to(tablet) {
-      width: 211px;
-    }
   }
 
+  &.open>.dropdown-menu {
+    display: block;
+  }
 }
 
 

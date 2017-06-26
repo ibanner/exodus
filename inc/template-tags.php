@@ -38,9 +38,9 @@ endif;
 
 if ( ! function_exists( 'exodus_session_info' ) ):
 
-    function exodus_session_info($avatar_size) {
+    function exodus_session_info($avatar_size, $class = '') {
 
-        echo '<div class="session-info">';
+        echo '<div class="session-info  ' . $class . '">';
 
             if ( ! is_user_logged_in() ) {
 

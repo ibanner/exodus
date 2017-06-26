@@ -95,8 +95,10 @@ $p_container = ( exodus_is_parallax_page() ) ? 'parallax-container' : '';
 
     <section class="page-head__search" role="search">
         <form id="header-search" class="search-form search-form--header" action="<?php echo $home_url; ?>" method="get" _lpchecked="1">
-            <input type="text" class="input input--search" name="s" placeholder="<?php esc_attr_e( 'Pick a Jewish brain' , 'exodus' ); ?>">
-            <button type="submit" class="btn btn-link input__search-icon"><?php echo exodus_get_icon('search', 'large', 'img' , esc_attr('Search Icon', 'exodus')); ?></button>
+            <div class="wrapper--search">
+                <input type="text" class="input input--search" name="s" placeholder="<?php esc_attr_e( 'Pick a Jewish brain' , 'exodus' ); ?>">
+                <button type="submit" class="btn btn-link input__search-icon"><?php echo exodus_get_icon('search', 'large', 'img' , esc_attr('Search Icon', 'exodus')); ?></button>
+            </div>
             <?php exodus_post_types_tax_droplist_ui($type); ?>
         </form>
     </section>
@@ -116,7 +118,7 @@ $p_container = ( exodus_is_parallax_page() ) ? 'parallax-container' : '';
 
     <nav id="account-navigation" class="page-head__account-nav secondary-navigation wrapper--tooltip" role="navigation">
         <?php
-        exodus_session_info(53);
+        exodus_session_info(53, 'visible-xs');
         wp_nav_menu( array( 'theme_location' => 'account', 'menu_class' => 'nav-menu account' ) );
         ?>
     </nav><!-- #account-navigation -->

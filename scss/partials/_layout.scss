@@ -21,16 +21,20 @@
     display: inline-block;
     padding: 16px 15px 0;
 
-    @include respond-to(desktop) {
-      padding: 25px 27px 0;
+    @include respond-to(not-mobile) {
+      height: $h-header-mobile;
+      padding-left: 27px;
+      padding-right: 27px;
     }
 
-    .single & {
+    /*.single & {
       height: $h-header-mobile;
 
-      @include respond-to(desktop) {
-        height: $h-header-desktop-min;
-      }
+    }*/
+
+    @include respond-to(desktop) {
+      padding-top: 25px;
+      height: $h-header-desktop-min;
     }
   }
 
@@ -43,17 +47,17 @@
     .home & {
       background-color: transparent;
       top: 270px;
+    }
 
-      @include respond-to(desktop) {
+    @include respond-to(not-mobile) {
+      .parallax-container & {
         top: 245px;
+        display: flex;
+        justify-content: center;
       }
     }
 
     @include respond-to(desktop) {
-      top: 245px;
-      display: flex;
-      justify-content: center;
-
       .single & {
         display: none;
       }
@@ -153,12 +157,13 @@
 }
 
 .wrapper--grid, .wrapper--category {
+  margin-top: 15px;
 
   .home & {
-    margin-top: 15px;
+    display: none;
 
-    @include respond-to-max(768px) {
-      display: none;
+    @include respond-to(not-mobile) {
+      display: block;
     }
   }
 }
@@ -202,7 +207,7 @@
   -moz-box-shadow: 1px 1px 1px $shadow-mobile-menu;
   box-shadow: 1px 1px 1px $shadow-mobile-menu;
 
-  @include respond-to-min($break-small + 1) {
+  @include respond-to(not-mobile) {
     // width: 188px;
     // height: auto;
     border: 1px solid $border-tooltip;
@@ -227,6 +232,14 @@
   /*.toggled & {
     display: block;
   }*/
+}
+
+.wrapper--search {
+  position: relative;
+
+  @include respond-to(not-mobile) {
+    width: 650px;
+  }
 }
 
 /*------------------------------------*\
