@@ -37,6 +37,13 @@
   #{$property}: calc(#{$expression});
 }
 
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  transition:         $transition;
+}
+
 @mixin border-radius($radius, $background-clip: true) {
   -webkit-border-radius: $radius;
   -moz-border-radius:    $radius;

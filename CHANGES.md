@@ -25,8 +25,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Deprecated
 ### Removed
 
-## On Hold
+## To Do List
 - Account Menu Icons
 - New post type label styles
 - Change header state with scrolling
 - Replace Siddur button icon
+- Fix parallax background problem on type filter toggle 

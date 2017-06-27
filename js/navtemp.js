@@ -5,19 +5,29 @@
  * also, navigation support for dropdown menus.
  */
 ( function( $ ) {
-    var container, button, icon, menu, links, subMenus, i, len;
+    var container, button, menuToggle, headerSearch, typeFilter, icon, menu, links, subMenus, i, len;
 
-    container = document.getElementById( 'header' );
+    container = document.getElementsByTagName( 'header' )[0];
     if ( ! container ) {
         return;
     }
 
-    button = container.getElementsByTagName( 'button' )[0];
-    if ( 'undefined' === typeof button ) {
+    menuToggle = document.getElementById( 'menu-toggle' );
+    if ( ! menuToggle ) {
         return;
     }
 
-    icon = button.getElementsByTagName( 'i' )[0];
+    headerSearch = document.getElementById( 'header-search' );
+    if ( ! headerSearch ) {
+        return;
+    }
+
+    typeFilter = headerSearch.getElementsByClassName( 'input--select' )[0];
+    if ( ! typeFilter ) {
+        return;
+    }
+
+    icon = menuToggle.getElementsByTagName( 'i' )[0];
     if ( ! icon ) {
         return;
     }
@@ -26,7 +36,7 @@
 
     // Hide menu toggle button if menu is empty and return early.
     if ( 'undefined' === typeof menu ) {
-        button.style.display = 'none';
+        menuToggle.style.display = 'none';
         return;
     }
 
@@ -35,17 +45,25 @@
         menu.className += ' nav-menu';
     }
 
-    button.onclick = function() {
+    menuToggle.onclick = function() {
         if ( -1 !== container.className.indexOf( 'toggled' ) ) {
             container.className = container.className.replace( ' toggled', '' );
             icon.className = icon.className.replace(' svg-menu_toggle-close', ' svg-menu_toggle-open')
-            button.setAttribute( 'aria-expanded', 'false' );
+            menuToggle.setAttribute( 'aria-expanded', 'false' );
             menu.setAttribute( 'aria-expanded', 'false' );
         } else {
             container.className += ' toggled';
             icon.className = icon.className.replace(' svg-menu_toggle-open', ' svg-menu_toggle-close')
-            button.setAttribute( 'aria-expanded', 'true' );
+            menuToggle.setAttribute( 'aria-expanded', 'true' );
             menu.setAttribute( 'aria-expanded', 'true' );
+        }
+    };
+
+    typeFilter.onclick = function() {
+        if ( -1 !== container.className.indexOf( 'type-filter-open' ) ) {
+            container.className = container.className.replace( ' type-filter-open', '' );
+        } else {
+            container.className += ' type-filter-open';
         }
     };
 

@@ -157,6 +157,26 @@ header.parallax-container {
     }
   }
 
+  &.type-filter-open {
+    @include respond-to(not-mobile) {
+      @include parallax-container(600px);
+      @include transition(height 1s ease-in-out);
+
+      .parallax img {
+        transform: translateX(-50%);
+      }
+
+      .home & {
+        @include parallax-container(600px);
+        @include transition(height 1s ease-in-out);
+
+        .parallax img {
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+
   .parallax {
     display: none;
 

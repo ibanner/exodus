@@ -15,7 +15,7 @@ $login_url = wp_login_url();
 $signup_url = $login_url . '?action=register';
 $site_title = get_bloginfo( 'name' );
 $type = (isset($_GET['type'])) ? $_GET['type'] : '';
-$p_container = ( exodus_is_parallax_page() ) ? 'parallax-container' : '';
+$p_container = ( exodus_is_parallax_page() ) ? 'parallax-container  init-state' : '';
 
 ?>
 
@@ -34,7 +34,7 @@ $p_container = ( exodus_is_parallax_page() ) ? 'parallax-container' : '';
         <div class="wrapper--head-top">
 
             <div class="page-head__menu-toggle">
-                <button class="btn__menu-toggle menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+                <button id="menu-toggle" class="btn__menu-toggle menu-toggle" aria-controls="primary-menu" aria-expanded="false">
                     <i class="svg-bg svg-menu_toggle svg-menu_toggle-open"></i>
                     <span class="sr-only"><?php esc_html_e( 'Menu', 'exodus' ); ?></span>
                 </button>
@@ -54,7 +54,7 @@ $p_container = ( exodus_is_parallax_page() ) ? 'parallax-container' : '';
             <?php if ( is_single() ) : ?>
 
                 <div class="page-head__mini-search">
-                    <form id="header-search" class="search-form search-form--mini-header" action="<?php echo $home_url; ?>" method="get" _lpchecked="1">
+                    <form id="header-mini-search" class="search-form search-form--mini-header" action="<?php echo $home_url; ?>" method="get" _lpchecked="1">
                         <input type="text" class="input input--search" name="s" placeholder="<?php esc_attr_e( 'Pick a Jewish brain' , 'exodus' ); ?>">
                         <button type="submit" class="btn btn-link input__search-icon"><?php echo exodus_get_icon('search', 'large', 'img' , esc_attr('Search Icon', 'exodus')); ?></button>
                         <?php exodus_post_types_tax_droplist_ui($type); ?>
