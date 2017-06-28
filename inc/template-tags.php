@@ -169,16 +169,25 @@ if ( ! function_exists( 'exodus_author_info' ) ) :
      * Prints HTML with meta information on the current author.
      */
 
-function exodus_author_info() {
+function exodus_author_info($size = '60') {
     $author_id = get_the_author_meta( 'ID' );
+    $author_desc = get_the_author_meta( 'description', $author_id);
     $args = array( 'class' => 'author-info__avatar  img-round', );
-    $avatar = get_avatar( $author_id, 50 , '' , esc_attr( get_the_author() ) , $args );
+    $avatar = get_avatar( $author_id, $size , '' , esc_attr( get_the_author() ) , $args );
+
+    if (empty($author_desc)) {
+        $udata = get_userdata($author_id);
+        $author_registered = date('F Y', strtotime($udata->user_registered));
+        $default_desc = __('This author joined KEM on %1$s, and shared %2$d articles with the community. WTG!');
+        $author_post_count = count_user_posts( $author_id );
+        $author_desc = sprintf($default_desc, $author_registered, $author_post_count);
+    }
 
     echo '<div id="author-info" class="article__part article__part--author-info">';
         echo $avatar;
         echo '<div class="author-info__details">';
             echo '<div class="author-info__name author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></div>'; // WPCS: XSS OK.
-            echo '<div class="author-info__description">' . get_the_author_meta( 'description', $author_id) . '</div>';
+            echo '<div class="author-info__description">' . $author_desc . '</div>';
         echo '</div><!-- /.author-info__details -->';
     echo '</div><!-- /.author-info -->';
 

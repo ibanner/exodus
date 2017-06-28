@@ -51,7 +51,7 @@ function exodus_scripts() {
     }
 
     // Add Google Fonts
-    wp_enqueue_style( 'exodus-google-fonts', 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700|Open+Sans:400,700' );
+    wp_enqueue_style( 'exodus-google-fonts', 'https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Roboto:400,700|Open+Sans:400,700' );
     if ( is_rtl() || !is_admin() ) {
         wp_enqueue_style( 'exodus-open-sans-hebrew', 'https://fonts.googleapis.com/earlyaccess/opensanshebrew.css' );
     }

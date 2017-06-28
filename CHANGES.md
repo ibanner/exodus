@@ -19,7 +19,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - New icons for WPML switch (**Should be uploaded to uploads/flags**)
     - New parallax effect for home & archive header (default state)
     - Categories menu styling (hover and active states) 
-- New template tag `exodus_grid_title()` to show the relevant archive page title by the context 
+    - Comment forms (**Supports 2-level comment threading**)
+- New template tag `exodus_grid_title()` to show the relevant archive page title by the context
 
 ### Fixed
 ### Deprecated

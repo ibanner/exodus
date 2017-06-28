@@ -64,10 +64,16 @@
 .search-form {
   padding: 0 15px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: relative;
   height: $h-search-mobile;
+
+  @include respond-to(not-mobile) {
+    .parallax-container & {
+      justify-content: center;
+    }
+  }
 
   &.search-form--mini-header {
     height: $h-header-top;
@@ -76,9 +82,6 @@
   .input {
     @extend .input;
     font-size: $base-font-size;
-    border: 1px solid $color-highlight;
-    color: $color-highlight;
-    @include placeholder-color($color-highlight);
     width: 100%;
     margin-right: 10px;
   }
@@ -925,7 +928,7 @@ a.article__meta--siddur {
 }
 
 .author-info__details {
-  left: 60px
+  left: 80px
 }
 
 .author-info__name {
@@ -936,22 +939,119 @@ a.article__meta--siddur {
   #COMMENTS
 \*------------------------------------*/
 
-.comments-area {
-  h3 {
-    font-size: 1.6rem;
-    font-weight: $font-normal;
+.comment-list {
+  >.comment {
+    margin-bottom: 50px;
+
+    &:last-child {
+      padding-bottom: 60px;
+      margin-bottom: 0;
+      border-bottom: 1px solid $color-font-base;
+    }
   }
 
-  p {
-    margin-top: $base-font-size;
-  }
-
-  label {
-    font-weight: $font-bold;
+  .children {
+    margin-top: 40px;
+    margin-left: 70px;
   }
 }
 
+.comment-body {
+  position: relative;
+  margin-left: 70px;
 
+  .says {
+    display: none;
+  }
+
+  .fn {
+    font-weight: $font-bold;
+    text-transform: capitalize;
+  }
+
+  .comment-content,
+  .reply {
+    margin-top: 16px;
+  }
+
+  .comment-reply-link {
+    text-transform: uppercase;
+    text-decoration: underline;
+
+    &:hover {
+      font-weight: $font-bold;
+    }
+  }
+
+  .avatar {
+    @extend .img-round;
+    left: -70px;
+    position: absolute;
+  }
+}
+
+.required {
+  color: $color-logo-red;
+
+  &::before {
+    content: " ";
+  }
+}
+
+p.comment-notes {
+  font-size: inherit;
+  margin-bottom: 30px;
+}
+
+.cancel-reply-link {
+  display: block;
+}
+
+.comment-form {
+
+  .comment-meta-fields {
+    display: inline-flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .comment-form-author,
+  .comment-form-email,
+  .comment-form-url {
+    width: 100%
+  }
+
+  @include respond-to(not-mobile) {
+    .comment-form-author,
+    .comment-form-email {
+      width: calc(50% - 10px);
+    }
+  }
+
+  label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: $font-bold;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .input--button {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: auto;
+
+    @include respond-to(not-mobile) {
+      margin-bottom: 70px;
+    }
+  }
+}
 /*------------------------------------*\
   #FOOTER
 \*------------------------------------*/

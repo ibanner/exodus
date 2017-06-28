@@ -50,10 +50,30 @@ h1, .h1 {
       font-weight: $font-bold;
     }
   }
+
+  &.article__title {
+    margin: 25px 0;
+
+    @include respond-to(not-mobile) {
+      margin: 50px 0;
+    }
+  }
 }
 
 h2, .h2 {
   font-size: 2.2rem;
+
+  &.comments-area__count,
+  .comment-respond & {
+    text-align: center;
+    font-size: 1.7rem;
+    margin: 25px 0;
+
+    @include respond-to(not-mobile) {
+      margin: 50px 0;
+      font-size: 40px;
+    }
+  }
 }
 
 h3, .h3 {
@@ -150,8 +170,10 @@ a {
 .input {
   border-radius: 19px;
   background-color: #fff;
-  border: none;
   padding: 5px;
+  border: 1px solid $color-highlight;
+  color: $color-highlight;
+  @include placeholder-color($color-highlight);
 }
 
 .input--textarea {
@@ -165,6 +187,7 @@ a {
   font-size: $base-font-size;
   padding: 6px 16px;
   text-decoration: none;
+  border: none;
 }
 
 /*------------------------------------*\
