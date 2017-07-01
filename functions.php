@@ -22,7 +22,8 @@ require_once("functions/vendor/class-tgm-plugin-activation.php");
 add_action( 'tgmpa_register', 'exodus_register_required_plugins' );
 
 require_once("functions/vendor/alm.php");                       // Ajax-Load-More
-require_once("functions/vendor/acf.php");                       // Advanced Custom Fields
+require_once("functions/vendor/acf.php");                       // Advanced Custom Fields - Helper Functions
+require_once("functions/vendor/acf-fields.php");                // Advanced Custom Fields - Field Groups
 require_once("functions/vendor/wpml.php");                      // AKA sitepress-multilingual-cms
 require_once("functions/vendor/sgmb.php");                      // Social Media Builder
 require_once("functions/vendor/flexslider.php");                // Flexslider

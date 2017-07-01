@@ -41,14 +41,13 @@
   }
 }
 
-  .svg-menu_toggle{
-    background-size: 22.6px;
-    background-position: center;
-
-    height: 32px;
-    width: 22.6px;
-    background-repeat: no-repeat;
-  }
+.svg-menu_toggle{
+  background-size: 22.6px;
+  background-position: center;
+  height: 32px;
+  width: 22.6px;
+  background-repeat: no-repeat;
+}
 
 .svg-search--large,
 .svg-search-large {
@@ -79,4 +78,14 @@
   .filter-group.type.open & {
     @extend .svg-bg.svg-select_arrow-up;
   }
+}
+
+.svg-post_actions,
+.svg-post_meta,
+.svg-sharing-main {
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 30px;
 }

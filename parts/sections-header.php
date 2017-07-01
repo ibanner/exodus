@@ -51,7 +51,7 @@ $p_container = ( exodus_is_parallax_page() ) ? 'parallax-container  init-state' 
 
             <?php exodus_wpml_switch(); ?>
 
-            <?php if ( is_single() ) : ?>
+            <?php if ( is_single() or is_page() ) : ?>
 
                 <div class="page-head__mini-search">
                     <form id="header-mini-search" class="search-form search-form--mini-header" action="<?php echo $home_url; ?>" method="get" _lpchecked="1">
@@ -103,7 +103,7 @@ $p_container = ( exodus_is_parallax_page() ) ? 'parallax-container  init-state' 
         </form>
     </section>
 
-    <?php if ( ! is_single() ) : ?>
+    <?php if ( ! is_single() && ! is_page() ) : ?>
 
     <nav id="site-navigation" class="page-head__navbar main-navigation" role="navigation">
         <?php

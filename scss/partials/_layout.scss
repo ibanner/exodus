@@ -58,7 +58,8 @@
     }
 
     @include respond-to(desktop) {
-      .single & {
+      .single &,
+      .page & {
         display: none;
       }
     }
@@ -68,7 +69,8 @@
     display: none;
 
     @include respond-to(desktop) {
-      .single & {
+      .single &,
+      .page & {
         display: block;
         float: left;
         margin-left: 15px;
@@ -93,11 +95,12 @@
 
 
 
-.page-body--single {
+.page-body--singular {
   margin-top: $h-header-mobile + $h-search-mobile;
 
   @include respond-to(desktop) {
     margin-top: $h-header-desktop-min;
+    min-height: 800px;
   }
 }
 
@@ -115,8 +118,15 @@
   margin-top: 15px;
 
   .home & {
-    @include respond-to-max(768px) {display: none;}
+    @include respond-to(mobile) {display: none;}
   }
+
+ /* @include respond-to(desktop) {
+    .page & {
+      position: absolute;
+      bottom: 0;
+    }
+  }*/
 }
 
   .page-foot__colophon {
@@ -128,12 +138,23 @@
 \*------------------------------------*/
 
 .article__part {
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 /*------------------------------------*\
   #WRAPPERS
 \*------------------------------------*/
+
+@include respond-to(desktop) {
+  .wrapper--article>*,
+  .wrapper--page>*,
+  .wrapper--comments>* {
+    width: 907px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
 
 .wrapper--head-top {
   height: 26px;
@@ -168,10 +189,15 @@
   }
 }
 
-.wrapper--article, .wrapper--comments {
+.wrapper--article,
+.wrapper--comments {
   background-color: $color-bg-primary;
-  padding: 15px;
   margin-top: 15px;
+  padding-top: 0;
+  padding-right: 15px;
+  padding-bottom: 70px;
+  padding-left: 15px;
+
 }
 
 .wrapper--oembed {
@@ -242,12 +268,19 @@
   }
 }
 
+@include respond-to(desktop) {
+  .wrapper--article-buttons {
+    position: relative;
+  }
+}
+
 /*------------------------------------*\
   #ADMIN BAR VISIBLE
 \*------------------------------------*/
 
 .admin-bar {
-  &.single {
+  &.single,
+  &.page {
     .page-head__top {
       top: $h-wp-adminbar-mobile;
 

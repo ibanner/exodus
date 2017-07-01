@@ -22,7 +22,10 @@ if ( has_shortcode( $social_option , 'sgmb') ) {
 
             <div class="article__meta">
 
-                <?php exodus_siddur_button(); ?>
+                <?php
+                get_template_part('parts/article' , 'buttons');
+                // exodus_siddur_button();
+                ?>
 
             </div><!-- /.article-meta -->
 
@@ -49,9 +52,14 @@ if ( has_shortcode( $social_option , 'sgmb') ) {
 
             <?php } ?>
 
-            <div class="article__part article__part--cats">
-                <?php esc_html_e( 'Categories:', 'exodus'); ?> <?php echo get_the_category_list(', '); ?> | <?php printf( esc_html__( 'This %1$s article was posted on ', 'exodus' ) , $post_type_label ); // WPCS: XSS OK. ?> <?php echo get_the_date(); ?>
-            </div><!-- /.article__cats -->
+            <div class="article__part article__part--meta">
+                <p class="article-cats">
+                    <?php esc_html_e( 'Categories:', 'exodus'); ?> <?php echo get_the_category_list(', '); ?>
+                </p>
+                <p class="article-timestamp">
+                    <?php printf( esc_html__( 'This %1$s article was posted on ', 'exodus' ) , '<em>' . $post_type_label . '</em>' ); // WPCS: XSS OK. ?> <?php echo get_the_date(); ?>
+                </p>
+            </div><!-- /.article__part--meta -->
 
             <div class="article__part article__part--socials">
                 <?php exodus_social_links('social-single'); ?>

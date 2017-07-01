@@ -29,5 +29,5 @@
     <?php if ( !is_singular() || is_page('my-siddur')) {
         echo '<main class="page-body container-fluid page-body--archive" role="main">';
     } else {
-        echo '<main class="page-body container-fluid page-body--single" role="main">';
+        echo '<main class="page-body container-fluid page-body--singular" role="main">';
     } ?>

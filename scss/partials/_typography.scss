@@ -51,11 +51,14 @@ h1, .h1 {
     }
   }
 
-  &.article__title {
-    margin: 25px 0;
+  &.article__title,
+  &.page__title {
+    padding: 25px 0;
 
     @include respond-to(not-mobile) {
-      margin: 50px 0;
+      padding: 50px 0;
+      font-size: $title-font-size;
+      line-height: $title-font-size;
     }
   }
 }
@@ -67,11 +70,12 @@ h2, .h2 {
   .comment-respond & {
     text-align: center;
     font-size: 1.7rem;
-    margin: 25px 0;
+    padding: 25px 0;
 
     @include respond-to(not-mobile) {
-      margin: 50px 0;
-      font-size: 40px;
+      padding: 50px 0;
+      font-size: $title-font-size;
+      line-height: $title-font-size;
     }
   }
 }
@@ -94,10 +98,13 @@ h6, .h6 {
 
 p {
 
-  .page-body--single & {
+  .page-body--singular & {
     font-size: 1.2rem;
+    margin-bottom: 30px;
 
-    // @include respond-to(desktop) {font-size: 3.3rem}
+    @include respond-to(not-mobile) {
+      font-size: $content-font-size;
+    }
   }
 }
 
@@ -108,7 +115,7 @@ p {
 a {
   color: $color-highlight;
 
-  .page-body--single & {
+  .page-body--singular & {
     color: #527ec0;
   }
 }
@@ -164,13 +171,39 @@ a {
 }
 
 /*------------------------------------*\
+  #CAPSULES
+\*------------------------------------*/
+
+.capsule {
+  padding: 3px 10px;
+  background-color: $color-highlight;
+  @include border-radius(12px);
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  // vertical-align: text-top;
+  text-transform: capitalize;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+  .capsule--large {
+    @extend .capsule;
+    font-size: $content-font-size;
+    @include border-radius($content-font-size);
+  }
+
+/*------------------------------------*\
   #FORMS
 \*------------------------------------*/
 
 .input {
   border-radius: 19px;
   background-color: #fff;
-  padding: 5px;
+  padding: 5px 10px;
   border: 1px solid $color-highlight;
   color: $color-highlight;
   @include placeholder-color($color-highlight);

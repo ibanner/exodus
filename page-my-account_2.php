@@ -4,8 +4,8 @@
 ?>
 
     <div class="row">
-        <div id="main" class="col-sm-12 blog-main single-column">
-            <div class="page <?php echo post_class(); ?>">
+        <div class="col-sm-12">
+            <div class="page <?php post_class(); ?>">
                 <h1 class="page-title row"><?php the_title(); ?></h1>
 
                 <div class="my-account jumbotron">
@@ -23,7 +23,7 @@
                             <?php
                             acf_form( array(
                                 'post_id' => 'user_' . get_current_user_id(),
-                                'field_groups' => array('150'),
+                                'field_groups' => array('228'),
                                 'submit_value' => __("Update Account", 'exodus'),
                                 'updated_message' => __("<b>Success!</b> Your account is now up-to-date with the new info.", 'exodus'),
                             ));
