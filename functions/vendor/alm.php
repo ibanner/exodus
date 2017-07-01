@@ -124,7 +124,7 @@ if (! function_exists('exodus_alm_shortcode')) {
     function exodus_alm_shortcode($ids,$type) {
         // Get params from URL
         $search = (isset($_GET['s'])) ? $_GET['s'] : '';
-        $shortcode = '[ajax_load_more post_type="post" posts_per_page="12" images_loaded="true"'; // basic shortcode start
+        $shortcode = '[ajax_load_more post_type="post" posts_per_page="12" images_loaded="true" transition="masonry" masonry_selector=".grid-item" preloaded="true" preloaded_amount="12"'; // basic shortcode start
         //preloaded="true" preloaded_amount="12"
 
         // Start Building the shortcode
