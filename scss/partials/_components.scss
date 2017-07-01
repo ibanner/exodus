@@ -1029,6 +1029,7 @@ button.alm-load-more-btn.loading:before {
   justify-content: space-between;
   flex-wrap: nowrap;
   width: 100%;
+  background-color: transparent;
 
   @include respond-to(tablet) {
     justify-content: space-around;
