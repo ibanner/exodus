@@ -6,7 +6,7 @@ $alert = exodus_siddur_action_handler();
 ?>
 
 
-<section class="wrapper--search">
+<section class="wrapper--search-results">
     <h1 class="search__title"><?php exodus_grid_title(); ?></h1>
 </section>
 

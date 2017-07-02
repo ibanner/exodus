@@ -55,7 +55,7 @@ $p_container = ( exodus_is_parallax_page() ) ? 'parallax-container  init-state' 
 
                 <div class="page-head__mini-search">
                     <form id="header-mini-search" class="search-form search-form--mini-header" action="<?php echo $home_url; ?>" method="get" _lpchecked="1">
-                        <input type="text" class="input input--search" name="s" placeholder="<?php esc_attr_e( 'Pick a Jewish brain' , 'exodus' ); ?>">
+                        <input type="text" class="input input--search" id="s" name="s" data-swplive="true" placeholder="<?php esc_attr_e( 'Pick a Jewish brain' , 'exodus' ); ?>">
                         <button type="submit" class="btn btn-link input__search-icon"><?php echo exodus_get_icon('search', 'large', 'img' , esc_attr('Search Icon', 'exodus')); ?></button>
                         <?php exodus_post_types_tax_droplist_ui($type); ?>
                     </form>
@@ -96,7 +96,7 @@ $p_container = ( exodus_is_parallax_page() ) ? 'parallax-container  init-state' 
     <section class="page-head__search" role="search">
         <form id="header-search" class="search-form search-form--header" action="<?php echo $home_url; ?>" method="get" _lpchecked="1">
             <div class="wrapper--search">
-                <input type="text" class="input input--search" name="s" placeholder="<?php esc_attr_e( 'Pick a Jewish brain' , 'exodus' ); ?>">
+                <input type="text" class="input input--search" name="s" data-swplive="true" placeholder="<?php esc_attr_e( 'Pick a Jewish brain' , 'exodus' ); ?>">
                 <button type="submit" class="btn btn-link input__search-icon"><?php echo exodus_get_icon('search', 'large', 'img' , esc_attr('Search Icon', 'exodus')); ?></button>
             </div>
             <?php exodus_post_types_tax_droplist_ui($type); ?>
