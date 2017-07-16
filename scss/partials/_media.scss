@@ -71,9 +71,15 @@
   right: 14px;
   background: center no-repeat;
 
-  @include has-parallax() {
-    top: 17px;
+  @include respond-to(not-mobile) {
+    @include has-parallax() {
+      top: 17px;
+    };
   }
+
+  /*@include has-parallax() {
+    top: 17px;
+  }*/
 
   .filter-group.type.open & {
     @extend .svg-bg.svg-select_arrow-up;
