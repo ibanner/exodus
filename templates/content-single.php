@@ -20,14 +20,8 @@ if ( has_shortcode( $social_option , 'sgmb') ) {
 
             <h1 class="article__title"><?php the_title(); ?></h1>
 
-            <div class="article__meta">
-
-                <?php
-                get_template_part('parts/article' , 'buttons');
-                // exodus_siddur_button();
-                ?>
-
-            </div><!-- /.article-meta -->
+            <button class="article-button article-button--fav"><i class="svg-bg svg-post_meta svg-post_meta-fav-notselected"></i><span class="sr-only">Button 1</span>
+            </button>
 
             <div class="article__featured-image">
                 <?php if ( !empty($fvid) ) {
@@ -64,6 +58,15 @@ if ( has_shortcode( $social_option , 'sgmb') ) {
             <div class="article__part article__part--socials">
                 <?php exodus_social_links('social-single'); ?>
             </div><!-- /.article__socials -->
+
+            <div class="article__part article__part--meta-icons">
+
+                <?php
+                get_template_part('parts/article' , 'buttons');
+                // exodus_siddur_button();
+                ?>
+
+            </div><!-- /.article-meta -->
 
             <?php exodus_author_info(); ?>
 

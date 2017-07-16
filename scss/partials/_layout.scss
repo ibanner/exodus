@@ -271,6 +271,7 @@
 @include respond-to(desktop) {
   .wrapper--article-buttons {
     position: relative;
+    height: 60px;
   }
 }
 

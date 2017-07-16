@@ -1035,32 +1035,30 @@ button.alm-load-more-btn.loading:before {
   flex-wrap: nowrap;
   width: 100%;
   background-color: transparent;
+  height: 60px;
 
-  @include respond-to(tablet) {
-    justify-content: space-around;
-  }
-
-  @include respond-to(desktop) {
+  @include respond-to(not-mobile) {
     justify-content: flex-start;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    left: -75px;
+
+    li {
+      margin: 0 16px;
+    }
   }
 }
 
-.has-badge {
-  position: relative;
-
-  .badge {
-    position: absolute;
-    top: -5px;
-  }
+.info-num {
+  line-height: 30px;
+  margin: 15px 0;
+  height: 30px;
+  vertical-align: top;
+  display: inline-block;
+  font-size: 20px;
+  margin-left: 10px;
 }
 
 p.article-cats {
   font-size: 13px;
-  text-transform: capitalize;
+  text-transform: uppercase;
   margin-right: 30px;
 
   a {
@@ -1083,6 +1081,7 @@ p.article-cats {
   position: relative;
   height: 65px;
   margin-bottom: 50px;
+  margin-top: 0;
 }
 
 .author-info__details, .author-info__avatar {
@@ -1100,6 +1099,11 @@ p.article-cats {
 
 .author-info__name {
   font-weight: $font-bold;
+}
+
+.article__part--meta-icons {
+  border-top: 1px solid $color-font-base;
+  height: 60px;
 }
 
 /*------------------------------------*\
