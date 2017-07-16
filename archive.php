@@ -1,6 +1,7 @@
 <?php
 get_header();
-$type = (isset($_GET['type'])) ? $_GET['type'] : '';
+$type = get_queried_object()->slug;
+
 $ids = exodus_alm_query_ids('index');
 $alert = exodus_siddur_action_handler();
 ?>

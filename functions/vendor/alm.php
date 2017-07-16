@@ -122,7 +122,7 @@ if (! function_exists( 'exodus_alm_query_ids' )) {
 
 if (! function_exists('exodus_alm_shortcode')) {
     function exodus_alm_shortcode($ids,$type) {
-        // Get params from URL
+        // Get search string
         $search = (isset($_GET['s'])) ? $_GET['s'] : '';
         $shortcode = '[ajax_load_more post_type="post" posts_per_page="12" images_loaded="true" transition="masonry" masonry_selector=".grid-item" preloaded="true" preloaded_amount="12"'; // basic shortcode start
         //preloaded="true" preloaded_amount="12"
@@ -138,17 +138,17 @@ if (! function_exists('exodus_alm_shortcode')) {
             $author = get_query_var('author');
             $shortcode .= ' author="'. $author .'"';
 
-        } /*elseif (is_category()) {
+        } elseif (is_category()) {
 
             $cat = get_query_var('cat');
             $category = get_category ($cat);
             $shortcode .= ' category="'. $category->slug .'"';
 
-        }*/ elseif (isset($ids)) {
+        } elseif (isset($ids)) {
             $shortcode .= ' post__in="'.$ids.'" orderby="post__in"';
         }
 
-        if (!empty($type)) {
+        if ('' !== $type) {
             $shortcode .= ' taxonomy="post_types_tax" taxonomy_terms="'. $type .'" taxonomy_operator="IN"';
         }
 
