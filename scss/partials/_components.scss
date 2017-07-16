@@ -912,7 +912,7 @@ button.alm-load-more-btn.loading:before {
 }
 
 .grid-item__details {
-  padding: 10px;
+  padding: 20px 22px 26px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   text-align: initial;
@@ -920,23 +920,34 @@ button.alm-load-more-btn.loading:before {
   color: $color-font-base;
 
   h2 {
-    font-size: 1.2rem;
+    font-size: 20px;
     text-align: initial;
     border: none;
     line-height: 2rem;
-    margin-top: 5px;
+    margin-top: 16px;
     font-weight: $font-normal;
   }
 
-  .grid-item__title-link, .grid-item__title-link:hover, .grid-item__excerpt, .grid-item__excerpt:hover {
+  .grid-item__title-link {
     text-decoration: none;
     color: $color-font-base;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .grid-item__excerpt, .grid-item__excerpt:hover {
+    color: $color-font-base;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 16px;
   }
 }
 
 
 .author-byline {
-  line-height: 3rem;
+  margin-top: 16px;
 }
 
 .author-byline__name, .author-byline__avatar {
@@ -946,26 +957,20 @@ button.alm-load-more-btn.loading:before {
 
 .author-byline__name {
   padding-left: 10px;
+  height: 24px;
+  line-height: 24px;
 }
-
-
-
-  .grid-item__excerpt {
-    margin: 5px 0;
-  }
-
-
 
 .type-label {
   text-transform: uppercase;
   font-weight: $font-bold;
-  font-size: 85%;
+  font-size: 15px;
   color: #ffffff;
-  margin-left: -10px;
+  margin-left: -22px;
   padding: 2px 10px 2px 30px;
 
   &:active, &:hover {
-    text-decoration: none;
+    color: #ffffff;
   }
 }
 
