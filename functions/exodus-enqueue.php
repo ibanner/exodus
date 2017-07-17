@@ -15,7 +15,6 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 function exodus_scripts() {
     // Materialize
     if (is_home() || is_front_page() || is_category() || is_archive() || is_search() || is_page('my-siddur')) {
-        // wp_enqueue_style( 'materialize', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css' , array(), '0.98.2' );
         wp_enqueue_script( 'materialize', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js', array( 'jquery' ), '0.98.2', true );
         wp_enqueue_script( 'parallax', get_template_directory_uri() . '/js/min/materialize-parallax.min.js', array( 'jquery' ), '20170621', true );
     }

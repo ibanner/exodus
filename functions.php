@@ -26,7 +26,6 @@ require_once("functions/vendor/acf.php");                       // Advanced Cust
 require_once("functions/vendor/acf-fields.php");                // Advanced Custom Fields - Field Groups
 require_once("functions/vendor/wpml.php");                      // AKA sitepress-multilingual-cms
 require_once("functions/vendor/sgmb.php");                      // Social Media Builder
-require_once("functions/vendor/flexslider.php");                // Flexslider
 
 require get_template_directory() . '/inc/custom-header.php';
 require get_template_directory() . '/inc/template-tags.php';
