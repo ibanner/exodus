@@ -16,12 +16,10 @@ $siddur = 'siddur_' . get_current_user_id() . '_1';
 <div class="wrapper--article-buttons">
     <ul class="article-buttons-list">
         <li>
-            <!-- @todo hook up views data -->
-            <i class="svg-bg svg-post_meta svg-post_meta-views"></i><span class="sr-only"><?php esc_html_e('Post Views', 'exodus'); ?></span><span class="info-num">3</span>
+            <i class="svg-bg svg-post_meta svg-post_meta-views"></i><span class="sr-only"><?php esc_html_e('Post Views', 'exodus'); ?></span><span class="info-num"><?php echo pvc_get_post_views( get_the_ID() ); ?></span>
         </li>
         <li>
-            <!-- @todo hook up comments data -->
-            <i class="svg-bg svg-post_meta svg-post_meta-comments"></i><span class="info-num">3</span><span class="sr-only"><?php esc_html_e('Comments', 'exodus'); ?></span>
+            <i class="svg-bg svg-post_meta svg-post_meta-comments"></i><span class="info-num"><?php echo number_format_i18n(get_comments_number()); ?></span><span class="sr-only"><?php esc_html_e('Comments', 'exodus'); ?></span>
         </li>
         <li>
             <!-- @todo integrate sharing menu -->
@@ -34,9 +32,11 @@ $siddur = 'siddur_' . get_current_user_id() . '_1';
             </button>
         </li>
         <li>
-            <!-- @todo integrate print article -->
-            <button class="article-button article-button--print"><i class="svg-bg svg-post_actions svg-post_actions-print"></i><span class="sr-only"><?php esc_html_e('Print this article', 'exodus'); ?></span>
+            <button class="article-button article-button--print" onclick="window.print();return false;"><i class="svg-bg svg-post_actions svg-post_actions-print"></i><span class="sr-only"><?php esc_html_e('Print this article', 'exodus'); ?></span>
             </button>
+        </li>
+        <li>
+            <a href="#" onclick="window.print();return false;">Print this page</a>
         </li>
     </ul>
 </div>

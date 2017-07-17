@@ -55,15 +55,14 @@ if ( has_shortcode( $social_option , 'sgmb') ) {
                 </p>
             </div><!-- /.article__part--meta -->
 
-            <div class="article__part article__part--socials">
+            <div class="article__part article__part--socials print-remove">
                 <?php exodus_social_links('social-single'); ?>
             </div><!-- /.article__socials -->
 
-            <div class="article__part article__part--meta-icons">
+            <div class="article__part article__part--meta-icons print-remove">
 
                 <?php
                 get_template_part('parts/article' , 'buttons');
-                // exodus_siddur_button();
                 ?>
 
             </div><!-- /.article-meta -->

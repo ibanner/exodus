@@ -2,13 +2,12 @@
     return;
 } ?>
 
-<div class="row">
+<div class="row no-print">
     <div class="col-sm-12">
         <section id="comments" class="wrapper--comments">
 
             <div class="comments-area">
 
-                <!--<h2 class="comments-area__title"><?php /*esc_html_e('Discuss this', 'exodus'); */?></h2>-->
                 <?php if (have_comments()) : ?>
                     <h2 class="comments-area__count">
                         <?php printf(_nx('One comment', '%1$s comments', get_comments_number(), 'comments title'),

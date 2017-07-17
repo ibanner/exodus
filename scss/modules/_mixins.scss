@@ -103,6 +103,9 @@
   @else if $media == desktop {
     @media only screen and (min-width: $break-large) { @content; }
   }
+  @else if $media == desktop-n-print {
+    @media print, screen and (min-width: $break-large) { @content; }
+  }
 }
 
 @mixin respond-to-min($width) {

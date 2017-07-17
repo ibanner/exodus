@@ -47,3 +47,26 @@ iframe,
 object {
   max-width: 100%;
 }
+
+/*------------------------------------*\
+  #PRINT VIEW
+\*------------------------------------*/
+
+.print-only {
+  visibility: hidden;
+}
+
+@media print{
+  .no-print {
+    visibility: hidden;
+  }
+
+  .print-remove {
+    display: none;
+  }
+
+  .print-only,
+  .printable {
+    visibility: visible !important;
+  }
+}

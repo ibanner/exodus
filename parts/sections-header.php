@@ -19,7 +19,7 @@ $p_container = ( exodus_is_parallax_page() ) ? 'parallax-container  init-state' 
 
 ?>
 
-<header id="header" role="banner" class="page-head <?php echo $p_container; ?>">
+<header id="header" role="banner" class="page-head <?php echo $p_container; ?> no-print">
 
     <?php if ( exodus_is_parallax_page() ) : ?>
     <div class="parallax">
@@ -44,8 +44,13 @@ $p_container = ( exodus_is_parallax_page() ) ? 'parallax-container  init-state' 
                 <a href="<?php echo $home_url; ?>" class="btn--logo logo-link">
                     <?php echo $site_title; ?>
                 </a>
+
                 <div class="screen-reader-text">
                     <?php printf(esc_html__('Go to the home page of %1$s', 'exodus'), $site_title); ?>
+                </div>
+
+                <div id="print-logo" class="print-only">
+                    <img src="/wp-content/themes/exodus/images/vectors/logo.svg" width="192">
                 </div>
             </div>
 
