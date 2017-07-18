@@ -1029,26 +1029,39 @@ button.alm-load-more-btn.loading:before {
   color: #ffffff;
 }*/
 
-.article-buttons-list {
+.article-buttons-list,
+.sharing-buttons-list {
   display: inline-flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: nowrap;
   width: 100%;
-  background-color: transparent;
   height: 60px;
+
+  button {
+    height: inherit;
+  }
 
   @include respond-to(not-mobile) {
     justify-content: flex-start;
 
     li {
       margin: 0 16px;
+      height: 30px;
     }
   }
 }
 
+.sharing-buttons-list {
+  background-color: #ffffff;
+}
+
+.article-buttons-list {
+  background-color: transparent;
+}
+
 .info-num {
   line-height: 30px;
-  margin: 15px 0;
   height: 30px;
   vertical-align: top;
   display: inline-block;

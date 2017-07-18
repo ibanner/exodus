@@ -39,7 +39,7 @@
   }
 }
 
-@each $icon in logo-mini, logo-minimized, logo, menu_toggle-close, menu_toggle-open, menu-about, menu-add, menu-contact, menu-profile, menu-sign_out, post_actions-download, post_actions-print, post_actions-send, post_meta-comments, post_meta-fav-notselected, post_meta-fav-selected, post_meta-fav, post_meta-views, search-large, search-mini, select_arrow-down, select_arrow-up, sharing-facebook, sharing-main, sharing-pinterest, sharing-twitter, type-custom, type-how_to, type-misc, type-music, type-thought {
+@each $icon in logo-mini, logo-minimized, logo, menu_toggle-close, menu_toggle-open, menu-about, menu-add, menu-contact, menu-profile, menu-sign_out, post_actions-download, post_actions-print, post_actions-send, post_meta-comments, post_meta-fav-notselected, post_meta-fav-selected, post_meta-fav, post_meta-views, search-large, search-mini, select_arrow-down, select_arrow-up, sharing-facebook, sharing-main, sharing-pinterest, sharing-twitter, sharing-email, type-custom, type-how_to, type-misc, type-music, type-thought {
   .svg-bg.svg-#{$icon} {
     background-image: url('../images/vectors/#{$icon}.svg');
   }
@@ -92,10 +92,9 @@
 
 .svg-post_actions,
 .svg-post_meta,
-.svg-sharing-main {
+.svg-sharing {
   width: 30px;
   height: 30px;
   background-repeat: no-repeat;
   background-position: center;
-  margin: 15px 0;
 }

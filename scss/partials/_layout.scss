@@ -141,6 +141,10 @@
   margin-top: 50px;
 }
 
+.article__featured-image {
+  margin-bottom: 50px;
+}
+
 /*------------------------------------*\
   #WRAPPERS
 \*------------------------------------*/
@@ -182,6 +186,7 @@
 
   .home & {
     display: none;
+
 
     @include respond-to(not-mobile) {
       display: block;

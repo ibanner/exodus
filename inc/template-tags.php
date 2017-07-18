@@ -546,33 +546,52 @@ if ( ! function_exists( 'exodus_search_form' ) ) :
 endif;
 
 
-/*******************************************************/
+/**
+ * Prints the social sharing buttons, meant to share the current page.
+ * Currently includes Facebook, Twitter, Pinterest and sharing via e-mail.
+ *
+ * @since 2.0.0
+ *
+ * @return string               The social buttons markup, in <li> elements.
+ */
 
-if ( ! function_exists( 'exodus_social_tooltip' ) ) :
 
-    function exodus_social_tooltip() {
+
+if ( ! function_exists( 'exodus_sharing_buttons' ) ) :
+
+    function exodus_sharing_buttons() {
+        $email = array(
+            'subject'   => esc_html__('An interesting article from Kolehad.org', 'exodus'),
+            'body'      => esc_html__('Thought you might be interested in this:', 'exodus'),
+        );
+
         $platforms = array(
             array(
                 'slug'  => 'facebook',
-                'url'   => 'https://facebook.com/sharer/sharer.php?u='
+                'label' =>  esc_html__('Share this on Facebook', 'exodus'),
+                'url'   => 'https://facebook.com/sharer/sharer.php?u=',
             ),
             array(
                 'slug'  => 'twitter',
+                'label' =>  esc_html__('Share this on Twitter', 'exodus'),
                 'url'   => 'https://twitter.com/share?url='
             ),
             array(
                 'slug'  => 'pinterest',
+                'label' =>  esc_html__('Share this on Pinterest', 'exodus'),
                 'url'   => 'https://pinterest.com/pin/create/bookmarklet/?url='
             ),
             array(
-                'slug'  => 'google-plus',
-                'url'   => 'https://plus.google.com/share?url='
+                'slug'  => 'email',
+                'label' =>  esc_html__('Share this via e-mail', 'exodus'),
+                'url'   => 'mailto:?subject=' . $email['subject'] . '&body=' . $email['body'] . '%0A',
             ),
         );
 
         foreach ($platforms as $platform) {
-            $url = $platform['url'];
-            echo '<a class="jssocials-share-link" href="'. $url . esc_url(get_the_permalink()) . '" target="_blank"><i class="fa fa-lg fa-'. $platform['slug'] .'-square" aria-hidden="true"></i></a>';
+            echo '<li>
+                <a class="sharing-button" href="'. $platform['url'] . esc_url(get_the_permalink()) . '" target="_blank"><i class="svg-bg svg-sharing svg-sharing-' . $platform['slug'] . '"></i><span class="sr-only">' . $platform['label'] . '</a>
+            </li>';
         }
     }
 
