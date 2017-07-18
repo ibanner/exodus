@@ -1,0 +1,325 @@
+@charset "utf-8";
+
+// Modules and Variables
+@import "partials/base";
+
+
+/*------------------------------------*\
+  # SCREEN LAYOUT
+\*------------------------------------*/
+
+.page-head__mini-search {
+  @include respond-to(desktop) {
+    .single &,
+    .page & {
+      float: right;
+      margin-right: 15px;
+    }
+  }
+}
+
+.wrapper--oembed {
+  embed,
+  iframe,
+  object {
+    right: 0;
+    left: initial;
+  }
+}
+
+.wrapper--tooltip {
+  @include respond-to(not-mobile) {
+    margin-left: 0;
+    margin-right: -5px;
+
+  }
+}
+
+/*------------------------------------*\
+  # TYPOGRAPHY
+\*------------------------------------*/
+
+.article-button--fav {
+  .grid-item & {
+    float: left;
+  }
+}
+
+/*------------------------------------*\
+  # COMPONENTS - HEADER
+\*------------------------------------*/
+
+.page-head__menu-toggle {
+  text-align: right;
+  float: right;
+}
+
+.wpml-switch {
+  @include respond-to(not-mobile) {
+    padding-right: 30px;
+    padding-left: 0;
+  }
+
+  svg {
+    margin-left: 0;
+    margin-right: 12px;
+
+    @include respond-to(not-mobile) {
+      margin-left: 0;
+      margin-right: 15px;
+    }
+  }
+}
+
+.search-form {
+  .input {
+    margin-left: 10px;
+    margin-right: 0;
+  }
+
+  .input--select {
+    margin-left: 0;
+  }
+}
+
+.current-user__avatar--default {
+  margin-right: 12px;
+  margin-left: 0;
+}
+
+.current-filter-type {
+  margin-left: 15px;
+  margin-right: 0;
+}
+
+.page-head__masthead {
+  right: 50%;
+  left: initial;
+  margin-left: 0;
+  margin-right: -17px;
+
+  .home & {
+    margin-right: -81.5px;
+    margin-left: 0;
+  }
+
+  @include respond-to(tablet) {
+    margin-left: 0;
+    margin-right: -17px;
+
+    .parallax-container & {
+      margin-left: 0;
+      margin-right: -96px;
+    }
+  }
+
+  @include respond-to(desktop) {
+    margin-left: 0;
+    margin-right: -75.79px;
+
+    .parallax-container & {
+      margin-left: 0;
+      margin-right: -96px;
+    }
+  }
+}
+
+/*------------------------------------*\
+  # COMPONENTS - NAVIGATION
+\*------------------------------------*/
+
+.main-navigation li {
+  padding-left: 10px;
+  padding-right: 0;
+}
+
+.main-navigation__more {
+  left: 0;
+  right: initial;
+}
+
+.page-head__my-account {
+  .anon,
+  .logged-in {
+    float: left;
+  }
+}
+
+.page-head__account-nav {
+  @include respond-to(not-mobile) {
+    right: 27px;
+    left: 0;
+
+    &::before {
+      right: 15px;
+      left: 0;
+      margin-right: -5px;
+      margin-left: 0;
+    }
+  }
+}
+
+.session-info {
+  .current-user__avatar {
+    margin-left: 0;
+    margin-right: calc(50% - 26.5px);
+  }
+}
+
+.filter-group.type {
+  margin-left: 0;
+  margin-right: 10px;
+
+  .home & {
+    margin-right: 0;
+  }
+
+  @include respond-to(not-mobile) {
+    margin-left: 0;
+    margin-right: 20px;
+
+    .parallax-container & {
+      margin-left: 0;
+      margin-right: 20px;
+    }
+  }
+
+  .dropdown-menu {
+
+    &::before {
+      right: 50%;
+      left: 0;
+      margin-left: 0;
+      margin-right: -5px;
+    }
+  }
+}
+
+/*------------------------------------*\
+  # COMPONENTS - ARCHIVE GRID
+\*------------------------------------*/
+
+button.alm-load-more-btn.loading {
+  padding-left: 60px;
+  padding-right: 0;
+
+  &:before {
+    right: 0;
+  }
+}
+
+.grid-item {
+  float: right;
+}
+
+.author-byline__name {
+  padding-right: 10px;
+  padding-left: 0;
+}
+
+.type-label {
+  margin-left: 0;
+  margin-right: -22px;
+  padding: 2px 30px 2px 10px;
+}
+
+.type-label--customs-he {
+  @extend .type-label;
+  background-color: $customs-bg-color;
+}
+
+.type-label--how-to-he {
+  @extend .type-label;
+  background-color: $how-to-bg-color;
+}
+
+.type-label--thought-he {
+  @extend .type-label;
+  background-color: $thought-bg-color;
+}
+
+.type-label--music-he {
+  @extend .type-label;
+  background-color: $music-bg-color;
+}
+
+.type-label--misc-he {
+  @extend .type-label;
+  background-color: $misc-bg-color;
+}
+
+/*------------------------------------*\
+  # COMPONENTS - ARTICLE
+\*------------------------------------*/
+
+p.article-cats {
+  margin-left: 30px;
+  margin-right: 0;
+}
+
+.author-info__avatar {
+  right: 0;
+}
+
+.author-info__details {
+  right: 80px
+}
+
+/*------------------------------------*\
+  # COMPONENTS - COMMENTS
+\*------------------------------------*/
+
+.comment-list {
+  .children {
+    margin-left: 0;
+    margin-right: 70px;
+  }
+}
+
+.comment-body {
+  margin-left: 0;
+  margin-right: 70px;
+
+  .avatar {
+    right: -70px;
+  }
+}
+
+/*------------------------------------*\
+  # COMPONENTS - FOOTER
+\*------------------------------------*/
+
+.page-foot__colophon {
+  text-align: left;
+}
+
+/*------------------------------------*\
+  # MEDIA
+\*------------------------------------*/
+
+.svg-select_arrow {
+  right: 0;
+  left: 14px;
+}
+
+/*------------------------------------*\
+  # ACCESSIBILITY
+\*------------------------------------*/
+
+.screen-reader-text {
+  &:focus {
+    left: 0;
+    right: 5px;
+  }
+}
+
+/*------------------------------------*\
+  # PRINT LAYOUT
+\*------------------------------------*/
+
+@media print {
+  .page-head__masthead {
+    right: 0 !important;
+    left: initial;
+  }
+}

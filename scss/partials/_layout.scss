@@ -27,11 +27,6 @@
       padding-right: 27px;
     }
 
-    /*.single & {
-      height: $h-header-mobile;
-
-    }*/
-
     @include respond-to(desktop) {
       padding-top: 25px;
       height: $h-header-desktop-min;
@@ -120,13 +115,6 @@
   .home & {
     @include respond-to(mobile) {display: none;}
   }
-
- /* @include respond-to(desktop) {
-    .page & {
-      position: absolute;
-      bottom: 0;
-    }
-  }*/
 }
 
   .page-foot__colophon {
@@ -175,8 +163,6 @@
 
     .single & {
       display: block;
-      // justify-content: space-between;
-      // align-items: center;
     }
   }
 }
@@ -227,27 +213,18 @@
 .wrapper--tooltip {
   display: none;
   background-color: #fff;
-  // padding: 0 15px;
   position: fixed;
-  // top: $h-header-mobile;
   z-index: 100;
-  // width: calc(100% - 64px);
-  // height: 100%;
-  // font-size: 130%;
   -webkit-box-shadow: 1px 1px 1px $shadow-mobile-menu;
   -moz-box-shadow: 1px 1px 1px $shadow-mobile-menu;
   box-shadow: 1px 1px 1px $shadow-mobile-menu;
 
   @include respond-to(not-mobile) {
-    // width: 188px;
-    // height: auto;
     border: 1px solid $border-tooltip;
     border-radius: 7px;
     padding: 5px 0;
     position: absolute;
     z-index: 100;
-    // top: 58px;
-    // left: 27px;
     margin-left: -5px;
     -webkit-box-shadow: 1px 1px 1px $shadow-mobile-menu;
     -moz-box-shadow: 1px 1px 1px $shadow-mobile-menu;

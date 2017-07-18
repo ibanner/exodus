@@ -27,7 +27,13 @@ function exodus_scripts() {
 
 
     // Local
-    wp_enqueue_style( 'exodus', get_template_directory_uri() . '/css/main.css' );
+    if ( is_rtl() ) {
+        wp_enqueue_style( 'exodus-rtl', get_template_directory_uri() . '/css/main_rtl.css'  , array ( 'exodus-default' ), '2.0.0' );
+    }
+    wp_enqueue_style( 'exodus-default', get_template_directory_uri() . '/css/main.css'  , array(), '2.0.0' );
+
+
+
     wp_enqueue_script( 'exodus-navigation', get_template_directory_uri() . '/js/min/navigation.min.js', array( 'jquery' ), '20151215', true );
     wp_enqueue_script( 'exodus-navtemp', get_template_directory_uri() . '/js/min/navtemp.min.js', array( 'jquery' ), '20170613', true );
     wp_enqueue_script( 'exodus-article-buttons', get_template_directory_uri() . '/js/min/article-buttons.min.js', array( 'jquery' ), '20170613', true );

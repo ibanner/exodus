@@ -124,11 +124,6 @@
 
     @include respond-to(not-mobile) {
       height: 44px;
-      // top: initial;
-
-      .home & {
-        // top: initial;
-      }
 
       .single &,
       .page & {
@@ -213,8 +208,6 @@ header.parallax-container {
     position: absolute;
     bottom: 0;
   }
-
-
 }
 
 .current-user__avatar--default {
@@ -274,35 +267,9 @@ header.parallax-container {
     }
   }
 
-  /*.input--search {
-    width: 100%;
-
-    @include respond-to(not-mobile) {
-      max-width: 650px;
-
-      .single &,
-      .page & {
-        width: 200px;
-      }
-    }
-  }*/
-
   .input--select {
-
-
     @include respond-to(not-mobile) {
-      // width: 156px;
       margin-left: 20px;
-
-      .parallax-container & {
-        // margin-left: 20px;  // override Bootstrap
-      }
-
-      .single &,
-      .page & {
-        // margin-left: 10px;  // override Bootstrap
-        // width: 114px;
-      }
     }
   }
 
@@ -509,19 +476,6 @@ header.parallax-container {
     a {
       @extend .capsule;
       font-size: 12px;
-      /*padding: 3px 10px;
-      background-color: $color-highlight;
-      @include border-radius(12px);
-      color: #ffffff;
-      text-align: center;
-      font-size: 12px;
-      vertical-align: text-top;
-
-      &:hover,
-      &:focus {
-        text-decoration: underline;
-      }*/
-
     }
 
     .current-menu-item a {
@@ -535,7 +489,6 @@ header.parallax-container {
 
   .main-navigation__more {
     display: none;
-    // display: block;
     position: absolute;
     top: 0;
     right: 0;
@@ -564,39 +517,6 @@ header.parallax-container {
     height: $h-nav-cats;
     width: 5px;
   }
-/*
-
-.main-navigation a:hover,
-.main-navigation a:focus {
-  color: $color-bg-highlight;
-}
-
-.main-navigation ul .toggled-on {
-  display: block;
-}
-
-.main-navigation .current-menu-item > a,
-.main-navigation .current-menu-ancestor > a,
-.main-navigation .current_page_item > a,
-.main-navigation .current_page_ancestor > a {
-  font-weight: 700;
-}
-
-.main-navigation .nav-menu > ul > li:first-child,
-.main-navigation .nav-menu > li:first-child {
-  border-top: 0;
-}
-
-.main-navigation .menu-item-has-children > a,
-.main-navigation .page_item_has_children > a{
-  padding-right: 48px;
-}
-
-.no-js .main-navigation ul ul {
-  display: block;
-}
-*/
-
 
 
 
@@ -621,12 +541,8 @@ header.parallax-container {
 
 
 .page-head__account-nav {
-  // display: none;
-  // background-color: #fff;
   padding: 0 15px;
-  // position: fixed;
   top: $h-header-mobile;
-  // z-index: 9999;
   width: calc(100% - 64px);
   height: 100%;
   font-size: 130%;
@@ -637,28 +553,11 @@ header.parallax-container {
   @include respond-to(not-mobile) {
     width: 188px;
     height: auto;
-    /*border: 1px solid $border-tooltip;
-    border-radius: 7px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;*/
     top: 58px;
     left: 27px;
-    // margin-left: -5px;
     -webkit-box-shadow: 1px 1px 1px $shadow-mobile-menu;
     -moz-box-shadow: 1px 1px 1px $shadow-mobile-menu;
     box-shadow: 1px 1px 1px $shadow-mobile-menu;
-
-    /*&::before {
-      content: "";
-      position: absolute;
-      bottom: 100%;
-      left: 15px;
-      margin-left: -5px;
-      border-width: 5px;
-      border-style: solid;
-      border-color: transparent transparent $border-tooltip transparent;
-    }*/
 
     &::before {
       content: "";
@@ -1004,30 +903,9 @@ button.alm-load-more-btn.loading:before {
   background-color: $notype-bg-color;
 }
 
-
-
-.siddur-toggle {
-  float: right;
-  font-size: initial;
-
-  .fa-bookmark {
-    color: $color-logo-yellow;
-  }
-}
-
 /*------------------------------------*\
   #ARTICLE
 \*------------------------------------*/
-
-/*.article__meta {
-  text-align: center;
-  margin: 15px 0;
-}*/
-
-/*a.article__meta--siddur {
-  background-color: $color-highlight;
-  color: #ffffff;
-}*/
 
 .article-buttons-list,
 .sharing-buttons-list {

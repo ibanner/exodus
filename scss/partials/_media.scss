@@ -81,10 +81,6 @@
     };
   }
 
-  /*@include has-parallax() {
-    top: 17px;
-  }*/
-
   .filter-group.type.open & {
     @extend .svg-bg.svg-select_arrow-up;
   }
