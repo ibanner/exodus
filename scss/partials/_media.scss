@@ -98,3 +98,12 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.svg-post_meta {
+  .grid-item & {
+    background-position: center;
+    background-size: 20px 20px;
+    height: inherit;
+    width: inherit;
+  }
+}

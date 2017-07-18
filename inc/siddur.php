@@ -102,7 +102,9 @@ endif;
                 $a_text = esc_html__( 'Remove from My Siddur' , 'exodus' );
                 break;
             case 'siddur-anon':
-                $attr["a+href"] = wp_login_url( $attr["a+href"] );
+                $attr['i_class'] .= 'notselected';
+                $attr["a_href"] = wp_login_url( $attr["a_href"] );
+                $a_text .= ' ' . esc_html__( '(Log-in required)' , 'exodus' );
                 break;
             default:
                 $attr['i_class'] .= 'notselected';

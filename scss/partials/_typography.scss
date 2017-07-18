@@ -170,29 +170,37 @@ a {
   height: 32px;
 }
 
-.article-button--fav:hover {
-  text-decoration: none;
-}
+.article-button--fav {
+  .grid-item & {
+    float: right;
+    height: 20px;
+    width: 20px;
+  }
 
-/*------------------------------------*\
-  #CAPSULES
-\*------------------------------------*/
-
-.capsule {
-  padding: 3px 10px;
-  background-color: $color-highlight;
-  @include border-radius(12px);
-  color: #ffffff;
-  text-align: center;
-  font-size: 12px;
-  // vertical-align: text-top;
-  text-transform: capitalize;
-
-  &:hover,
-  &:focus {
-    text-decoration: underline;
+  &:hover {
+    text-decoration: none;
   }
 }
+
+  /*------------------------------------*\
+    #CAPSULES
+  \*------------------------------------*/
+
+  .capsule {
+    padding: 3px 10px;
+    background-color: $color-highlight;
+    @include border-radius(12px);
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    // vertical-align: text-top;
+    text-transform: capitalize;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
 
   .capsule--large {
     @extend .capsule;
@@ -200,42 +208,42 @@ a {
     @include border-radius($content-font-size);
   }
 
-/*------------------------------------*\
-  #FORMS
-\*------------------------------------*/
+  /*------------------------------------*\
+    #FORMS
+  \*------------------------------------*/
 
-.input {
-  border-radius: 19px;
-  background-color: #fff;
-  padding: 5px 10px;
-  border: 1px solid $color-highlight;
-  color: $color-highlight;
-  @include placeholder-color($color-highlight);
-}
+  .input {
+    border-radius: 19px;
+    background-color: #fff;
+    padding: 5px 10px;
+    border: 1px solid $color-highlight;
+    color: $color-highlight;
+    @include placeholder-color($color-highlight);
+  }
 
-.input--textarea {
-  width: 100%;
-  max-width: 960px;
-}
+  .input--textarea {
+    width: 100%;
+    max-width: 960px;
+  }
 
-.input--button {
-  background-color: $color-logo-red;
-  color: #ffffff;
-  font-size: $base-font-size;
-  padding: 6px 16px;
-  text-decoration: none;
-  border: none;
-}
+  .input--button {
+    background-color: $color-logo-red;
+    color: #ffffff;
+    font-size: $base-font-size;
+    padding: 6px 16px;
+    text-decoration: none;
+    border: none;
+  }
 
-/*------------------------------------*\
-  #MEDIA
-\*------------------------------------*/
+  /*------------------------------------*\
+    #MEDIA
+  \*------------------------------------*/
 
-.img-round {
-  border-radius: 50% !important;
-}
+  .img-round {
+    border-radius: 50% !important;
+  }
 
-.img-responsive {
-  margin-left: auto;
-  margin-right: auto;
-}
+  .img-responsive {
+    margin-left: auto;
+    margin-right: auto;
+  }

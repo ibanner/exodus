@@ -21,7 +21,7 @@
 
         <div class="grid-item__details">
             <?php exodus_post_type_tax_label(); ?>
-            <?php exodus_siddur_toggle(); ?>
+            <?php exodus_siddur_button(); ?>
             <h2 class="article-title<?php if (is_sticky()) {
                 echo ' sticky';
             } ?>"><a href="<?php the_permalink(); ?>" class="grid-item__title-link"><?php the_title(); ?></a></h2>
