@@ -21,7 +21,9 @@ if ( ! function_exists( 'exodus_wpml_switch' )) :
         if ( !empty( $languages ) ) {
             echo '<div class="wpml-switch">';
             foreach( $languages as $l ) {
-                $flag_icon = file_get_contents( site_url() . '/wp-content/themes/exodus/images/vectors/lang-' . $l['code'] . '.svg');
+
+                $flag_src = site_url() . '/wp-content/themes/exodus/images/' . strtoupper($l['code']) . '_48.png';
+                $flag_icon = '<img src="' . $flag_src . '" alt="' . strtoupper($l['code']) . '" class="lang-flag">';
 
                 if ( $l['active'] ) {
 
