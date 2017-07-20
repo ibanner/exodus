@@ -8,7 +8,9 @@ $alert = exodus_siddur_action_handler();
 <div class="row">
     <div id="main" class="col-sm-12 blog-main single-column">
         <div id="my-siddur">
-            <h1 class="my-siddur__title row"><em><?php _e( 'My Siddur' , 'exodus'); ?></em></h1>
+            <section class="wrapper--siddur">
+                <h1 class="my-siddur__title row"><em><?php _e( 'My Siddur' , 'exodus'); ?></em></h1>
+            </section>
 
                 <?php
 
@@ -32,9 +34,9 @@ $alert = exodus_siddur_action_handler();
 
                         /*include( locate_template( 'sections/filter-row.php', false, false ) );*/ ?>
 
-                        <div id="masonry-grid">
-                            <?php exodus_alm_shortcode($ids,$type) ?>
-                        </div>
+                <section id="masonry-grid" class="wrapper--grid">
+                    <?php exodus_alm_shortcode($ids,$type) ?>
+                </section>
 
                         <?php
                     } ?>

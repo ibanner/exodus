@@ -126,7 +126,7 @@
       height: 44px;
 
       .single &,
-      .page & {
+      .page:not(.my-siddur) & {
         height: $h-header-top;
       }
     }
@@ -231,7 +231,7 @@ header.parallax-container {
     width: 826px;
 
     .single &,
-    .page & {
+    .page:not(.my-siddur) & {
       width: 100%;
     }
   }
@@ -261,7 +261,7 @@ header.parallax-container {
       }
 
       .single,
-      .page & & {
+      .page:not(.my-siddur) & {
         font-size: 14px;
       }
     }
@@ -805,6 +805,18 @@ button.alm-load-more-btn.loading:before {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
   }
+
+  .video-unavailable {
+    width: 100%;
+    text-align: center;
+    background-color: #d5d5d5;
+    color: #999999;
+    font-size: 36px;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 .grid-item__thumbnail {
   background-color: #ffffff;
@@ -1128,6 +1140,14 @@ p.comment-notes {
 
 .page-foot {
   font-size: $base-font-size;
+
+  @include has-parallax() {
+
+    &.scroll-fix {
+      position: fixed;
+      bottom: 0;
+    }
+  }
 }
 
   .page-foot__colophon a {

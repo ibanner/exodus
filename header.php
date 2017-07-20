@@ -17,12 +17,12 @@
     <?php
     wp_head();
     $home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
-    if (is_home() || is_front_page()) { ?>
-        <!--<script type="text/javascript" charset="utf-8">jQuery(window).load(function() {jQuery('.flexslider').flexslider();});</script>-->
-    <?php }?>
+
+    $body_class_append = is_page('my-siddur') ? 'my-siddur' : '';
+    ?>
 </head>
 
-<body id="top" <?php body_class(); ?>>
+<body id="top" <?php body_class( $body_class_append ); ?>>
 
     <?php get_template_part('parts/sections' , 'header'); ?>
 

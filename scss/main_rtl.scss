@@ -11,7 +11,7 @@
 .page-head__mini-search {
   @include respond-to(desktop) {
     .single &,
-    .page & {
+    .page:not(.my-siddur) & {
       float: right;
       margin-right: 15px;
     }
@@ -45,6 +45,10 @@
   }
 }
 
+.acf-form label, .wpcf7-form label {
+  direction: rtl;
+}
+
 /*------------------------------------*\
   # COMPONENTS - HEADER
 \*------------------------------------*/
@@ -75,10 +79,21 @@
   .input {
     margin-left: 10px;
     margin-right: 0;
+    text-align: right;
   }
 
   .input--select {
     margin-left: 0;
+  }
+
+  .input--search {
+    padding-left: 0;
+    padding-right: 50px;
+  }
+
+  .input__search-icon {
+    left: auto;
+    right: 25px
   }
 }
 
@@ -128,13 +143,18 @@
   # COMPONENTS - NAVIGATION
 \*------------------------------------*/
 
+.main-navigation ul {
+  padding-right: 0;
+  padding-left: 40px;
+}
+
 .main-navigation li {
   padding-left: 10px;
   padding-right: 0;
 }
 
 .main-navigation__more {
-  left: 0;
+  left: auto;
   right: initial;
 }
 
@@ -148,11 +168,11 @@
 .page-head__account-nav {
   @include respond-to(not-mobile) {
     right: 27px;
-    left: 0;
+    left: auto;
 
     &::before {
       right: 15px;
-      left: 0;
+      left: auto;
       margin-right: -5px;
       margin-left: 0;
     }
@@ -186,13 +206,22 @@
 
   .dropdown-menu {
 
+    text-align: right;
+
     &::before {
       right: 50%;
-      left: 0;
+      left: auto;
       margin-left: 0;
       margin-right: -5px;
     }
   }
+}
+
+.menu-categories-hebrew-container {
+  padding: 10px;
+  width: 100%;
+  height: $h-nav-cats;
+  overflow: auto;
 }
 
 /*------------------------------------*\
@@ -265,6 +294,10 @@ p.article-cats {
   right: 80px
 }
 
+.article-buttons-list li {
+  direction: ltr;
+}
+
 /*------------------------------------*\
   # COMPONENTS - COMMENTS
 \*------------------------------------*/
@@ -298,7 +331,7 @@ p.article-cats {
 \*------------------------------------*/
 
 .svg-select_arrow {
-  right: 0;
+  right: auto;
   left: 14px;
 }
 
@@ -308,7 +341,7 @@ p.article-cats {
 
 .screen-reader-text {
   &:focus {
-    left: 0;
+    left: auto;
     right: 5px;
   }
 }

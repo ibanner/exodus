@@ -9,6 +9,33 @@
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
+function exodus_acf_init() {
+    acf_update_setting('l10n_textdomain', 'exodus');
+}
+
+add_action('acf/init', 'exodus_acf_init');
+
+/****************************************/
+
+function exodus_frontend_change_labels( $field ) {
+
+    // Only do it on the front end
+    if( !is_admin() ){
+
+        // Check if the current field is post title
+        if( $field['name'] == 'post_title' ){
+
+            // Change the label
+            $field['label'] = 'Foo!';
+        }
+    }
+    return $field;
+}
+
+add_filter('acf/prepare_field', 'exodus_frontend_change_labels');
+
+/****************************************/
+
 add_filter('acf/validate_value/type=oembed', 'exodus_acf_validate_oembed', 10, 4);
 
 function exodus_acf_validate_oembed( $valid, $value, $field, $input ){
@@ -65,19 +92,24 @@ if (! function_exists('exodus_acf_oembed_filter')) {
 
         // use preg_match to find iframe src
         preg_match('/src="(.+?)"/', $iframe, $matches);
-        $src = $matches[1];
 
-        $new_src = add_query_arg($params, $src);
+        if ( isset($matches[1]) ) {
 
-        $iframe = str_replace($src, $new_src, $iframe);
+            $src = $matches[1];
+            $new_src = add_query_arg($params, $src);
 
-        // add extra attributes to iframe html
-        // $attributes = 'frameborder="0"';
+            $iframe = str_replace($src, $new_src, $iframe);
 
-        $iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
+            // add extra attributes to iframe html
 
-        // surround with a wrapper for better responsiveness
-        $iframe = '<div class="wrapper--oembed">' . $iframe . '</div>';
+            $iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
+
+            // surround with a wrapper for better responsiveness
+            $iframe = '<div class="wrapper--oembed">' . $iframe . '</div>';
+
+        } else {
+            $iframe = false;
+        }
 
         // return $iframe
         return $iframe;
@@ -104,6 +136,11 @@ if (! function_exists('exodus_acf_oembed_strip')) {
         );
 
         $iframe = exodus_acf_oembed_filter($field,$params);
+
+        if ( false == $iframe ) {
+            $iframe = '<div class="video-unavailable">' . esc_html__('Video Unavailable', 'exodus') . '</div>';
+        }
+
         echo $iframe;
     }
 }

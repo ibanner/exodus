@@ -178,7 +178,7 @@ function exodus_author_info($size = '60') {
     if (empty($author_desc)) {
         $udata = get_userdata($author_id);
         $author_registered = date('F Y', strtotime($udata->user_registered));
-        $default_desc = __('This author joined KEM on %1$s, and shared %2$d articles with the community. WTG!');
+        $default_desc = __('This author joined KEM on %1$s, and shared %2$d articles with the community. WTG!', 'exodus');
         $author_post_count = count_user_posts( $author_id );
         $author_desc = sprintf($default_desc, $author_registered, $author_post_count);
     }

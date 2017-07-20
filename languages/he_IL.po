@@ -2,21 +2,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Exodus\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-28 23:18+0300\n"
-"PO-Revision-Date: 2017-03-28 23:23+0300\n"
-"Last-Translator: itay <itay@ibanner.co.il>\n"
-"Language-Team: Hebrew\n"
+"POT-Creation-Date: 2017-07-19 14:09+0300\n"
+"PO-Revision-Date: 2017-07-19 14:10+0300\n"
+"Last-Translator: Itay Banner <itay@ibanner.co.il>\n"
+"Language-Team: Itay Banner - The Contechnician\n"
 "Language: he_IL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.0\n"
-"X-Poedit-KeywordsList: __;_e;esc_html__;esc_url__;esc_url_e;esc_html_e\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.2\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_url__;esc_url_e;esc_html_e;"
+"esc_attr__;esc_attr_e;_x;_nx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: inc/class-tgm-plugin-activation.php\n"
 "X-Poedit-SearchPathExcluded-1: inc/required-plugins.php\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+"X-Poedit-SearchPathExcluded-3: functions/vendor/class-tgm-plugin-activation."
+"php\n"
 
 #: 404.php:14
 msgid "Page not found."
@@ -30,23 +34,59 @@ msgstr "זה לא את/ה, זה אנחנו."
 msgid "Here, grab a link to the homepage"
 msgstr "הנה, יש פה קישור לעמוד הבית"
 
-#: author.php:13
-msgid "Posts by: "
-msgstr "מאמרים מאת: "
+#: admin/post-columns.php:24
+msgid "Post ID"
+msgstr "Post ID"
 
-#: category.php:36
-msgid "View Subcategories"
-msgstr "צפייה בתתי-קטגוריות"
+#: admin/post-columns.php:25
+msgid "Order"
+msgstr "סדר"
 
-#: comments.php:5
-msgid "Discuss this"
-msgstr "לדבר על זה"
+#: admin/post-columns.php:26
+msgid "Type"
+msgstr "Type N/A"
 
-#: comments.php:22
+#: admin/post-columns.php:27
+msgid "Categories"
+msgstr "קטגוריות"
+
+#: admin/post-columns.php:28
+msgid "Date"
+msgstr "תאריך"
+
+#: comments.php:17 templates/content.php:8
+msgid "One Comment"
+msgstr "תגובה אחת"
+
+#: comments.php:32
 msgid "Comments are closed."
 msgstr "התגובות סגורות."
 
-#: comments.php:31
+#: comments.php:43 comments.php:44
+msgid "Your Name"
+msgstr "השם שלך"
+
+#: comments.php:50
+msgid "Your Email"
+msgstr "הדוא\"ל שלך"
+
+#: comments.php:56
+msgid "Website"
+msgstr "אתר"
+
+#: comments.php:62
+msgid "Leave a Comment"
+msgstr "השאר תגובה"
+
+#: comments.php:64
+msgid "Cancel Comment"
+msgstr "ביטול תגובה"
+
+#: comments.php:65
+msgid "Post Comment"
+msgstr "פרסום תגובה"
+
+#: comments.php:69
 #, php-format
 msgid ""
 "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
@@ -55,51 +95,47 @@ msgstr ""
 "מחובר בתור <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"יציאה מהחשבון "
 "הזה\" class=\"log-out\">לא את/ה?</a>"
 
-#: footer.php:7
+#: footer.php:6
 msgid "Site by"
 msgstr "אתר:"
 
-#: footer.php:7
+#: footer.php:6
 msgid "The Contechnician"
 msgstr "התוכנאי - אינטרנט עסקי יעיל"
 
-#: footer.php:9
-msgid "Back to top"
-msgstr "חזרה למעלה"
-
-#: functions.php:26
-msgid "Primary Menu"
-msgstr "תפריט עיקרי"
-
-#: functions.php:27
-msgid "Secondary Menu"
-msgstr "תפריט משני"
-
-#: functions.php:28
-msgid "Account Menu"
-msgstr "תפריט חשבון"
-
-#: functions.php:86
+#: functions/exodus-enqueue.php:41
 msgid "expand child menu"
 msgstr "הרחב תת-תפריט"
 
-#: functions.php:87
+#: functions/exodus-enqueue.php:42
 msgid "collapse child menu"
 msgstr "צמצם תת-תפריט"
 
-#: functions.php:147
+#: functions/exodus-setup.php:31
+msgid "Primary Menu"
+msgstr "תפריט עיקרי"
+
+#: functions/exodus-setup.php:32
+msgid "Secondary Menu"
+msgstr "תפריט משני"
+
+#: functions/exodus-setup.php:33
+msgid "Account Menu"
+msgstr "תפריט חשבון"
+
+#: functions/exodus-setup.php:56
 msgid "Articles Sidebar"
 msgstr "טור-צד - מאמרים"
 
-#: functions.php:149
+#: functions/exodus-setup.php:58
 msgid "These widgets will appear in article pages."
 msgstr "הווידג'טים הללו יופיעו בעמודי מאמרים"
 
-#: functions.php:405
-msgid "Older Items"
-msgstr "פריטים ישנים יותר"
+#: functions/exodus-setup.php:80
+msgid "KEM Logo"
+msgstr "לוגו KEM"
 
-#: functions.php:452
+#: functions/media.php:55
 msgid ""
 "The Featured image you set was too small and was removed. Please set another "
 "image, at least 1170px wide!"
@@ -107,28 +143,72 @@ msgstr ""
 "התמונה הראשית שהגדרת הייתה קטנה מדי ולכן הוסרה. יש להגדיר תמונה אחרת, ברוחב "
 "של 1170 פיקסל לפחות!"
 
-#: header.php:28
+#: functions/vendor/acf-fields.php:16
+msgid "User Information"
+msgstr "פרטי משתמש"
+
+#: functions/vendor/acf-fields.php:20
+msgid "Profile"
+msgstr "פרופיל"
+
+#: functions/vendor/acf-fields.php:23
+msgid "Share something about yourself!"
+msgstr "כתוב משהו על עצמך!"
+
+#: functions/vendor/acf-fields.php:39
+msgid "Gender"
+msgstr "מין"
+
+#: functions/vendor/acf-fields.php:51
+msgid "Female"
+msgstr "נקבה"
+
+#: functions/vendor/acf-fields.php:52
+msgid "Male"
+msgstr "זכר"
+
+#: functions/vendor/acf-fields.php:63
+msgid "Date of Birth"
+msgstr "תאריך לידה"
+
+#: functions/vendor/acf-fields.php:105 functions/vendor/acf-fields.php:109
+msgid "Featured Video"
+msgstr "וידאו ראשי"
+
+#: functions/vendor/acf.php:93
+msgid "Video Unavailable"
+msgstr "וידאו לא זמין"
+
+#: functions/vendor/alm.php:155
+msgid "Older Items"
+msgstr "פריטים ישנים יותר"
+
+#: functions/vendor/sgmb.php:26
+msgid "Not Set"
+msgstr "לא הוגדר"
+
+#: header_BK.php:28 parts/sections-header.php:30
 msgid "Skip to content"
 msgstr "דלג לתוכן"
 
-#: header.php:38
+#: header_BK.php:38
 msgid "Search"
 msgstr "חיפוש"
 
-#: header.php:63
+#: header_BK.php:63 parts/sections-header.php:49
 #, php-format
 msgid "Go to the home page of %1$s"
 msgstr "לך לעמוד הבית של %1$s"
 
-#: header.php:73
+#: header_BK.php:73 inc/template-tags.php:90
 msgid "My Account"
 msgstr "החשבון שלי"
 
-#: header.php:87
+#: header_BK.php:87
 msgid "Pick a Jewish Brain"
 msgstr "חפש במוח היהודי"
 
-#: header.php:96
+#: header_BK.php:96 parts/sections-header.php:39
 msgid "Menu"
 msgstr "תפריט"
 
@@ -168,7 +248,7 @@ msgstr "שם סוג המאמר החדש"
 msgid "Siddurim"
 msgstr "סידורים"
 
-#: inc/cpt-config.php:55 page-my-siddur.php:11
+#: inc/cpt-config.php:55 page-my-siddur.php:12
 msgid "My Siddur"
 msgstr "הסידור שלי"
 
@@ -192,167 +272,253 @@ msgstr "Google Analytics"
 msgid "Tracking Code"
 msgstr "קוד מעקב"
 
-#: inc/siddur.php:37
-msgid "Add to <b>My Siddur</b>"
-msgstr "הוסף ל<b>סידור שלי</b>"
-
-#: inc/siddur.php:40
-msgid "Add to <b>My Siddur</b> <small>(Login)</small>"
-msgstr "הוסף ל<b>סידור שלי</b> <small>(התחברות)</small>"
-
-#: inc/siddur.php:44
-msgid "Remove from <b>My Siddur</b>"
-msgstr "הסר מה<b>סידור שלי</b>"
-
-#: inc/siddur.php:85
+#: inc/siddur.php:90
 msgid "Add to My Siddur"
 msgstr "הוסף לסידור שלי"
 
-#: inc/siddur.php:88
-msgid "Add to My Siddur (Login First)"
-msgstr "הוסף ל<b>סידור שלי</b> <small>(התחברות)</small>"
-
-#: inc/siddur.php:92
+#: inc/siddur.php:102
 msgid "Remove from My Siddur"
 msgstr "להסיר מהסידור שלי"
 
-#: inc/template-tags.php:18
-msgid "About the Author"
-msgstr "אודות המחבר"
+#: inc/siddur.php:107
+msgid "(Log-in required)"
+msgstr "(נדרשת התחברות למערכת)"
 
-#: inc/template-tags.php:37
-msgid "Video"
-msgstr "וידאו"
+#: inc/template-tags.php:49 parts/sections-header.php:76
+msgid "Log In"
+msgstr "התחברות"
 
-#: inc/template-tags.php:52
+#: inc/template-tags.php:50 parts/sections-header.php:77
+msgid "Sign Up"
+msgstr "להירשם"
+
+#: inc/template-tags.php:138
+msgid "Default User Avatar"
+msgstr "תמונת פרופיל כללית"
+
+#: inc/template-tags.php:181
+#, php-format
+msgid ""
+"This author joined KEM on %1$s, and shared %2$d articles with the community. "
+"WTG!"
+msgstr "כותב זה הצטרף ל-KEM ב-%1$s, ושיתף %2$d מאמרים עם הקהילה. כל הכבוד!"
+
+#: inc/template-tags.php:212
 msgid "Type N/A"
 msgstr "ללא סוג"
 
-#: inc/template-tags.php:64 inc/template-tags.php:84
+#: inc/template-tags.php:226 inc/template-tags.php:246
 msgid "All Types"
 msgstr "כל הסוגים"
 
-#: inc/template-tags.php:111
+#: inc/template-tags.php:278
 #, php-format
 msgid "Found %1$s articles"
 msgstr "נמצאו %1$s מאמרים"
 
-#: inc/template-tags.php:233 inc/template-tags.php:239
+#: inc/template-tags.php:335 inc/template-tags.php:341
 msgid ", "
 msgstr ", "
 
-#: inc/template-tags.php:235
+#: inc/template-tags.php:337
 #, php-format
 msgid "Posted in %1$s"
 msgstr "הועלה אל %1$s"
 
-#: inc/template-tags.php:241
+#: inc/template-tags.php:343
 #, php-format
 msgid "Tagged %1$s"
 msgstr "תגיות: %1$s"
 
-#: inc/template-tags.php:248
+#: inc/template-tags.php:350
 #, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "לכתוב תגובה<span class=\"screen-reader-text\"> על %s</span>"
 
-#: inc/template-tags.php:255
+#: inc/template-tags.php:357
 #, php-format
 msgid "Edit %s"
 msgstr "לערוך את %s"
 
-#: inc/template-tags.php:319
+#: inc/template-tags.php:438
 msgid "Older"
 msgstr "ישנים יותר"
 
-#: inc/template-tags.php:320
+#: inc/template-tags.php:439
 msgid "Newer"
 msgstr "חדשים יותר"
 
-#: inc/template-tags.php:321 inc/template-tags.php:370
+#: inc/template-tags.php:440 inc/template-tags.php:492
 msgid "Posts navigation"
 msgstr "ניווט בפוסטים"
 
-#: inc/template-tags.php:424 templates/content-single.php:12
-msgid "Not Set"
-msgstr "לא הוגדר"
+#: inc/template-tags.php:538 searchform.php:3
+msgid "Search for:"
+msgstr "חיפוש של:"
 
-#: page-my-account.php:16 page-my-siddur.php:19
+#: inc/template-tags.php:564
+msgid "An interesting article from Kolehad.org"
+msgstr "מאמר מעניין מ-kolehad.org"
+
+#: inc/template-tags.php:565
+msgid "Thought you might be interested in this:"
+msgstr "חשבתי שתמצא עניין בזה:"
+
+#: inc/template-tags.php:571
+msgid "Share this on Facebook"
+msgstr "שיתוף העמוד ב-Facebook"
+
+#: inc/template-tags.php:576
+msgid "Share this on Twitter"
+msgstr "שיתוף העמוד ב-Twitter"
+
+#: inc/template-tags.php:581
+msgid "Share this on Pinterest"
+msgstr "שיתוף העמוד ב-Pinterest"
+
+#: inc/template-tags.php:586
+msgid "Share this via e-mail"
+msgstr "שיתוף העמוד בדוא\"ל"
+
+#: inc/template-tags.php:653
+msgid "Articles filed under"
+msgstr "מאמרים בקטגוריית"
+
+#: inc/template-tags.php:656
+msgid "Articles tagged"
+msgstr "מאמרים עם התגית"
+
+#: inc/template-tags.php:659
+msgid "Search Results for"
+msgstr "תוצאות חיפוש עבור"
+
+#: inc/template-tags.php:666
+msgid "Articles by"
+msgstr "מאמרים מאת"
+
+#: inc/template-tags.php:669
+msgid "Archive for"
+msgstr "ארכיון של:"
+
+#: page-my-account_2.php:16 page-my-siddur.php:21
+#: templates/content-my-account.php:9 templates/content-share.php:9
 msgid "Are you lost, dear friend?"
 msgstr "הלכת לאיבוד?"
 
-#: page-my-account.php:17 page-my-siddur.php:20
+#: page-my-account_2.php:17 page-my-siddur.php:22
+#: templates/content-my-account.php:10 templates/content-share.php:10
 msgid "You need to log in"
 msgstr "עליך להתחבר"
 
-#: page-my-account.php:17 page-my-siddur.php:20
+#: page-my-account_2.php:17 page-my-siddur.php:22
+#: templates/content-my-account.php:10 templates/content-share.php:10
 msgid "or"
 msgstr "או"
 
-#: page-my-account.php:17 page-my-siddur.php:20
+#: page-my-account_2.php:17 page-my-siddur.php:22
+#: templates/content-my-account.php:10 templates/content-share.php:10
 msgid "sign up"
 msgstr "להירשם"
 
-#: page-my-account.php:17 page-my-siddur.php:20
+#: page-my-account_2.php:17 page-my-siddur.php:22
+#: templates/content-my-account.php:10 templates/content-share.php:10
 msgid " to see this page."
 msgstr "כדי לצפות בעמוד הזה."
 
-#: page-my-account.php:27
+#: page-my-account_2.php:27 templates/content-my-account.php:20
 msgid "Update Account"
 msgstr "עדכון חשבון"
 
-#: page-my-account.php:28
+#: page-my-account_2.php:28 templates/content-my-account.php:21
 msgid "<b>Success!</b> Your account is now up-to-date with the new info."
 msgstr "הצלחה! החשבון שלך מעודכן עם הנתונים החדשים."
 
-#: page-my-siddur.php:27
+#: page-my-siddur.php:29
 msgid "Your Siddur is still empty!"
 msgstr "הסידור שלך עדיין ריק!"
 
-#: page-my-siddur.php:28
+#: page-my-siddur.php:30
 msgid "Add your favorite items to your Siddur, for quick access."
 msgstr "כדאי להוסיף לכאן מאמרים, כדי לקבל גישה מהירה ונוחה אליהם."
 
-#: page-share.php:28
+#: page-share_2.php:28 templates/content-share.php:26
 msgid "Submit for review"
 msgstr "שלח לאישור"
 
-#: page-share.php:29
+#: page-share_2.php:29 templates/content-share.php:27
 msgid ""
 "<b>Success!</b> Your article was submitted successfully and will be reviewed "
 "shortly."
 msgstr "כל הכבוד! המאמר שלך נשלח בהצלחה ויאושר בקרוב."
 
-#: search.php:12
-#, php-format
-msgid "Search Results for: %1$s"
-msgstr "תוצאות חיפוש עבור: %1$s"
+#: parts/article-buttons.php:19
+msgid "Post Views"
+msgstr "מספר צפיות במאמר"
 
-#: searchform.php:3
-msgid "Search for:"
-msgstr "חיפוש של:"
+#: parts/article-buttons.php:22
+msgid "Comments"
+msgstr "תגובות"
+
+#: parts/article-buttons.php:26
+msgid "Share this article"
+msgstr "שיתוף"
+
+#: parts/article-buttons.php:35
+msgid "Print this article"
+msgstr "הדפסה"
+
+#: parts/article-buttons.php:45
+msgid "Cancel"
+msgstr "בטל"
+
+#: parts/sections-header.php:63 parts/sections-header.php:104
+msgid "Pick a Jewish brain"
+msgstr "חפש במוח היהודי"
 
 #: sections/filter-row.php:2
 msgid "Select Post Type:"
 msgstr "בחר סוג מאמר:"
 
-#: templates/content-single.php:38
+#: templates/content-single.php:37
 msgid "More about this..."
 msgstr "עוד על זה...."
 
-#: templates/content-single.php:43
+#: templates/content-single.php:45
 msgid "Categories:"
 msgstr "קטגוריות:"
 
-#: templates/content-single.php:43
+#: templates/content-single.php:48
 #, php-format
 msgid "This %1$s article was posted on "
 msgstr "מאמר ה%1$s הזה פורסם ביום"
 
 #, fuzzy
+#~| msgid "Post Comment"
+#~ msgid "%s Comment"
+#~ msgstr "פרסום תגובה"
+
+#, fuzzy
+#~| msgid "One Comment"
+#~ msgid "One CommentAAAA"
+#~ msgstr "תגובה אחת"
+
+#~ msgid "One comment"
+#~ msgstr "תגובה אחת"
+
+#, fuzzy
 #~| msgid "Discuss this"
 #~ msgid "Dismiss this notice"
 #~ msgstr "לדבר על זה"
+
+#, fuzzy
+#~| msgid "Update Account"
+#~ msgid "Update Required"
+#~ msgstr "עדכון חשבון"
+
+#, fuzzy
+#~| msgid "Update Account"
+#~ msgid "Recommended"
+#~ msgstr "עדכון חשבון"
 
 #, fuzzy
 #~| msgid "Text Source"
@@ -370,23 +536,52 @@ msgstr "מאמר ה%1$s הזה פורסם ביום"
 #~ msgstr "מקור הטקסט"
 
 #, fuzzy
-#~| msgid "Type N/A"
-#~ msgid "Type"
-#~ msgstr "Type N/A"
+#~| msgid "Update Account"
+#~ msgid "Update %2$s"
+#~ msgstr "עדכון חשבון"
 
 #, fuzzy
 #~| msgid "Update Account"
 #~ msgid "Update"
 #~ msgstr "עדכון חשבון"
 
-#~ msgid "Article Filters"
-#~ msgstr "סינון מאמרים"
+#, fuzzy
+#~| msgid ", "
+#~ msgid " "
+#~ msgstr ", "
+
+#~ msgid "Posts by: "
+#~ msgstr "מאמרים מאת: "
+
+#~ msgid "View Subcategories"
+#~ msgstr "צפייה בתתי-קטגוריות"
+
+#~ msgid "Discuss this"
+#~ msgstr "לדבר על זה"
+
+#~ msgid "Back to top"
+#~ msgstr "חזרה למעלה"
+
+#~ msgid "Add to <b>My Siddur</b>"
+#~ msgstr "הוסף ל<b>סידור שלי</b>"
+
+#~ msgid "Add to <b>My Siddur</b> <small>(Login)</small>"
+#~ msgstr "הוסף ל<b>סידור שלי</b> <small>(התחברות)</small>"
+
+#~ msgid "Remove from <b>My Siddur</b>"
+#~ msgstr "הסר מה<b>סידור שלי</b>"
+
+#~ msgid "Add to My Siddur (Login First)"
+#~ msgstr "הוסף ל<b>סידור שלי</b> <small>(התחברות)</small>"
+
+#~ msgid "About the Author"
+#~ msgstr "אודות המחבר"
+
+#~ msgid "Video"
+#~ msgstr "וידאו"
 
 #~ msgid "There's Nothing Here yet"
 #~ msgstr "אין פה שום דבר עדיין"
-
-#~ msgid "Categories"
-#~ msgstr "קטגוריות"
 
 #~ msgid "All Formats"
 #~ msgstr "כל הפורמטים"
@@ -416,15 +611,6 @@ msgstr "מאמר ה%1$s הזה פורסם ביום"
 
 #~ msgid "The Text"
 #~ msgstr "נוסח הטקסט"
-
-#~ msgctxt "comments title"
-#~ msgid "One Comment"
-#~ msgid_plural "%1$s Comments"
-#~ msgstr[0] "תגובה אחת"
-#~ msgstr[1] "%1$s תגובות"
-
-#~ msgid "Communities"
-#~ msgstr "נהוג בקהילות:"
 
 #~ msgid "More About This"
 #~ msgstr "עוד על זה"

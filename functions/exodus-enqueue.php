@@ -45,9 +45,10 @@ function exodus_scripts() {
     wp_enqueue_script( 'exodus-skip-link-focus-fix', get_template_directory_uri() . '/js/min/skip-link-focus-fix.min.js', array(), '20151215', true );
 
     if (is_home() || is_front_page() || is_category() || is_archive() || is_search() || is_page('my-siddur')) {
-        wp_enqueue_script( 'masonry');
+        wp_enqueue_script( 'masonry-grid', get_template_directory_uri() . '/js/min/masonry-grid.min.js', array( 'jquery' ), '2.0.0', true );
+        wp_enqueue_script( 'masonry-pkgd', get_template_directory_uri() . '/js/masonry.pkgd.min.js', array( 'jquery' ), '4.2.0', true );
+        // wp_enqueue_script( 'masonry');
         wp_enqueue_script( 'imagesloaded');
-        // wp_enqueue_script( 'masonry-alm', get_template_directory_uri() . '/js/min/masonry-alm.min.js', array( 'jquery' ), '', true );
     }
 
     wp_enqueue_script( 'exodus-plugin-hacks', get_template_directory_uri() . '/js/min/plugin-hacks.min.js', array( 'jquery' ), '0.1', true );

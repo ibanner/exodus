@@ -6,8 +6,8 @@
         <?php
         if (!is_user_logged_in()) {
             echo '<div class="alert alert-warning text-center" role="alert">';
-            echo '<p class="lead h1">' . __("Are you lost, dear friend?", 'exodus') . '</p>';
-            echo ' <a href="/wp-login.php" class="alert-link">' . __("You need to log in", 'exodus') . '</a> ' . __( 'or' , 'exodus') . ' <a href="/wp-login.php?action=register" class="alert-link">' . __("sign up", 'exodus') . '</a>' . __( ' to see this page.' , 'exodus');
+            echo '<p class="lead h1">' . esc_html__("Are you lost, dear friend?", 'exodus') . '</p>';
+            echo ' <a href="/wp-login.php" class="alert-link">' . esc_html__("You need to log in", 'exodus') . '</a> ' . __( 'or' , 'exodus') . ' <a href="/wp-login.php?action=register" class="alert-link">' . __("sign up", 'exodus') . '</a>' . __( ' to see this page.' , 'exodus');
             echo '</div>';
         } else { ?>
             <div class="page-content">
@@ -23,7 +23,7 @@
                 ),
                 'post_title' => true,
                 'post_content' => true,
-                'submit_value' => __("Submit for review", 'exodus'),
+                'submit_value' => esc_html__("Submit for review", 'exodus'),
                 'updated_message' => __("<b>Success!</b> Your article was submitted successfully and will be reviewed shortly.", "exodus"),
             ));
         }

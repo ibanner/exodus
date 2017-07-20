@@ -149,7 +149,7 @@
 }
 
 @mixin has-parallax() {
-  .home &, .category &, .archive &, .author &, .search & {
+  .home &, .category &, .archive &, .author &, .search &, .my-siddur & {
     @content
   }
 }

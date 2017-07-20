@@ -13,14 +13,14 @@ if( function_exists('acf_add_local_field_group') ):
 
     acf_add_local_field_group(array (
         'key' => 'exodus_user_information',
-        'title' => 'User Information',
+        'title' => esc_html__('User Information', 'exodus'),
         'fields' => array (
             array (
                 'key' => 'field_5820857820158',
-                'label' => __('Profile', 'exodus'),
+                'label' => esc_html__('Profile', 'exodus'),
                 'name' => 'profile',
                 'type' => 'textarea',
-                'instructions' => 'Share something about yourself!',
+                'instructions' => esc_html__('Share something about yourself!', 'exodus'),
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array (
@@ -36,7 +36,7 @@ if( function_exists('acf_add_local_field_group') ):
             ),
             array (
                 'key' => 'field_582085a620159',
-                'label' => __('Gender', 'exodus'),
+                'label' => esc_html__('Gender', 'exodus'),
                 'name' => 'gender',
                 'type' => 'radio',
                 'instructions' => '',
@@ -48,8 +48,8 @@ if( function_exists('acf_add_local_field_group') ):
                     'id' => '',
                 ),
                 'choices' => array (
-                    'Female' => __('Female', 'exodus'),
-                    'Male' => __('Male', 'exodus'),
+                    'Female' => esc_html__('Female', 'exodus'),
+                    'Male' => esc_html__('Male', 'exodus'),
                 ),
                 'allow_null' => 0,
                 'other_choice' => 0,
@@ -60,7 +60,7 @@ if( function_exists('acf_add_local_field_group') ):
             ),
             array (
                 'key' => 'field_582085f22015a',
-                'label' => __('Date of Birth', 'exodus'),
+                'label' => esc_html__('Date of Birth', 'exodus'),
                 'name' => 'date_of_birth',
                 'type' => 'date_picker',
                 'instructions' => '',
@@ -94,6 +94,46 @@ if( function_exists('acf_add_local_field_group') ):
         'position' => 'normal',
         'style' => 'default',
         'label_placement' => 'left',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => 1,
+        'description' => '',
+    ));
+
+    acf_add_local_field_group(array (
+        'key' => 'exodus_featured_video',
+        'title' => esc_html__('Featured Video', 'exodus'),
+        'fields' => array (
+            array (
+                'key' => 'field_5816ee6e240d6',
+                'label' => esc_html__('Featured Video', 'exodus'),
+                'name' => 'featured_video',
+                'type' => 'oembed',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array (
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'width' => 1170,
+                'height' => 658,
+            ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'post',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'side',
+        'style' => 'default',
+        'label_placement' => 'top',
         'instruction_placement' => 'label',
         'hide_on_screen' => '',
         'active' => 1,

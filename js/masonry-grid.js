@@ -1,22 +1,36 @@
-var x = document.getElementsByTagName("html")[0].getAttribute("dir");
-// console.log(x);
-if ( x == 'rtl') {
-    jQuery('.grid').masonry({
-        itemSelector: '.grid-item',
-        columnWidth: '.grid-item',
-        percentPosition: true,
-        originLeft: false,
-        resizesContainer: true
+( function( $ ) {
 
+    $(document).ready(function () {
+
+        var x = document.getElementsByTagName("html")[0].getAttribute("dir"),
+            $grid = $('.alm-masonry'),
+            $masonryInit = '{ "itemSelector": ".grid-item", "columnWidth": ".grid-item", "percentPosition": true,  "resizesContainer": true';
+
+        // console.log(x);
+
+        if ( x == 'rtl') {
+            $masonryInit += ', "originLeft": false';
+        }
+
+        $masonryInit += ' }';
+
+        // console.log($masonryInit);
+
+        $grid.attr("data-masonry", $masonryInit );
 
     });
-    // console.log('originLeft: false');
-} else {
-    jQuery('.grid').masonry({
-        itemSelector: '.grid-item',
-        columnWidth: '.grid-item',
-        percentPosition: true,
-        resizesContainer: true
+
+    var $footer = $('footer.page-foot'),
+        $f_pos = $footer.position(),
+        $f_top = $f_pos.top,
+        $win_h = $(window).height();
+
+    $(window).scroll(function() {
+
+        if ($(this).scrollTop() >= $win_h) {
+            $footer.addClass('scroll-fix');
+        } else {
+            $footer.removeClass('scroll-fix');
+        }
     });
-    // console.log('originLeft: true');
-}
+})(jQuery);

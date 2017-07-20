@@ -42,6 +42,7 @@ define( 'HOME',			home_url( '/' ) );
 define( 'THEME_ROOT',	"$theme_root/$stylesheet" );
 define( 'CSS_DIR',		TEMPLATE . '/css' );
 define( 'JS_DIR',		TEMPLATE . '/js' );
+define( 'IMAGES_DIR',	TEMPLATE . '/images' );
 
 /**
  * Google Fonts

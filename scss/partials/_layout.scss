@@ -54,7 +54,7 @@
 
     @include respond-to(desktop) {
       .single &,
-      .page & {
+      .page:not(.my-siddur) & {
         display: none;
       }
     }
@@ -65,7 +65,7 @@
 
     @include respond-to(desktop) {
       .single &,
-      .page & {
+      .page:not(.my-siddur) & {
         display: block;
         float: left;
         margin-left: 15px;
@@ -167,7 +167,7 @@
   }
 }
 
-.wrapper--grid, .wrapper--category {
+.wrapper--grid, .wrapper--category, .wrapper--siddur {
   margin-top: 15px;
 
   .home & {
@@ -263,7 +263,7 @@
 
 .admin-bar {
   &.single,
-  &.page {
+  &.page:not(.my-siddur) {
     .page-head__top {
       top: $h-wp-adminbar-mobile;
 
@@ -318,6 +318,13 @@
         width: 192px;
         height: 76px;
       }
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  .author-info__name {
+    a[href]:after {
+      content: '';
     }
   }
 }
