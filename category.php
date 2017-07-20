@@ -11,7 +11,7 @@ $sub_cats = get_categories( array(
     'hide_empty' => false,
 ) );
 $ids = exodus_alm_query_ids('cat');
-$type = (isset($_GET['post_types_tax'])) ? $_GET['post_types_tax'] : '';
+$type = (isset($_GET['type'])) ? $_GET['type'] : '';
 $alert = exodus_siddur_action_handler();
 ?>
 
