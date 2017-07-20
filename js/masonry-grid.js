@@ -16,7 +16,7 @@
 
         // console.log($masonryInit);
 
-        $grid.attr("data-masonry", $masonryInit );
+        // $grid.attr("data-masonry", $masonryInit );
 
     });
 
