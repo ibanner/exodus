@@ -27,10 +27,12 @@
 
     $(window).scroll(function() {
 
-        if ($(this).scrollTop() >= $win_h) {
+        $footer.addClass('scroll-fix');
+
+        /*if ($(this).scrollTop() >= $win_h) {
             $footer.addClass('scroll-fix');
         } else {
             $footer.removeClass('scroll-fix');
-        }
+        }*/
     });
 })(jQuery);
