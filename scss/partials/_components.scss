@@ -916,6 +916,7 @@ button.alm-load-more-btn.loading:before {
   color: #ffffff;
   margin-left: -22px;
   padding: 2px 10px 2px 30px;
+  background-color: $notype-bg-color;
 
   &:active, &:hover {
     color: #ffffff;
