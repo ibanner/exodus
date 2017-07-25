@@ -121,6 +121,7 @@
 
     &.input--split-select-arrow {
       border-radius: 0 15px 15px 0;
+      box-shadow: inset 3px 3px 3px rgba(0,0,0,.125);
       width: 20%; /* fallback for browsers without support for calc() */
       width: calc(30px);
     }
