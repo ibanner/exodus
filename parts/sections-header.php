@@ -14,8 +14,9 @@ $home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
 $login_url = wp_login_url();
 $signup_url = $login_url . '?action=register';
 $site_title = get_bloginfo( 'name' );
-$type = (isset($_GET['type'])) ? $_GET['type'] : '';
+$type = exodus_get_active_type_slug();
 $p_container = ( exodus_is_parallax_page() ) ? 'parallax-container  init-state' : '';
+$request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
 
 ?>
 
@@ -60,9 +61,12 @@ $p_container = ( exodus_is_parallax_page() ) ? 'parallax-container  init-state' 
 
                 <div class="page-head__mini-search">
                     <form id="header-mini-search" class="search-form search-form--mini-header" action="<?php echo $home_url; ?>" method="get" _lpchecked="1">
-                        <input type="text" class="input input--search" id="s" name="s" data-swplive="true" placeholder="<?php esc_attr_e( 'Pick a Jewish brain' , 'exodus' ); ?>">
-                        <button type="submit" class="btn btn-link input__search-icon"><?php echo exodus_get_icon('search', 'large', 'img' , esc_attr('Search Icon', 'exodus')); ?></button>
-                        <?php exodus_post_types_tax_droplist_ui($type); ?>
+                        <input type="text" class="input input--search" id="s" name="s" data-swplive="true" placeholder="<?php esc_attr_e( 'Pick a Jewish brain' , 'exodus' ); ?>" value="<?php echo exodus_maybe_search_query(); ?>">
+                        <div class="btn btn-link input__search-icon"><?php echo exodus_get_icon('search', 'large', 'img' , esc_attr('Search Icon', 'exodus')); ?></div>
+                        <?php if ('' !== $type ) : ?>
+                            <input type="hidden" id="type-listener" class="type-listener hidden" name="type" value="<?php echo exodus_get_active_type_slug(); ?>">
+                        <?php endif; ?>
+                        <?php exodus_filter_by_type($type); ?>
                     </form>
                 </div>
 
@@ -101,10 +105,13 @@ $p_container = ( exodus_is_parallax_page() ) ? 'parallax-container  init-state' 
     <section class="page-head__search" role="search">
         <form id="header-search" class="search-form search-form--header" action="<?php echo $home_url; ?>" method="get" _lpchecked="1">
             <div class="wrapper--search">
-                <input type="text" class="input input--search" name="s" data-swplive="true" placeholder="<?php esc_attr_e( 'Pick a Jewish brain' , 'exodus' ); ?>">
-                <button type="submit" class="btn btn-link input__search-icon"><?php echo exodus_get_icon('search', 'large', 'img' , esc_attr('Search Icon', 'exodus')); ?></button>
+                <input type="text" class="input input--search" name="s" data-swplive="true" placeholder="<?php esc_attr_e( 'Pick a Jewish brain' , 'exodus' ); ?>" value="<?php echo exodus_maybe_search_query(); ?>">
+                <div class="btn btn-link input__search-icon"><?php echo exodus_get_icon('search', 'large', 'img' , esc_attr('Search Icon', 'exodus')); ?></div>
+                <?php if ('' !== $type ) : ?>
+                <input type="hidden" id="type-listener" class="type-listener hidden" name="type" value="<?php echo exodus_get_active_type_slug(); ?>">
+                <?php endif; ?>
             </div>
-            <?php exodus_post_types_tax_droplist_ui($type); ?>
+            <?php exodus_filter_by_type($type); ?>
         </form>
     </section>
 

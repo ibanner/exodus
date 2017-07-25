@@ -93,7 +93,43 @@
 
   .input__search-icon {
     left: auto;
-    right: 25px
+    right: 20px;
+  }
+
+  .filter-group {
+    margin-right: 20px;
+    margin-left: 0;
+    direction: ltr;
+
+    .caret {
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    .dropdown-menu {
+      left: auto;
+      right: 0;
+      float: right;
+      text-align: right;
+    }
+  }
+
+  .btn-group>.btn {
+    float: right;
+  }
+
+  .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 22px !important;
+    border-bottom-right-radius: 22px !important;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .btn-group>.btn:last-child:not(:first-child), .btn-group>.dropdown-toggle:not(:first-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 22px !important;
+    border-bottom-left-radius: 22px !important;
   }
 }
 

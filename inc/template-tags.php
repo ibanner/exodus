@@ -261,6 +261,124 @@ endif;
 
 /******************************************************/
 
+function exodus_get_active_type_slug() {
+
+    $active_type_slug = '';
+    if ( is_tax('post_types_tax') ) {
+        $active_type_slug = get_queried_object()->slug;
+
+    } elseif ( isset($_GET['type']) ) {
+        $active_type_slug = $_GET['type'];
+
+    }
+
+    return $active_type_slug;
+}
+
+/******************************************************/
+
+function exodus_filter_by_type($active) {
+
+    // var_dump(get_queried_object());
+
+    $post_types = get_terms( array(
+        'taxonomy' => 'post_types_tax',
+        'hide_empty' => true,
+    ) );
+
+    $all_types_slug = 'all-types';
+    $all_types_label = esc_html__( "All Types" , "exodus" );
+    $is_all_types = true;
+
+    $active_type_slug = $all_types_slug;
+    $active_type_label = $all_types_label;
+
+    if ( is_tax('post_types_tax') ) {
+
+        $active_type_slug = get_queried_object()->slug;
+        $active_type_label = get_queried_object()->name;
+        $is_all_types = false;
+
+    } elseif ( isset($_GET['type']) ) {
+
+        $active_type_slug = $_GET['type'];
+
+        $active_type = get_terms( array(
+            'taxonomy' => 'post_types_tax',
+            'slug' => $active,
+        ) );
+
+        $active_type_label = $active_type[0]->name;
+        $is_all_types = false;
+
+    }
+
+    $remove_filter_url = exodus_get_remove_type_filter_url();
+
+    echo '<div class="btn-group filter-group type">' .
+        '<button type="submit" class="btn input input--split-select input--split-select-label">' . $active_type_label . '</button>' .
+        '<button type="button" class="btn input input--split-select input--split-select-arrow dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' .
+            '<span class="caret"></span>' .
+            '<span class="sr-only">' . esc_html__('Toggle Dropdown', 'exodus') . '</span>' .
+        '</button>' .
+        '<ul class="dropdown-menu post-types-tax wrapper--tooltip">';
+
+    echo '<li class="all-types ' . ( $is_all_types ? 'active' : '' ) . '"><a href="' . $remove_filter_url . '">' . $all_types_label . '</a></li>';
+    echo '<li role="separator" class="divider"></li>';
+
+    foreach ($post_types as $post_type) {
+
+        $target_url = exodus_get_type_filter_url($post_type);
+
+        echo '<li class="' . $post_type->slug . '"><a href="' . $target_url . '">' . $post_type->name . '</a></li>';
+    }
+
+    echo '</ul></div>';
+
+}
+
+/******************************************************/
+
+function exodus_get_type_filter_url($post_type) {
+
+    $s = isset($_GET['s']) ? $_GET['s'] : false;
+
+    if ( is_tax('post_types_tax') || is_home() ) {
+        $target_url = get_term_link( $post_type->slug, 'post_types_tax' );
+        $target_url = add_query_arg('s', $s, $target_url);
+    } else {
+        $target_url = add_query_arg( array( 's' => $s, 'type' => $post_type->slug, ) );
+    }
+
+    return $target_url;
+}
+
+/******************************************************/
+
+function exodus_get_remove_type_filter_url() {
+
+    $s = isset($_GET['s']) ? $_GET['s'] : false;
+
+    if ( is_tax('post_types_tax') ) {
+        $target_url = add_query_arg('s', $s, site_url());
+    } else {
+        $target_url = add_query_arg( array( 's' => $s, 'type' => false, ) );
+    }
+
+    return $target_url;
+}
+
+/******************************************************/
+
+function exodus_maybe_search_query() {
+
+    $query = is_search() ? get_search_query() : '';
+
+    return $query;
+}
+
+/******************************************************/
+
 if ( ! function_exists( 'exodus_article_count' )) :
 
     /**

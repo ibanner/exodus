@@ -70,6 +70,8 @@
   height: $h-search-mobile;
 
   @include respond-to(not-mobile) {
+    width: 100%;
+
     .parallax-container & {
       justify-content: center;
     }
@@ -79,11 +81,99 @@
     height: $h-header-top;
   }
 
+  .home & {
+    margin: 0 15px;
+
+    @include respond-to(mobile) {
+      display: block;
+
+      .btn-group {
+        width: 100%;
+      }
+    }
+  }
+
+  @include respond-to-min($break-large) {
+    width: 826px;
+
+    .single &,
+    .page:not(.my-siddur) & {
+      width: 100%;
+    }
+  }
+
   .input {
     @extend .input;
     font-size: $base-font-size;
-    width: 100%;
     margin-right: 10px;
+    text-align: left;
+    height: $h-header-top;
+
+    &:not(.input--split-select) {
+      border-radius: 15px;
+    }
+
+    &.input--split-select-label {
+      border-radius: 15px 0 0 15px;
+      width: 80%; /* fallback for browsers without support for calc() */
+      width: calc(100% - 30px);
+    }
+
+    &.input--split-select-arrow {
+      border-radius: 0 15px 15px 0;
+      width: 20%; /* fallback for browsers without support for calc() */
+      width: calc(30px);
+    }
+
+    .home & {
+      height: 44px;
+      margin-bottom: 15px;
+      font-size: 16px;
+
+      &:not(.input--split-select) {
+        border-radius: 22px;
+      }
+
+      &.input--split-select-label {
+        border-radius: 22px 0 0 22px;
+      }
+
+      &.input--split-select-arrow {
+        border-radius: 0 22px 22px 0;
+      }
+    }
+
+    @include respond-to(not-mobile) {
+      margin: 0;
+      font-size: 16px;
+      border-radius: $h-header-top;
+
+      &:not(.input--split-select) {
+        border-radius: $h-header-top;
+      }
+
+      &.input--split-select-label {
+        border-radius: $h-header-top 0 0 $h-header-top;
+      }
+
+      &.input--split-select-arrow {
+        border-radius: 0 $h-header-top $h-header-top 0;
+      }
+
+      @include has-parallax() {
+        height: 44px;
+        margin: 0;
+      }
+
+      .single,
+      .page:not(.my-siddur) & {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .input:not(.input--split-select) {
+    width: 100%;
   }
 
   .input--search {
@@ -102,19 +192,39 @@
     }
   }
 
-  .input--select {
+  .input--select, .input--split-select {
     background-color: $color-logo-red;
     color: #ffffff;
-    padding: 5px 10px 5px 17px;
     border-color: $color-logo-red;
     margin-right: 0;
+  }
+
+  .input--select {
+    padding: 5px 10px 5px 17px;
+  }
+
+  .input--split-select {
+
+    &button {
+      width: inherit;
+    }
+  }
+
+  .filter-group {
+    @include respond-to(not-mobile) {
+      margin-left: 20px;
+    }
+  }
+
+  .current-filter-type {
+    margin-right: 15px;
   }
 }
 
   .input__search-icon {
     position: absolute;
-    top: 0;
-    left: 25px;
+    top: 12px;
+    left: 20px;
     padding: 0;
     height: $h-header-top - 2px;
 
@@ -128,6 +238,8 @@
       .single &,
       .page:not(.my-siddur) & {
         height: $h-header-top;
+        top: 5px;
+        left: 25px;
       }
     }
 
@@ -214,82 +326,6 @@ header.parallax-container {
   margin-left: 12px;
   background: #f0f0f0;
 }
-
-
-
-.search-form {
-
-  .home & {
-    margin: 0 15px;
-  }
-
-  @include respond-to(not-mobile) {
-    width: 100%;
-  }
-
-  @include respond-to-min($break-large) {
-    width: 826px;
-
-    .single &,
-    .page:not(.my-siddur) & {
-      width: 100%;
-    }
-  }
-
-  .input {
-    text-align: left;
-    height: $h-header-top;
-    border-radius: 15px;
-    width: 100%;
-    font-size: 12px;
-
-    .home & {
-      height: 44px;
-      border-radius: 22px;
-      margin-bottom: 15px;
-      font-size: 16px;
-    }
-
-    @include respond-to(not-mobile) {
-      margin: 0;
-      border-radius: $h-header-top;
-      font-size: 16px;
-
-      @include has-parallax() {
-        height: 44px;
-        margin: 0;
-      }
-
-      .single,
-      .page:not(.my-siddur) & {
-        font-size: 14px;
-      }
-    }
-  }
-
-  .input--select {
-    @include respond-to(not-mobile) {
-      margin-left: 20px;
-    }
-  }
-
-  .home & {
-
-    @include respond-to(mobile) {
-      display: block;
-
-      .btn-group {
-        width: 100%;
-      }
-    }
-  }
-
-  .current-filter-type {
-    margin-right: 15px;
-  }
-}
-
-
 
 
 .page-head__masthead {

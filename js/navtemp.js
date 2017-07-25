@@ -22,7 +22,7 @@
         return;
     }
 
-    typeFilter = headerSearch.getElementsByClassName( 'input--select' )[0];
+    typeFilter = headerSearch.getElementsByClassName( 'dropdown-toggle' )[0];
     if ( ! typeFilter ) {
         return;
     }
