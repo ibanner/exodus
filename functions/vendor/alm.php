@@ -142,7 +142,7 @@ if (! function_exists('exodus_alm_shortcode')) {
 
             $cat = get_query_var('cat');
             $category = get_category ($cat);
-            $shortcode .= ' category="'. $category->slug .'"';
+            $shortcode .= ' category="'. $category->slug .'" orderby="menu_order"';
 
         } elseif (isset($ids)) {
             $shortcode .= ' post__in="'.$ids.'" orderby="post__in"';
