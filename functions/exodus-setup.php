@@ -125,3 +125,26 @@ function add_ga_code() {
         echo '<!-- Google Analytics Tracking Code Not Set -->';
     }
 }
+
+/*-------------------------------------------------------------------------------
+	HONEYPOT
+-------------------------------------------------------------------------------*/
+
+function exodus_add_honeypot() {
+    echo '<input type="hidden" name="tamutu" value="" />';
+}
+
+function exodus_verify_honeypot() {
+    if ( ! isset( $_POST['tamutu'] ) ) {
+        wp_die( 'Spammers are losers' );
+    }
+    if ( ! empty( $_POST['tamutu'] ) ) {
+        wp_die( 'Spammers are losers' );
+    }
+}
+
+add_action( 'register_form', 'exodus_add_honeypot' );
+add_filter( 'registration_errors', 'exodus_verify_honeypot', 10, 3 );
+
+add_action( 'comment_form_top', 'exodus_add_honeypot' );
+add_filter( 'preprocess_comment', 'exodus_verify_honeypot' );
