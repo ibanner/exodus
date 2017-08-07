@@ -19,7 +19,7 @@
             </a>
         </div>
 
-        <?php if ( user_can( get_current_user_id(), 'manage_options') ) : ?>
+        <?php if ( current_user_can( 'edit_others_posts') ) : ?>
 
             <div class="grid-item__order-debug" style="background-color: #fff; padding: 5px;">
                 <?php echo 'MO: ' . get_post()->menu_order; ?>
