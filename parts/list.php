@@ -19,6 +19,14 @@
             </a>
         </div>
 
+        <?php if ( user_can( get_current_user_id(), 'manage_options') ) : ?>
+
+            <div class="grid-item__order-debug" style="background-color: #fff; padding: 5px;">
+                <?php echo 'MO: ' . get_post()->menu_order; ?>
+            </div>
+
+        <?php endif; ?>
+
         <div class="grid-item__details">
             <?php exodus_post_type_tax_label(); ?>
             <?php exodus_siddur_button(); ?>
