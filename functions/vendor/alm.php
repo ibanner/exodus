@@ -152,7 +152,7 @@ if (! function_exists('exodus_alm_shortcode')) {
             $shortcode .= ' taxonomy="post_types_tax" taxonomy_terms="'. $type .'" taxonomy_operator="IN"';
         }
 
-        $button_label = __('Older Items', 'exodus');
+        $button_label = __('More Results', 'exodus');
         $shortcode .= ' button_label="'. $button_label .'"]';
 
         echo do_shortcode( $shortcode );

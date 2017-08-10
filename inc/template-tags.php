@@ -768,7 +768,7 @@ if ( ! function_exists('exodus_grid_title') ) :
         $prefix = '';
 
         if ( is_category() ) {
-            $prefix = __( 'Articles filed under' , 'exodus' );
+            $prefix = __( 'Best results for' , 'exodus' );
             $title = single_cat_title( '', false );
         } elseif ( is_tag() ) {
             $prefix = __( 'Articles tagged' , 'exodus' );
