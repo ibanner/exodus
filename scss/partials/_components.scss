@@ -161,7 +161,7 @@
         border-radius: 0 $h-header-top $h-header-top 0;
       }
 
-      @include has-parallax() {
+      .home & {
         height: 44px;
         margin: 0;
       }
@@ -315,11 +315,6 @@ header.parallax-container {
     @include respond-to(not-mobile) {
       background-color: transparent;
     }
-  }
-
-  .page-head__navbar {
-    position: absolute;
-    bottom: 0;
   }
 }
 
@@ -486,6 +481,16 @@ header.parallax-container {
 
 .main-navigation {
   position: relative;
+  width: 100%;
+  @include respond-to(not-mobile) {
+    top: -6px;
+  }
+
+  .home & {
+    position: absolute;
+    top: initial;
+    bottom: 0;
+  }
 }
 
 .menu-categories-container {
@@ -1179,7 +1184,7 @@ p.comment-notes {
 .page-foot {
   font-size: $base-font-size;
 
-  @include has-parallax() {
+  @include has-grid-archive() {
 
     &.scroll-fix {
       position: fixed;

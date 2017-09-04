@@ -15,7 +15,9 @@ $login_url = wp_login_url();
 $signup_url = $login_url . '?action=register';
 $site_title = get_bloginfo( 'name' );
 $type = exodus_get_active_type_slug();
-$p_container = ( exodus_is_parallax_page() ) ? 'parallax-container  init-state' : '';
+$is_parallax = exodus_is_parallax_page();
+    $p_container =      ( $is_parallax ) ? 'parallax-container  init-state' : '';
+    $search_format =    ( $is_parallax ) ? 'full' : 'mini';
 $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
 
 ?>
@@ -57,20 +59,9 @@ $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
 
             <?php exodus_wpml_switch(); ?>
 
-            <?php if ( is_single() or is_page() ) : ?>
-
-                <div class="page-head__mini-search">
-                    <form id="header-mini-search" class="search-form search-form--mini-header" action="<?php echo $home_url; ?>" method="get" _lpchecked="1">
-                        <input type="text" class="input input--search" id="s" name="s" data-swplive="true" placeholder="<?php esc_attr_e( 'Pick a Jewish brain' , 'exodus' ); ?>" value="<?php echo exodus_maybe_search_query(); ?>">
-                        <div class="btn btn-link input__search-icon"><?php echo exodus_get_icon('search', 'large', 'img' , esc_attr('Search Icon', 'exodus')); ?></div>
-                        <?php if ('' !== $type ) : ?>
-                            <input type="hidden" id="type-listener" class="type-listener hidden" name="type" value="<?php echo exodus_get_active_type_slug(); ?>">
-                        <?php endif; ?>
-                        <?php exodus_filter_by_type($type); ?>
-                    </form>
-                </div>
-
-            <?php endif; ?>
+            <?php if ( 'mini' == $search_format ) :
+                exodus_render_search_form('mini', $type);
+            endif; ?>
 
             <div class="page-head__my-account hidden-xs">
 
@@ -102,18 +93,9 @@ $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
     </section>
 
 
-    <section class="page-head__search" role="search">
-        <form id="header-search" class="search-form search-form--header" action="<?php echo $home_url; ?>" method="get" _lpchecked="1">
-            <div class="wrapper--search">
-                <input type="text" class="input input--search" name="s" data-swplive="true" placeholder="<?php esc_attr_e( 'Pick a Jewish brain' , 'exodus' ); ?>" value="<?php echo exodus_maybe_search_query(); ?>">
-                <div class="btn btn-link input__search-icon"><?php echo exodus_get_icon('search', 'large', 'img' , esc_attr('Search Icon', 'exodus')); ?></div>
-                <?php if ('' !== $type ) : ?>
-                <input type="hidden" id="type-listener" class="type-listener hidden" name="type" value="<?php echo exodus_get_active_type_slug(); ?>">
-                <?php endif; ?>
-            </div>
-            <?php exodus_filter_by_type($type); ?>
-        </form>
-    </section>
+    <?php if ( 'full' == $search_format ) :
+        exodus_render_search_form('full', $type);
+    endif; ?>
 
     <?php if ( ! is_single() && ! is_page() ) : ?>
 

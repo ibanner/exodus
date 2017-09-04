@@ -4,19 +4,16 @@
   #SECTIONS
 \*------------------------------------*/
 
-/**
- * Extend `.page-head {}` in _media.scss.
- */
-
 .page-head {
   width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
 
   .page-head__top {
-    @extend .page-head;
+    width: 100%;
     background-color: $color-bg-base;
-    position: absolute;
-    top: 0;
     height: $h-header-mobile;
     display: inline-block;
     padding: 16px 15px 0;
@@ -34,7 +31,6 @@
   }
 
   .page-head__search {
-    @extend .page-head;
     background-color: $color-bg-primary;
     position: absolute;
     top: $h-header-mobile;
@@ -42,6 +38,10 @@
     .home & {
       background-color: transparent;
       top: 270px;
+
+      @include respond-to(mobile) {
+        width: 100%;
+      }
     }
 
     @include respond-to(not-mobile) {
@@ -49,6 +49,7 @@
         top: 245px;
         display: flex;
         justify-content: center;
+        width: 100%;
       }
     }
 
@@ -74,7 +75,6 @@
   }
 
   .page-head__navbar {
-    @extend .page-head;
     background-color: $color-bg-highlight;
     height: $h-nav-cats;
 
@@ -100,6 +100,16 @@
 }
 
 .page-body--archive {
+  margin-top: $h-header-mobile + $h-nav-cats;
+
+  @include respond-to(desktop) {
+    margin-top: $h-header-desktop-min + $h-nav-cats;
+    min-height: 800px;
+  }
+}
+
+.page-body--archive,
+.page-body--parallax {
   background-color: $color-bg-primary;
 }
 

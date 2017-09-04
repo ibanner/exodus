@@ -92,7 +92,7 @@ function exodus_move_comment_field_to_bottom( $fields ) {
 add_filter( 'comment_form_fields', 'exodus_move_comment_field_to_bottom' );
 
 /*-------------------------------------------------------------------------------
-	PARALLAX
+	PARALLAX LAYOUT
 -------------------------------------------------------------------------------*/
 
 /**
@@ -102,7 +102,7 @@ add_filter( 'comment_form_fields', 'exodus_move_comment_field_to_bottom' );
  */
 function exodus_is_parallax_page() {
     $is_parallax = false;
-    if (is_home() || is_front_page() || is_category() || is_archive() || is_search() || is_page('my-siddur')) {
+    if ( is_home() || is_front_page() ) {
         $is_parallax = true;
     }
     return $is_parallax;

@@ -153,3 +153,9 @@
     @content
   }
 }
+
+@mixin has-grid-archive() {
+  .home &, .category &, .archive &, .author &, .search &, .my-siddur & {
+    @content
+  }
+}

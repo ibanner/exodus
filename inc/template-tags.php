@@ -641,24 +641,51 @@ if ( ! function_exists( 'exodus_navigation_markup' ) ) :
 
 endif;
 
-/******************************************************/
+/**
+ * Renders the search field markup for the given format
+ *
+ * @since 2.0.0
+ *
+ * @param $format    string                 the format to render ('full'|'mini')
+ * @param $type      string (optional)      slug of the active type to filter by
+ *
+ * @return string   The search field HTML markup
+ */
 
-if ( ! function_exists( 'exodus_search_form' ) ) :
 
-    /**
-     * Prints HTML for the default search form
-     */
+if ( ! function_exists( 'exodus_render_search_form' ) ) :
 
-    function exodus_search_form() {
-        echo '<form role="search" method="get" class="search-form" action="' . home_url( "/" ) . '">';
-        echo '<div class="form-group">';
-        echo '<label>';
-        echo '<span class="screen-reader-text">' . _x( 'Search for:', 'label' ) .'</span>';
-        echo '<input type="search" class="search-field form-control input-lg" placeholder="' . /*esc_attr_x( 'Search …', 'placeholder' ) . */'" value="' . get_search_query() .'" name="s" title="' . esc_attr_x( 'Search for:', 'label' ) . '" />';
-        echo '</label>';
-        echo '<input type="submit" class="search-submit btn btn-info btn-lg" value="' . esc_attr_x( 'Search', 'submit button' ) . '" />';
-        echo '</div>';
-        echo '</form>';
+    function exodus_render_search_form($format,$type) {
+
+        $home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
+        $value = exodus_maybe_search_query();
+        $placeholder = esc_attr( 'Pick a Jewish brain' , 'exodus' );
+        $icon = exodus_get_icon('search', 'large', 'img' , esc_attr('Search Icon', 'exodus'));
+
+        switch ($format) {
+            case 'full':
+                $tag = 'section';
+                $tag_class = 'search';
+                $form_class = 'header';
+                break;
+            default:
+                $tag = 'div';
+                $tag_class = 'mini-search';
+                $form_class = 'mini-header';
+        }
+
+        echo '<' . $tag .' class="page-head__' . $tag_class .'" role="search">' .
+        '<form id="header-search" class="search-form search-form--' . $form_class .'" action="' . $home_url .'" method="get" _lpchecked="1">'.
+            '<div class="wrapper--' . $tag_class .'">' .
+                '<input type="text" class="input input--search" id="s" name="s" data-swplive="true" placeholder="' . $placeholder .'" value="' . $value .'">' .
+                '<div class="btn btn-link input__search-icon">' . $icon .'</div>';
+                if ('' !== $type ) :
+                echo '<input type="hidden" id="type-listener" class="type-listener hidden" name="type" value="' . $type .'">';
+                endif;
+            echo '</div>';
+            exodus_filter_by_type($type);
+        echo '</form>' .
+    '</' . $tag .'>';
     }
 
 endif;

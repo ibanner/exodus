@@ -24,10 +24,14 @@
 
 <body id="top" <?php body_class( $body_class_append ); ?>>
 
-    <?php get_template_part('parts/sections' , 'header'); ?>
+    <?php get_template_part('parts/sections' , 'header');
 
-    <?php if ( !is_singular() || is_page('my-siddur')) {
-        echo '<main class="page-body container-fluid page-body--archive" role="main">';
-    } else {
-        echo '<main class="page-body container-fluid page-body--singular" role="main">';
+    $main_variant = 'singular';
+
+    if ( exodus_is_parallax_page() ) {
+        $main_variant = 'parallax';
+    } elseif ( is_archive() || is_page('my-siddur') ) {
+        $main_variant = 'archive';
     } ?>
+
+    <main class="page-body container-fluid page-body--<?php echo $main_variant; ?>" role="main">
