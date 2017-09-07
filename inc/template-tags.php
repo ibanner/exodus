@@ -659,7 +659,7 @@ if ( ! function_exists( 'exodus_render_search_form' ) ) :
 
         $home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
         $value = exodus_maybe_search_query();
-        $placeholder = esc_attr( 'Pick a Jewish brain' , 'exodus' );
+        $placeholder = esc_attr__( 'Pick a Jewish Brain' , 'exodus' );
         $icon = exodus_get_icon('search', 'large', 'img' , esc_attr('Search Icon', 'exodus'));
 
         switch ($format) {

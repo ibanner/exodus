@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Exodus\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-19 14:09+0300\n"
-"PO-Revision-Date: 2017-07-19 14:10+0300\n"
+"POT-Creation-Date: 2017-09-07 12:15+0300\n"
+"PO-Revision-Date: 2017-09-07 12:15+0300\n"
 "Last-Translator: Itay Banner <itay@ibanner.co.il>\n"
 "Language-Team: Itay Banner - The Contechnician\n"
 "Language: he_IL\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.0.3\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_url__;esc_url_e;esc_html_e;"
 "esc_attr__;esc_attr_e;_x;_nx\n"
 "X-Poedit-Basepath: ..\n"
@@ -175,19 +175,19 @@ msgstr "תאריך לידה"
 msgid "Featured Video"
 msgstr "וידאו ראשי"
 
-#: functions/vendor/acf.php:93
+#: functions/vendor/acf.php:141
 msgid "Video Unavailable"
 msgstr "וידאו לא זמין"
 
 #: functions/vendor/alm.php:155
-msgid "Older Items"
-msgstr "פריטים ישנים יותר"
+msgid "More Results"
+msgstr "עוד תוצאות"
 
 #: functions/vendor/sgmb.php:26
 msgid "Not Set"
 msgstr "לא הוגדר"
 
-#: header_BK.php:28 parts/sections-header.php:30
+#: header_BK.php:28 parts/sections-header.php:33
 msgid "Skip to content"
 msgstr "דלג לתוכן"
 
@@ -195,7 +195,7 @@ msgstr "דלג לתוכן"
 msgid "Search"
 msgstr "חיפוש"
 
-#: header_BK.php:63 parts/sections-header.php:49
+#: header_BK.php:63 parts/sections-header.php:52
 #, php-format
 msgid "Go to the home page of %1$s"
 msgstr "לך לעמוד הבית של %1$s"
@@ -208,7 +208,7 @@ msgstr "החשבון שלי"
 msgid "Pick a Jewish Brain"
 msgstr "חפש במוח היהודי"
 
-#: header_BK.php:96 parts/sections-header.php:39
+#: header_BK.php:96 parts/sections-header.php:42
 msgid "Menu"
 msgstr "תפריט"
 
@@ -284,11 +284,11 @@ msgstr "להסיר מהסידור שלי"
 msgid "(Log-in required)"
 msgstr "(נדרשת התחברות למערכת)"
 
-#: inc/template-tags.php:49 parts/sections-header.php:76
+#: inc/template-tags.php:49 parts/sections-header.php:71
 msgid "Log In"
 msgstr "התחברות"
 
-#: inc/template-tags.php:50 parts/sections-header.php:77
+#: inc/template-tags.php:50 parts/sections-header.php:72
 msgid "Sign Up"
 msgstr "להירשם"
 
@@ -308,95 +308,100 @@ msgid "Type N/A"
 msgstr "ללא סוג"
 
 #: inc/template-tags.php:226 inc/template-tags.php:246
+#: inc/template-tags.php:290
 msgid "All Types"
 msgstr "כל הסוגים"
 
-#: inc/template-tags.php:278
+#: inc/template-tags.php:322
+msgid "Toggle Dropdown"
+msgstr ""
+
+#: inc/template-tags.php:396
 #, php-format
 msgid "Found %1$s articles"
 msgstr "נמצאו %1$s מאמרים"
 
-#: inc/template-tags.php:335 inc/template-tags.php:341
+#: inc/template-tags.php:453 inc/template-tags.php:459
 msgid ", "
 msgstr ", "
 
-#: inc/template-tags.php:337
+#: inc/template-tags.php:455
 #, php-format
 msgid "Posted in %1$s"
 msgstr "הועלה אל %1$s"
 
-#: inc/template-tags.php:343
+#: inc/template-tags.php:461
 #, php-format
 msgid "Tagged %1$s"
 msgstr "תגיות: %1$s"
 
-#: inc/template-tags.php:350
+#: inc/template-tags.php:468
 #, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "לכתוב תגובה<span class=\"screen-reader-text\"> על %s</span>"
 
-#: inc/template-tags.php:357
+#: inc/template-tags.php:475
 #, php-format
 msgid "Edit %s"
 msgstr "לערוך את %s"
 
-#: inc/template-tags.php:438
+#: inc/template-tags.php:556
 msgid "Older"
 msgstr "ישנים יותר"
 
-#: inc/template-tags.php:439
+#: inc/template-tags.php:557
 msgid "Newer"
 msgstr "חדשים יותר"
 
-#: inc/template-tags.php:440 inc/template-tags.php:492
+#: inc/template-tags.php:558 inc/template-tags.php:610
 msgid "Posts navigation"
 msgstr "ניווט בפוסטים"
 
-#: inc/template-tags.php:538 searchform.php:3
-msgid "Search for:"
-msgstr "חיפוש של:"
+#: inc/template-tags.php:662
+msgid "Pick a Jewish brain"
+msgstr "חפש במוח היהודי"
 
-#: inc/template-tags.php:564
+#: inc/template-tags.php:709
 msgid "An interesting article from Kolehad.org"
 msgstr "מאמר מעניין מ-kolehad.org"
 
-#: inc/template-tags.php:565
+#: inc/template-tags.php:710
 msgid "Thought you might be interested in this:"
 msgstr "חשבתי שתמצא עניין בזה:"
 
-#: inc/template-tags.php:571
+#: inc/template-tags.php:716
 msgid "Share this on Facebook"
 msgstr "שיתוף העמוד ב-Facebook"
 
-#: inc/template-tags.php:576
+#: inc/template-tags.php:721
 msgid "Share this on Twitter"
 msgstr "שיתוף העמוד ב-Twitter"
 
-#: inc/template-tags.php:581
+#: inc/template-tags.php:726
 msgid "Share this on Pinterest"
 msgstr "שיתוף העמוד ב-Pinterest"
 
-#: inc/template-tags.php:586
+#: inc/template-tags.php:731
 msgid "Share this via e-mail"
 msgstr "שיתוף העמוד בדוא\"ל"
 
-#: inc/template-tags.php:653
-msgid "Articles filed under"
-msgstr "מאמרים בקטגוריית"
+#: inc/template-tags.php:798
+msgid "Best results for"
+msgstr "התוצאות הטובות ביותר עבור"
 
-#: inc/template-tags.php:656
+#: inc/template-tags.php:801
 msgid "Articles tagged"
 msgstr "מאמרים עם התגית"
 
-#: inc/template-tags.php:659
+#: inc/template-tags.php:804
 msgid "Search Results for"
 msgstr "תוצאות חיפוש עבור"
 
-#: inc/template-tags.php:666
+#: inc/template-tags.php:811
 msgid "Articles by"
 msgstr "מאמרים מאת"
 
-#: inc/template-tags.php:669
+#: inc/template-tags.php:814
 msgid "Archive for"
 msgstr "ארכיון של:"
 
@@ -471,9 +476,9 @@ msgstr "הדפסה"
 msgid "Cancel"
 msgstr "בטל"
 
-#: parts/sections-header.php:63 parts/sections-header.php:104
-msgid "Pick a Jewish brain"
-msgstr "חפש במוח היהודי"
+#: searchform.php:3
+msgid "Search for:"
+msgstr "חיפוש של:"
 
 #: sections/filter-row.php:2
 msgid "Select Post Type:"
@@ -491,6 +496,12 @@ msgstr "קטגוריות:"
 #, php-format
 msgid "This %1$s article was posted on "
 msgstr "מאמר ה%1$s הזה פורסם ביום"
+
+#~ msgid "Older Items"
+#~ msgstr "פריטים ישנים יותר"
+
+#~ msgid "Articles filed under"
+#~ msgstr "מאמרים בקטגוריית"
 
 #, fuzzy
 #~| msgid "Post Comment"
@@ -623,9 +634,6 @@ msgstr "מאמר ה%1$s הזה פורסם ביום"
 
 #~ msgid "Related Rituals"
 #~ msgstr "טקסים קשורים"
-
-#~ msgid "More Rituals..."
-#~ msgstr "עוד טקסים..."
 
 #~ msgid "Exodus"
 #~ msgstr "Exodus"
