@@ -79,6 +79,10 @@
 
   &.search-form--mini-header {
     height: $h-header-top;
+
+    @include respond-to(mobile) {
+      margin-top: 12px;
+    }
   }
 
   .home & {
@@ -97,6 +101,7 @@
     width: 826px;
 
     .single &,
+    .archive &,
     .page:not(.my-siddur) & {
       width: 100%;
     }
@@ -224,20 +229,20 @@
 
   .input__search-icon {
     position: absolute;
-    top: 12px;
+    top: 6px;
     left: 20px;
     padding: 0;
-    height: $h-header-top - 2px;
+    height: 14px;
 
     .home & {
       height: 44px;
+      top: 12px;
     }
 
     @include respond-to(not-mobile) {
-      height: 44px;
+      height: 20px;
 
-      .single &,
-      .page:not(.my-siddur) & {
+      .page-head__mini-search {
         height: $h-header-top;
         top: 5px;
         left: 25px;
@@ -480,14 +485,18 @@ header.parallax-container {
 \*------------------------------------*/
 
 .main-navigation {
-  position: relative;
+  position: absolute;
   width: 100%;
+
+  @include respond-to(mobile) {
+    top: $h-header-mobile + $h-search-mobile;
+  }
+
   @include respond-to(not-mobile) {
-    top: -6px;
+    top: $h-header-desktop-min;
   }
 
   .home & {
-    position: absolute;
     top: initial;
     bottom: 0;
   }
@@ -674,10 +683,6 @@ header.parallax-container {
     }
   }
 
-  /*@include respond-to(tablet) {
-    min-width: 160px;
-  }*/
-
 
   .dropdown-menu {
     min-width: inherit;
@@ -687,7 +692,6 @@ header.parallax-container {
     top: 33px;
     position: absolute;
     display: none;
-    // margin-left: inherit;
 
     &::before {
       content: "";

@@ -31,46 +31,62 @@
   }
 
   .page-head__search {
-    background-color: $color-bg-primary;
+    /*background-color: $color-bg-primary;
     position: absolute;
-    top: $h-header-mobile;
+    top: $h-header-mobile;*/
 
-    .home & {
+    /*.home & {
       background-color: transparent;
       top: 270px;
 
       @include respond-to(mobile) {
         width: 100%;
       }
+    }*/
+
+    background-color: transparent;
+    position: absolute;
+    top: 270px;
+
+    @include respond-to(mobile) {
+      width: 100%;
     }
 
     @include respond-to(not-mobile) {
-      .parallax-container & {
+      top: 245px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      /*.parallax-container & {
         top: 245px;
         display: flex;
         justify-content: center;
         width: 100%;
-      }
+      }*/
     }
 
-    @include respond-to(desktop) {
+    /*@include respond-to(desktop) {
       .single &,
       .page:not(.my-siddur) & {
         display: none;
       }
-    }
+    }*/
   }
 
   .page-head__mini-search {
-    display: none;
+
+    @include respond-to(mobile) {
+      background-color: $color-bg-primary;
+      position: absolute;
+      top: $h-header-mobile;
+      height: $h-search-mobile;
+      width: 100%;
+      right: 0;
+    }
 
     @include respond-to(desktop) {
-      .single &,
-      .page:not(.my-siddur) & {
-        display: block;
-        float: left;
-        margin-left: 15px;
-      }
+      float: left;
+      margin-left: 15px;
     }
   }
 
@@ -100,7 +116,7 @@
 }
 
 .page-body--archive {
-  margin-top: $h-header-mobile + $h-nav-cats;
+  margin-top: $h-header-mobile + $h-search-mobile + $h-nav-cats;
 
   @include respond-to(desktop) {
     margin-top: $h-header-desktop-min + $h-nav-cats;
@@ -258,6 +274,10 @@
   @include respond-to(not-mobile) {
     width: 650px;
   }
+}
+
+.wrapper--mini-search {
+  width: 100%;
 }
 
 @include respond-to(desktop) {
