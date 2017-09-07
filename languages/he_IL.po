@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Exodus\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-07 12:15+0300\n"
-"PO-Revision-Date: 2017-09-07 12:15+0300\n"
+"POT-Creation-Date: 2017-09-07 12:16+0300\n"
+"PO-Revision-Date: 2017-09-07 13:18+0300\n"
 "Last-Translator: Itay Banner <itay@ibanner.co.il>\n"
 "Language-Team: Itay Banner - The Contechnician\n"
 "Language: he_IL\n"
@@ -204,7 +204,7 @@ msgstr "לך לעמוד הבית של %1$s"
 msgid "My Account"
 msgstr "החשבון שלי"
 
-#: header_BK.php:87
+#: header_BK.php:87 inc/template-tags.php:662
 msgid "Pick a Jewish Brain"
 msgstr "חפש במוח היהודי"
 
@@ -357,10 +357,6 @@ msgstr "חדשים יותר"
 msgid "Posts navigation"
 msgstr "ניווט בפוסטים"
 
-#: inc/template-tags.php:662
-msgid "Pick a Jewish brain"
-msgstr "חפש במוח היהודי"
-
 #: inc/template-tags.php:709
 msgid "An interesting article from Kolehad.org"
 msgstr "מאמר מעניין מ-kolehad.org"
@@ -496,6 +492,9 @@ msgstr "קטגוריות:"
 #, php-format
 msgid "This %1$s article was posted on "
 msgstr "מאמר ה%1$s הזה פורסם ביום"
+
+#~ msgid "Pick a Jewish brain"
+#~ msgstr "חפש במוח היהודי"
 
 #~ msgid "Older Items"
 #~ msgstr "פריטים ישנים יותר"
