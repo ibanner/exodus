@@ -114,7 +114,8 @@ function exodus_is_parallax_page() {
 
 add_action('wp_footer', 'add_ga_code');
 function add_ga_code() {
-    $code = get_option('ga-code');
+    // $code = get_option('ga-code');
+    $code = get_field('ga_code', 'option');
     if (!empty($code)) {
         echo '<!-- Google Analytics -->';
         echo '<script>';
