@@ -10,6 +10,7 @@
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 //vars
+$header_image = get_field('header_image', 'option');
 $home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
 $login_url = wp_login_url();
 $signup_url = $login_url . '?action=register';
@@ -24,7 +25,7 @@ $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
 
 <header id="header" role="banner" class="page-head <?php echo $p_container; ?> no-print">
 
-    <?php if ( exodus_is_parallax_page() ) : ?>
+    <?php if ( $header_image && exodus_is_parallax_page() ) : ?>
     <div class="parallax">
         <img src="/wp-content/themes/exodus/images/home_bg_791.jpg">
     </div>
