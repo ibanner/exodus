@@ -279,10 +279,11 @@ function exodus_get_active_type_slug() {
 
 function exodus_filter_by_type($active) {
 
-    // var_dump(get_queried_object());
+    $exclude_terms = get_field('exclude_post_types', 'option');
 
     $post_types = get_terms( array(
         'taxonomy' => 'post_types_tax',
+        'exclude' => $exclude_terms,
         'hide_empty' => true,
     ) );
 

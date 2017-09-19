@@ -50,7 +50,7 @@
                 "class": "",
                 "id": ""
             },
-            "taxonomy": "category",
+            "taxonomy": "post_types_tax",
             "field_type": "multi_select",
             "allow_null": 0,
             "add_term": 0,
@@ -117,5 +117,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1505812403
+    "modified": 1505814408
 }

@@ -39,8 +39,8 @@
         },
         {
             "key": "field_59c0d08e9583a",
-            "label": "Exclude Post Type",
-            "name": "exclude_post_type",
+            "label": "Exclude Post Types",
+            "name": "exclude_post_types",
             "type": "taxonomy",
             "instructions": "Select which post types won't appear in the Post Type filter",
             "required": 0,
@@ -50,7 +50,7 @@
                 "class": "",
                 "id": ""
             },
-            "taxonomy": "category",
+            "taxonomy": "post_types_tax",
             "field_type": "multi_select",
             "allow_null": 0,
             "add_term": 0,
@@ -117,5 +117,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1505811766
+    "modified": 1505814465
 }
