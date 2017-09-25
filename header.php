@@ -30,7 +30,7 @@
 
     if ( exodus_is_parallax_page() ) {
         $main_variant = 'parallax';
-    } elseif ( is_archive() || is_page('my-siddur') ) {
+    } elseif ( is_archive() || is_search() || is_page('my-siddur') ) {
         $main_variant = 'archive';
     } ?>
 
