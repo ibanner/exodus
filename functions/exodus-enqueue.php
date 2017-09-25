@@ -28,9 +28,9 @@ function exodus_scripts() {
 
     // Local
     if ( is_rtl() ) {
-        wp_enqueue_style( 'exodus-rtl', get_template_directory_uri() . '/css/main_rtl.css'  , array ( 'exodus-default' ), '2.0.0' );
+        wp_enqueue_style( 'exodus-rtl', get_template_directory_uri() . '/css/main_rtl.css'  , array ( 'exodus-default' ), '2.1.0' );
     }
-    wp_enqueue_style( 'exodus-default', get_template_directory_uri() . '/css/main.css'  , array(), '2.0.0' );
+    wp_enqueue_style( 'exodus-default', get_template_directory_uri() . '/css/main.css'  , array(), '2.1.0' );
 
 
 
