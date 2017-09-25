@@ -31,22 +31,9 @@
   }
 
   .page-head__search {
-    /*background-color: $color-bg-primary;
-    position: absolute;
-    top: $h-header-mobile;*/
-
-    /*.home & {
-      background-color: transparent;
-      top: 270px;
-
-      @include respond-to(mobile) {
-        width: 100%;
-      }
-    }*/
-
     background-color: transparent;
     position: absolute;
-    top: 270px;
+    top: 240px;
 
     @include respond-to(mobile) {
       width: 100%;
@@ -57,20 +44,7 @@
       display: flex;
       justify-content: center;
       width: 100%;
-      /*.parallax-container & {
-        top: 245px;
-        display: flex;
-        justify-content: center;
-        width: 100%;
-      }*/
     }
-
-    /*@include respond-to(desktop) {
-      .single &,
-      .page:not(.my-siddur) & {
-        display: none;
-      }
-    }*/
   }
 
   .page-head__mini-search {
@@ -313,7 +287,7 @@
 
   &.home {
     .page-head__search {
-      top: 270px;
+      top: 240px;
 
       @include respond-to(not-mobile) {
         top: 245px;
