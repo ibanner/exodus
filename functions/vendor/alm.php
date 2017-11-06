@@ -138,18 +138,16 @@ if (! function_exists('exodus_alm_shortcode')) {
             $author = get_query_var('author');
             $shortcode .= ' author="'. $author .'"';
 
-        } /*elseif ( is_category() ) {
-
-            $cat = get_query_var('cat');
-            $category = get_category ($cat);
-            $shortcode .= ' category="'. $category->slug .'" orderby="menu_order"';
-
-        }*/ elseif ( isset($ids) ) {
+        } elseif ( isset($ids) ) {
             $shortcode .= ' post__in="'.$ids.'" orderby="post__in"';
         }
 
         if ( '' !== $type ) {
             $shortcode .= ' taxonomy="post_types_tax" taxonomy_terms="'. $type .'" taxonomy_operator="IN"';
+        }
+
+        if ( is_category() ) {
+            $shortcode .= ' theme_repeater="category.php"';
         }
 
         $button_label = __('More Results', 'exodus');

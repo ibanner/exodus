@@ -1,5 +1,4 @@
-<!-- This should be pasted in the ALM admin settings -->
-
+<!-- Start ALM template: default.php -->
 <li class="grid-item">
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -28,7 +27,7 @@
         <?php endif; ?>
 
         <div class="grid-item__details">
-            <?php exodus_post_type_tax_label(); ?>
+            <?php exodus_post_type_tax_label('default'); ?>
             <?php exodus_siddur_button(); ?>
             <h2 class="article-title<?php if (is_sticky()) {
                 echo ' sticky';
@@ -46,3 +45,4 @@
 
     </article><!-- /.article -->
 </li>
+<!-- End ALM template: default.php -->
