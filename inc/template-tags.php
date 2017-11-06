@@ -681,7 +681,7 @@ if ( ! function_exists( 'exodus_render_search_form' ) ) :
         echo '<' . $tag .' class="page-head__' . $tag_class .'" role="search">' .
         '<form id="header-search" class="search-form search-form--' . $form_class .'" action="' . $home_url .'" method="get" _lpchecked="1">'.
             '<div class="wrapper--' . $tag_class .'">' .
-                '<input type="text" class="input input--search" id="s" name="s" data-swplive="true" placeholder="' . $placeholder .'" value="' . $value .'">' .
+                '<input type="text" class="input input--search" id="s" name="s" data-swplive="true" data-swpengine="live_search" placeholder="' . $placeholder .'" value="' . $value .'">' .
                 '<div class="btn btn-link input__search-icon">' . $icon .'</div>';
                 if ('' !== $type ) :
                 echo '<input type="hidden" id="type-listener" class="type-listener hidden" name="type" value="' . $type .'">';
