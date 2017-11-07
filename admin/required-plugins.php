@@ -1,19 +1,17 @@
 <?php
 
 /**
+ * Created for kolehad.org
+ * Author: Itay Banner
+ * Author website: http://ibanner.co.il
+ * Date: 07/11/2017
+ * Time: 09:43
+ * @package: 2.2.0
+ */
+
+
+/**
  * Register the required plugins for this theme.
- *
- * In this example, we register five plugins:
- * - one included with the TGMPA library
- * - two from an external source, one from an arbitrary source, one from a GitHub repository
- * - two from the .org repo, where one demonstrates the use of the `is_callable` argument
- *
- * The variables passed to the `tgmpa()` function should be:
- * - an array of plugin arrays;
- * - optionally a configuration array.
- * If you are not changing anything in the configuration array, you can remove the array and remove the
- * variable from the function call: `tgmpa( $plugins );`.
- * In that case, the TGMPA default settings will be used.
  *
  * This function is hooked into `tgmpa_register`, which is fired on the WP `init` action on priority 10.
  */
@@ -55,6 +53,27 @@ function exodus_register_required_plugins() {
             'name'      => 'Categories Metabox Enhanced',
             'slug'      => 'categories-metabox-enhanced',
             'required'  => false,
+        ),
+
+        array(
+            'name'      => 'Ajax Load More Theme Repeaters',
+            'slug'      => 'ajax-load-more-theme-repeaters',
+            'source'    => get_template_directory() . '/lib/plugins/ajax-load-more-theme-repeaters-v1.0.zip',
+            'required'  => true,
+        ),
+
+        array(
+            'name'      => 'SearchWP',
+            'slug'      => 'searchwp',
+            'source'    => get_template_directory() . '/lib/plugins/searchwp-2.8.17.zip',
+            'required'  => true,
+        ),
+
+        array(
+            'name'      => 'SearchWP for WPML',
+            'slug'      => 'searchwp-wpml',
+            'source'    => get_template_directory() . '/lib/plugins/searchwp-wpml-1.4.0.zip',
+            'required'  => true,
         ),
 
         array(
